@@ -1,0 +1,40 @@
+{
+  "name": "demo-menu-feature",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/demo/menu/feature/src",
+  "prefix": "demo",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "options": {
+        "tsConfig": "libs/demo/menu/feature/tsconfig.lib.json",
+        "project": "libs/demo/menu/feature/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/demo/menu/feature/tsconfig.lib.prod.json"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/demo/menu/feature/src/**/*.ts",
+          "libs/demo/menu/feature/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/demo/menu/feature"],
+      "options": {
+        "jestConfig": "libs/demo/menu/feature/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:demo"]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "demo-shared-data-access",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/demo/shared/data-access/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "options": {
+        "tsConfig": "libs/demo/shared/data-access/tsconfig.lib.json",
+        "project": "libs/demo/shared/data-access/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/demo/shared/data-access/tsconfig.lib.prod.json"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/demo/shared/data-access/src/**/*.ts",
+          "libs/demo/shared/data-access/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/demo/shared/data-access"],
+      "options": {
+        "jestConfig": "libs/demo/shared/data-access/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:demo"]
+}

@@ -1,0 +1,14 @@
+.row {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card {
+  padding: 20px;
+}

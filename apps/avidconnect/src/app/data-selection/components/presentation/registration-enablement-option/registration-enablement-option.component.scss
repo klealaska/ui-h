@@ -1,0 +1,23 @@
+.operation-type-item {
+  display: flex;
+  align-items: baseline;
+  border-bottom: 1px solid #d5d5d5;
+  margin-bottom: 20px;
+
+  > td {
+    width: 300px;
+  }
+
+  .file-selection {
+    width: calc(100% - 600px);
+    margin: 0 40px;
+
+    button {
+      margin: 0 10px;
+    }
+
+    input {
+      display: none;
+    }
+  }
+}

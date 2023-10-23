@@ -1,0 +1,43 @@
+{
+  "name": "avidcapture-shared-util",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/avidcapture/shared/util/src",
+  "prefix": "xdc",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/avidcapture/shared/util"],
+      "options": {
+        "project": "libs/avidcapture/shared/util/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/avidcapture/shared/util/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/avidcapture/shared/util/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/avidcapture/shared/util"],
+      "options": {
+        "jestConfig": "libs/avidcapture/shared/util/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/avidcapture/shared/util/src/**/*.ts",
+          "libs/avidcapture/shared/util/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:util", "scope:avidcapture"]
+}

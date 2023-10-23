@@ -1,0 +1,30 @@
+# Stage 1: install dependencies
+FROM --platform=linux/amd64 node:16-alpine AS deps
+WORKDIR /app
+COPY . .
+# set default to `dv`
+ARG ENV=dv
+ENV NEW_PATH=.env.$ENV
+COPY ./apps/tenant/tenant-api/${NEW_PATH} ./apps/tenant/tenant-api/.env
+
+RUN apk add --no-cache python3 py3-pip make g++
+RUN npm install --production --force
+
+
+# Stage 2: build
+FROM --platform=linux/amd64 node:16-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . /app
+RUN npm run nx build tenant-api -c production
+
+# Stage 3: run
+FROM --platform=linux/amd64 node:16-alpine
+WORKDIR /app
+COPY --from=builder ./app/dist/apps/tenant/tenant-api .
+# drop in config file
+COPY --from=deps ./app/apps/tenant/tenant-api/.env .
+# dependencies that nestjs needs
+RUN npm install reflect-metadata tslib rxjs @nestjs/platform-express --force
+USER node
+CMD node ./main.js

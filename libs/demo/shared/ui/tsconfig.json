@@ -1,0 +1,25 @@
+{
+  "extends": "../../../../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ],
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "target": "es2020"
+  },
+  "angularCompilerOptions": {
+    "strictInjectionParameters": true,
+    // Jake needs to update ax-input component to allow AbstractControl. Then Switch back to true
+    "strictTemplates": false
+  }
+}

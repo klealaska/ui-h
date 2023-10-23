@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Users</h2>
+  <div class="row">
+    <xdc-admin-users-filter
+      (customerTextChangedEvent)="setSearchValue($event)"
+      (customerChangedEvent)="queryUsers($event)"
+      class="filter"
+    ></xdc-admin-users-filter>
+    <div *ngIf="canCreateUser$ | async" class="buttons-container">
+      <button mat-raised-button [color]="'primary'" class="button-addnew" (click)="addNewUser()">
+        {{'xdc.admin.add-new-member-label' | translate }}
+      </button>
+      <button mat-raised-button class="button-import" *ngIf="false">
+        {{'xdc.admin.import-from-csv-label' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <xdc-admin-users-grid [dataSource]="users$ | async " (userSelected)="onUserSelected($event)">
+  </xdc-admin-users-grid>
+</div>
+
+<ax-add-user
+  [showUserForm]="showUserForm"
+  [user]="user"
+  [roles]="roles"
+  (closeUserForm)="showUserForm = false"
+  (userFormSubmitted)="saveUser($event)"
+></ax-add-user>

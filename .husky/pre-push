@@ -1,0 +1,23 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm_version=`npm -v`
+node_version=`node -v`
+required_npm_version='8.'
+required_node_version='v16'
+
+if [[ $npm_version != *"$required_npm_version"* ]];
+then
+tput setab 1; echo "Wrong NPM version. Your NPM version is $npm_version. Required version must be major version 8.X.X";
+exit 1
+fi
+
+if [[ $node_version != *"$required_node_version"* ]];
+then
+tput setab 1; echo "Wrong Node version. Your Node version is $node_version. Required version must be major version v16.X.X";
+exit 1
+fi
+
+
+npm run affected:lint && npm run affected:test
+

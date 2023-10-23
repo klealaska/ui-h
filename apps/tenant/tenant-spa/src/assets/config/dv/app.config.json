@@ -1,0 +1,11 @@
+{
+  "baseUrl": "https://tenant-spa-dv-hugxcwfchzfng5a7.z01.azurefd.net",
+  "shellBaseUrl": "https://shell-spa-dv-gre2cncre0g3e0dp.z01.azurefd.net",
+  "tenantApiBaseUrl": "https://tenant-api-dv-h0btdqf8bkgtakc7.z01.azurefd.net/api",
+  "appInsightsInstrumentationKey": "4d36557a-596c-4bcc-8e1b-e74e71f60736",
+  "token": "eyJraWQiOiJEY1prUmxHcHF2TmR0YVN0V0syTzE1VEFYZ0JRVzlwV0o5anp3R3FYODRvIiwiYWxnIjoiUlMyNTYifQ.eyJ1aWQiOiJyZ2E2NWJiNmMwMGYzYjF3bWlkbiIsImVudGVycHJpc2VJZCI6WyI3cXZtbnc1bmZ1cG1iNmo5Z3A2bSJdfQ==.kHCf3fPM4UfhVoAaOQToZQ6eRB9DA55FVszLEvvfidLGbbUbxVJSOGVqMXvrcfodzNsmtGwKdJqUMPX6RZYh1wF9f57E2ZqGg18D4nzFAhADKYNbipsHF2ioXtcSyY7Le0hob_0COJh5_QXSiEID8lqYgTyThrtF8ltL99xdr2JgclR63nTGkMwF-zsbF8Mb4Bykr7MbuDHtN63AlxVuHjdaWmHola7vgqqHYS0M1IIb2I0S_8DwZHGncFVh_o5JV7Qq4G8qDTn_YiR7FC45QHRB0qitI480Sr_9IganidPmGIY5ZVJJNQRV7ghF5uLXcbkP-0GzYITg57cKOJpYKA",
+  "cmsFeatureFlag" : "cms-data",
+  "featureFlagUrl" : "https://getfeatureflags-dv-fqbebgc2ccfpdqdn.z01.azurefd.net/api/getfeatureflags",
+  "cmsProductId" : "1",
+  "cmsUrl": "https://cms-bff-dv-ajfye7brd7dcdccv.z01.azurefd.net/api/"
+}

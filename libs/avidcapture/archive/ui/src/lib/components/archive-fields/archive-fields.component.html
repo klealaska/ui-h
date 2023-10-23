@@ -1,0 +1,42 @@
+<div
+  class="xdc-header"
+  [ngClass]="{'turnOnHighlight': turnOnHighlight}"
+  [ngStyle]="{
+    'background-color': field?.headerBackgroundColor
+  }"
+  (mouseover)="labelHoverEvent.emit(field.labelDisplayName)"
+  (mouseout)="labelHoverEvent.emit('')"
+>
+  <xdc-document-field-label
+    class="xdc-textfield pl-5"
+    [text]="field.labelDisplayName"
+    [bold]="true"
+    [size]="'xxs'"
+    [textColor]="field.headerTextColor"
+    [uppercase]="false"
+    [hasPointer]="false"
+    (mouseover)="labelHoverEvent.emit(field.labelDisplayName)"
+    (mouseout)="labelHoverEvent.emit(field.labelDisplayName)"
+  ></xdc-document-field-label>
+</div>
+
+<ng-template
+  [ngIf]="field.key === documentLabelKeys.lookupLabels.Supplier || field.key === documentLabelKeys.lookupLabels.ShipToName"
+  [ngIfElse]="nonAddressField"
+>
+  <p class="fields-value pt-4">{{field.value}}</p>
+  <p *ngIf="field.key === documentLabelKeys.lookupLabels.Supplier" class="fields-value pt-4">
+    {{supplierAddressField?.value}}
+  </p>
+  <p *ngIf="field.key === documentLabelKeys.lookupLabels.ShipToName" class="fields-value pt-4">
+    {{shipToAddressField?.value}}
+  </p>
+</ng-template>
+<ng-template #nonAddressField>
+  <xdc-document-field-label
+    class="fields-value pt-4"
+    [text]=" displayField()"
+    [textColor]="getLabelTextColor(field)"
+    [size]="'xs'"
+  ></xdc-document-field-label>
+</ng-template>

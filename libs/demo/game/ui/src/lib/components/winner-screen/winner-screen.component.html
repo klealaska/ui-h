@@ -1,0 +1,11 @@
+<div>
+  <div>Winner - {{ this.winner?.name }} with 16 brains!</div>
+  <ax-button
+    data-cy="exit-game-btn"
+    data-test="exit-button"
+    [type]="'secondary'"
+    [fixed]="true"
+    (click)="buttonEvent.emit()"
+    >Exit Game</ax-button
+  >
+</div>

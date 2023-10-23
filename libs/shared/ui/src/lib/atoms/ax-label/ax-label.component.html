@@ -1,0 +1,11 @@
+<label
+  [id]="id"
+  class="ax-label"
+  [class.ax-label-bold]="bold"
+  [class.ax-label-italics]="italics"
+  [class.ax-label-uppercase]="uppercase"
+  [ngClass]="['ax-label-' + size, 'ax-label-' + textColor]"
+  [ngStyle]="{ cursor: hasPointer ? 'pointer' : 'default' }"
+>
+  {{text}}
+</label>

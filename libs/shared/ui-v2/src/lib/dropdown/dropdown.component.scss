@@ -1,0 +1,60 @@
+:host {
+  .ax-select {
+    display: flex;
+    padding: 10px 0;
+    font-family: theme('fontFamily.interRegular');
+    color: theme('colors.grey.800');
+    cursor: pointer;
+  }
+
+  mat-icon {
+    cursor: pointer;
+  }
+
+  ::ng-deep.mat-mdc-select-arrow-wrapper {
+    display: none;
+  }
+  ::ng-deep.mat-mdc-select-placeholder {
+    font-family: theme('fontFamily.interRegular');
+    font-style: italic;
+    color: theme('colors.grey.500');
+  }
+
+  // Disabled Placeholder
+  ::ng-deep.mat-mdc-select-disabled {
+    .mat-mdc-select-placeholder {
+      color: theme('colors.grey.600');
+    }
+  }
+}
+
+// Dropdown Menu
+::ng-deep.ax-panel {
+  margin-top: 4px !important;
+  border: solid 1px theme('colors.onSurface.50');
+  border-radius: 4px !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  box-shadow: none !important;
+}
+
+::ng-deep.mat-mdc-option.mat-mdc-option-active {
+  background-color: theme('colors.secondary.200') !important;
+}
+
+.mat-mdc-option {
+  min-height: 38px !important;
+  padding: 0 8px;
+  font-size: 14px;
+  &:hover {
+    background-color: theme('colors.secondary.200') !important;
+  }
+}
+
+::ng-deep.mat-mdc-select-panel {
+  padding: 0px !important;
+  max-height: 268px !important;
+  .mat-mdc-option.mat-mdc-selected:not(.mat-mdc-option-multiple) {
+    background: theme('colors.secondary.300');
+  }
+}

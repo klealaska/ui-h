@@ -1,0 +1,29 @@
+{
+    "count": 3,
+    "records": [
+        {
+            "vendorID": 7678846,
+            "vendorName": "Earth, Wind, & Tire Automotive",
+            "vendorExternalSystemID": "V00101",
+            "line1": "1531 Johnny Lane",
+            "line2": "123 Happy Jane Lane",
+            "city": "Milwaukee",
+            "state": "WI",
+            "postalCode": "53202",
+            "accountingSystemID": 4811,
+            "allowRetainage": false
+        },
+        {
+            "vendorID": 10871116,
+            "vendorName": "Endless Pastabilities Italian Eatery",
+            "vendorExternalSystemID": "V00045",
+            "line1": "4567 Shakeout Point",
+            "line2": "",
+            "city": "Benderton",
+            "state": "IA",
+            "postalCode": "56792",
+            "accountingSystemID": 4811,
+            "allowRetainage": false
+        }
+    ]
+}

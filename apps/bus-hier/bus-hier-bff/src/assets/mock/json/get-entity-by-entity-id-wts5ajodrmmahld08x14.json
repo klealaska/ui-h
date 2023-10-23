@@ -1,0 +1,35 @@
+{
+  "entity_id": "wts5ajodrmmahld08x14",
+  "entity_name": "Entity C1",
+  "erp_id": "9ng7ljo918qvqunwworx",
+  "entity_code": "EntityC1",
+  "parent_entity_id": "cadlbfshs605o7i35wl3",
+  "business_level": 2,
+  "is_active": true,
+  "entity_addresses": [
+    {
+      "address_id": "o2cdjj82ehir5j7duwcz",
+      "entity_id": "76mldl9dq5ozxtnodces",
+      "address_code": "Address Code",
+      "address_line1": "Address Line 1",
+      "address_line2": null,
+      "address_line3": null,
+      "address_line4": null,
+      "locality": "Locality",
+      "region": "Alabama",
+      "country": "USA",
+      "postal_code": "123456789",
+      "is_primary": true,
+      "is_active": true,
+      "address_type": "ShipTo",
+      "created_timestamp": "2023-07-25T08:01:46Z",
+      "created_by_user_id": "bbhnnsw97z37im2fn11m",
+      "last_modified_timestamp": "2023-07-25T08:01:46Z",
+      "last_modified_by_user_id": "5lt72nsse0ofy0jlgzvo"
+    }
+  ],
+  "created_timestamp": "2023-04-20T22:38:45Z",
+  "created_by_user_id": "00u12tymcg0y78rTz1d7",
+  "last_modified_timestamp": "2023-04-20T22:38:45Z",
+  "last_modified_by_user_id": "00u12tymcg0y78rTz1d7"
+}

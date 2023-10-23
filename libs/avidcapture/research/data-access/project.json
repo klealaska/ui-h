@@ -1,0 +1,43 @@
+{
+  "name": "avidcapture-research-data-access",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/avidcapture/research/data-access/src",
+  "prefix": "xdc",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/avidcapture/research/data-access"],
+      "options": {
+        "project": "libs/avidcapture/research/data-access/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/avidcapture/research/data-access/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/avidcapture/research/data-access/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/avidcapture/research/data-access"],
+      "options": {
+        "jestConfig": "libs/avidcapture/research/data-access/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/avidcapture/research/data-access/**/*.ts",
+          "libs/avidcapture/research/data-access/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:avidcapture"]
+}

@@ -1,0 +1,76 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Dialog" />
+
+# Dialog
+
+## Imports
+
+Component - `import { DialogV2Component } from '@ui-coe/shared/ui-v2';`
+
+Interface - `import { DialogDataV2 } from '@ui-coe/shared/ui-v2';`
+
+## Description
+
+Please check out the `DialogDataV2` interface to see all values that can be passed into the data object
+
+## Modal Dialog
+
+Modal Dialog can me implemented by first calling the `dialog.open` method in Angular Material and passing in the `DialogV2Component`.
+Then passing in an `object` into the `data` property.
+You should type this `Object` with `DialogDataV2` before passing it into the property.
+When the dialog is closed, it will emit the data object and the button that was clicked.
+
+```
+data: DialogDataV2 = {
+    draggable: false,
+    ...
+}
+
+OpenDialog() {
+    const dialogRef = this.dialog.open(DialogV2Component, {
+        data: this.data,
+    });
+}
+```
+
+## Non-Modal Dialog
+
+Non-Modal Dialog can me implemented the same way but you will want to change `draggable` property in the `data` object to `draggable: true`
+Also, add `hasBackdrop: false` to the `dialog.open` method.
+When the dialog is closed, it will emit the data object and the button that was clicked.
+
+```
+data: DialogDataV2 = {
+    draggable: true,
+    ...
+}
+
+OpenDialog() {
+    const dialogRef = this.dialog.open(DialogV2Component, {
+        hasBackdrop: false,
+        data: this.data,
+    });
+}
+```
+
+## Content Projection
+
+These two components can also utilize content projection.
+You should create another component in your app and pass any components in to the `ax-dialog-v2` component.
+Use your component as the main dialog component.
+You should also update the `data` objects type to include any data you're wanting to pass into your component.
+
+```
+data: DialogDataV2 | CustomData = {
+    draggable: true,
+    ...
+}
+
+OpenDialog() {
+    const dialogRef = this.dialog.open(CustomComponent, {
+        hasBackdrop: false,
+        data: this.data,
+    });
+}
+```

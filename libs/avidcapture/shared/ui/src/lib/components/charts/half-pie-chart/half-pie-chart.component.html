@@ -1,0 +1,4 @@
+<div *ngIf="mainValue===''" class="no-data">
+  {{'xdc.shared.no-data-display-label' | translate }}
+</div>
+<figure *ngIf="mainValue!==''" [id]="chartSetUp.chartReportName"></figure>

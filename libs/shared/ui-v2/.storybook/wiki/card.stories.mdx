@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Card" />
+
+## Card
+
+Card can me implemented by using the `ax-card` component
+
+This component utilizes the following components: `ax-card-overline`, `ax-card-title`, `ax-card-content`, and `ax-card-actions`. These components can be places as many times as needed in any order
+
+## Example
+
+```
+<ax-card class="w-[408px]">
+  <ax-card-overline>Overline</ax-card-overline>
+  <ax-card-title>Basic Card Title</ax-card-title>
+  <ax-card-content>
+    Put the card content here. Use clear and concise language to ensure the
+    reader understands the purpose of the card and what action to take.
+  </ax-card-content>
+  <ax-card-actions>
+    <ax-button>Button</ax-button>
+  </ax-card-actions>
+</ax-card>
+```

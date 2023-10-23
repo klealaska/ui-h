@@ -1,0 +1,190 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Table" />
+
+## Table
+
+Component - `import { TableComponent } from '@ui-coe/shared/ui-v2';`
+
+## Description
+
+Table can be implemented by using the `ax-table` component. Example provided below.
+
+```
+<ax-table
+      [displayedColumns]="displayedColumns"
+      [data]="data"
+      [size]="size"
+      [stickyHeader]="stickyHeader"
+      [tableType]="tableType"
+      [allowSort]="allowSort"
+      [customTemplate]="customTemplate"
+      [customSort]="customSort"
+      [selection]="selection"
+      [virtualScroll]="virtualScroll"
+      (selectChange)="selectChange($event)"
+      (allSelected)="allSelected($event)"
+      (rowClicked)="onRowClicked($event)"
+</ax-table>
+
+```
+
+## properties for `ax-table`
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() size:string</td>
+    <td>To sets the table size, `relaxed` or `condensed`. Default is `relaxed`</td>
+  </tr>
+  <tr>
+    <td>@Input() tableType: TableType</td>
+    <td> To sets the tableType, `default` or `datagrid`. Default is `default`</td>
+  </tr>
+  <tr>
+    <td>@Input() displayedColumns</td>
+    <td>
+      Columns to be displayed. This should match with object property of a record. If left empty we
+      wouldn't see any columns and data in the table.
+    </td>
+  </tr>
+  <tr>
+    <td>@Input() data</td>
+    <td>Array of records we pass to render</td>
+  </tr>
+  <tr>
+    <td>@Input() dataSource: TableDataSource</td>
+    <td>
+      Customized Table DataSource to be used to create dataSource that is passed down to MatTable as
+      `dataSource` to render the records and more features like sorting, pagination etc
+    </td>
+  </tr>
+  <tr>
+    <td>@Input() selection: boolean</td>
+    <td>To disply the checkboxes. Default is `false`</td>
+  </tr>
+  <tr>
+    <td>@Input() virtualScroll: boolean</td>
+    <td>To turn on the virtualScroll wrapper. Default will be `false`</td>
+  </tr>
+  <tr>
+    <td>@Input() gridHeight</td>
+    <td>Sets the grid height when we use the virtualScroll. Default is `400px`</td>
+  </tr>
+  <tr>
+    <td>@Input() stickyHeader: boolean</td>
+    <td>Sets the sticky header. Default is `true`</td>
+  </tr>
+  <tr>
+    <td>@Input() fixedColumns: boolean</td>
+    <td>Sets the Table columns fixed. Default is `true`</td>
+  </tr>
+  <tr>
+    <td> @Input() allowSort: boolean</td>
+    <td>Flag to enable/disable Sorting on table columns</td>
+  </tr>
+  <tr>
+    <td>@Input() customTemplate: boolean</td>
+    <td>
+      Flag to enable custom rendering of table cells. This is only applicable if we are passing
+      custom table cell definition.
+    </td>
+  </tr>
+  <tr>
+    <td>@Output() selectChange</td>
+    <td>
+      Event emitter to be called when any checkbox is selected. It will return the selected record
+      as an object.
+    </td>
+  </tr>
+  <tr>
+    <td>@Output() allSelected</td>
+    <td>Returns all selected records including last selected and deselected record from table.</td>
+  </tr>
+  <tr>
+    <td>@Output() rowClicked</td>
+    <td>Emit an event to inform the parent component about the row click.</td>
+  </tr>
+</table>
+
+## Example for Customized table
+
+We need to pass the `[customTemplate]="true"` to inject customTemplate. We also need to import the `MatTableModule` and `MarSortModule` form the `@angular/material/sort`.Example code for the custmized table provided below.
+
+```
+ <ax-table
+      [displayedColumns]="displayedColumns"
+      [dataSource]="dataSource"
+      [size]="size"
+      [stickyHeader]="stickyHeader"
+      [tableType]="tableType"
+      [allowSort]="allowSort"
+      [customTemplate]="true"
+      [customSort]="customSort"
+      [selection]="selection"
+      [virtualScroll]="virtualScroll"
+      (selectChange)="selectChange($event)"
+      (allSelected)="allSelected($event)"
+      (rowClicked)="onRowClicked($event)"
+      matSort
+    >
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="name">Name</th>
+        <td mat-cell *matCellDef="let row">
+          <ax-avatar size="sm" [name]="{ first: 'H', last: 'G' }"></ax-avatar> &nbsp;{{ row.name }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="position">
+          <ng-container> </ng-container> Position
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <ax-button type="secondary" color="default" size="sm">
+            <mat-icon>add</mat-icon> Button {{ row.position }}
+          </ax-button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="action">Custom Weight</th>
+        <td mat-cell *matCellDef="let row">
+          <ax-tag [size]="'md'" [type]="'default'" [style]="'filled'" [text]="row.action"></ax-tag>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="country">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="country">
+          <ng-container> </ng-container> Country
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <ax-button type="secondary" color="default" size="sm">
+            country {{ row.position }} <mat-icon>add</mat-icon>
+          </ax-button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let row; let i = dataIndex">
+          <ax-button size="sm" (btnClick)="onClick(row)"> Download </ax-button>
+        </td>
+      </ng-container>
+    </ax-table>
+
+```
+
+## To implement the sorting for the cutomized Table
+
+We need to import the `MarSortModule` form the `@angular/material/sort`. We need to attch the sorting inside the ngAfterViewInit lifecycle hook in parent component. Example provided below.
+
+```
+ngOnInit() {
+    this.dataSource = new TableDataSource([]);
+    this.dataSource.data = data;
+  }
+
+  ngAfterViewInit(){
+    this.dataSource.sort = this.sort;
+  }
+
+```

@@ -1,0 +1,51 @@
+.mat-sidenav {
+  width: 256px;
+  padding: 16px;
+}
+.mat-sidenav-container {
+  background-color: transparent !important;
+  // 72px is the height of the fixed header component.. we need this so sidenav takes fixed header into consideration
+  height: calc(100vh - 72px);
+
+  .mat-sidenav-content {
+    display: flex;
+    flex-direction: column;
+    font-family: theme('fontFamily.interRegular');
+    background-color: theme('colors.grey.50');
+  }
+}
+
+.menu-list-item.mat-list-item {
+  .mat-list-item-content {
+    flex: 1 1 100%;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-list-item-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  height: inherit;
+  gap: 10px;
+}
+
+.icon-dimentions {
+  width: 30px;
+}
+
+.mat-nav-list {
+  padding: 2px;
+}

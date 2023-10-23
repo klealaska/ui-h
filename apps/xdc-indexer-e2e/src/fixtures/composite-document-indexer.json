@@ -1,0 +1,2736 @@
+{
+  "indexed": {
+      "id": "96d4c07a-3625-4ca8-ad2f-3fc568544178",
+      "documentId": "93b38ff7-9509-471c-9153-12bcd7e4dbb5",
+      "documentType": "Indexed",
+      "fileId": "433684",
+      "dateReceived": "2023-09-11T22:42:28.6601717Z",
+      "indexer": "IDC",
+      "lastModified": "2023-09-11T22:42:38.2535113Z",
+      "labels": [
+          {
+              "id": "13588052-f9cb-444c-8cb3-5936af969fa5",
+              "label": "BuyerId",
+              "page": 0,
+              "value": {
+                  "text": "25",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "1e52c0d7-fca2-4c80-b49c-19e438c48e68",
+              "label": "CorrelationId",
+              "page": 0,
+              "value": {
+                  "text": "b2b72489-b619-4c79-8ac1-1ae326885718",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "fc5b252d-748c-4242-ae10-1f8f4c870e78",
+              "label": "FileId",
+              "page": 0,
+              "value": {
+                  "text": "433684",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "d10d7c72-c77b-4185-bda5-61ce1c5b013b",
+              "label": "FileName",
+              "page": 0,
+              "value": {
+                  "text": "motherload-ae89590e-a17c-4e6e-8815-50b4c08d4e18.pdf",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "b35e6611-77b8-4fc9-8eca-085d1b39abf4",
+              "label": "Id",
+              "page": 0,
+              "value": {
+                  "text": "00000000-0000-0000-0000-000000000000",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "726796b5-6c66-4024-84a3-9f33fbfd4703",
+              "label": "IngestionType",
+              "page": 0,
+              "value": {
+                  "text": "api",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "d84787e6-c8a5-4260-b44e-a4f6c448d067",
+              "label": "InvoiceSourceId",
+              "page": 0,
+              "value": {
+                  "text": "AvidSuite",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "ad78fa54-59c0-4cf3-8bc9-78abc3b08e7a",
+              "label": "SourceEmail",
+              "page": 0,
+              "value": {
+                  "text": "e03ef969ce4bab1dc03eb88bfcdfa1c4-PERF",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "31d5f2c5-832e-48a6-8e97-a365c70b8d61",
+              "label": "BypassFormRecognizer",
+              "page": 0,
+              "value": {
+                  "text": "False",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "bool",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "808256de-a3a8-476c-aca7-a965ac6a6274",
+              "label": "ManualUpload",
+              "page": 0,
+              "value": {
+                  "text": "False",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "bool",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "081e7cc8-f565-4187-8f4f-40a59be99f80",
+              "label": "Username",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "1a3434cd-8483-4722-b7ba-249a561aad6e",
+              "label": "DateUploaded",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "DateTime",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "4df425e8-5ecc-4b90-96e6-c43c7a99a793",
+              "label": "BuyerName",
+              "page": 0,
+              "value": {
+                  "text": "Avidxchange, Inc",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "6438b449-4a11-4d9e-84b4-93cfc6c1d8a5",
+              "label": "SourceSystem",
+              "page": 0,
+              "value": {
+                  "text": "AvidSuite",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "f5c8e552-1402-41f1-a0b1-16e4c6949742",
+              "label": "BuyerKeyword",
+              "page": 0,
+              "value": {
+                  "text": "avidxchange",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "f85d2ddd-0be3-4110-9fc5-16337874daac",
+              "label": "DisplayPredictedValues",
+              "page": 0,
+              "value": {
+                  "text": "1",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "ce85188a-bf6a-4c21-a0ea-974ae340d42c",
+              "label": "DisplayIdentifierSearchValues",
+              "page": 0,
+              "value": {
+                  "text": "1",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "78ba65bc-3f95-4529-87ea-773be9cdc42b",
+              "label": "BkwsBuyerKeywordId",
+              "page": 0,
+              "value": {
+                  "text": "18",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "dec5f6d9-d7f3-481a-b7fb-b007b4641197",
+              "label": "BkwsCreatedDateTime",
+              "page": 0,
+              "value": {
+                  "text": "1589342536",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "d669c778-17dd-4ffd-914d-9c42360f6370",
+              "label": "BkwsUpdatedDateTime",
+              "page": 0,
+              "value": {
+                  "text": "1680321740",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "f9686683-0c19-47ce-87da-4edd0ef61273",
+              "label": "BkwsSourceSystemBuyerId",
+              "page": 0,
+              "value": {
+                  "text": "25",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "bfa8ba51-1558-4ba3-b57d-69db865cc52c",
+              "label": "BkwsSourceSystemId",
+              "page": 0,
+              "value": {
+                  "text": "AIB",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "a9ee659d-ba86-42c9-91ac-01b943da5686",
+              "label": "BkwsIngestionMethodId",
+              "page": 0,
+              "value": {
+                  "text": "1",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "4b62ca83-32f6-497a-8bb9-796dc5c81cf0",
+              "label": "BkwsBuyerKeyword",
+              "page": 0,
+              "value": {
+                  "text": "avidxchange",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "08a94d40-910e-4404-866a-32049f8e1fad",
+              "label": "BkwsBuyerName",
+              "page": 0,
+              "value": {
+                  "text": "Avidxchange, Inc",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "edc8db6f-26e2-40ba-81df-4f8b208e7573",
+              "label": "BkwsPortalStatus",
+              "page": 0,
+              "value": {
+                  "text": "Active",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "5d097a52-9ec4-4b54-ab25-2ff99e69e2ea",
+              "label": "BkwsBounceBackMessage",
+              "page": 0,
+              "value": {
+                  "text": "none",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "4d2b59c8-46cb-4067-8330-970e5490eead",
+              "label": "BkwsForwardingEmailAddress",
+              "page": 0,
+              "value": {
+                  "text": "none",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "29ef1a88-f724-4cab-a629-7fbe805fd8d8",
+              "label": "BkwsIndexingSolutionId",
+              "page": 0,
+              "value": {
+                  "text": "2",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "e92c8773-35ed-468b-aed1-8d147eb3fa21",
+              "label": "BkwsDisplayPredictedValues",
+              "page": 0,
+              "value": {
+                  "text": "1",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "78418737-b982-4491-921d-c085f7f66d19",
+              "label": "BkwsDisplayIdentifierSearchValues",
+              "page": 0,
+              "value": {
+                  "text": "1",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "4bfb0aa2-68d3-4dd4-b913-8a241d31d979",
+              "label": "InvoiceType",
+              "page": 0,
+              "value": {
+                  "text": "standard",
+                  "confidence": 0.9195125699043274,
+                  "boundingBox": [],
+                  "required": true,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "bfa30981-991d-4c25-ba8e-dbaf0794205e",
+              "label": "OrderedBy",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "772d4975-3581-4140-92ce-7b27bc73ceab",
+              "label": "Workflow",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "c0dddd1f-686f-4cce-9926-7070aa747211",
+              "label": "Memo",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "fa6fb62c-9565-41d3-9fb5-fde97ddcd46d",
+              "label": "InvoiceDueDateOverride",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "d3564157-748e-45fe-ac43-2f077bc22752",
+              "label": "CustomerAccountNumber",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": true,
+                  "incomplete": true,
+                  "incompleteReason": "Required but not found by IDC",
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "167e1e45-db73-4f36-b68c-b14c66565caa",
+              "label": "Supplier",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": true,
+                  "incomplete": true,
+                  "incompleteReason": "Required but not found by IDC",
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "9510fd16-de4b-46c5-a77e-af52e476d3d5",
+              "label": "SupplierId",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": true,
+                  "incomplete": true,
+                  "incompleteReason": "Required but not found by IDC",
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "2d345ed9-54f9-4233-8887-17df2fd9c5b3",
+              "label": "SupplierAddress",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": true,
+                  "incomplete": true,
+                  "incompleteReason": "Required but not found by IDC",
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "d6b465d0-d57a-46f7-a1cf-b18a26c89a36",
+              "label": "ShipToName",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": true,
+                  "incomplete": true,
+                  "incompleteReason": "Required but not found by IDC",
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "8b991de8-7cdf-4bde-99b1-1451c3bf2a38",
+              "label": "ShipToID",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": true,
+                  "incomplete": true,
+                  "incompleteReason": "Required but not found by IDC",
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "b8dd06f0-d0f6-400f-9764-d461086e9c6c",
+              "label": "ShipToAddress",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": true,
+                  "incomplete": true,
+                  "incompleteReason": "Required but not found by IDC",
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "90bded43-1dea-4253-8a5b-6af7ab6cd855",
+              "label": "InvoiceNumber",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": true,
+                  "incomplete": true,
+                  "incompleteReason": "Required but not found by IDC",
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "2ac962e4-5b5d-4d70-adfe-940b9d6cdef7",
+              "label": "InvoiceDate",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": true,
+                  "incomplete": true,
+                  "incompleteReason": "Required but not found by IDC",
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "b34b3573-6176-4611-9c7b-77d240120547",
+              "label": "InvoiceAmount",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": true,
+                  "incomplete": true,
+                  "incompleteReason": "Required but not found by IDC",
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "69f33f72-ee43-4c89-8e73-cd738f477950",
+              "label": "CurrentCharges",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": true,
+                  "incomplete": true,
+                  "incompleteReason": "Required but not found by IDC",
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "2d349f4f-3052-408f-946a-7aa2e2a91290",
+              "label": "VendorAccountId",
+              "page": 0,
+              "value": {
+                  "text": "",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": true,
+                  "incomplete": true,
+                  "incompleteReason": "Required but not found by IDC",
+                  "type": "string",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "0919fde6-e1e4-414e-bf80-99ccb29cd774",
+              "label": "status",
+              "page": 0,
+              "value": {
+                  "text": "succeeded",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "undefined",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "ed65841a-882f-4823-82bb-73613df433a9",
+              "label": "createdDateTime",
+              "page": 0,
+              "value": {
+                  "text": "2023-09-11T22:42:29Z",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "undefined",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "d160ac70-3830-480a-adcc-aa876275a3ab",
+              "label": "lastUpdatedDateTime",
+              "page": 0,
+              "value": {
+                  "text": "2023-09-11T22:42:33Z",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "undefined",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "563aaa71-e06f-4b32-a821-6af1d4508fc9",
+              "label": "apiVersion",
+              "page": 0,
+              "value": {
+                  "text": "2022-08-31",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "undefined",
+                  "verificationState": "NotRequired"
+              }
+          },
+          {
+              "id": "a7649484-7ea2-4b48-8445-2f740d73c2fe",
+              "label": "page",
+              "page": 0,
+              "value": {
+                  "text": "1",
+                  "confidence": 0.0,
+                  "boundingBox": [],
+                  "required": false,
+                  "incomplete": false,
+                  "incompleteReason": null,
+                  "type": "undefined",
+                  "verificationState": "NotRequired"
+              }
+          }
+      ],
+      "activities": [
+          {
+              "ordinal": 1,
+              "startDate": "2023-09-11T22:42:38.253511Z",
+              "endDate": "2023-09-11T22:42:38.2535113Z",
+              "indexer": "System",
+              "activity": "Create",
+              "description": null,
+              "escalation": null,
+              "labels": [
+                  {
+                      "id": "13588052-f9cb-444c-8cb3-5936af969fa5",
+                      "label": "BuyerId",
+                      "page": 0,
+                      "value": {
+                          "text": "25",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "1e52c0d7-fca2-4c80-b49c-19e438c48e68",
+                      "label": "CorrelationId",
+                      "page": 0,
+                      "value": {
+                          "text": "b2b72489-b619-4c79-8ac1-1ae326885718",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "fc5b252d-748c-4242-ae10-1f8f4c870e78",
+                      "label": "FileId",
+                      "page": 0,
+                      "value": {
+                          "text": "433684",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "d10d7c72-c77b-4185-bda5-61ce1c5b013b",
+                      "label": "FileName",
+                      "page": 0,
+                      "value": {
+                          "text": "motherload-ae89590e-a17c-4e6e-8815-50b4c08d4e18.pdf",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "b35e6611-77b8-4fc9-8eca-085d1b39abf4",
+                      "label": "Id",
+                      "page": 0,
+                      "value": {
+                          "text": "00000000-0000-0000-0000-000000000000",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "726796b5-6c66-4024-84a3-9f33fbfd4703",
+                      "label": "IngestionType",
+                      "page": 0,
+                      "value": {
+                          "text": "api",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "d84787e6-c8a5-4260-b44e-a4f6c448d067",
+                      "label": "InvoiceSourceId",
+                      "page": 0,
+                      "value": {
+                          "text": "AvidSuite",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "ad78fa54-59c0-4cf3-8bc9-78abc3b08e7a",
+                      "label": "SourceEmail",
+                      "page": 0,
+                      "value": {
+                          "text": "e03ef969ce4bab1dc03eb88bfcdfa1c4-PERF",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "31d5f2c5-832e-48a6-8e97-a365c70b8d61",
+                      "label": "BypassFormRecognizer",
+                      "page": 0,
+                      "value": {
+                          "text": "False",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "bool",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "808256de-a3a8-476c-aca7-a965ac6a6274",
+                      "label": "ManualUpload",
+                      "page": 0,
+                      "value": {
+                          "text": "False",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "bool",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "081e7cc8-f565-4187-8f4f-40a59be99f80",
+                      "label": "Username",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "1a3434cd-8483-4722-b7ba-249a561aad6e",
+                      "label": "DateUploaded",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "DateTime",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "4df425e8-5ecc-4b90-96e6-c43c7a99a793",
+                      "label": "BuyerName",
+                      "page": 0,
+                      "value": {
+                          "text": "Avidxchange, Inc",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "6438b449-4a11-4d9e-84b4-93cfc6c1d8a5",
+                      "label": "SourceSystem",
+                      "page": 0,
+                      "value": {
+                          "text": "AvidSuite",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "f5c8e552-1402-41f1-a0b1-16e4c6949742",
+                      "label": "BuyerKeyword",
+                      "page": 0,
+                      "value": {
+                          "text": "avidxchange",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "f85d2ddd-0be3-4110-9fc5-16337874daac",
+                      "label": "DisplayPredictedValues",
+                      "page": 0,
+                      "value": {
+                          "text": "1",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "ce85188a-bf6a-4c21-a0ea-974ae340d42c",
+                      "label": "DisplayIdentifierSearchValues",
+                      "page": 0,
+                      "value": {
+                          "text": "1",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "78ba65bc-3f95-4529-87ea-773be9cdc42b",
+                      "label": "BkwsBuyerKeywordId",
+                      "page": 0,
+                      "value": {
+                          "text": "18",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "dec5f6d9-d7f3-481a-b7fb-b007b4641197",
+                      "label": "BkwsCreatedDateTime",
+                      "page": 0,
+                      "value": {
+                          "text": "1589342536",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "d669c778-17dd-4ffd-914d-9c42360f6370",
+                      "label": "BkwsUpdatedDateTime",
+                      "page": 0,
+                      "value": {
+                          "text": "1680321740",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "f9686683-0c19-47ce-87da-4edd0ef61273",
+                      "label": "BkwsSourceSystemBuyerId",
+                      "page": 0,
+                      "value": {
+                          "text": "25",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "bfa8ba51-1558-4ba3-b57d-69db865cc52c",
+                      "label": "BkwsSourceSystemId",
+                      "page": 0,
+                      "value": {
+                          "text": "AIB",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "a9ee659d-ba86-42c9-91ac-01b943da5686",
+                      "label": "BkwsIngestionMethodId",
+                      "page": 0,
+                      "value": {
+                          "text": "1",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "4b62ca83-32f6-497a-8bb9-796dc5c81cf0",
+                      "label": "BkwsBuyerKeyword",
+                      "page": 0,
+                      "value": {
+                          "text": "avidxchange",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "08a94d40-910e-4404-866a-32049f8e1fad",
+                      "label": "BkwsBuyerName",
+                      "page": 0,
+                      "value": {
+                          "text": "Avidxchange, Inc",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "edc8db6f-26e2-40ba-81df-4f8b208e7573",
+                      "label": "BkwsPortalStatus",
+                      "page": 0,
+                      "value": {
+                          "text": "Active",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "5d097a52-9ec4-4b54-ab25-2ff99e69e2ea",
+                      "label": "BkwsBounceBackMessage",
+                      "page": 0,
+                      "value": {
+                          "text": "none",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "4d2b59c8-46cb-4067-8330-970e5490eead",
+                      "label": "BkwsForwardingEmailAddress",
+                      "page": 0,
+                      "value": {
+                          "text": "none",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "29ef1a88-f724-4cab-a629-7fbe805fd8d8",
+                      "label": "BkwsIndexingSolutionId",
+                      "page": 0,
+                      "value": {
+                          "text": "2",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "e92c8773-35ed-468b-aed1-8d147eb3fa21",
+                      "label": "BkwsDisplayPredictedValues",
+                      "page": 0,
+                      "value": {
+                          "text": "1",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "78418737-b982-4491-921d-c085f7f66d19",
+                      "label": "BkwsDisplayIdentifierSearchValues",
+                      "page": 0,
+                      "value": {
+                          "text": "1",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "4bfb0aa2-68d3-4dd4-b913-8a241d31d979",
+                      "label": "InvoiceType",
+                      "page": 0,
+                      "value": {
+                          "text": "standard",
+                          "confidence": 0.9195125699043274,
+                          "boundingBox": [],
+                          "required": true,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "bfa30981-991d-4c25-ba8e-dbaf0794205e",
+                      "label": "OrderedBy",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "772d4975-3581-4140-92ce-7b27bc73ceab",
+                      "label": "Workflow",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "c0dddd1f-686f-4cce-9926-7070aa747211",
+                      "label": "Memo",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "fa6fb62c-9565-41d3-9fb5-fde97ddcd46d",
+                      "label": "InvoiceDueDateOverride",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "d3564157-748e-45fe-ac43-2f077bc22752",
+                      "label": "CustomerAccountNumber",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": true,
+                          "incomplete": true,
+                          "incompleteReason": "Required but not found by IDC",
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "167e1e45-db73-4f36-b68c-b14c66565caa",
+                      "label": "Supplier",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": true,
+                          "incomplete": true,
+                          "incompleteReason": "Required but not found by IDC",
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "9510fd16-de4b-46c5-a77e-af52e476d3d5",
+                      "label": "SupplierId",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": true,
+                          "incomplete": true,
+                          "incompleteReason": "Required but not found by IDC",
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "2d345ed9-54f9-4233-8887-17df2fd9c5b3",
+                      "label": "SupplierAddress",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": true,
+                          "incomplete": true,
+                          "incompleteReason": "Required but not found by IDC",
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "d6b465d0-d57a-46f7-a1cf-b18a26c89a36",
+                      "label": "ShipToName",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": true,
+                          "incomplete": true,
+                          "incompleteReason": "Required but not found by IDC",
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "8b991de8-7cdf-4bde-99b1-1451c3bf2a38",
+                      "label": "ShipToID",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": true,
+                          "incomplete": true,
+                          "incompleteReason": "Required but not found by IDC",
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "b8dd06f0-d0f6-400f-9764-d461086e9c6c",
+                      "label": "ShipToAddress",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": true,
+                          "incomplete": true,
+                          "incompleteReason": "Required but not found by IDC",
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "90bded43-1dea-4253-8a5b-6af7ab6cd855",
+                      "label": "InvoiceNumber",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": true,
+                          "incomplete": true,
+                          "incompleteReason": "Required but not found by IDC",
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "2ac962e4-5b5d-4d70-adfe-940b9d6cdef7",
+                      "label": "InvoiceDate",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": true,
+                          "incomplete": true,
+                          "incompleteReason": "Required but not found by IDC",
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "b34b3573-6176-4611-9c7b-77d240120547",
+                      "label": "InvoiceAmount",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": true,
+                          "incomplete": true,
+                          "incompleteReason": "Required but not found by IDC",
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "69f33f72-ee43-4c89-8e73-cd738f477950",
+                      "label": "CurrentCharges",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": true,
+                          "incomplete": true,
+                          "incompleteReason": "Required but not found by IDC",
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "2d349f4f-3052-408f-946a-7aa2e2a91290",
+                      "label": "VendorAccountId",
+                      "page": 0,
+                      "value": {
+                          "text": "",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": true,
+                          "incomplete": true,
+                          "incompleteReason": "Required but not found by IDC",
+                          "type": "string",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "0919fde6-e1e4-414e-bf80-99ccb29cd774",
+                      "label": "status",
+                      "page": 0,
+                      "value": {
+                          "text": "succeeded",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "undefined",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "ed65841a-882f-4823-82bb-73613df433a9",
+                      "label": "createdDateTime",
+                      "page": 0,
+                      "value": {
+                          "text": "2023-09-11T22:42:29Z",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "undefined",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "d160ac70-3830-480a-adcc-aa876275a3ab",
+                      "label": "lastUpdatedDateTime",
+                      "page": 0,
+                      "value": {
+                          "text": "2023-09-11T22:42:33Z",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "undefined",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "563aaa71-e06f-4b32-a821-6af1d4508fc9",
+                      "label": "apiVersion",
+                      "page": 0,
+                      "value": {
+                          "text": "2022-08-31",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "undefined",
+                          "verificationState": "NotRequired"
+                      }
+                  },
+                  {
+                      "id": "a7649484-7ea2-4b48-8445-2f740d73c2fe",
+                      "label": "page",
+                      "page": 0,
+                      "value": {
+                          "text": "1",
+                          "confidence": 0.0,
+                          "boundingBox": [],
+                          "required": false,
+                          "incomplete": false,
+                          "incompleteReason": null,
+                          "type": "undefined",
+                          "verificationState": "NotRequired"
+                      }
+                  }
+              ],
+              "changeLog": [
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "13588052-f9cb-444c-8cb3-5936af969fa5",
+                          "label": "BuyerId",
+                          "page": 0,
+                          "value": {
+                              "text": "25",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "1e52c0d7-fca2-4c80-b49c-19e438c48e68",
+                          "label": "CorrelationId",
+                          "page": 0,
+                          "value": {
+                              "text": "b2b72489-b619-4c79-8ac1-1ae326885718",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "fc5b252d-748c-4242-ae10-1f8f4c870e78",
+                          "label": "FileId",
+                          "page": 0,
+                          "value": {
+                              "text": "433684",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "d10d7c72-c77b-4185-bda5-61ce1c5b013b",
+                          "label": "FileName",
+                          "page": 0,
+                          "value": {
+                              "text": "motherload-ae89590e-a17c-4e6e-8815-50b4c08d4e18.pdf",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "b35e6611-77b8-4fc9-8eca-085d1b39abf4",
+                          "label": "Id",
+                          "page": 0,
+                          "value": {
+                              "text": "00000000-0000-0000-0000-000000000000",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "726796b5-6c66-4024-84a3-9f33fbfd4703",
+                          "label": "IngestionType",
+                          "page": 0,
+                          "value": {
+                              "text": "api",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "d84787e6-c8a5-4260-b44e-a4f6c448d067",
+                          "label": "InvoiceSourceId",
+                          "page": 0,
+                          "value": {
+                              "text": "AvidSuite",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "ad78fa54-59c0-4cf3-8bc9-78abc3b08e7a",
+                          "label": "SourceEmail",
+                          "page": 0,
+                          "value": {
+                              "text": "e03ef969ce4bab1dc03eb88bfcdfa1c4-PERF",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "31d5f2c5-832e-48a6-8e97-a365c70b8d61",
+                          "label": "BypassFormRecognizer",
+                          "page": 0,
+                          "value": {
+                              "text": "False",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "bool",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "808256de-a3a8-476c-aca7-a965ac6a6274",
+                          "label": "ManualUpload",
+                          "page": 0,
+                          "value": {
+                              "text": "False",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "bool",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "081e7cc8-f565-4187-8f4f-40a59be99f80",
+                          "label": "Username",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "1a3434cd-8483-4722-b7ba-249a561aad6e",
+                          "label": "DateUploaded",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "DateTime",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "4df425e8-5ecc-4b90-96e6-c43c7a99a793",
+                          "label": "BuyerName",
+                          "page": 0,
+                          "value": {
+                              "text": "Avidxchange, Inc",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "6438b449-4a11-4d9e-84b4-93cfc6c1d8a5",
+                          "label": "SourceSystem",
+                          "page": 0,
+                          "value": {
+                              "text": "AvidSuite",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "f5c8e552-1402-41f1-a0b1-16e4c6949742",
+                          "label": "BuyerKeyword",
+                          "page": 0,
+                          "value": {
+                              "text": "avidxchange",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "f85d2ddd-0be3-4110-9fc5-16337874daac",
+                          "label": "DisplayPredictedValues",
+                          "page": 0,
+                          "value": {
+                              "text": "1",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "ce85188a-bf6a-4c21-a0ea-974ae340d42c",
+                          "label": "DisplayIdentifierSearchValues",
+                          "page": 0,
+                          "value": {
+                              "text": "1",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "78ba65bc-3f95-4529-87ea-773be9cdc42b",
+                          "label": "BkwsBuyerKeywordId",
+                          "page": 0,
+                          "value": {
+                              "text": "18",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "dec5f6d9-d7f3-481a-b7fb-b007b4641197",
+                          "label": "BkwsCreatedDateTime",
+                          "page": 0,
+                          "value": {
+                              "text": "1589342536",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "d669c778-17dd-4ffd-914d-9c42360f6370",
+                          "label": "BkwsUpdatedDateTime",
+                          "page": 0,
+                          "value": {
+                              "text": "1680321740",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "f9686683-0c19-47ce-87da-4edd0ef61273",
+                          "label": "BkwsSourceSystemBuyerId",
+                          "page": 0,
+                          "value": {
+                              "text": "25",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "bfa8ba51-1558-4ba3-b57d-69db865cc52c",
+                          "label": "BkwsSourceSystemId",
+                          "page": 0,
+                          "value": {
+                              "text": "AIB",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "a9ee659d-ba86-42c9-91ac-01b943da5686",
+                          "label": "BkwsIngestionMethodId",
+                          "page": 0,
+                          "value": {
+                              "text": "1",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "4b62ca83-32f6-497a-8bb9-796dc5c81cf0",
+                          "label": "BkwsBuyerKeyword",
+                          "page": 0,
+                          "value": {
+                              "text": "avidxchange",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "08a94d40-910e-4404-866a-32049f8e1fad",
+                          "label": "BkwsBuyerName",
+                          "page": 0,
+                          "value": {
+                              "text": "Avidxchange, Inc",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "edc8db6f-26e2-40ba-81df-4f8b208e7573",
+                          "label": "BkwsPortalStatus",
+                          "page": 0,
+                          "value": {
+                              "text": "Active",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "5d097a52-9ec4-4b54-ab25-2ff99e69e2ea",
+                          "label": "BkwsBounceBackMessage",
+                          "page": 0,
+                          "value": {
+                              "text": "none",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "4d2b59c8-46cb-4067-8330-970e5490eead",
+                          "label": "BkwsForwardingEmailAddress",
+                          "page": 0,
+                          "value": {
+                              "text": "none",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "29ef1a88-f724-4cab-a629-7fbe805fd8d8",
+                          "label": "BkwsIndexingSolutionId",
+                          "page": 0,
+                          "value": {
+                              "text": "2",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "e92c8773-35ed-468b-aed1-8d147eb3fa21",
+                          "label": "BkwsDisplayPredictedValues",
+                          "page": 0,
+                          "value": {
+                              "text": "1",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "78418737-b982-4491-921d-c085f7f66d19",
+                          "label": "BkwsDisplayIdentifierSearchValues",
+                          "page": 0,
+                          "value": {
+                              "text": "1",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "4bfb0aa2-68d3-4dd4-b913-8a241d31d979",
+                          "label": "InvoiceType",
+                          "page": 0,
+                          "value": {
+                              "text": "standard",
+                              "confidence": 0.9195125699043274,
+                              "boundingBox": [],
+                              "required": true,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "bfa30981-991d-4c25-ba8e-dbaf0794205e",
+                          "label": "OrderedBy",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "772d4975-3581-4140-92ce-7b27bc73ceab",
+                          "label": "Workflow",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "c0dddd1f-686f-4cce-9926-7070aa747211",
+                          "label": "Memo",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "fa6fb62c-9565-41d3-9fb5-fde97ddcd46d",
+                          "label": "InvoiceDueDateOverride",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "d3564157-748e-45fe-ac43-2f077bc22752",
+                          "label": "CustomerAccountNumber",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": true,
+                              "incomplete": true,
+                              "incompleteReason": "Required but not found by IDC",
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "167e1e45-db73-4f36-b68c-b14c66565caa",
+                          "label": "Supplier",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": true,
+                              "incomplete": true,
+                              "incompleteReason": "Required but not found by IDC",
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "9510fd16-de4b-46c5-a77e-af52e476d3d5",
+                          "label": "SupplierId",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": true,
+                              "incomplete": true,
+                              "incompleteReason": "Required but not found by IDC",
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "2d345ed9-54f9-4233-8887-17df2fd9c5b3",
+                          "label": "SupplierAddress",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": true,
+                              "incomplete": true,
+                              "incompleteReason": "Required but not found by IDC",
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "d6b465d0-d57a-46f7-a1cf-b18a26c89a36",
+                          "label": "ShipToName",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": true,
+                              "incomplete": true,
+                              "incompleteReason": "Required but not found by IDC",
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "8b991de8-7cdf-4bde-99b1-1451c3bf2a38",
+                          "label": "ShipToID",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": true,
+                              "incomplete": true,
+                              "incompleteReason": "Required but not found by IDC",
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "b8dd06f0-d0f6-400f-9764-d461086e9c6c",
+                          "label": "ShipToAddress",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": true,
+                              "incomplete": true,
+                              "incompleteReason": "Required but not found by IDC",
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "90bded43-1dea-4253-8a5b-6af7ab6cd855",
+                          "label": "InvoiceNumber",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": true,
+                              "incomplete": true,
+                              "incompleteReason": "Required but not found by IDC",
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "2ac962e4-5b5d-4d70-adfe-940b9d6cdef7",
+                          "label": "InvoiceDate",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": true,
+                              "incomplete": true,
+                              "incompleteReason": "Required but not found by IDC",
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "b34b3573-6176-4611-9c7b-77d240120547",
+                          "label": "InvoiceAmount",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": true,
+                              "incomplete": true,
+                              "incompleteReason": "Required but not found by IDC",
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "69f33f72-ee43-4c89-8e73-cd738f477950",
+                          "label": "CurrentCharges",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": true,
+                              "incomplete": true,
+                              "incompleteReason": "Required but not found by IDC",
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "2d349f4f-3052-408f-946a-7aa2e2a91290",
+                          "label": "VendorAccountId",
+                          "page": 0,
+                          "value": {
+                              "text": "",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": true,
+                              "incomplete": true,
+                              "incompleteReason": "Required but not found by IDC",
+                              "type": "string",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "0919fde6-e1e4-414e-bf80-99ccb29cd774",
+                          "label": "status",
+                          "page": 0,
+                          "value": {
+                              "text": "succeeded",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "undefined",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "ed65841a-882f-4823-82bb-73613df433a9",
+                          "label": "createdDateTime",
+                          "page": 0,
+                          "value": {
+                              "text": "2023-09-11T22:42:29Z",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "undefined",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "d160ac70-3830-480a-adcc-aa876275a3ab",
+                          "label": "lastUpdatedDateTime",
+                          "page": 0,
+                          "value": {
+                              "text": "2023-09-11T22:42:33Z",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "undefined",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "563aaa71-e06f-4b32-a821-6af1d4508fc9",
+                          "label": "apiVersion",
+                          "page": 0,
+                          "value": {
+                              "text": "2022-08-31",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "undefined",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  },
+                  {
+                      "previous": null,
+                      "current": {
+                          "id": "a7649484-7ea2-4b48-8445-2f740d73c2fe",
+                          "label": "page",
+                          "page": 0,
+                          "value": {
+                              "text": "1",
+                              "confidence": 0.0,
+                              "boundingBox": [],
+                              "required": false,
+                              "incomplete": false,
+                              "incompleteReason": null,
+                              "type": "undefined",
+                              "verificationState": "NotRequired"
+                          }
+                      }
+                  }
+              ]
+          }
+      ],
+      "isSubmitted": false,
+      "dateSubmitted": "0001-01-01T00:00:00",
+      "dateFirstOpened": "0001-01-01T00:00:00",
+      "secondsSpentIndexing": 3E-07,
+      "dateRecycled": "0001-01-01T00:00:00",
+      "lastModifiedByUser": "System",
+      "previousQueue": "Pending Processing",
+      "unindexedId": "9f7c3cca-298b-41a7-ba68-aa64a9703e03"
+  },
+  "unindexed": {
+      "id": "9f7c3cca-298b-41a7-ba68-aa64a9703e03",
+      "documentId": "93b38ff7-9509-471c-9153-12bcd7e4dbb5",
+      "documentType": "Unindexed",
+      "fileId": "433684",
+      "dateReceived": "0001-01-01T00:00:00",
+      "pages": [
+          {
+              "number": 1,
+              "lines": [
+                  {
+                      "number": 0,
+                      "words": [
+                          {
+                              "boundingBox": [
+                                  6.8011,
+                                  10.2401,
+                                  7.0958,
+                                  10.2401,
+                                  7.1003,
+                                  10.3807,
+                                  6.8011,
+                                  10.3807
+                              ],
+                              "label": "ocr text",
+                              "value": "Page",
+                              "confidence": 0.993
+                          },
+                          {
+                              "boundingBox": [
+                                  7.1774,
+                                  10.2401,
+                                  7.2499,
+                                  10.2401,
+                                  7.2545,
+                                  10.3807,
+                                  7.1819,
+                                  10.3807
+                              ],
+                              "label": "ocr text",
+                              "value": "1",
+                              "confidence": 0.995
+                          },
+                          {
+                              "boundingBox": [
+                                  7.2953,
+                                  10.2401,
+                                  7.4358,
+                                  10.2401,
+                                  7.4358,
+                                  10.3807,
+                                  7.2998,
+                                  10.3807
+                              ],
+                              "label": "ocr text",
+                              "value": "of",
+                              "confidence": 0.995
+                          },
+                          {
+                              "boundingBox": [
+                                  7.4812,
+                                  10.2401,
+                                  7.5537,
+                                  10.2401,
+                                  7.5582,
+                                  10.3807,
+                                  7.4812,
+                                  10.3807
+                              ],
+                              "label": "ocr text",
+                              "value": "2",
+                              "confidence": 0.969
+                          }
+                      ]
+                  }
+              ]
+          },
+          {
+              "number": 2,
+              "lines": [
+                  {
+                      "number": 0,
+                      "words": [
+                          {
+                              "boundingBox": [
+                                  6.8011,
+                                  10.2401,
+                                  7.0912,
+                                  10.2401,
+                                  7.0912,
+                                  10.3807,
+                                  6.8011,
+                                  10.3807
+                              ],
+                              "label": "ocr text",
+                              "value": "Page",
+                              "confidence": 0.993
+                          },
+                          {
+                              "boundingBox": [
+                                  7.1729,
+                                  10.2401,
+                                  7.2454,
+                                  10.2401,
+                                  7.2499,
+                                  10.3807,
+                                  7.1774,
+                                  10.3807
+                              ],
+                              "label": "ocr text",
+                              "value": "2",
+                              "confidence": 0.995
+                          },
+                          {
+                              "boundingBox": [
+                                  7.2998,
+                                  10.2401,
+                                  7.4404,
+                                  10.2401,
+                                  7.4404,
+                                  10.3807,
+                                  7.3043,
+                                  10.3807
+                              ],
+                              "label": "ocr text",
+                              "value": "of",
+                              "confidence": 0.995
+                          },
+                          {
+                              "boundingBox": [
+                                  7.4857,
+                                  10.2401,
+                                  7.5537,
+                                  10.2401,
+                                  7.5537,
+                                  10.3807,
+                                  7.4902,
+                                  10.3807
+                              ],
+                              "label": "ocr text",
+                              "value": "2",
+                              "confidence": 0.996
+                          }
+                      ]
+                  }
+              ]
+          }
+      ],
+      "isSubmitted": false
+  },
+  "userLock": {
+      "id": null,
+      "documentId": "93b38ff7-9509-471c-9153-12bcd7e4dbb5",
+      "indexer": "e03ef969ce4bab1dc03eb88bfcdfa1c4-PERF",
+      "startTime": "2023-09-12T21:37:08.0509381Z"
+  }
+}

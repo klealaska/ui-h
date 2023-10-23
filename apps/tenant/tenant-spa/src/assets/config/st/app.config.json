@@ -1,0 +1,10 @@
+{
+    "baseUrl": "",
+    "shellBaseUrl": "",
+    "tenantApiBaseUrl": "https://tenant-api-st.agreeablecliff-bf16c7bf.eastus.azurecontainerapps.io/api",
+    "appInsightsInstrumentationKey": "",
+    "cmsFeatureFlag" : "cms-data",
+    "featureFlagUrl" : "https://getfeatureflags-st-gtg7feandvbzdeea.z01.azurefd.net/api/getfeatureflags",
+    "cmsProductId" : "1",
+    "cmsUrl": "https://cms-bff-st-a9e6gzgfhzgfh7dc.z01.azurefd.net/api/"
+}

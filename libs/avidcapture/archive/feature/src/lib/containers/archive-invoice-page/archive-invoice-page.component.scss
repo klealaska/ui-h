@@ -1,0 +1,97 @@
+$command-bar-background-color: theme('colors.onSurface.900');
+$white: #ffffff;
+
+.archive {
+  &-header {
+    width: 100%;
+    height: 5.5em;
+    position: sticky;
+    top: 60px;
+    z-index: 10;
+  }
+
+  &-body {
+    width: 100%;
+    display: flex;
+    background-color: $white;
+  }
+}
+
+.document {
+  &-panel {
+    width: 100%;
+    min-width: 700px;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid $command-bar-background-color;
+  }
+
+  &-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $white;
+    padding: 22px;
+    max-width: 440px;
+    min-width: 350px;
+    height: 86vh;
+    width: 100%;
+    position: sticky;
+    top: 9.25em;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent; /* Chrome/Safari */
+    }
+  }
+}
+
+.fields {
+  &-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &-dynamic-child {
+    flex: 0 49%;
+    margin-bottom: 20px;
+
+    &-full {
+      flex: 0 100%;
+      margin-bottom: 20px;
+    }
+  }
+
+  &-value {
+    margin-left: 0.25em;
+    word-break: break-all;
+  }
+}
+
+.ax-input__header {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin-bottom: 4px;
+
+  &-label {
+    color: theme('colors.grey.800');
+    font-size: 14px;
+    line-height: 16px;
+    height: 16px;
+
+    &-readonly {
+      color: theme('colors.primary.500') !important;
+    }
+  }
+}
+
+xdc-document-command-bar {
+  position: sticky;
+  top: 9.25em;
+  z-index: 1;
+}

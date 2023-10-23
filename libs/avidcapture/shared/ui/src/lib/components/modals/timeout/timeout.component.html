@@ -1,0 +1,15 @@
+<div class="modal-body">
+  <div class="row mb-10">
+    <mat-icon class="icon">schedule</mat-icon>
+  </div>
+
+  <div class="modal-content">
+    <p class="b2">{{'xdc.shared.session-expire-in-label' | translate }}</p>
+    <h2>{{timerDisplay}}</h2>
+    <p class="b2">{{'xdc.shared.still-here-label' | translate }}</p>
+  </div>
+
+  <ax-button class="mt-20" (click)="stillHereClick()">
+    {{'xdc.shared.yes-still-here-label' | translate }}
+  </ax-button>
+</div>

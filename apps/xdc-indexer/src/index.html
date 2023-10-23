@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AvidCapture</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self' 'unsafe-inline' 'unsafe-eval' https://* wss://* data:;
+        connect-src * ws: wss:;
+        img-src https://*.chmln-cdn.com blob: * 'self' data: https:;"
+    />
+    <link rel="icon" id="favIcon" type="image/x-icon" href="assets/images/favicon/avid.ico" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <script>
+      /* Chameleon script */
+      !(function (d, w) {
+        var t = 'SR0sUtjSGvcbukv5T2C0XymEd3ZcMLH0C86TRPU4bCh3dR-1JmYfn-C3RRwpyO9zbsofjs',
+          c = 'chmln',
+          m = 'identify alias track clear set show on off custom help _data'.split(' '),
+          i = d.createElement('script');
+        if ((w[c] || (w[c] = {}), !w[c].root)) {
+          (w[c].accountToken = t),
+            (w[c].location = w.location.href.toString()),
+            (w[c].now = new Date());
+          for (var s = 0; s < m.length; s++) {
+            !(function () {
+              var t = (w[c][m[s] + '_a'] = []);
+              w[c][m[s]] = function () {
+                t.push(arguments);
+              };
+            })();
+          }
+          (i.src = 'https://fast.trychameleon.com/messo/' + t + '/messo.min.js'),
+            (i.async = !0),
+            d.head.appendChild(i);
+        }
+      })(document, window);
+    </script>
+    <!-- Hotjar Tracking Code for https://ax-ae1-pr-idc-invindx-indexerui01-web-ui.pr-ase-avidxchange.net/ -->
+    <!-- <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 2482905, hjsv: 6 };
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script> -->
+  </head>
+  <body>
+    <xdc-root></xdc-root>
+  </body>
+</html>

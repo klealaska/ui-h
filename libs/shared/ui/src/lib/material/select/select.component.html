@@ -1,0 +1,46 @@
+<mat-form-field
+  [appearance]="appearance"
+  [color]="color"
+  [floatLabel]="floatLabel"
+  [hideRequiredMarker]="hideRequiredMarker"
+  [hintLabel]="hintLabel"
+  [ngStyle]="{
+    width: this.fieldWidth
+  }"
+>
+  <mat-label>{{ label }}</mat-label>
+  <mat-select
+    [aria-label]="ariaLabel"
+    [aria-labelledby]="ariaLabelledby"
+    [disableOptionCentering]="disableOptionCentering"
+    [disableRipple]="disableRipple"
+    [disabled]="disabled"
+    id="id"
+    [multiple]="multiple"
+    [panelClass]="panelClass"
+    [placeholder]="placeholder"
+    [required]="required"
+    [sortComparator]="sortComparator"
+    [typeaheadDebounceInterval]="typeaheadDebounceInterval"
+    [value]="value"
+    (openedChange)="openedChange.emit()"
+    (selectionChange)="selectionChange.emit($event)"
+  >
+    <ng-container *ngIf="!optionGroups">
+      <mat-option *ngFor="let option of options" [value]="option.value">
+        {{ option.name }}
+      </mat-option>
+    </ng-container>
+    <ng-container *ngIf="optionGroups">
+      <mat-optgroup
+        *ngFor="let group of optionGroups"
+        [label]="group.name"
+        [disabled]="group.disabled"
+      >
+        <mat-option *ngFor="let option of group.options" [value]="option.value">
+          {{ option.name }}
+        </mat-option>
+      </mat-optgroup>
+    </ng-container>
+  </mat-select>
+</mat-form-field>

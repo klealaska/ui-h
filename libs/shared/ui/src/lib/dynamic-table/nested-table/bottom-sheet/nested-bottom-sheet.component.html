@@ -1,0 +1,12 @@
+<div class="nested-bottom-sheet">
+  <ng-container *ngFor="let columnDef of data.columnDefs">
+    <div *ngIf="columnDef.headerCellDef" class="bottom-sheet-row">
+      <p class="bottom-sheet-row-header">{{columnDef.headerCellDef.toUpperCase()}}</p>
+      <ax-dynamic-table-cell
+        class="bottom-sheet-row-data"
+        [columnDef]="columnDef"
+        [data]="data.data"
+      ></ax-dynamic-table-cell>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,93 @@
+{
+  "extends": ["../../../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": [
+        "plugin:@nx/angular",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:prettier/recommended"
+      ],
+      "parserOptions": {
+        "project": ["libs/avidcapture/research/data-access/tsconfig.*?.json"]
+      },
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "xdc",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "xdc",
+            "style": "camelCase"
+          }
+        ],
+        "@nx/enforce-module-boundaries": "off",
+        "@typescript-eslint/no-inferrable-types": [
+          "error",
+          {
+            "ignoreParameters": true,
+            "ignoreProperties": false
+          }
+        ],
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-unused-expressions": "off",
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/no-unsafe-argument": "off",
+        "@typescript-eslint/unbound-method": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/restrict-template-expressions": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-misused-promises": "off",
+        "@typescript-eslint/explicit-function-return-type": ["error"],
+        "@typescript-eslint/explicit-module-boundary-types": [
+          "error",
+          {
+            "allowArgumentsExplicitlyTypedAsAny": true,
+            "allowDirectConstAssertionInArrowFunctions": true,
+            "allowedNames": [],
+            "allowHigherOrderFunctions": true,
+            "allowTypedFunctionExpressions": true
+          }
+        ],
+        "@typescript-eslint/no-empty-interface": [
+          "error",
+          {
+            "allowSingleExtends": false
+          }
+        ],
+        "arrow-parens": ["off", "always"],
+        "brace-style": ["off", "off"],
+        "linebreak-style": "off",
+        "new-parens": "off",
+        "newline-per-chained-call": "off",
+        "no-prototype-builtins": "off",
+        "no-extra-semi": "off",
+        "no-irregular-whitespace": "off",
+        "no-trailing-spaces": "off",
+        "object-shorthand": ["error", "always"],
+        "space-in-parens": ["off", "never"]
+      }
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.pact.ts"],
+      "extends": ["plugin:prettier/recommended"],
+      "rules": {
+        "@nx/enforce-module-boundaries": "off"
+      }
+    }
+  ]
+}

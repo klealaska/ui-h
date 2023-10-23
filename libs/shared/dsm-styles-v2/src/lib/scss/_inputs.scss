@@ -1,0 +1,214 @@
+/////////////////////////// New Styles
+$interRegular: theme('fontFamily.interRegular');
+$grey800: theme('colors.grey.800');
+$grey600: theme('colors.grey.600');
+$critical600: theme('colors.critical.600');
+$focused500: theme('colors.focused.500');
+$primary500: theme('colors.primary.500');
+$secondary200: theme('colors.secondary.200');
+
+.ax-form-field-wrapper {
+  display: inline-block;
+  font-family: theme('fontFamily.interMedium');
+  color: $grey800;
+
+  &.fixed-width {
+    width: 270px !important;
+    max-width: 270px !important;
+  }
+
+  // Form Field
+  .ax-form-field {
+    display: flex;
+  }
+
+  // Input Container
+  .mat-mdc-text-field-wrapper {
+    border: solid $grey800 1px;
+    border-radius: 4px;
+    cursor: text;
+    padding: 0 8px !important;
+  }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: theme('colors.white');
+  }
+
+  .mdc-text-field--focused:not(.mdc-text-field--disabled, .mdc-text-field--invalid) {
+    border-color: $focused500;
+    &::after {
+      content: ' ';
+      position: absolute;
+      border-radius: 4px;
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      z-index: -1;
+      border: solid theme('colors.focused.500') 2px;
+    }
+  }
+
+  .mat-mdc-form-field-icon-suffix,
+  .mat-mdc-form-field-icon-prefix {
+    cursor: default;
+  }
+
+  // Input wrapper
+  .mat-mdc-form-field-infix {
+    font-family: $interRegular;
+    padding: 0px !important;
+    min-height: auto;
+    line-height: 16px;
+    font-size: 14px;
+  }
+
+  // Input
+  .ax-input {
+    padding: 10px 0;
+  }
+
+  // Placeholder
+  ::placeholder {
+    font-family: theme('fontFamily.interRegular');
+    font-style: italic;
+    color: theme('colors.grey.500');
+  }
+
+  .ax-input-button {
+    position: relative;
+    &:focus-visible {
+      outline: solid $focused500 2px;
+      border-radius: 2px;
+    }
+  }
+
+  .ax-input-icon {
+    padding: 0 !important;
+  }
+
+  // Hint
+  .mat-mdc-form-field-hint-wrapper,
+  .mat-mdc-form-field-error-wrapper {
+    position: relative;
+    padding: 0;
+  }
+
+  .error-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px !important;
+    height: 16px !important;
+    width: 16px !important;
+    margin-right: 4px;
+  }
+
+  // prevents hint and error from wrapping to two lines
+  .mat-mdc-form-field-bottom-align::before {
+    display: none;
+  }
+
+  .ax-input-error,
+  .ax-input-hint {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+    min-height: 16px;
+    font-size: 12px;
+    font-family: $interRegular;
+  }
+
+  .ax-input-error {
+    color: $critical600;
+  }
+
+  .ax-input-hint {
+    color: $grey800;
+  }
+
+  .mat-form-field-invalid {
+    .mat-mdc-text-field-wrapper {
+      border: solid $critical600 1px;
+      background-color: theme('colors.critical.50');
+    }
+  }
+}
+
+// ReadOnly
+.ax-form-field-readonly {
+  // Input Wrapper
+  .mdc-text-field--disabled {
+    background-color: $secondary200;
+    border: solid 1px $secondary200;
+  }
+
+  // Input
+  .ax-input,
+  .ax-textarea,
+  .ax-datepicker-input,
+  .mat-date-range-input-separator,
+  .ax-select .mat-mdc-select-value,
+  ::placeholder,
+  .mat-mdc-select-placeholder {
+    color: $primary500 !important;
+  }
+
+  // Buttons
+  .ax-input-icon,
+  .ax-input-button {
+    color: $primary500;
+    cursor: default;
+  }
+
+  // Buttons
+  .mat-form-field-disabled {
+    mat-icon {
+      color: $primary500 !important;
+      background-color: $secondary200;
+    }
+  }
+
+  // Hint
+  .ax-input-hint {
+    color: $primary500 !important;
+  }
+}
+
+// Disabled
+.ax-form-field-wrapper:not(.ax-form-field-readonly) {
+  // Input Wrapper
+  .mdc-text-field--disabled {
+    background-color: theme('colors.grey.50');
+    border: solid 1px theme('colors.grey.50');
+  }
+
+  // Buttons
+  .mat-form-field-disabled {
+    .mat-mdc-input-element:disabled,
+    .ax-input-button {
+      color: $grey600 !important;
+    }
+
+    mat-icon {
+      color: $grey600 !important;
+      cursor: auto !important;
+    }
+  }
+
+  // Hint
+  .ax-input-hint {
+    color: $grey600 !important;
+  }
+}
+
+// Disabled materials overlay
+.mat-mdc-form-field-focus-overlay {
+  display: none !important;
+}
+
+// Disable Material default bottom border and ripple effect
+.mdc-line-ripple,
+.mat-mdc-button-ripple {
+  display: none !important;
+}

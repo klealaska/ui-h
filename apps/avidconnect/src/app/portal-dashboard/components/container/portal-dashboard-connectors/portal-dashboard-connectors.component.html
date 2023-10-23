@@ -1,0 +1,38 @@
+<section class="connectors tab-content">
+  <avc-loading-wrapper
+    [isLoading]="isLoadingConnectors$ | async"
+    [loadingMessage]="'Loading Connectors'"
+  >
+    <div class="search-filters">
+      <form class="search-form" autocomplete="off">
+        <mat-form-field class="search-field" appearance="outline">
+          <mat-label>Search Connectors...</mat-label>
+          <mat-icon matSuffix>search</mat-icon>
+          <input
+            type="text"
+            matInput
+            [(ngModel)]="searchConnectorsText"
+            name="search-field"
+            placeholder="Search by Name"
+          />
+          <button
+            *ngIf="searchConnectorsText"
+            matPrefix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="searchConnectorsText=''"
+            type="button"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+    </div>
+
+    <avc-connectors-list
+      [connectors]="connectors$"
+      [searchText]="searchConnectorsText"
+      (connectorSelected)="connectorSelected($event)"
+    ></avc-connectors-list>
+  </avc-loading-wrapper>
+</section>

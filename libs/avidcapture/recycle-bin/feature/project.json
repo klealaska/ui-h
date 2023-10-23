@@ -1,0 +1,43 @@
+{
+  "name": "avidcapture-recycle-bin-feature",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/avidcapture/recycle-bin/feature/src",
+  "prefix": "xdc",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/avidcapture/recycle-bin/feature"],
+      "options": {
+        "project": "libs/avidcapture/recycle-bin/feature/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/avidcapture/recycle-bin/feature/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/avidcapture/recycle-bin/feature/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/avidcapture/recycle-bin/feature"],
+      "options": {
+        "jestConfig": "libs/avidcapture/recycle-bin/feature/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/avidcapture/recycle-bin/feature/**/*.ts",
+          "libs/avidcapture/recycle-bin/feature/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:avidcapture"]
+}

@@ -1,0 +1,85 @@
+.mat-button-toggle-standalone.mat-button-toggle-appearance-standard:not([ng-reflect-disabled='true']),
+.mat-button-toggle-group-appearance-standard {
+  border: none !important;
+}
+
+// Secondary Buttons
+.btn-toggle-secondary
+  .mat-button-toggle-appearance-standard:not(.mat-button-toggle-checked, .mat-button-toggle-disabled),
+.btn-toggle-secondary.mat-button-toggle-group-appearance-standard
+  .mat-button-toggle
+  + .mat-button-toggle:not(.mat-button-toggle-checked, .mat-button-toggle-disabled) {
+  &:hover {
+    color: theme('colors.interactive.800');
+    background-color: theme('colors.interactive.50');
+  }
+  &:active {
+    color: theme('colors.interactive.900');
+    background-color: theme('colors.interactive.100');
+  }
+}
+
+.btn-toggle-secondary {
+  .mat-button-toggle-checked:not(.mat-button-toggle-disabled, :last-child) {
+    border-right: none;
+  }
+  .mat-button-toggle + .mat-button-toggle {
+    &:hover {
+      border-left-color: theme('colors.interactive.800');
+    }
+    &:active {
+      border-left-color: theme('colors.interactive.900');
+    }
+  }
+
+  .mat-button-toggle:not(.mat-button-toggle-disabled):last-child {
+    border-radius: 0px 4px 4px 0px;
+  }
+
+  .mat-button-toggle-checked.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled),
+  .mat-button-toggle-checked:not(.mat-button-toggle-disabled) {
+    border-left-color: theme('colors.interactive.900');
+    color: theme('colors.interactive.900');
+  }
+}
+
+.mat-button-toggle-appearance-standard.mat-button-toggle-checked {
+  border-color: theme('colors.interactive.700') !important;
+  background-color: theme('colors.interactive.700') !important;
+  color: theme('colors.white') !important;
+}
+
+.btn-toggle-secondary.mat-button-toggle-group-appearance-standard
+  .mat-button-toggle
+  + .mat-button-toggle:not(.mat-button-toggle-disabled) {
+  &:active {
+    background-color: theme('colors.interactive.100');
+  }
+}
+
+.btn-toggle-secondary.mat-button-toggle-group-appearance-standard
+  .mat-button-toggle
+  + .mat-button-toggle:not(.mat-button-toggle-checked, .mat-button-toggle-disabled, :first-child, :last-child) {
+  border-right: none;
+}
+
+// Disabled
+.btn-toggle-secondary.mat-button-toggle-group-appearance-standard {
+  border: solid 1px theme('colors.grey.50');
+}
+
+.mat-button-toggle.ax-button-toggle.mat-button-toggle-appearance-standard.mat-button-toggle-disabled {
+  background-color: theme('colors.grey.50') !important;
+  color: theme('colors.grey.600') !important;
+}
+
+.btn-toggle-secondary {
+  .mat-button-toggle-disabled.mat-button-toggle-appearance-standard {
+    background-color: white;
+    color: theme('colors.grey.600');
+  }
+
+  .mat-button-toggle + .mat-button-toggle.mat-button-toggle-disabled {
+    border-left: solid 1px theme('colors.grey.50');
+  }
+}

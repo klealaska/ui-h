@@ -1,0 +1,13 @@
+.filter {
+  width: 35%;
+  margin-bottom: 20px;
+}
+
+.icon {
+  &-search {
+    margin-right: 5px;
+  }
+  &-clear {
+    cursor: pointer;
+  }
+}

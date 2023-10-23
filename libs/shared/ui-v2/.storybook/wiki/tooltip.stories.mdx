@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/addon-docs';
+import AxTooltipExample from '../assets/tooltip/ax-tooltip-example.png';
+
+<Meta title="Wiki/Tooltips" />
+
+# Tooltip
+
+A visual example can be found under Components/TooltipComponent.
+
+<img src={AxTooltipExample} alt="Ax tooltip example" />
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Args</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() axTooltip: string</td>
+    <td>'lorem ipsum'</td>
+    <td>Text that is displayed inside the tooltip</td>
+  </tr>
+  <tr>
+    <td>@Input() axTooltipStyle: TooltipStyle</td>
+    <td>'primary' | 'secondary'</td>
+    <td>Sets the tooltip color.</td>
+  </tr>
+  <tr>
+    <td>@Input() axTooltipPosition: TooltipPosition</td>
+    <td>'above' | 'below' | 'left' | 'right' | 'before' | 'after';</td>
+    <td>Sets the toolbar position relative to its trigger</td>
+  </tr>
+  <tr>
+    <td>@Input() axTooltipImage: string</td>
+    <td>'http://via.placeholder.com/271x95'</td>
+    <td>Displays image inside tooltip</td>
+  </tr>
+  <tr>
+    <td>@Input() axTooltipPointerPosition: pointerPosition</td>
+    <td>'start' | 'center' | 'end'</td>
+    <td>
+      Sets the placement of the pointer on the tooltip. This needs to be set to 'end' when
+      axTooltipPosition = 'left' and 'start' when axTooltipPosition = 'right'.
+    </td>
+  </tr>
+  <tr>
+    <td>@Input() axDynamicOverflow: boolean</td>
+    <td>true | false</td>
+    <td>
+      axDynamicOverflow is used to display tooltip if an element is being truncated and hides
+      tooltip if element is not.
+    </td>
+  </tr>
+</table>

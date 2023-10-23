@@ -1,0 +1,22 @@
+<div class="h-[5.5rem] bg-secondary-200 p-[1.2rem]" data-cy="main-header-add-edit-page-div">
+  <ng-content select="[header]"></ng-content>
+</div>
+<div class="h-screen flex-1 bg-surface-50" data-cy="backgroundCard">
+  <div class="flex h-full">
+    <!-- side menu below-->
+    <aside class="w-1/4">
+      <div class="pl-5 pt-6 lg:pl-32 xl:pl-32 2xl:pl-32">
+        <ng-content select="[side-nav]"></ng-content>
+      </div>
+    </aside>
+    <div
+      uiCoeKeepTrack
+      [sections]="sections"
+      [offsetTop]="offset"
+      class="overflow-y-auto pt-6 w-full pl-5 pr-[8.9rem] md:desk lg:desk xl:desk 2xl:desk"
+    >
+      <!-- main content below -->
+      <ng-content select="[main]"></ng-content>
+    </div>
+  </div>
+</div>

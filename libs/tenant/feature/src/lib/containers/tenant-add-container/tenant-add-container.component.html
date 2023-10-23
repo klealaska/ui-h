@@ -1,0 +1,32 @@
+<ui-coe-page-layout-add-edit [sections]="sections">
+  <div header>
+    <ui-coe-page-header
+      [title]="title | translate: { fontFamilySemibold, fontFamilyLight }"
+      backBtnId="back-btn"
+      [showBackBtn]="showBackBtn"
+      [showBtn]="showBtn"
+      [smallTitle]="smallTitle"
+      [fixedHeight]="false"
+      (backButtonClicked)="backBtnClick()"
+    ></ui-coe-page-header>
+  </div>
+  <div side-nav>
+    <ui-coe-side-menu [menuItems]="menuItems$ | async"></ui-coe-side-menu>
+  </div>
+  <div main>
+    <div [uiCoeScrollSection]="sections[0].id" [id]="sections[0].id">
+      <ui-coe-customer-details
+        [title]="customerDetailsCardTitle | translate"
+        [siteNameLabel]="siteNameLabel | translate"
+        [cmpLabel]="cmpLabel | translate"
+        [submitButtonText]="submitButtonText | translate"
+        [customerNameLabel]="customerNameLabel | translate"
+        [accountIdLabel]="accountIdLabel | translate"
+        [submitButtonId]="'customer-details-submit-button'"
+        [cmpIdHelperText]="cmpIdHelperLabel | translate"
+        [siteNameValidator]="siteNameValidatorFn"
+        (submitButtonClick)="handleCustomerDetailsSubmit($event)"
+      ></ui-coe-customer-details>
+    </div>
+  </div>
+</ui-coe-page-layout-add-edit>

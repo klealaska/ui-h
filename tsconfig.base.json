@@ -1,0 +1,186 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": false,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["apps/supplier-cfm/src/app/*"],
+      "@app/models/*": ["apps/supplier-cfm/src/app/core/models/*"],
+      "@app/services/*": ["apps/supplier-cfm/src/app/core/services/*"],
+      "@environments/*": ["apps/supplier-cfm/src/environments"],
+      "@ui-coe/avidcapture/admin/data-access": ["libs/avidcapture/admin/data-access/src/index.ts"],
+      "@ui-coe/avidcapture/admin/feature": ["libs/avidcapture/admin/feature/src/index.ts"],
+      "@ui-coe/avidcapture/admin/ui": ["libs/avidcapture/admin/ui/src/index.ts"],
+      "@ui-coe/avidcapture/archive/data-access": [
+        "libs/avidcapture/archive/data-access/src/index.ts"
+      ],
+      "@ui-coe/avidcapture/archive/feature": ["libs/avidcapture/archive/feature/src/index.ts"],
+      "@ui-coe/avidcapture/archive/ui": ["libs/avidcapture/archive/ui/src/index.ts"],
+      "@ui-coe/avidcapture/core/data-access": ["libs/avidcapture/core/data-access/src/index.ts"],
+      "@ui-coe/avidcapture/core/util": ["libs/avidcapture/core/util/src/index.ts"],
+      "@ui-coe/avidcapture/dashboard/data-access": [
+        "libs/avidcapture/dashboard/data-access/src/index.ts"
+      ],
+      "@ui-coe/avidcapture/dashboard/feature": ["libs/avidcapture/dashboard/feature/src/index.ts"],
+      "@ui-coe/avidcapture/dashboard/ui": ["libs/avidcapture/dashboard/ui/src/index.ts"],
+      "@ui-coe/avidcapture/dashboard/util": ["libs/avidcapture/dashboard/util/src/index.ts"],
+      "@ui-coe/avidcapture/error-page/feature": [
+        "libs/avidcapture/error-page/feature/src/index.ts"
+      ],
+      "@ui-coe/avidcapture/indexing/data-access": [
+        "libs/avidcapture/indexing/data-access/src/index.ts"
+      ],
+      "@ui-coe/avidcapture/indexing/feature": ["libs/avidcapture/indexing/feature/src/index.ts"],
+      "@ui-coe/avidcapture/indexing/ui": ["libs/avidcapture/indexing/ui/src/index.ts"],
+      "@ui-coe/avidcapture/indexing/util": ["libs/avidcapture/indexing/util/src/index.ts"],
+      "@ui-coe/avidcapture/maintenance-page/feature": [
+        "libs/avidcapture/maintenance-page/feature/src/index.ts"
+      ],
+      "@ui-coe/avidcapture/my-uploads/data-access": [
+        "libs/avidcapture/my-uploads/data-access/src/index.ts"
+      ],
+      "@ui-coe/avidcapture/my-uploads/feature": [
+        "libs/avidcapture/my-uploads/feature/src/index.ts"
+      ],
+      "@ui-coe/avidcapture/my-uploads/ui": ["libs/avidcapture/my-uploads/ui/src/index.ts"],
+      "@ui-coe/avidcapture/pending/data-access": [
+        "libs/avidcapture/pending/data-access/src/index.ts"
+      ],
+      "@ui-coe/avidcapture/pending/feature": ["libs/avidcapture/pending/feature/src/index.ts"],
+      "@ui-coe/avidcapture/pending/ui": ["libs/avidcapture/pending/ui/src/index.ts"],
+      "@ui-coe/avidcapture/recycle-bin/data-access": [
+        "libs/avidcapture/recycle-bin/data-access/src/index.ts"
+      ],
+      "@ui-coe/avidcapture/recycle-bin/feature": [
+        "libs/avidcapture/recycle-bin/feature/src/index.ts"
+      ],
+      "@ui-coe/avidcapture/recycle-bin/ui": ["libs/avidcapture/recycle-bin/ui/src/index.ts"],
+      "@ui-coe/avidcapture/research/data-access": [
+        "libs/avidcapture/research/data-access/src/index.ts"
+      ],
+      "@ui-coe/avidcapture/research/feature": ["libs/avidcapture/research/feature/src/index.ts"],
+      "@ui-coe/avidcapture/research/ui": ["libs/avidcapture/research/ui/src/index.ts"],
+      "@ui-coe/avidcapture/shared/data-access": [
+        "libs/avidcapture/shared/data-access/src/index.ts"
+      ],
+      "@ui-coe/avidcapture/shared/test": ["libs/avidcapture/shared/test/src/index.ts"],
+      "@ui-coe/avidcapture/shared/types": ["libs/avidcapture/shared/types/src/index.ts"],
+      "@ui-coe/avidcapture/shared/ui": ["libs/avidcapture/shared/ui/src/index.ts"],
+      "@ui-coe/avidcapture/shared/util": ["libs/avidcapture/shared/util/src/index.ts"],
+      "@ui-coe/bank-account-mgmt/add/data-access": [
+        "libs/bank-account-mgmt/add/data-access/src/index.ts"
+      ],
+      "@ui-coe/bank-account-mgmt/add/feature": ["libs/bank-account-mgmt/add/feature/src/index.ts"],
+      "@ui-coe/bank-account-mgmt/bam-experience/feature": [
+        "libs/bank-account-mgmt/bam-experience/feature/src/index.ts"
+      ],
+      "@ui-coe/bank-account-mgmt/details/data-access": [
+        "libs/bank-account-mgmt/details/data-access/src/index.ts"
+      ],
+      "@ui-coe/bank-account-mgmt/details/feature": [
+        "libs/bank-account-mgmt/details/feature/src/index.ts"
+      ],
+      "@ui-coe/bank-account-mgmt/list/data-access": [
+        "libs/bank-account-mgmt/list/data-access/src/index.ts"
+      ],
+      "@ui-coe/bank-account-mgmt/list/feature": [
+        "libs/bank-account-mgmt/list/feature/src/index.ts"
+      ],
+      "@ui-coe/bank-account-mgmt/pop-list/data-access": [
+        "libs/bank-account-mgmt/pop-list/data-access/src/index.ts"
+      ],
+      "@ui-coe/bank-account-mgmt/pop-list/feature": [
+        "libs/bank-account-mgmt/pop-list/feature/src/index.ts"
+      ],
+      "@ui-coe/bank-account-mgmt/shared/data-access": [
+        "libs/bank-account-mgmt/shared/data-access/src/index.ts"
+      ],
+      "@ui-coe/bank-account-mgmt/shared/test": ["libs/bank-account-mgmt/shared/test/src/index.ts"],
+      "@ui-coe/bank-account-mgmt/shared/types": [
+        "libs/bank-account-mgmt/shared/types/src/index.ts"
+      ],
+      "@ui-coe/bank-account-mgmt/shared/ui": ["libs/bank-account-mgmt/shared/ui/src/index.ts"],
+      "@ui-coe/bank-account-mgmt/shared/util": ["libs/bank-account-mgmt/shared/util/src/index.ts"],
+      "@ui-coe/bus-hier/data-access": ["libs/bus-hier/data-access/src/index.ts"],
+      "@ui-coe/bus-hier/feature": ["libs/bus-hier/feature/src/index.ts"],
+      "@ui-coe/bus-hier/shared/types": ["libs/bus-hier/shared/types/src/index.ts"],
+      "@ui-coe/bus-hier/ui": ["libs/bus-hier/ui/src/index.ts"],
+      "@ui-coe/demo/game/feature": ["libs/demo/game/feature/src/index.ts"],
+      "@ui-coe/demo/game/ui": ["libs/demo/game/ui/src/index.ts"],
+      "@ui-coe/demo/menu/feature": ["libs/demo/menu/feature/src/index.ts"],
+      "@ui-coe/demo/menu/ui": ["libs/demo/menu/ui/src/index.ts"],
+      "@ui-coe/demo/shared/data-access": ["libs/demo/shared/data-access/src/index.ts"],
+      "@ui-coe/demo/shared/ui": ["libs/demo/shared/ui/src/index.ts"],
+      "@ui-coe/demo/shared/util": ["libs/demo/shared/util/src/index.ts"],
+      "@ui-coe/event-hub": ["libs/shared/data-access/event-hub/src/index.ts"],
+      "@ui-coe/pay-transformation/data-access": [
+        "libs/pay-transformation/data-access/src/index.ts"
+      ],
+      "@ui-coe/pay-transformation/feature": ["libs/pay-transformation/feature/src/index.ts"],
+      "@ui-coe/pay-transformation/shared/data-access": [
+        "libs/pay-transformation/shared/data-access/src/index.ts"
+      ],
+      "@ui-coe/pay-transformation/shared/test": [
+        "libs/pay-transformation/shared/test/src/index.ts"
+      ],
+      "@ui-coe/pay-transformation/shared/types": [
+        "libs/pay-transformation/shared/types/src/index.ts"
+      ],
+      "@ui-coe/pay-transformation/shared/ui": ["libs/pay-transformation/shared/ui/src/index.ts"],
+      "@ui-coe/pay/shared/test": ["libs/pay/shared/test/src/index.ts"],
+      "@ui-coe/pay/shared/types": ["libs/pay/shared/types/src/index.ts"],
+      "@ui-coe/shared/bff/data-access": ["libs/shared/bff/data-access/src/index.ts"],
+      "@ui-coe/shared/bff/types": ["libs/shared/bff/types/src/index.ts"],
+      "@ui-coe/shared/bff/util": ["libs/shared/bff/util/src/index.ts"],
+      "@ui-coe/shared/data-access/content": ["libs/shared/data-access/content/src/index.ts"],
+      "@ui-coe/shared/data-access/event-hub": ["libs/shared/data-access/event-hub/src/index.ts"],
+      "@ui-coe/shared/dsm-styles": ["libs/shared/dsm-styles/src/index.ts"],
+      "@ui-coe/shared/dsm-styles-v2": ["libs/shared/dsm-styles-v2/src/index.ts"],
+      "@ui-coe/shared/types": ["libs/shared/types/src/index.ts"],
+      "@ui-coe/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@ui-coe/shared/ui-v2": ["libs/shared/ui-v2/src/index.ts"],
+      "@ui-coe/shared/uploader/feature": ["libs/shared/uploader/feature/src/index.ts"],
+      "@ui-coe/shared/util/auth": ["libs/shared/util/auth/src/index.ts"],
+      "@ui-coe/shared/util/directives": ["libs/shared/util/directives/src/index.ts"],
+      "@ui-coe/shared/util/guards": ["libs/shared/util/guards/src/index.ts"],
+      "@ui-coe/shared/util/interfaces": ["libs/shared/util/interfaces/src/index.ts"],
+      "@ui-coe/shared/util/pipes": ["libs/shared/util/pipes/src/index.ts"],
+      "@ui-coe/shared/util/services": ["libs/shared/util/services/src/index.ts"],
+      "@ui-coe/shared/util/testing": ["libs/shared/util/testing/src/index.ts"],
+      "@ui-coe/shell/navigation/data-access": ["libs/shell/navigation/data-access/src/index.ts"],
+      "@ui-coe/shell/navigation/feature": ["libs/shell/navigation/feature/src/index.ts"],
+      "@ui-coe/tenant/data-access": ["libs/tenant/data-access/src/index.ts"],
+      "@ui-coe/tenant/feature": ["libs/tenant/feature/src/index.ts"],
+      "@ui-coe/tenant/shared/types": ["libs/tenant/shared/types/src/index.ts"],
+      "@ui-coe/tenant/shared/util": ["libs/tenant/shared/util/src/index.ts"],
+      "@ui-coe/tenant/ui": ["libs/tenant/ui/src/index.ts"],
+      "@ui-coe/usr-mgmt/data-access": ["libs/usr-mgmt/data-access/src/index.ts"],
+      "@ui-coe/usr-mgmt/feature": ["libs/usr-mgmt/feature/src/index.ts"],
+      "@ui-coe/usr-mgmt/shared/types": ["libs/usr-mgmt/shared/types/src/index.ts"],
+      "@ui-coe/usr-mgmt/shared/util": ["libs/usr-mgmt/shared/util/src/index.ts"],
+      "@ui-coe/usr-mgmt/ui": ["libs/usr-mgmt/ui/src/index.ts"],
+      "@ui-coe/usr-roles/data-access": ["libs/usr-roles/data-access/src/index.ts"],
+      "@ui-coe/usr-roles/feature": ["libs/usr-roles/feature/src/index.ts"],
+      "@ui-coe/usr-roles/shared/types": ["libs/usr-roles/shared/types/src/index.ts"],
+      "@ui-coe/usr-roles/shared/util": ["libs/usr-roles/shared/util/src/index.ts"],
+      "@ui-coe/usr-roles/ui": ["libs/usr-roles/ui/src/index.ts"],
+      "@ui-coe/workspace-plugin": ["tools/workspace-plugin/src/index.ts"],
+      "uicoe": ["libs/bank-account-mgmt/add/data-access/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

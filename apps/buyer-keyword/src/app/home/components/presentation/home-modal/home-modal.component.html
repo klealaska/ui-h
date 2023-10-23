@@ -1,0 +1,28 @@
+<div class="modal-body">
+  <div class="modal-header">
+    <h3 class="modal-title">{{modalConfig.title}}</h3>
+    <mat-icon class="icon" (click)="cancel()">close</mat-icon>
+  </div>
+
+  <div class="modal-content">
+    <p>{{modalConfig.message}}</p>
+
+    <mat-form-field class="confirm-input" appearance="outline">
+      <input
+        matInput
+        #input
+        [placeholder]="confirmPlaceholder"
+        (input)="typeConfirm(input.value)"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="button-container">
+    <ax-button [disabled]="confirmText !== 'confirm'" (click)="confirm()"
+      >{{'bkws.home.home-modal.confirm' | translate }}</ax-button
+    >
+    <ax-button class="button-secondary" [type]="'secondary'" (click)="cancel()"
+      >{{'bkws.home.home-modal.cancel' | translate }}</ax-button
+    >
+  </div>
+</div>

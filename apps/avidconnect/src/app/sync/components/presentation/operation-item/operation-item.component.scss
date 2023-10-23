@@ -1,0 +1,17 @@
+.operation-type-item {
+  display: flex;
+  align-items: baseline;
+  padding: 20px 0;
+
+  .data-selection {
+    width: 300px;
+  }
+
+  .description {
+    margin: 0 40px;
+
+    span {
+      margin-right: 20px;
+    }
+  }
+}

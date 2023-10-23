@@ -1,0 +1,70 @@
+.content {
+  background-color: theme('colors.white');
+}
+
+.toast {
+  &-header {
+    background-color: theme('colors.surface.100');
+    padding: 20px 10px;
+
+    &-title {
+      color: theme('colors.grey.800');
+    }
+  }
+
+  &-body {
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent; /* Chrome/Safari */
+    }
+
+    &-text {
+      color: theme('colors.grey.800');
+    }
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-spacer:not(:last-child) {
+    margin-bottom: 5px;
+  }
+}
+
+.icon {
+  &-close {
+    color: theme('colors.grey.800');
+    cursor: pointer;
+  }
+
+  &-check {
+    color: theme('colors.success.400');
+  }
+
+  &-error {
+    color: theme('colors.critical.600');
+  }
+
+  &-pdf {
+    color: theme('colors.critical.600');
+  }
+}
+
+::ng-deep.mdc-snackbar__label,
+::ng-deep.mdc-snackbar__surface {
+  padding: 0;
+}
+
+::ng-deep.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  color: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}

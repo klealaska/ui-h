@@ -1,0 +1,23 @@
+.textEditor {
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Chrome/Safari */
+  }
+}
+
+.menu {
+  position: sticky;
+  z-index: 10;
+}
+
+::ng-deep {
+  .NgxEditor__Content {
+    min-height: 100px;
+  }
+}

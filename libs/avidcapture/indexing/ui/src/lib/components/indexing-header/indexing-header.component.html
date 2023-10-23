@@ -1,0 +1,140 @@
+<mat-accordion>
+  <mat-expansion-panel hideToggle [disabled]="true">
+    <mat-expansion-panel-header
+      class="header"
+      [collapsedHeight]="'5.5em'"
+      [expandedHeight]="'5.5em'"
+    >
+      <div class="header-container">
+        <div class="chevron">
+          <div>
+            <h5 class="text-color">{{customerName}}</h5>
+          </div>
+          <ng-template [ngIf]="invoiceAge !==''">
+            <span
+              class="text-span text-color"
+              [axTooltip]="tooltipText"
+              [axTooltipStyle]="'secondary'"
+              [axTooltipPosition]="'below'"
+              [axTooltipPointerPosition]="'center'"
+              >{{invoiceAge}}</span
+            >
+          </ng-template>
+
+          <span *ngIf="hasActivities" class="ml-10"
+            ><span class="link" (click)="activityLogClick()"
+              >{{'xdc.indexing.activity-log-label' | translate }}</span
+            ></span
+          >
+        </div>
+
+        <div class="buttons-container">
+          <ax-button
+            *ngIf="saveInvoiceIsActive"
+            class="mr-10"
+            [type]="'secondary'"
+            [id]="'button-save'"
+            [disabled]="isLoading || !hasChangedLabels"
+            (click)="saveDocument.emit()"
+          >
+            {{'xdc.indexing.save-label' | translate }}
+          </ax-button>
+
+          <ax-button
+            *ngIf="moreActionsIsActive && (canSwapImage || canRecycleDocument || canRejectToSender)"
+            class="mr-10"
+            [type]="'secondary'"
+            [matMenuTriggerFor]="menuMoreActions"
+            [id]="'button-more-actions'"
+            [disabled]="isLoading"
+          >
+            <mat-icon>expand_more</mat-icon>
+            {{'xdc.indexing.more-actions-label' | translate }}
+          </ax-button>
+          <mat-menu
+            #menuMoreActions="matMenu"
+            [hasBackdrop]="true"
+            [xPosition]="'after'"
+            [yPosition]="'below'"
+          >
+            <button *ngIf="canSwapImage" mat-menu-item (click)="swapDocument.emit()">
+              {{'xdc.indexing.swap-document-label' | translate }}
+            </button>
+            <button *ngIf="canRecycleDocument" mat-menu-item (click)="itemSelected(deleteDocument)">
+              {{'xdc.indexing.delete-document-label' | translate }}
+            </button>
+            <button *ngIf="canRejectToSender" mat-menu-item (click)="itemSelected(rejectToSender)">
+              {{'xdc.indexing.reject-to-sender-label' | translate }}
+            </button>
+            <button
+              *ngIf="canRejectToSender"
+              mat-menu-item
+              (click)="itemSelected(rejectToSenderCrud)"
+            >
+              {{'xdc.indexing.reject-to-sender-crud-label' | translate }}
+            </button>
+          </mat-menu>
+
+          <ax-button
+            *ngIf="canSwapImage && !moreActionsIsActive"
+            class="mr-10"
+            [type]="'secondary'"
+            [id]="'button-swap'"
+            [disabled]="isLoading"
+            (click)="swapDocument.emit()"
+          >
+            {{'xdc.indexing.swap-document-label' | translate }}
+          </ax-button>
+
+          <ax-button
+            *ngIf="markAsChoices.length > 0"
+            class="mr-10"
+            [type]="'secondary'"
+            [matMenuTriggerFor]="menu"
+            [id]="'button-mark-as'"
+            [disabled]="isLoading"
+          >
+            <mat-icon>expand_more</mat-icon>
+            {{text}}
+          </ax-button>
+          <mat-menu
+            #menu="matMenu"
+            [hasBackdrop]="true"
+            [xPosition]="'after'"
+            [yPosition]="'below'"
+          >
+            <button
+              mat-menu-item
+              *ngFor="let option of markAsChoices"
+              (click)="itemSelected(option.text)"
+            >
+              {{ option.text }}
+            </button>
+          </mat-menu>
+
+          <ax-button
+            [type]="'primary'"
+            [id]="'button-submit'"
+            [disabled]="isLoading || !formValid || isLookupLoading || !lookupFieldsValid || !canSubmit"
+            (click)="formValid && submitClick.emit()"
+          >
+            {{'xdc.indexing.submit-label' | translate }}
+          </ax-button>
+        </div>
+      </div>
+    </mat-expansion-panel-header>
+    <div class="activityLog">
+      <xdc-activity-log
+        *ngIf="fields?.length > 0"
+        [compositeData]="compositeData"
+        [isSponsorUser]="isSponsorUser"
+        [fields]="fields"
+        [utilityFields]="utilityFields"
+        [formFields]="formFields"
+        [documentType]="documentType"
+        [multipleDisplayThresholdsIsActive]="multipleDisplayThresholdsIsActive"
+        [supplierPredictionIsActive]="supplierPredictionIsActive"
+      ></xdc-activity-log>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

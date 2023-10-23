@@ -1,0 +1,45 @@
+@use '../stylings/shared-components-variables' as *;
+
+.overlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 11;
+}
+
+section.advanced-filter-form {
+  background: $white;
+  padding: 25px;
+  border-radius: 5px;
+  position: fixed;
+  top: 0;
+  right: -450px;
+  z-index: 12;
+  height: 100%;
+  width: 400px;
+  transition: right 0.35s ease-in-out;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Chrome/Safari */
+  }
+
+  &.open {
+    right: 0;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+}

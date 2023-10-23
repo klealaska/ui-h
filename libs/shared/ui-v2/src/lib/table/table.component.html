@@ -1,0 +1,86 @@
+<!-- display table on root using template outlet hack-->
+<ng-container *ngIf="!virtualScroll">
+  <ng-container [ngTemplateOutlet]="tableOutlet"></ng-container>
+</ng-container>
+
+<!-- display table wrapped inside virtual scroll viewport to enable and attach viewport -->
+<ng-container *ngIf="virtualScroll">
+  <cdk-virtual-scroll-viewport
+    [coreTableVirtualScroll]="dataSource"
+    [itemSize]="itemSize"
+    [style.height.px]="gridHeight"
+  >
+    <ng-container [ngTemplateOutlet]="tableOutlet"></ng-container>
+  </cdk-virtual-scroll-viewport>
+</ng-container>
+
+<!-- Common template to be used with and without virtual vireport -->
+<ng-template #tableOutlet>
+  <table
+    #tableRef
+    mat-table
+    class="ax-table"
+    [ngClass]="tableType"
+    [class.condensed]="size === 'condensed'"
+    [class.fixed-columns]="fixedColumns"
+    [class.sticky-table-header]="stickyHeader === true"
+    [class.border-less]="noborder"
+    [dataSource]="dataSource"
+    [multiTemplateDataRows]="true"
+    (matSortChange)="customSortFn($event)"
+    matSort
+  >
+    <!-- Column section for checkbox -->
+    <ng-container matColumnDef="select">
+      <!-- Header Cell Def -->
+      <th mat-header-cell *matHeaderCellDef>
+        <ax-checkbox
+          [noText]="true"
+          (change)="$event && toggleAll()"
+          [checked]="selectedAll"
+          [indeterminate]="indeterminate"
+        ></ax-checkbox>
+      </th>
+      <!-- Row Cell Def -->
+      <td mat-cell *matCellDef="let row">
+        <ax-checkbox
+          [noText]="true"
+          (click)="$event.stopPropagation()"
+          (change)="$event && toggle(row)"
+          [checked]="isSelected(row)"
+        ></ax-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Generate Rows and Columns when Custom Template is not given-->
+    <ng-container *ngIf="!customTemplate">
+      <ng-container *ngFor="let col of displayedColumns">
+        <ng-container *ngIf="col !== 'select'" [matColumnDef]="col">
+          <!-- Header Cell Def -->
+          <ng-container *ngIf="!allowSort">
+            <th mat-header-cell *matHeaderCellDef><span>{{col}}</span></th>
+          </ng-container>
+          <ng-container *ngIf="allowSort">
+            <th mat-header-cell *matHeaderCellDef [mat-sort-header]="col"><span>{{col}}</span></th>
+          </ng-container>
+          <!-- Row Cell Def-->
+          <td mat-cell *matCellDef="let element">{{element[col]}}</td>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+    <ng-content></ng-content>
+    <!-- Row Outlet and Row Def -->
+    <!-- sticky header for virtual viewport handled using offset and `sticky-table-header` class  -->
+    <tr
+      mat-header-row
+      *matHeaderRowDef="displayedColumns; sticky: (stickyHeader && !virtualScroll)"
+      [style.top.px]="offset | async"
+    ></tr>
+    <tr
+      mat-row
+      [ngClass]="{'row-selected': isSelected(row)}"
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="onRowClick(row)"
+    ></tr>
+  </table>
+</ng-template>

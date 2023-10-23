@@ -1,0 +1,29 @@
+.modal-container {
+  margin: 20px 0px 20px 0px;
+  width: 450px;
+  text-align: justify;
+}
+
+.button {
+  font-size: 1em;
+  height: 2.813em;
+  width: 5.313em;
+
+  &-cancel {
+    margin-left: 10px;
+  }
+
+  &-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+
+  mat-icon {
+    cursor: pointer;
+  }
+}

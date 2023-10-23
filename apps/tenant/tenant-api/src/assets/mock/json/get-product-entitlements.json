@@ -1,0 +1,48 @@
+{
+  "items_requested": 10,
+  "items_returned": 5,
+  "items_total": 5,
+  "offset": 0,
+  "items": [
+    {
+      "id": "u2foihaa61tql4k6ydii",
+      "name": "Purchase Workflow Automation",
+      "description": "Allows for the usage of Purchase Workflow Automation",
+      "status": "Active",
+      "unit_of_measure": "Purchase Orders",
+      "source_system": "Seed Script"
+    },
+    {
+      "id": "1c6q3zzkde3w1z6j95af",
+      "name": "Payment",
+      "description": "Allows for the usage of Payment",
+      "status": "Active",
+      "unit_of_measure": "Payments",
+      "source_system": "Seed Script"
+    },
+    {
+      "id": "683r2c8omr185pnfyjgz",
+      "name": "Invoice Lockbox Scanning Services",
+      "description": "Allows for the usage of Invoice Lockbox Scanning Services",
+      "status": "Active",
+      "unit_of_measure": "Scans",
+      "source_system": "Seed Script"
+    },
+    {
+      "id": "sqzzgjugjnowdv95igmy",
+      "name": "Invoice Data Capture Services",
+      "description": "Allows for the usage of Invoice Data Capture Services",
+      "status": "Active",
+      "unit_of_measure": "Data Captures",
+      "source_system": "Seed Script"
+    },
+    {
+      "id": "z1vmx2pqms4erx6doaxd",
+      "name": "Invoice AP Workflow Automation",
+      "description": "Allows for the usage of Invoice AP Workflow Automation",
+      "status": "Active",
+      "unit_of_measure": "Months",
+      "source_system": "Seed Script"
+    }
+  ]
+}

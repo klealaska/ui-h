@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-flow: column;
+
+  &__players-title {
+    font-weight: bold;
+    padding: 15px 0px;
+  }
+
+  &__player {
+    font-weight: bold;
+    display: flex;
+    padding: 10px 20px;
+  }
+
+  &__current-player {
+    padding: 15px 0px;
+  }
+
+  &__score {
+    display: flex;
+  }
+
+  &__actions {
+    display: flex;
+    flex-flow: row;
+  }
+  &__diceValue {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+  }
+}
+
+.score {
+  margin: 15px;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+
+  &__title {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+.button {
+  margin: 30px 15px;
+}
+
+.icon {
+  width: 70px;
+  height: 70px;
+}

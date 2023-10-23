@@ -1,0 +1,452 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "envAliasPascal": { // Required
+      "type": "string",
+      "allowedValues": [ "Ci", "Di", "Dm", "DM", "Dr", "Dv", "Fs", "Ft", "Nt", "Rc", "Q1", "Q2", "Q3", "St", "Ut", "Pr" ],
+      "metadata": {
+        "description": "Declare the Environment Alias in Pascal Format"
+      }
+    },
+    "macroEnvGroup": { // Required
+      "type": "string",
+      "allowedValues": [ "Dev", "Qa", "QA", "Prod", "Dr" ],
+      "metadata": {
+        "description": "Declare the Macro Environment Group name"
+      }
+    },
+    "regionCode": { // Required
+      "type": "string",
+      "allowedValues": [ "Glb", "Ae1", "Aw1" ],
+      "minLength": 3,
+      "maxLength": 3,
+      "metadata": {
+        "description": "3 Letter abbreviation identifying the deployment Azure Region"
+      }
+    },
+    "hostingPlatform": { // Optional
+      "type": "string",
+      "allowedValues": [ "windows", "linux" ],
+      "defaultValue": "windows",
+      "metadata": {
+        "description": "The OS Type of App Service Plan for the Azure App Services"
+      }
+    },
+    "aadClientId": { // Required
+      "type": "securestring",
+      "metadata": {
+        "description": "Declare the Azure Active Directory Client ID Used for Authentication"
+      }
+    },
+    "slotName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the swap slot"
+      }
+    },
+    "releaseStartDateTime": {
+      "type": "string",
+      "metadata": {
+        "description": "The Date/Time that the current Release Pipeline execution began"
+      }
+    },
+    "isBetaDeploy": {
+      "type": "bool",
+      "allowedValues": [ true, false ],
+      "defaultValue": false,
+      "metadata": {
+        "description": "Deploy Instance with Beta Naming"
+      }
+    },
+    "enableDynatrace": {
+      "type": "bool",
+      "allowedValues": [ true, false ],
+      "defaultValue": false,
+      "metadata": {
+        "description": "Deploy Instance with Dynatrace Site Extenstion"
+      }
+    },
+    "dynatraceTenant": {
+      "type": "string",
+      "metadata": {
+        "description": "The avidxchange dynatrace tenant id"
+      }
+    },
+    "dynatraceApiToken": {
+      "type": "string",
+      "metadata": {
+        "description": "The token the app needs to interact with dynatrace"
+      }
+    }
+  },
+  "variables": {
+    "tenantId": "[subscription().tenantId]", // Variable to dynamically gather the Azure AD Tenant ID
+    "identifiers": { // Variables for Application/Solution alignment
+      "capabilityDomain": "InvoiceManagement",
+      "capability": "InvoiceDataCapture",
+      "capabilityAbbreviation": "IDC",
+      "appDomainAbbreviation": "InvIndx",
+      "appDomain": "InvoiceIndexing",
+      "indexerUI": "IndexerUI"
+    },
+    "resourceNames": { // Variables for Resource Names
+      "appInsights": "[concat('AX-', parameters('regionCode'), '-', parameters('envAliasPascal'), '-', variables('identifiers').capabilityAbbreviation, '-', variables('identifiers').appDomainAbbreviation, '-INSIGHTS')]",
+      "dynatrace": "[concat('AX-', parameters('regionCode'), '-', parameters('envAliasPascal'), '-', variables('identifiers').capabilityAbbreviation, '-', variables('identifiers').appDomainAbbreviation, '-DYNATRACE')]",
+      "ase": {
+        "dev": "AvidX-Dv-Internal01-ASE",
+        "qa": "AvidX-Qa-Internal-ASE",
+        "prod": "AvidX-Pr-Internal01-ASE"
+      },
+      "aspNameList": {
+        "windows": {
+          "dv": "Ax-Ae1-Dev-DocRcog-InvIndx-Win01-ASP",
+          "ci": "Ax-Ae1-Dev-DocRcog-InvIndx-Win01-ASP",
+          "ft": "Ax-Ae1-Qa-DocRcog-InvIndx-Win01-ASP",
+          "nt": "Ax-Ae1-Qa-DocRcog-InvIndx-Win01-ASP",
+          "ut": "Ax-Ae1-Qa-DocRcog-InvIndx-Win01-ASP",
+          "st": "Ax-Ae1-Qa-DocRcog-InvIndx-Win01-ASP",
+          "pr": "Ax-Ae1-Pr-DocRcog-InvIndx-Win01-ASP",
+          "dm": "Ax-Ae1-Qa-DocRcog-InvIndx-Win01-ASP"
+        }
+      },
+      "aspResourceGroupNameList": {
+          "dv": "AvidX-DevQa-Internal-ASE-RG",
+          "ci": "AvidX-DevQa-Internal-ASE-RG",
+          "ft": "AvidX-DevQa-Internal-ASE-RG",
+          "nt": "AvidX-DevQa-Internal-ASE-RG",
+          "ut": "AvidX-DevQa-Internal-ASE-RG",
+          "st": "AvidX-DevQa-Internal-ASE-RG",
+          "pr": "AvidX-Prod-Internal-ASE-RG",
+          "dm": "AvidX-DevQa-Internal-ASE-RG"
+      },
+      "webApps": {
+        "indexerUI": "[concat('AX-', parameters('regionCode'), '-', parameters('envAliasPascal'), '-', variables('identifiers').capabilityAbbreviation, '-', variables('identifiers').appDomainAbbreviation, '-', variables('identifiers').indexerUI, '01-Web-UI')]",
+        "BetaIndexerUiName": "[concat('AX-', parameters('regionCode'), '-', parameters('envAliasPascal'), '-', variables('identifiers').capabilityAbbreviation, '-', variables('identifiers').appDomainAbbreviation, '-', variables('identifiers').indexerUI, '01-Beta-Web-UI')]"
+      }
+    },
+    "aspConfigs":{ // Configurations for AzureServicePlan
+      "aspName": "[variables('resourceNames').aspNameList[ToLower(parameters('hostingPlatform'))][ToLower(parameters('envAliasPascal'))]]",
+      "aspResourceGroup": "[variables('resourceNames').aspResourceGroupNameList[ToLower(parameters('envAliasPascal'))]]"
+    },
+    "webAppDeployName": "[if(equals(parameters('isBetaDeploy'), bool('true')) , variables('resourceNames').webApps.BetaIndexerUiName, variables('resourceNames').webApps.indexerUI)]",
+    "appInsightsConfig": { // Variables for App Insights
+      "applicationType": "web",
+      "flowType": "Redfield",
+      "requestSource": "IbizaAIExtension"
+    },
+    "appServiceConfig": { // Variables for App Services
+      "defaultDocuments": [
+        "index.html"
+      ],
+      "clientAffinityEnabled": false,
+      "netFrameworkVersion": "v4.0",
+      "phpVersion": "5.6",
+      "processAs32bit": false,
+      "alwaysOn": true,
+      "minTlsVersion": "1.2",
+      "ftpsState": "Disabled",
+      "httpsOnly": true,
+      "webSocketsEnabled": true,
+      "healthCheckPath": "/health-probe.jpg"
+    },
+    "resourceTags": { // Variables for Resource Tags
+      "Environment": "[ToUpper(parameters('envAliasPascal'))]",
+      "DevTeam": "DreamWeavers",
+      "Department": "[if(equals(ToLower(parameters('macroEnvGroup')), 'prod'), 'Technology Services', 'Software Engineering')]",
+      "CapabilityDomain": "[variables('identifiers').capabilityDomain]",
+      "Capability": "[variables('identifiers').capability]",
+      "AppDomain": "[variables('identifiers').appDomain]",
+      "SupportTeam": "[if(equals(ToLower(parameters('macroEnvGroup')), 'prod'), 'SRE - Application', 'DreamWeavers')]",
+      "IsBeta": "[parameters('isBetaDeploy')]"
+    },
+    "resourceIDs": {  // Variables for Resource IDs
+      "appServicePlan": "[resourceId(subscription().subscriptionId, variables('aspConfigs').aspResourceGroup, 'Microsoft.Web/serverfarms', variables('aspConfigs').aspName)]"
+    }
+  },
+  "resources": [
+    { // App Insights
+      "comments": "[concat('Deploy the ', variables('identifiers').capabilityAbbreviation, '-', variables('identifiers').appDomain, ' Application Insights')]",
+      "type": "Microsoft.Insights/components",
+      "name": "[variables('resourceNames').appInsights]",
+      "apiVersion": "2015-05-01",
+      "location": "[resourceGroup().location]",
+      "tags": "[variables('resourceTags')]",
+      "kind": "[variables('appInsightsConfig').applicationType]",
+      "properties": {
+        "Application_Type": "[variables('appInsightsConfig').applicationType]",
+        "Flow_Type": "[variables('appInsightsConfig').flowType]",
+        "Request_Source": "[variables('appInsightsConfig').requestSource]"
+      }
+    },
+    { // Azure Web Application - IDC IndexerUI
+      "comments": "[concat('Deploy the ', variables('webAppDeployName'), ' API Application')]",
+      "type": "Microsoft.Web/sites",
+      "name": "[variables('webAppDeployName')]",
+      "apiVersion": "2018-11-01",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[variables('resourceNames').appInsights]"
+      ],
+      "tags": "[variables('resourceTags')]",
+      "kind": "api",
+      "properties": {
+        "name": "[variables('webAppDeployName')]",
+        "serverFarmId": "[variables('resourceIDs').appServicePlan]",
+        "hostingEnvironment": "[variables('resourceNames').ase[ToLower(parameters('macroEnvGroup'))]]",
+        "clientAffinityEnabled": "[variables('appServiceConfig').clientAffinityEnabled]",
+        "httpsOnly": "[variables('appServiceConfig').httpsOnly]"
+      },
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "resources": [
+        {
+          "condition": "[equals(parameters('enableDynatrace'), bool('true'))]",
+          "apiVersion": "2020-12-01",
+          "name": "Dynatrace",
+          "type": "siteextensions",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', variables('webAppDeployName'))]"
+          ]
+        },
+        { // Azure Web Application - IDC IndexerUI - Site Config
+          "apiVersion": "2019-08-01",
+          "name": "[concat(variables('webAppDeployName'), '/web')]",
+          "type": "Microsoft.Web/sites/config",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', variables('webAppDeployName'))]"
+          ],
+          "properties": {
+            "netFrameworkVersion": "[variables('appServiceConfig').netFrameworkVersion]",
+            "phpVersion": "[variables('appServiceConfig').phpVersion]",
+            "use32BitWorkerProcess": "[variables('appServiceConfig').processAs32bit]",
+            "alwaysOn": "[variables('appServiceConfig').alwaysOn]",
+            "defaultDocuments": "[variables('appServiceConfig').defaultDocuments]",
+            "minTlsVersion": "[variables('appServiceConfig').minTlsVersion]",
+            "ftpsState": "[variables('appServiceConfig').ftpsState]",
+            "healthCheckPath": "[variables('appServiceConfig').healthCheckPath]"
+          }
+        },
+        { // Enable Slot Deployment - IDC IndexerUI
+          "apiVersion": "2018-02-01",
+          "type": "Microsoft.Web/sites/slots",
+          "name": "[concat(variables('webAppDeployName'), '/', parameters('slotName'))]",
+          "kind": "api",
+          "location": "[resourceGroup().location]",
+          "comments": "[concat('Deploy ', parameters('slotName'), 'Slot to ', variables('webAppDeployName'), ' API Application')]",
+          "tags": "[variables('resourceTags')]",
+          "properties": {
+            "serverFarmId": "[variables('resourceIDs').appServicePlan]",
+            "hostingEnvironment": "[variables('resourceNames').ase[ToLower(parameters('macroEnvGroup'))]]",
+            "clientAffinityEnabled": "[variables('appServiceConfig').clientAffinityEnabled]",
+            "httpsOnly": "[variables('appServiceConfig').httpsOnly]"
+          },
+          "identity": {
+            "type": "SystemAssigned"
+          },
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', variables('webAppDeployName'))]"
+          ],
+          "resources": [ // API Application Configuration
+            { // Site Config
+              "apiVersion": "2018-02-01",
+              "name": "web",
+              "type": "config",
+              "location": "[resourceGroup().location]",
+              "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', variables('webAppDeployName'), parameters('slotName'))]"
+              ],
+              "properties": {
+                "netFrameworkVersion": "[variables('appServiceConfig').netFrameworkVersion]",
+                "phpVersion": "[variables('appServiceConfig').phpVersion]",
+                "use32BitWorkerProcess": "[variables('appServiceConfig').processAs32bit]",
+                "alwaysOn": "[variables('appServiceConfig').alwaysOn]",
+                "defaultDocuments": "[variables('appServiceConfig').defaultDocuments]",
+                "siteAuthEnabled": false,
+                "minTlsVersion": "[variables('appServiceConfig').minTlsVersion]",
+                "ftpsState": "[variables('appServiceConfig').ftpsState]"
+              }
+            },
+            { // Azure API Application - IDC IndexerUI - API App Settings
+              "apiVersion": "2019-08-01",
+              "name": "[concat(variables('webAppDeployName'), '/appSettings')]",
+              "type": "Microsoft.Web/sites/config",
+              "location": "[resourceGroup().location]",
+              "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', variables('webAppDeployName'), parameters('slotName'))]"
+              ],
+              "properties": {
+                // Start - App Settings Section that Software Engineering CAN modify
+                "ReleaseStartDateTime": "[concat(parameters('releaseStartDateTime'))]",
+                "DT_TENANT": "[parameters('dynatraceTenant')]",
+                "DT_API_TOKEN": "[parameters('dynatraceApiToken')]",
+                // End - App Settings Section that Software Engineering CAN modify
+
+                // Start - App Settings Section that ONLY Platform Engineering can modify
+                "APPINSIGHTS_INSTRUMENTATIONKEY": "[reference(variables('resourceNames').appInsights).InstrumentationKey]",
+                "WEBSITE_NODE_DEFAULT_VERSION": "6.9.1",
+                "WEBSITE_RUN_FROM_PACKAGE": "1"
+                // End - App Settings Section that ONLY Platform Engineering can modify
+              }
+            }
+          ]
+        }
+      ]
+    },
+    { // Configuring Service Health Probe
+      "apiVersion": "2019-10-01",
+      "comments": "Nested Template to create application insights automated health probe",
+      "name": "[if(equals(parameters('isBetaDeploy'), bool('true')), 'nestedTemplateHealthProbe-xdc-beta-ui', 'nestedTemplateHealthProbe-xdc-ui')]",
+      "type": "Microsoft.Resources/deployments",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', variables('webAppDeployName'))]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "parameters": {
+          "healthProbe": {
+            "value": {
+              "probeUrl": "[concat('https://', reference(resourceId('Microsoft.Web/sites', variables('webAppDeployName')), '2020-09-01').defaultHostName,'/health-probe.jpg')]",
+              "id": "[concat(variables('webAppDeployName'), '-health-probe')]",
+              "name": "[if(equals(parameters('isBetaDeploy'), bool('true')), concat('BetaAvailability-', variables('webAppDeployName')), concat('Service Availability - ', variables('webAppDeployName')))]",
+              "timeoutInSeconds": 120,
+              "frequencyInSeconds": 300,
+              "expectedHttpStatusCode": 200,
+              "macroEnvGroup": "[parameters('macroEnvGroup')]",
+              "location": "[resourceGroup().location]",
+              "actionGroupName": "IdcMonitor",
+              "actionGroupId": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/microsoft.insights/actionGroups/IdcMonitor')]",
+              "resourceId": "[resourceId('Microsoft.Insights/components', variables('resourceNames').appInsights)]"
+            }
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "healthProbe": {
+              "type": "object"
+            }
+          },
+          "variables": {
+            "id": "[parameters('healthProbe').id]",
+            "name": "[parameters('healthProbe').name]",
+            "location": "[parameters('healthProbe').location]",
+            "probeUrl": "[parameters('healthProbe').probeUrl]",
+            "timeoutInSeconds": "[parameters('healthProbe').timeoutInSeconds]",
+            "frequencyInSeconds": "[parameters('healthProbe').frequencyInSeconds]",
+            "resourceId": "[parameters('healthProbe').resourceId]",
+            "actionGroupName": "[parameters('healthProbe').actionGroupName]",
+            "actionGroupId": "[parameters('healthProbe').actionGroupId]",
+            "macroEnvGroup": "[parameters('healthProbe').macroEnvGroup]",
+            "expectedHttpStatusCode": "[parameters('healthProbe').expectedHttpStatusCode]",
+            "webtestFormat": [
+              "<WebTest xmlns='http://microsoft.com/schemas/VisualStudio/TeamTest/2010' PreAuthenticate='True' Proxy='default' StopOnError='False' ",
+              "Timeout='{1}' Name='Health Probe' Id='02c1dd91-04b9-4f08-9f9d-027f17691ea7' Enabled='True'> ",
+              "  <Items>",
+              "    <Request Method='GET' Guid='a099fcfa-6a43-61a7-d7a2-d2901a4ab989' Version='1.1' Url='{0}' ",
+              "      ThinkTime='0' Timeout='{1}' ParseDependentRequests='False' FollowRedirects='True' RecordResult='True' Cache='False' ResponseTimeGoal='0' ",
+              "      Encoding='utf-8' ExpectedHttpStatusCode='{2}' IgnoreHttpStatusCode='False' /> ",
+              "  </Items>",
+              "</WebTest>"
+            ],
+            "webTestString": "[replace(replace(replace(replace(replace(string(variables('webtestFormat')),'\"', ''), '[', ''), ']', ''), ',', ''), '''', '\"')]",
+            "webtestXml": "[format(concat(variables('webTestString')), variables('probeUrl'), variables('timeoutInSeconds'), variables('expectedHttpStatusCode'))]"
+          },
+          "resources": [
+            {
+              "type": "microsoft.insights/webtests",
+              "apiVersion": "2015-05-01",
+              "name": "[variables('id')]",
+              "location": "[variables('location')]",
+              "tags": {
+                "[concat('hidden-link:', variables('resourceId'))]": "Resource"
+              },
+              "properties": {
+                "SyntheticMonitorId": "[variables('id')]",
+                "Name": "[variables('name')]",
+                "Enabled": "[if(equals(ToLower(variables('macroEnvGroup')), 'prod'), bool('true'), bool('false'))]",
+                "Frequency": "[variables('frequencyInSeconds')]",
+                "Timeout": "[variables('timeoutInSeconds')]",
+                "Kind": "ping",
+                "RetryEnabled": true,
+                "Locations": [
+                  { "Id": "us-ca-sjc-azr" },
+                  { "Id": "us-tx-sn1-azr" },
+                  { "Id": "us-il-ch1-azr" },
+                  { "Id": "us-va-ash-azr" }
+                ],
+                "Configuration": {
+                  "WebTest": "[variables('webtestXml')]"
+                }
+              }
+            },
+            {
+              "type": "Microsoft.Insights/actionGroups",
+              "apiVersion": "2019-03-01",
+              "name": "[variables('actionGroupName')]",
+              "location": "Global",
+              "properties": {
+                "groupShortName": "[variables('actionGroupName')]",
+                "enabled": true,
+                "smsReceivers": [],
+                // DEFINE RECEIVERS AND RECEIVER TYPES HERE
+                "emailReceivers": [
+                  {
+                    "name": "DocRecog",
+                    "emailAddress": "rudr@avidxchange.com",
+                    "useCommonAlertSchema": "true"
+                  }
+                ],
+                "webhookReceivers": []
+              }
+            },
+            {
+              "name": "[concat('Alert -', variables('name'))]",
+              "type": "Microsoft.Insights/metricAlerts",
+              "apiVersion": "2018-03-01",
+              "location": "global",
+              "properties": {
+                "description": "Alert for web test",
+                "severity": 0,
+                "enabled": "[if(equals(ToLower(variables('macroEnvGroup')), 'prod'), bool('true'), bool('false'))]",
+                "scopes": [
+                  "[variables('resourceId')]",
+                  "[resourceId('Microsoft.Insights/webtests',variables('id'))]"
+                ],
+                "evaluationFrequency": "PT1M",
+                "windowSize": "PT5M",
+                "criteria": {
+                  "odata.type": "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
+                  "webTestId": "[resourceId('Microsoft.Insights/webtests',variables('id'))]",
+                  "componentId": "[variables('resourceId')]",
+                  "failedLocationCount": 2
+                },
+                "actions": [
+                  {
+                    "actionGroupId": "[variables('actionGroupId')]"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    } // end IDC IndexerUI
+  ],
+  "outputs": {
+    "appInsightsName": {
+      "type": "string",
+      "value": "[variables('resourceNames').appInsights]"
+    },
+    "appInsightsKey": {
+      "type": "string",
+      "value": "[reference(variables('resourceNames').appInsights).InstrumentationKey]"
+    }
+  }
+}

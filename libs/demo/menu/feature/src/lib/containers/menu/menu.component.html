@@ -1,0 +1,61 @@
+<div *ngIf="(isGameLoaded$ | async) === false">
+  <div class="btnContainer" *ngIf="!showCreateView && ! showJoinView">
+    <ax-button
+      [type]="'secondary'"
+      [fixed]="true"
+      class="mr-4"
+      (click)="showCreateView = !showCreateView"
+      >Create Game</ax-button
+    >
+    <ax-button [type]="'secondary'" [fixed]="true" (click)="showJoinView = !showJoinView"
+      >Join Game</ax-button
+    >
+  </div>
+  <div class="component_container">
+    <div *ngIf="showCreateView || showJoinView">
+      <ax-button
+        class="mt-[10px] mr-[10px] float-right"
+        [type]="'secondary'"
+        [fixed]="true"
+        (click)="backBtn()"
+        >Back</ax-button
+      >
+    </div>
+    <div class="createContainer">
+      <demo-create-game
+        *ngIf="showCreateView"
+        [createGameForm]="createGameForm"
+        (createGameEvent)="createGame()"
+      ></demo-create-game>
+    </div>
+    <div class="joinContainer">
+      <demo-join-game
+        *ngIf="showJoinView"
+        [joinGameForm]="joinGameForm"
+        [dataSource]="dataSource"
+        [tableDef]="tableDef"
+        (joinGameEvent)="joinGame()"
+        (getGamesEvent)="getGames()"
+        (tableSelect)="tableSelectEvent($event)"
+      ></demo-join-game>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isGameLoaded$ | async">
+  <demo-lobby
+    [currentGame$]="currentGame$"
+    [currentPlayer$]="currentPlayer$"
+    (exitLobbyEvent)="exitLobby()"
+    (startGameEvent)="startGame()"
+  ></demo-lobby>
+
+  <demo-chatbox
+    [expanded]="chatExpanded"
+    [currentPlayer$]="currentPlayer$"
+    [currentGame$]="currentGame$"
+    [sendMessageForm]="sendMessageForm"
+    (collapseChatEvent)="chatExpanded = !chatExpanded"
+    (sendChatMessageEvent)="sendChatMessage()"
+  ></demo-chatbox>
+</div>

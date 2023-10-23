@@ -1,0 +1,29 @@
+<div class="page-title" [ngClass]="lightThemeIsActive ? 'light' : ''">
+  <a [ngStyle]="{ cursor: canClickTitle ? 'pointer' : 'default' }" (click)="onTitleClick()">
+    <ax-image
+      [image]="image"
+      [height]="imageHeight"
+      [width]="imageWidth"
+      (onClick)="onTitleClick()"
+    ></ax-image>
+    <ax-label
+      *ngIf="avidPartner === 'avid'"
+      [bold]="false"
+      [size]="'md'"
+      [text]="text"
+      [textColor]="'white'"
+      [hasPointer]="canClickTitle"
+      [uppercase]="false"
+    ></ax-label>
+    <ax-label
+      *ngIf="isBeta"
+      ngClass="beta-label"
+      [bold]="true"
+      [size]="'xs'"
+      [text]="'Beta'"
+      [textColor]="'white'"
+      [hasPointer]="canClickTitle"
+      [uppercase]="false"
+    ></ax-label>
+  </a>
+</div>

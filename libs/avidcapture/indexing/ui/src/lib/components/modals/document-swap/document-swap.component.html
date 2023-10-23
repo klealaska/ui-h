@@ -1,0 +1,13 @@
+<div class="modal-body">
+  <div class="modal-header">
+    <h5>{{'xdc.indexing.swap-document-label' | translate }}</h5>
+    <mat-icon [id]="'swap-document-close'" class="icon" (click)="close()">close</mat-icon>
+  </div>
+
+  <ax-dropzone
+    [content]="content"
+    [supportedFileTypes]="'.pdf'"
+    [maxFileSize]="'10MB'"
+    (fileEvent)="fileUploaded($event)"
+  ></ax-dropzone>
+</div>

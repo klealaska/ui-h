@@ -1,0 +1,8 @@
+<div class="ax-avatar" [ngClass]="size">
+  <ng-container *ngIf="img; else textTmpl">
+    <img [attr.src]="img" alt="avatar" />
+  </ng-container>
+  <ng-template #textTmpl>
+    <div *ngIf="initials" class="text">{{ initials }}</div>
+  </ng-template>
+</div>

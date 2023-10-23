@@ -1,0 +1,344 @@
+{
+  "rejectedFileSizeScenario": {
+    "rejectedFiles": [
+      {
+        "lastModified": 1612930326247,
+        "name": "bigger_picture.jpg",
+        "reason": "size",
+        "size": 24117248,
+        "type": "image/jpeg"
+      }
+    ],
+    "addedFiles": []
+  },
+  "rejectedFileTypeScenario": {
+    "rejectedFiles": [
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "reason": "type",
+        "size": 14117248,
+        "type": "application/json"
+      }
+    ],
+    "addedFiles": []
+  },
+  "rejectedFileSize_TypeScenario": {
+    "rejectedFiles": [
+      {
+        "lastModified": 1612930326247,
+        "name": "bigger_picture.jpg",
+        "reason": "size",
+        "size": 24117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "reason": "type",
+        "size": 14117248,
+        "type": "application/json"
+      }
+    ],
+    "addedFiles": []
+  },
+  "addedFileScenario": {
+    "rejectedFiles": [],
+    "addedFiles": [
+      {
+        "lastModified": 1612930326247,
+        "name": "picture.jpg",
+        "size": 10117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 14117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 14117248,
+        "type": "image/jpeg",
+        "id": "443uybmkbzebhpvke5b2"
+      }
+    ]
+  },
+  "addedFileNoSizeScenario": {
+    "rejectedFiles": [],
+    "addedFiles": [
+      {
+        "lastModified": 1612930326247,
+        "name": "picture.jpg",
+        "size": 0,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 0,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 0,
+        "type": "image/jpeg",
+        "id": "443uybmkbzebhpvke5b2"
+      }
+    ]
+  },
+  "addedFileForDeleteScenario": {
+    "rejectedFiles": [],
+    "addedFiles": [
+      {
+        "lastModified": 1612930326247,
+        "name": "picture.jpg",
+        "size": 10117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 14117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 14117248,
+        "type": "image/jpeg",
+        "id": "443uybmkbzebhpvke5b2"
+      }
+    ]
+  },
+  "twoFilesScenario": {
+    "rejectedFiles": [],
+    "addedFiles": [
+      {
+        "lastModified": 1612930326247,
+        "name": "picture.jpg",
+        "size": 10117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 14117248,
+        "type": "image/jpeg",
+        "id": "443uybmkbzebhpvke5b2"
+      }
+    ]
+  },
+  "duplicateFileNameScenario": {
+    "rejectedFiles": [],
+    "addedFiles": [
+      {
+        "lastModified": 1612930326247,
+        "name": "picture.jpg",
+        "size": 10117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "anotherpicture.jpg",
+        "size": 117248,
+        "type": "image/jpeg",
+        "id": "443uybmkbzebhpvke5b2"
+      }
+    ],
+    "previouslyUploadedFiles": [
+      {
+        "lastModified": 1612930326247,
+        "name": "picture.jpg",
+        "size": 10117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "anotherpicture.jpg",
+        "size": 117248,
+        "type": "image/jpeg",
+        "id": "443uybmkbzebhpvke5b2"
+      }
+    ]
+  },
+  "moreThanFiveFilesScenario": {
+    "rejectedFiles": [],
+    "addedFiles": [
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 14117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 14117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 14117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 14117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 14117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 14117248,
+        "type": "image/jpeg"
+      }
+    ]
+  },
+  "FileTypes": {
+    "rejectedFiles": [],
+    "addedFiles": [
+      {
+        "lastModified": 1612930326247,
+        "name": "picture.jpg",
+        "size": 10117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 14117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "picture_png.png",
+        "size": 10117248,
+        "type": "image/png"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "picture_svg.svg",
+        "size": 10117248,
+        "type": "image/svg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "application_pdf.pdf",
+        "size": 10117248,
+        "type": "application/pdf"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "word.doc",
+        "size": 10117248,
+        "type": "application/msword"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "excel.xls",
+        "size": 10117248,
+        "type": "application/vnd.ms-excel"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "power_point.ppt",
+        "size": 10117248,
+        "type": "application/vnd.ms-powerpoint"
+      }
+    ]
+  },
+  "response": {
+    "id": "443uybmkbzebhpvke5002",
+    "message": "Successfully created an attachment"
+  },
+  "downloadResponseImage": {
+    "size": 77133,
+    "type": "image/png"
+  },
+  "downloadResponseXls": {
+    "size": 77133,
+    "type": "application/vnd.ms-excel"
+  },
+  "retrieveFiles": {
+    "response": [
+      {
+        "file_name": "big_picture.jpg",
+        "mime_type": "image/jpeg",
+        "id": "12j3x4wgf5vsydd0lxuw",
+        "last_modified_date": "2021-03-18T03:31:07Z",
+        "file_uploaded": false,
+        "created_date": "2021-03-18T03:31:07Z",
+        "created_by_user_id": "sbt3ktmttkruvzf1haeu",
+        "last_modified_by_user_id": "sbt3ktmttkruvzf1haeu"
+      },
+      {
+        "file_name": "code2.png",
+        "mime_type": "image/png",
+        "id": "y1tn99njie53bap1jb5v",
+        "last_modified_date": "2021-03-18T03:47:53Z",
+        "file_uploaded": true,
+        "created_date": "2021-03-18T03:47:52Z",
+        "created_by_user_id": "sbt3ktmttkruvzf1haeu",
+        "last_modified_by_user_id": "sbt3ktmttkruvzf1haeu"
+      },
+      {
+        "file_name": "code1.png",
+        "mime_type": "image/png",
+        "id": "ryayf76h1tta7br67dnl",
+        "last_modified_date": "2021-03-18T04:51:31Z",
+        "file_uploaded": true,
+        "created_date": "2021-03-18T04:51:29Z",
+        "created_by_user_id": "sbt3ktmttkruvzf1haeu",
+        "last_modified_by_user_id": "sbt3ktmttkruvzf1haeu"
+      },
+      {
+        "file_name": "Book1.xls",
+        "mime_type": "application/vnd.ms-excel",
+        "id": "rtdofze9fhk4luthbcwy",
+        "last_modified_date": "2021-03-19T21:12:03Z",
+        "file_uploaded": true,
+        "created_date": "2021-03-19T21:12:02Z",
+        "created_by_user_id": "sbt3ktmttkruvzf1haeu",
+        "last_modified_by_user_id": "sbt3ktmttkruvzf1haeu"
+      }
+    ],
+    "formatedFiles": [
+      {
+        "name": "big_picture.jpg",
+        "type": "image/jpeg",
+        "id": "12j3x4wgf5vsydd0lxuw",
+        "isUploading": false
+      },
+      {
+        "name": "code2.png",
+        "type": "image/png",
+        "id": "y1tn99njie53bap1jb5v",
+        "isUploading": false
+      },
+      {
+        "name": "code1.png",
+        "type": "image/png",
+        "id": "ryayf76h1tta7br67dnl",
+        "isUploading": false
+      },
+      {
+        "name": "Book1.xls",
+        "type": "application/vnd.ms-excel",
+        "id": "rtdofze9fhk4luthbcwy",
+        "isUploading": false
+      }
+    ]
+  }
+}

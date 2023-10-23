@@ -1,0 +1,24 @@
+<div [ngClass]="data?.type" class="toast-container">
+  <div>
+    <mat-icon [ngClass]="data?.type" *ngIf="data?.icon" class="toast-container__icon"
+      >{{ data?.icon }}</mat-icon
+    >
+  </div>
+  <span class="toast-container__title" *ngIf="data?.title">{{ data?.title }}</span>
+  <span class="toast-container__message{{ data?.title ? '' : '-center'}}"
+    >{{ data?.message | slice:0:250 }}</span
+  >
+  <a
+    *ngIf="data?.action?.link"
+    href="{{data?.action?.link}}"
+    target="_blank"
+    id="action"
+    class="toast-container__action"
+    >{{ data?.action?.text }}</a
+  >
+  <div *ngIf="data?.close">
+    <mat-icon id="close" class="toast-container__close" (click)="snackBarRef.dismiss()"
+      >close</mat-icon
+    >
+  </div>
+</div>

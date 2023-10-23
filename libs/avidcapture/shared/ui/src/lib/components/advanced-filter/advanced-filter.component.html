@@ -1,0 +1,167 @@
+<ax-side-sheet-v2 [opened]="showFilters" (closeEvent)="panelClosed()">
+  <div sideSheetHeader>
+    <h5>Filter</h5>
+  </div>
+
+  <div sideSheetContent>
+    <form class="ax-form-field-wrapper" [formGroup]="advancedFilterForm">
+      <ax-input
+        class="mb-10"
+        data-cy="filter-supplier-input"
+        [control]="advancedFilterForm?.get('supplier')"
+        [label]="'xdc.shared.supplier-label' | translate"
+        [inputType]="'text'"
+        [rightIcon]="advancedFilterForm?.get('supplier').value ? ('xdc.shared.close-label' | translate) : ''"
+        [rightIconButton]="advancedFilterForm?.get('supplier').value"
+        (rightIconButtonEvent)="advancedFilterForm.get('supplier').reset()"
+      ></ax-input>
+
+      <ax-input
+        class="mb-10"
+        data-cy="filter-shipto-input"
+        [control]="advancedFilterForm?.get('shipToName')"
+        [label]="'xdc.shared.ship-label' | translate"
+        [inputType]="'text'"
+        [rightIcon]="advancedFilterForm?.get('shipToName').value ? ('xdc.shared.close-label' | translate) : ''"
+        [rightIconButton]="advancedFilterForm?.get('shipToName').value"
+        (rightIconButtonEvent)="advancedFilterForm.get('shipToName').reset()"
+      ></ax-input>
+
+      <ax-input
+        class="mb-10"
+        data-cy="filter-invoicenumber-input"
+        [control]="advancedFilterForm?.get('invoiceNumber')"
+        [label]="'xdc.shared.invoice-number-label' | translate"
+        [inputType]="'text'"
+        [rightIcon]="advancedFilterForm?.get('invoiceNumber').value ? ('xdc.shared.close-label' | translate) : ''"
+        [rightIconButton]="advancedFilterForm?.get('invoiceNumber').value"
+        (rightIconButtonEvent)="advancedFilterForm.get('invoiceNumber').reset()"
+      ></ax-input>
+
+      <ax-input
+        *ngIf="!isArchivePage"
+        class="mb-10"
+        data-cy="filter-senderemail-input"
+        [control]="advancedFilterForm?.get('sourceEmail')"
+        [label]="'xdc.shared.sender-email-label' | translate"
+        [inputType]="'text'"
+        [rightIcon]="advancedFilterForm?.get('sourceEmail').value ? ('xdc.shared.close-label' | translate) : ''"
+        [rightIconButton]="advancedFilterForm?.get('sourceEmail').value"
+        (rightIconButtonEvent)="advancedFilterForm.get('sourceEmail').reset()"
+      ></ax-input>
+
+      <ax-input
+        class="mb-10"
+        data-cy="filter-filename-input"
+        [control]="advancedFilterForm?.get('fileName')"
+        [label]="'xdc.shared.file-name-label' | translate"
+        [inputType]="'text'"
+        [rightIcon]="advancedFilterForm?.get('fileName').value ? ('xdc.shared.close-label' | translate) : ''"
+        [rightIconButton]="advancedFilterForm?.get('fileName').value"
+        (rightIconButtonEvent)="advancedFilterForm.get('fileName').reset()"
+      ></ax-input>
+
+      <div class="ax-input__header">
+        <mat-label class="ax-input__header-label">{{dateFieldText}}</mat-label>
+      </div>
+      <mat-form-field class="ax-form-field mb-10">
+        <mat-date-range-input [rangePicker]="picker" [min]="minDateForFilter">
+          <input
+            class="ax-datepicker-input"
+            formControlName="startDate"
+            matStartDate
+            placeholder="From"
+          />
+          <input
+            class="ax-datepicker-input"
+            formControlName="endDate"
+            matEndDate
+            placeholder="To"
+          />
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker" class="ax-datepicker-toggle">
+          <mat-icon matDatepickerToggleIcon class="ax-datepicker-icon">calendar_today</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker-toggle
+          *ngIf="advancedFilterForm.get('startDate').value || advancedFilterForm.get('endDate').value"
+          matSuffix
+          (click)="resetDateRange()"
+        >
+          <mat-icon matDatepickerToggleIcon>{{'xdc.shared.clear-label' | translate }}</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-date-range-picker
+          #picker
+          [panelClass]="'ax-datepicker-panel'"
+          (closed)="closedUploadPicker()"
+        ></mat-date-range-picker>
+      </mat-form-field>
+
+      <ng-template [ngIf]="showSubmittedDateFilter">
+        <div class="ax-input__header">
+          <mat-label class="ax-input__header-label"
+            >{{'xdc.shared.submitted-date-label' | translate}}</mat-label
+          >
+        </div>
+        <mat-form-field class="ax-form-field mb-10">
+          <mat-date-range-input [rangePicker]="picker" [min]="minDateForFilter">
+            <input
+              class="ax-datepicker-input"
+              formControlName="submittedStartDate"
+              matStartDate
+              placeholder="From"
+            />
+            <input
+              class="ax-datepicker-input"
+              formControlName="submittedEndDate"
+              matEndDate
+              placeholder="To"
+            />
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker" class="ax-datepicker-toggle">
+            <mat-icon matDatepickerToggleIcon class="ax-datepicker-icon">calendar_today</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker-toggle
+            *ngIf="advancedFilterForm.get('submittedStartDate').value || advancedFilterForm.get('submittedEndDate').value"
+            matSuffix
+            (click)="resetSubmittedDateRange()"
+          >
+            <mat-icon matDatepickerToggleIcon>{{'xdc.shared.clear-label' | translate }}</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-date-range-picker
+            #picker
+            [panelClass]="'ax-datepicker-panel'"
+            (closed)="closedSubmittedPicker()"
+          ></mat-date-range-picker>
+        </mat-form-field>
+      </ng-template>
+
+      <ax-dropdown
+        *ngIf="showExceptionTypeFilter && escalationCategories.length > 0"
+        data-cy="exception-type-list"
+        [control]="advancedFilterForm?.get('escalationCategoryIssue')"
+        [label]="'xdc.shared.exception-type-label' | translate"
+        [options]="escalationCategories"
+        [multiple]="true"
+      ></ax-dropdown>
+    </form>
+  </div>
+
+  <div class="buttons-container" sideSheetFooter>
+    <ax-button
+      class="full-width mb-10"
+      [type]="'secondary'"
+      (click)="reset()"
+      data-cy="filter-reset-button"
+    >
+      {{'xdc.shared.reset-label' | translate }}
+    </ax-button>
+    <ax-button
+      class="full-width"
+      [type]="'primary'"
+      (click)="submit()"
+      data-cy="filter-apply-button"
+    >
+      {{'xdc.shared.apply-label' | translate }}
+    </ax-button>
+  </div>
+</ax-side-sheet-v2>

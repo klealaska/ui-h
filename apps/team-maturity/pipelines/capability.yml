@@ -1,0 +1,53 @@
+trigger: none
+
+#####################################
+# Use app specific variable template
+#####################################
+variables:
+  - template: './variables/common.yml'
+
+#####################################
+#      DO NOT EDIT BELOW HERE       #
+#####################################
+# Location to reference a container, where the stages will be run
+resources:
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+
+pool:
+  name: $(agentPool)
+
+# Calling the subscription-stage-template.yml file, and passing it variables established above, for each individual environment
+stages:
+  - template: '../../../tools/pipelines/templates/subscription-stage-template.yml'
+    parameters:
+      tfDirectory: $(System.DefaultWorkingDirectory)/tools/iac/capability
+      stages:
+        - stage:
+          name: NonProd
+          dependsOn: ''
+          azureSubscription: $(nonProdSubscriptionId)
+          serviceConnection: $(nonProdServiceConnection)
+          varFile: '../../../apps/team-maturity/iac/variables/east/vars-nonprod.tfvars'
+        - stage:
+          name: NonProdWest
+          dependsOn: ''
+          azureSubscription: $(nonProdSubscriptionId)
+          serviceConnection: $(nonProdServiceConnection)
+          varFile: '../../../apps/team-maturity/iac/variables/west/vars-nonprod.tfvars'
+
+        - stage:
+          name: Prod
+          dependsOn: 'NonProd'
+          azureSubscription: $(prodSubscriptionId)
+          serviceConnection: $(prodServiceConnection)
+          varFile: '../../../apps/team-maturity/iac/variables/east/vars-prod.tfvars'
+        - stage:
+          name: ProdWest
+          dependsOn: 'NonProdWest'
+          azureSubscription: $(prodSubscriptionId)
+          serviceConnection: $(prodServiceConnection)
+          varFile: '../../../apps/team-maturity/iac/variables/west/vars-prod.tfvars'

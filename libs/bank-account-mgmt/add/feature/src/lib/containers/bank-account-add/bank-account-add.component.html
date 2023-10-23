@@ -1,0 +1,34 @@
+<ax-side-sheet-v2 [opened]="true" [backdrop]="true" (closeEvent)="handleSidePanelClose()">
+  <div sideSheetHeader>{{(content$ | async)?.bankAccountAddHeader}}</div>
+  <ax-add-form
+    sideSheetContent
+    [addAccountFormGroup]="addAccountForm"
+    [content]="content$ | async"
+    [loading]="(loading$ | async)"
+    [tooltipConfig]="(tooltipConfig$ | async)"
+  ></ax-add-form>
+
+  <div sideSheetFooter class="flex flex-col">
+    <ax-button
+      id="addAccountBackBtn"
+      mat-button
+      class="w-full mb-4"
+      type="secondary"
+      (click)="handleSidePanelClose()"
+    >
+      {{(content$ | async).cancelBtnLabel}}
+    </ax-button>
+    <ax-button
+      id="addAccountSubmitBtn"
+      class="w-full"
+      [disabled]="!addAccountForm.valid || (loading$ | async)"
+      (click)="onSubmit(addAccountForm.value)"
+    >
+      <ax-spinner *ngIf="loading$ | async" color="default" size="sm"></ax-spinner>
+      <span *ngIf="(loading$ | async) === false">{{(content$ | async)?.addBtnLabel}}</span>
+    </ax-button>
+  </div>
+</ax-side-sheet-v2>
+<ng-template #skeleton>
+  <ax-bank-account-add-skeleton></ax-bank-account-add-skeleton>
+</ng-template>

@@ -1,0 +1,31 @@
+{
+    "count": 2,
+    "records": [
+        {
+            "propertyAddressID": 545600,
+            "propertyId": 50834279,
+            "propertyName": "102 Franklin",
+            "alias": "102",
+            "line1": "102 Franklin St",
+            "line2": "Apt B",
+            "city": "Charlotte",
+            "state": "NC",
+            "postalCode": "28214",
+            "propertyCode": "102F",
+            "accountingSystemID": 5947
+        },
+        {
+            "propertyAddressID": 445277,
+            "propertyId": 50834279,
+            "propertyName": "102 Franklin",
+            "alias": "102F",
+            "line1": "No Address Provided",
+            "line2": "",
+            "city": "City",
+            "state": "SA",
+            "postalCode": "12345",
+            "propertyCode": "102F",
+            "accountingSystemID": 5947
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+<div *ngIf="displayedColumns">
+  <ax-table
+    [displayedColumns]="displayedColumns"
+    [dataSource]="dataSource"
+    [size]="size"
+    [allowSort]="true"
+    [customTemplate]="true"
+    [fixedColumns]="true"
+    [stickyHeader]="true"
+    [virtualScroll]="true"
+    [gridHeight]="gridHeight"
+    matSort
+    data-cy="usr-mgmt-table"
+  >
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="fullName">Name</th>
+      <td mat-cell *matCellDef="let row">
+        <ax-avatar
+          size="sm"
+          [name]="{ first: row.firstName[0], last: row.lastName[0] }"
+        ></ax-avatar>
+        &nbsp;
+        <span>{{ row.fullName }}</span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="email">Email</th>
+      <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="status">Status</th>
+      <td mat-cell *matCellDef="let row">
+        <ax-tag
+          [size]="'sm'"
+          [type]="getStatusType(row.status)"
+          [style]="'border'"
+          [text]="row.status | uppercase"
+          [axTooltip]="getToolTip(row.status)"
+          [axTooltipStyle]="tooltipStyle"
+          [axTooltipPosition]="tooltipPosition"
+          [axTooltipPointerPosition]="tooltipPointerPosition"
+        ></ax-tag>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="role" class="w-24"></th>
+      <td mat-cell *matCellDef="let row">
+        <menu [menuList]="getMenuList(row.status)" (menuClick)="menuClicked($event, row)"></menu>
+      </td>
+    </ng-container>
+  </ax-table>
+</div>

@@ -1,0 +1,55 @@
+.autocomplete-wrapper {
+  width: 100%;
+  color: theme('colors.interactive.700');
+
+  ::placeholder {
+    font-family: theme('fontFamily.interRegular');
+    font-style: italic;
+    color: theme('colors.grey.500');
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  .chip {
+    background-color: theme('colors.interactive.700');
+  }
+
+  .icon {
+    &-close {
+      color: white;
+      opacity: 1;
+
+      &-wrapper {
+        width: 1.25em;
+        height: 1.25em;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.4);
+        margin-left: 0.313em;
+      }
+    }
+    &-search {
+      color: rgba(64, 64, 65, 0.7);
+      margin-right: 0.2em;
+    }
+  }
+}
+
+.ax-input__header {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin-bottom: 4px;
+
+  &-label {
+    color: theme('colors.grey.800');
+    font-family: theme('fontFamily.interSemibold');
+    font-size: 14px;
+    line-height: 16px;
+    height: 16px;
+  }
+}
+
+.mat-mdc-standard-chip {
+  --mdc-chip-label-text-color: white;
+}

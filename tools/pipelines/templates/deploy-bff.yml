@@ -1,0 +1,203 @@
+parameters:
+  functionAppEnabled: false
+  functionAppPath: ''
+
+stages:
+  - stage: ${{ parameters.environment }}
+    displayName: Deploy to ${{ parameters.environment }}
+    condition: ${{ parameters.stageCondition }}
+    dependsOn: ${{ parameters.dependsOn }}
+    variables:
+      - template: '../../../apps/${{ parameters.varPath }}/${{ lower(parameters.environment) }}.yml'
+    jobs:
+      - deployment: Deploy_BFF
+        environment: ${{ parameters.gate }}
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: none
+                - checkout: self
+
+                - task: DownloadPipelineArtifact@2
+                  name: DownloadArtifact
+                  inputs:
+                    buildType: 'specific'
+                    project: 'User Interface Center of Excellence'
+                    pipeline: ui-coe-ci-tagged
+                    preferTriggeringPipeline: true
+                    artifactName: AffectedApps
+                    buildVersionToDownload: 'latestFromBranch'
+                    branchName: $(Build.SourceBranch)
+                    tags: ${{ parameters.appTag }}
+                    patterns: AffectedApps/apps/${{ parameters.appPath }}/**/*
+                    targetPath: '$(Pipeline.Workspace)'
+
+                - script: cp $(System.DefaultWorkingDirectory)/apps/${{ parameters.appPath }}/.env.${{ parameters.environment}} $(Pipeline.Workspace)/apps/${{ parameters.appPath }}/.env
+                  displayName: Copy ENV File
+
+                - task: Docker@2
+                  displayName: buildAndPush
+                  inputs:
+                    containerRegistry: ${{ parameters.containerRegistry }}
+                    repository: ${{ parameters.registryRepoName }}
+                    Dockerfile: '$(System.DefaultWorkingDirectory)/apps/${{ parameters.appPath }}/Dockerfile'
+                    buildContext: '$(Pipeline.Workspace)'
+                    tags: ${{ parameters.environment }}-$(DownloadArtifact.BuildNumber)
+
+                - bash: sleep 30
+                  displayName: 'Sleep'
+
+                - task: AzureCLI@1
+                  displayName: Update Container App Revision Region 1
+                  continueOnError: true
+                  inputs:
+                    azureSubscription: ${{ parameters.serviceConnection }}
+                    scriptLocation: inlineScript
+                    inlineScript: |
+                      az extension add -n containerapp
+                      az containerapp update \
+                      --name ${{ parameters.appTag }}-${{ parameters.environment }} \
+                      --resource-group $(resourceGroupEast) \
+                      --image ${{ parameters.imageName }}:${{ parameters.environment }}-$(DownloadArtifact.BuildNumber)
+
+                - bash: sleep 30
+                  displayName: 'Sleep'
+
+                - task: AzureCLI@1
+                  displayName: 'Verify Container Image Revision - Region 1'
+                  inputs:
+                    azureSubscription: ${{ parameters.serviceConnection }}
+                    scriptLocation: inlineScript
+                    inlineScript: |
+                      az extension add -n containerapp
+                      imageTag="$(DownloadArtifact.BuildNumber)"
+                      # Retrieve the latest revision's image name
+                      revisions=$(az containerapp revision list \
+                        --name ${{ parameters.appTag }}-${{ parameters.environment }} \
+                        --resource-group $(resourceGroupEast))
+                      echo "Revisions: $revisions"
+                      latestImageName=$(az containerapp revision list \
+                        --name ${{ parameters.appTag }}-${{ parameters.environment }} \
+                        --resource-group $(resourceGroupEast) \
+                        -o tsv --query '[0].properties.template.containers[0].image')
+                      echo "Image in Revision: $latestImageName"
+                      # Extract the last 6 characters from the image name
+                      revisionBuildNumber=${latestImageName: -6}
+                      # Verify if the last 6 characters of the image match the build number
+                      if [[ "$revisionBuildNumber" != "$imageTag" ]]; then
+                        echo "##vso[task.logissue type=error]Image name verification failed. Expected build: $imageTag, Found: $revisionBuildNumber"
+                        exit 1
+                      fi
+
+                - bash: sleep 30
+                  displayName: 'Sleep'
+
+                - task: AzureCLI@1
+                  displayName: Update Container App Revision Region 2
+                  continueOnError: true
+                  inputs:
+                    azureSubscription: ${{ parameters.serviceConnection }}
+                    scriptLocation: inlineScript
+                    inlineScript: |
+                      az extension add -n containerapp
+                      az containerapp update \
+                      --name ${{ parameters.appTag }}-${{ parameters.environment }} \
+                      --resource-group $(resourceGroupWest) \
+                      --image ${{ parameters.imageName }}:${{ parameters.environment }}-$(DownloadArtifact.BuildNumber)
+                
+                - bash: sleep 30
+                  displayName: 'Sleep'
+                
+                - task: AzureCLI@1
+                  displayName: 'Verify Container Image Revision - Region 2'
+                  inputs:
+                    azureSubscription: ${{ parameters.serviceConnection }}
+                    scriptLocation: inlineScript
+                    inlineScript: |
+                      az extension add -n containerapp
+                      imageTag="$(DownloadArtifact.BuildNumber)"
+                      # Retrieve the latest revision's image name
+                      revisions=$(az containerapp revision list \
+                        --name ${{ parameters.appTag }}-${{ parameters.environment }} \
+                        --resource-group $(resourceGroupWest))
+                      echo "Revisions: $revisions"
+                      latestImageName=$(az containerapp revision list \
+                        --name ${{ parameters.appTag }}-${{ parameters.environment }} \
+                        --resource-group $(resourceGroupWest) \
+                        -o tsv --query '[0].properties.template.containers[0].image')
+                      echo "Image in Revision: $latestImageName"
+                      # Extract the last 6 characters from the image name
+                      revisionBuildNumber=${latestImageName: -6}
+                      # Verify if the last 6 characters of the image match the build number
+                      if [[ "$revisionBuildNumber" != "$imageTag" ]]; then
+                        echo "##vso[task.logissue type=error]Image name verification failed. Expected build: $imageTag, Found: $revisionBuildNumber"
+                        exit 1
+                      fi
+
+      - job: Health_Check
+        dependsOn: Deploy_BFF
+        container: cicd_devtools
+        steps:
+          - task: PowerShell@2
+            displayName: 'Container App Health Check'
+            continueOnError: true
+            inputs:
+              targetType: inline
+              script: Invoke-WebRequest -Uri $(bffEndpoint)/health -RetryInterval 60 -MaximumRetryCount 3
+              pwsh: true
+
+      - job: Publish_Functions
+        condition: eq(${{ parameters.functionAppEnabled }}, 'true')
+        pool:
+          name: windows-vmss-agent-pool
+
+        steps:
+          - task: FuncToolsInstaller@0
+            inputs:
+              version: 'latest'
+
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '16.x'
+
+          - task: Npm@1
+            displayName: 'npm install'
+            inputs:
+              workingDir: '$(System.DefaultWorkingDirectory)/functions/${{ parameters.functionAppPath }}'
+              verbose: false
+
+          - task: Npm@1
+            displayName: 'npm build'
+            inputs:
+              command: custom
+              workingDir: '$(System.DefaultWorkingDirectory)/functions/${{ parameters.functionAppPath }}'
+              verbose: false
+              customCommand: 'run build'
+
+          - task: Docker@2
+            inputs:
+              containerRegistry: ${{ parameters.containerRegistry }}
+              command: 'login'
+
+          - task: AzureCLI@1
+            displayName: 'Azure CLI '
+            inputs:
+              azureSubscription: ${{ parameters.serviceConnection }}
+              scriptLocation: inlineScript
+              inlineScript: 'func azure functionapp publish ${{ parameters.functionAppName }}-${{ parameters.environment }} --typescript'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/functions/${{ parameters.functionAppPath }}'
+              continueOnError: true
+
+          # - task: AzureCLI@1
+          #   displayName: 'Azure CLI '
+          #   inputs:
+          #     azureSubscription: 'AzureRM-ServiceConnection'
+          #     scriptLocation: inlineScript
+          #     inlineScript: |
+          #       az webpubsub hub create \
+          #       --name ${{ parameters.pubsub }} \
+          #       --hub-name ${{ parameters.pubsub_hub_name }}
+          #       --resource_group ${{ parameters.resource_group }}
+          #       --allow-anonymous true
+          #       --event-handler url-template="https://${{ parameters.function_app }}.azurewebsites.net/runtime/webhooks/webpubsub?code=1l9aVjYKSFz113QCX0FCMAwTSISd8kO4k1BIQF3MBR5QAzFuj0MXPg=="

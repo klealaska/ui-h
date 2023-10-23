@@ -1,0 +1,21 @@
+trigger:
+  - master
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: User Interface Center of Excellence/templates
+      ref: refs/heads/master
+
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+
+jobs:
+  - template: monorepo/nx_monorepo_ci.yml@templates
+    parameters:
+      poolName: 'linux-vmss-agent-pool'
+      workingDir: '$(Build.SourcesDirectory)'

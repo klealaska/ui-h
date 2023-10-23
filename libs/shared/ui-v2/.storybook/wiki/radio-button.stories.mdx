@@ -1,0 +1,109 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Radio-button" />
+
+## Radio-button
+
+**A working example of this radio-button implementation can be found @ \_libs/shared/ui-v2/src/lib/radio/radio-button.component.stories.ts **
+
+The radio-button component can be implemented in two ways
+
+**1.Individual radio-button without layout and heading**
+
+Individual radio-button can be implemented by using the `ax-radio-button` component. Example provided below.
+
+```
+<ax-radio-button
+    [labelPosition]="labelPosition"
+    (valueChange)="onChange($event)"
+    [(ngModel)]="selectedValue"
+    name="radioButton1"
+    value="optionA"
+    [label]="label"
+    [disabled]="disabled"
+    [fixed]="true"
+></ax-radio-button>
+
+```
+
+## Directives for `ax-radio-button`
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() labelPosition: string</td>
+    <td>To set the label position `left` or `right`. Default is `left`</td>
+  </tr>
+  <tr>
+    <td>@Input() label: string</td>
+    <td>Sets the label. Used for accessibility </td>
+  </tr>
+  <tr>
+    <td>@Input() checked: boolean</td>
+    <td>Sets checked state</td>
+  </tr>
+  <tr>
+    <td>@Input() name: string</td>
+    <td>Set name for the radio-button</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Disable state for the radio-button. Default is `false`</td>
+  </tr>
+  <tr>
+    <td>@Input() fixed: boolean</td>
+    <td>Set the `fixed` state. Default is `false`</td>
+  </tr>
+</table>
+
+**2.Radio-button group with layout and heading**
+
+Radio-button group can be implemented by using the `ax-radio-group` component. Example provided below.
+
+```
+
+<ax-radio-group
+        [layout]="layout"
+        [labelHeading]="labelHeading"
+        (valueChange)="onChange($event)"
+        [(ngModel)]="selectedValue"
+        [disabled]="disabled"
+        name="radioButton2"
+>
+        <ax-radio-button [labelPosition]="labelPosition" value="optionC" [fixed]="true">
+          {{ label }}
+        </ax-radio-button>
+        <ax-radio-button [labelPosition]="labelPosition" value="optionD" [fixed]="true">
+          {{ label }}
+        </ax-radio-button>
+  </ax-radio-group>
+
+```
+
+## Directives for `ax-radio-group`
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() layout: string</td>
+    <td>To set the `horizontal` or `vertical`layout. Default is `horizontal`</td>
+  </tr>
+  <tr>
+    <td>@Input() labelHeading: string</td>
+    <td>Heading for the radio group</td>
+  </tr>
+  <tr>
+    <td>@Input() name: string</td>
+    <td>Name for the radio-button. Used for accessibility</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Disable state for the radio. Default is `false`</td>
+  </tr>
+</table>

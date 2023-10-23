@@ -1,0 +1,43 @@
+{
+  "name": "avidcapture-my-uploads-ui",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/avidcapture/my-uploads/ui/src",
+  "prefix": "xdc",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/avidcapture/my-uploads/ui"],
+      "options": {
+        "project": "libs/avidcapture/my-uploads/ui/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/avidcapture/my-uploads/ui/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/avidcapture/my-uploads/ui/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/avidcapture/my-uploads/ui"],
+      "options": {
+        "jestConfig": "libs/avidcapture/my-uploads/ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/avidcapture/my-uploads/ui/**/*.ts",
+          "libs/avidcapture/my-uploads/ui/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:avidcapture"]
+}

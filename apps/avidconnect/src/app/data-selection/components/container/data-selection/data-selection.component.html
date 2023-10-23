@@ -1,0 +1,62 @@
+<avc-page-header [showBackBtn]="true"> </avc-page-header>
+
+<div class="page-content">
+  <section class="tab-content">
+    <avc-loading-wrapper
+      [isLoading]="isLoading$ |async"
+      [loadingMessage]="'Loading operation types'"
+    >
+      <h2>Accounting System Instance | {{ registration?.description }}</h2>
+
+      <div class="data-selection-content">
+        <h2>Configure Data Types</h2>
+
+        <p>Configure the data types that the system needs to import and the origin of the data.</p>
+      </div>
+
+      <div *ngIf="(registrationEnablements$ | async)?.length; else noContent">
+        <table class="data-selection-list">
+          <thead>
+            <tr>
+              <th>Data Type</th>
+              <th>Data Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let enablement of (registrationEnablements$ | async)">
+              <avc-registration-enablement-option
+                [enablement]="enablement"
+                [isOperationSelected]="isOperationSelected"
+                (enablementChanged)="enablementChanged($event)"
+                (downloadButtonClicked)="downloadFile(enablement)"
+                (fileUploaded)="fileUploaded({file:$event, operationTypeId: enablement.operationTypeId})"
+                *ngIf="!isOperationSelected || (isOperationSelected && enablement.isActive)"
+              ></avc-registration-enablement-option>
+            </ng-container>
+          </tbody>
+        </table>
+
+        <div class="buttons-content">
+          <button mat-raised-button type="button" color="outline" (click)="cancelChanges()">
+            {{ isOperationSelected ? 'BACK':'CANCEL'}}
+          </button>
+          <button
+            mat-raised-button
+            type="button"
+            color="primary"
+            (click)="saveChanges()"
+            [disabled]="!isValid"
+          >
+            SAVE AND CONTINUE
+          </button>
+        </div>
+      </div>
+      <ng-template #noContent>
+        <avc-no-content
+          *ngIf="(isLoading$ |async) === false"
+          [message]="'No Operation Types found for this Accounting System.'"
+        ></avc-no-content>
+      </ng-template>
+    </avc-loading-wrapper>
+  </section>
+</div>

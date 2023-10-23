@@ -1,0 +1,29 @@
+<avc-page-header [navigation]="navigation" [showBackBtn]="displayBackButton$ | async">
+</avc-page-header>
+
+<div class="page-content" *ngIf="customer">
+  <nav mat-stretch-tabs="false" mat-tab-nav-bar [tabPanel]="tabPanel">
+    <a
+      mat-tab-link
+      [routerLink]="'/customer-dashboard/activity'"
+      routerLinkActive
+      #activityRLA="routerLinkActive"
+      [active]="activityRLA.isActive"
+    >
+      <mat-icon class="icon">format_list_bulleted</mat-icon>
+      Recent Activity
+    </a>
+    <a
+      mat-tab-link
+      [routerLink]="'/customer-dashboard/connectors'"
+      routerLinkActive
+      #connectorsRLA="routerLinkActive"
+      [active]="connectorsRLA.isActive"
+    >
+      <mat-icon class="icon">settings_input_component</mat-icon>
+      Connectors
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+  <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+</div>

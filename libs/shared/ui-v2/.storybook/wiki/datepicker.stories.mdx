@@ -1,0 +1,135 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Datepicker" />
+
+# DatePicker
+
+Input can me implemented by using `ax-datepicker` or `ax-datepicker-range`
+
+## Datepicker Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() fixed = false</td>
+    <td>Sets datepicker to a fixed width</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Sets the disabled state</td>
+  </tr>
+  <tr>
+    <td>@Input() readOnly: boolean</td>
+    <td>Sets the readOnly state</td>
+  </tr>
+  <tr>
+    <td>@Input() id: string</td>
+    <td>Used for accessibility. Adds an id to label and input</td>
+  </tr>
+  <tr>
+    <td>@Input() label: string</td>
+    <td>Sets label text</td>
+  </tr>
+  <tr>
+    <td> @Input() tooltip: InputTooltip</td>
+    <td>
+      Adds a tooltip beside label. Only need to pass in tooltipText. Other properties can be over
+      written
+    </td>
+  </tr>
+  <tr>
+    <td>@Input() placeholder: string</td>
+    <td>Sets placeholder text</td>
+  </tr>
+  <tr>
+    <td>@Input() control: FormControl</td>
+    <td>Adds a control to the input. Used for validators and disabling the datepicker</td>
+  </tr>
+  <tr>
+    <td>@Input() hintMessage: string</td>
+    <td>Sets hint text</td>
+  </tr>
+  <tr>
+    <td>@Input() error: FormFieldError</td>
+    <td>Object that takes in message and optional icon to populate an error message</td>
+  </tr>
+  <tr>
+    <td>@Output() dataChange = new EventEmitter()</td>
+    <td>Emits when a change event is fired on the input</td>
+  </tr>
+  <tr>
+    <td>@Output() dataInput = new EventEmitter()</td>
+    <td>Emits when an input event is fired on the input</td>
+  </tr>
+</table>
+
+## Datepicker Range Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() fixed = false</td>
+    <td>Sets datepicker to a fixed width</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Sets the disabled state</td>
+  </tr>
+  <tr>
+    <td>@Input() readOnly: boolean</td>
+    <td>Sets the readOnly state</td>
+  </tr>
+  <tr>
+    <td>@Input() id: string</td>
+    <td>Used for accessibility. Adds an id to label and input</td>
+  </tr>
+  <tr>
+    <td>@Input() label: string</td>
+    <td>Sets label text</td>
+  </tr>
+  <tr>
+    <td> @Input() tooltip: InputTooltip</td>
+    <td>
+      Adds a tooltip beside label. Only need to pass in tooltipText. Defaults for other properties
+      but can still overwrite
+    </td>
+  </tr>
+  <tr>
+    <td>@Input() startControl: FormControl</td>
+    <td>Used to set the date of in the start input. Also used for Validators</td>
+  </tr>
+  <tr>
+    <td>@Input() endControl: FormControl</td>
+    <td>Used to set the date of in the end input. Also used for Validators</td>
+  </tr>
+  <tr>
+    <td>@Input() hintMessage: string</td>
+    <td>Sets hint text</td>
+  </tr>
+  <tr>
+    <td>@Input() error: FormFieldError</td>
+    <td>Object that takes in message and optional icon to populate an error message</td>
+  </tr>
+  <tr>
+    <td>@Output() startDataChange = new EventEmitter()</td>
+    <td>Emits when a change event is fired on the start input</td>
+  </tr>
+  <tr>
+    <td>@Output() startDataInput = new EventEmitter()</td>
+    <td>Emits when an input event is fired on the start input</td>
+  </tr>
+  <tr>
+    <td>@Output() endDataChange = new EventEmitter()</td>
+    <td>Emits when a change event is fired on the end input</td>
+  </tr>
+  <tr>
+    <td>@Output() endDataInput = new EventEmitter()</td>
+    <td>Emits when an input event is fired on the end input</td>
+  </tr>
+</table>

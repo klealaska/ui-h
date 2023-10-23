@@ -1,0 +1,209 @@
+@use 'colors' as *;
+@use 'mixins' as *;
+
+/* You can add global styles to this file, and also import other style files */
+
+%text {
+  font-weight: normal;
+  color: $font-color;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: $grey;
+  font-weight: normal;
+  color: $font-color;
+  font-size: 16px;
+
+  %header {
+    @extend %text;
+    font-family: 'Ubuntu', Arial, sans-serif;
+    margin: 0;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: bold;
+    &.title {
+      display: block;
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+  }
+
+  header,
+  h2,
+  p {
+    &.underline {
+      padding-bottom: 10px;
+      border-bottom: 1px solid $gray;
+    }
+  }
+
+  a.txt-link {
+    font-weight: bold;
+    color: $primary-color;
+    cursor: pointer;
+
+    &:hover {
+      color: $alt-color;
+    }
+  }
+}
+
+///// AvidConnect Shared Styling Classes
+
+.page-content {
+  margin: 20px 10px;
+}
+
+.tab-content {
+  background-color: $white;
+  padding: 15px 15px 10px;
+  min-height: 495px;
+  position: relative;
+}
+
+.search-filters {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search-field {
+  width: 350px;
+
+  mat-icon {
+    margin-right: 12px;
+  }
+}
+
+.loading-state-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .loading-text {
+    margin-top: 30px;
+  }
+}
+
+.td-text-link {
+  cursor: pointer;
+  span {
+    color: $primary-color;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.form-field {
+  width: 100%;
+}
+
+.buttons-content {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    margin-right: 20px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.table-container {
+  height: calc(100vh - 445px);
+  overflow: auto;
+
+  .not-found-message {
+    text-align: center;
+    height: 120px;
+  }
+}
+
+.status-badge {
+  letter-spacing: 0.2px;
+  border-radius: 8px;
+  color: #ffffff;
+  text-align: center;
+  display: inline-block;
+  padding: 1px 10px;
+  font-size: 12px;
+  background-color: transparent;
+  color: $black;
+  border: 1px solid $black;
+
+  &.success {
+    background-color: $success-color;
+    border: 0;
+    color: $white;
+  }
+  &.info,
+  &.pending {
+    background-color: $info-color;
+    border: 0;
+    color: $white;
+  }
+  &.debug,
+  &.trial {
+    background-color: $debug-color;
+    border: 0;
+    color: $white;
+  }
+  &.warning {
+    background-color: $warning-color;
+    border: 0;
+    color: $white;
+  }
+  &.error,
+  &.fatal {
+    background-color: $error-color;
+    border: 0;
+    color: $white;
+  }
+}
+
+.separator {
+  border-bottom: 1px solid $gray;
+  margin: 20px 0px;
+}
+
+/*  Angular Material DSM Library Override */
+.mdc-tab--active {
+  background: $white;
+  opacity: 1;
+}
+
+mat-icon.mat-icon {
+  height: auto;
+  width: auto;
+}
+
+.mat-mdc-chip.mat-mdc-standard-chip .mat-mdc-chip-remove {
+  padding: 0;
+}
+
+.mat-mdc-header-cell {
+  padding-left: 12px !important;
+}
+
+.mat-mdc-cell {
+  padding-left: 15px !important;
+}

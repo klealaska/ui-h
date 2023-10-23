@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-UicoeNp-Dv-Bank-Account-Mgmt-Rg'
+  resourceGroupWest: 'Ax-Aw1-UicoeNp-Dv-Bank-Account-Mgmt-Rg'
+  bffEndpoint: 'https://bank-account-mgmt-api-dv-a5fbehercyaye7gd.z01.azurefd.net/api'
+  keyVaultNameEast: 'axae1uicoenpdvbamkv'
+  keyVaultNameWest: 'axaw1uicoenpdvbamkv'

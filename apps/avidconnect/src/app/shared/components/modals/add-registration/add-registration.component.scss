@@ -1,0 +1,15 @@
+.add-registration-form {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+
+  header {
+    border-bottom: 1px solid #c3c3c3;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+
+  .customer-information {
+    margin: 20px 0;
+  }
+}

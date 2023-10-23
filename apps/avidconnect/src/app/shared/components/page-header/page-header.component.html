@@ -1,0 +1,27 @@
+<div class="header">
+  <div class="header-title">
+    <a class="txt-link" *ngIf="showBackBtn" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+      <span>Back</span>
+    </a>
+    <h2 *ngIf="title">{{title}}</h2>
+
+    <div class="chevron-navigation">
+      <div class="chevron-item" *ngFor="let item of navigation$ | async; let i = index">
+        <mat-icon *ngIf="i > 0">chevron_right</mat-icon>
+        <div [matTooltip]="item.tooltip" matTooltipPosition="above">
+          <button
+            class="chevron-btn"
+            mat-button
+            [disabled]="!item.url"
+            (click)="navigateTo(item.url)"
+          >
+            {{item.title}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,25 @@
+mat-icon {
+  cursor: pointer;
+}
+.bar {
+  width: inherit;
+  overflow: auto;
+  .status {
+    color: #666;
+    font-size: 13px;
+  }
+  .truncated-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block !important;
+  }
+}
+.cancel-container {
+  top: 7px;
+  position: relative;
+}
+
+.mat-divider {
+  position: static;
+}

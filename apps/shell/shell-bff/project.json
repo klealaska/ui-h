@@ -1,0 +1,61 @@
+{
+  "name": "shell-bff",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/shell/shell-bff/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/shell/shell-bff",
+        "main": "apps/shell/shell-bff/src/main.ts",
+        "tsConfig": "apps/shell/shell-bff/tsconfig.app.json",
+        "assets": ["apps/shell/shell-bff/src/assets"],
+        "generatePackageJson": true,
+        "target": "node",
+        "compiler": "tsc"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/shell/shell-bff/src/environments/environment.ts",
+              "with": "apps/shell/shell-bff/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "shell-bff:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "shell-bff:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/shell/shell-bff/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/shell/shell-bff"],
+      "options": {
+        "jestConfig": "apps/shell/shell-bff/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:shell", "type:bff"]
+}

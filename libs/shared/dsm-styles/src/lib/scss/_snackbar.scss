@@ -1,0 +1,30 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+div .mat-mdc-snack-bar-container {
+  background: mat-color($dsm-fill, White);
+  color: mat-color($dsm-fill, Text);
+  padding: 0;
+  border-radius: 0.938rem;
+  max-width: none;
+}
+
+.mat-mdc-simple-snackbar {
+  padding: 1.25rem;
+}
+
+.mat-mdc-simple-snackbar-action .mat-button-wrapper {
+  color: mat-color($dsm-primary, Main);
+  font-family: 'artegra-semi-bold', Arial, Helvetica, sans-serif;
+}
+
+.mat-mdc-snack-bar-container {
+  box-shadow: 0px 2px 8px mat-color($dsm-fill, Shadow, 14%);
+}
+
+.mat-mdc-simple-snack-bar {
+  border-radius: 0.938rem !important;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}

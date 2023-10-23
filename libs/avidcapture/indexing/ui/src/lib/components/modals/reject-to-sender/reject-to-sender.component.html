@@ -1,0 +1,74 @@
+<div cdkDrag cdkDragRootElement=".cdk-overlay-pane" class="modal-body">
+  <div cdkDragHandle class="modal-header">
+    <h5>{{'xdc.indexing.reject-to-sender-label' | translate }}</h5>
+    <mat-icon class="icon" (click)="close()">close</mat-icon>
+  </div>
+
+  <form *ngIf="templates.length > 0" class="ax-form-field-wrapper" [formGroup]="rejectToSenderForm">
+    <ax-input
+      class="full-width"
+      [label]="'xdc.indexing.rts-to-label' | translate"
+      [control]="rejectToSenderForm.get('toEmailAddress')"
+      [attr.ariaLabel]="'email recipient input'"
+      [error]="
+        rejectToSenderForm.get('toEmailAddress').hasError('required') ?
+        { message: 'xdc.indexing.recipient-required-label' | translate } :
+        rejectToSenderForm.get('toEmailAddress').hasError('email') ? { message: 'xdc.indexing.invalid-email-address-label' | translate }
+        : null
+      "
+    ></ax-input>
+
+    <div class="ax-input__header mt-20">
+      <mat-label class="ax-input__header-label ax-input__header-label-asterisk"
+        >{{'xdc.indexing.rts-template-label' | translate}}</mat-label
+      >
+    </div>
+    <mat-form-field class="ax-form-field full-width">
+      <mat-select
+        class="ax-select"
+        panelClass="ax-panel"
+        formControlName="templateId"
+        [attr.ariaLabel]="'email template selection'"
+        [multiple]="false"
+        (selectionChange)="selectTemplate($event.value)"
+      >
+        <mat-option *ngFor="let template of templates" [value]="template.templateId">
+          {{ template.templateName }}
+        </mat-option>
+      </mat-select>
+      <mat-icon class="ax-input-icon" matSuffix>expand_more</mat-icon>
+      <mat-error
+        *ngIf="rejectToSenderForm.get('templateId').hasError('required')"
+        class="ax-input-error"
+        >{{'xdc.indexing.template-required-label' | translate }}</mat-error
+      >
+    </mat-form-field>
+
+    <xdc-text-editor
+      [htmlTemplate]="notificationTemplate"
+      (updateHtmlTemplate)="updateHtmlTemplate($event)"
+      (isValid)="errorMessage = $event"
+    ></xdc-text-editor>
+    <mat-error *ngIf="errorMessage !==''">{{errorMessage}}</mat-error>
+  </form>
+
+  <div class="button-container">
+    <ax-button
+      [id]="'button-cancel'"
+      [type]="'secondary'"
+      (click)="close()"
+      class="mr-10"
+      data-cy-reject-cancel
+    >
+      {{'xdc.indexing.cancel-label' | translate }}
+    </ax-button>
+    <ax-button
+      [id]="'button-send'"
+      [disabled]="!rejectToSenderForm.valid || (errorMessage !== '')"
+      (click)="send()"
+      data-cy-reject-sender
+    >
+      {{'xdc.indexing.send-label' | translate }}
+    </ax-button>
+  </div>
+</div>

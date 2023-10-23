@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-UicoeNp-Ci-pay-transformation-Rg'
+  resourceGroupWest: 'Ax-Aw1-UicoeNp-Ci-pay-transformation-Rg'
+  bffEndpoint: 'https://pay-transformation-bff-ci-cpccb9egckcmf9ak.z01.azurefd.net/api'
+  keyVaultNameEast: 'axae1uicoenpcipaytrankv'
+  keyVaultNameWest: 'axaw1uicoenpcipaytrankv'

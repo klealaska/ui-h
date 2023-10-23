@@ -1,0 +1,25 @@
+<ax-side-sheet-v2
+  *ngIf="{ account: account$ | async, content: content$ | async } as data"
+  [opened]="true"
+  [backdrop]="true"
+  (closeEvent)="closeSidePanel()"
+>
+  <ax-bam-edit-header
+    class="w-full"
+    sideSheetHeader
+    (backClick)="backToDetails()"
+  ></ax-bam-edit-header>
+  <ax-bank-account-edit
+    [content]="data.content"
+    [account]="data.account"
+    (nicknameChange)="onNicknameChange(data.account, $event)"
+    sideSheetContent
+  ></ax-bank-account-edit>
+  <ax-bam-edit-footer
+    [content]="data.content"
+    [saveDisabled]="saveDisabled"
+    (cancelClick)="backToDetails()"
+    (saveClick)="save()"
+    sideSheetFooter
+  ></ax-bam-edit-footer>
+</ax-side-sheet-v2>

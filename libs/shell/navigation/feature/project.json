@@ -1,0 +1,43 @@
+{
+  "name": "shell-navigation-feature",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shell/navigation/feature/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/shell/navigation/feature"],
+      "options": {
+        "project": "libs/shell/navigation/feature/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shell/navigation/feature/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/shell/navigation/feature/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["coverage/libs/shell/navigation/feature"],
+      "options": {
+        "jestConfig": "libs/shell/navigation/feature/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shell/navigation/feature/**/*.ts",
+          "libs/shell/navigation/feature/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:navigation", "scope:shell"]
+}

@@ -1,0 +1,11 @@
+@use '../../../../styles/colors' as *;
+
+footer {
+  width: 100%;
+  padding: 10px 50px;
+  border-top: 1px solid $gray;
+  box-sizing: border-box;
+  p {
+    margin: 0;
+  }
+}

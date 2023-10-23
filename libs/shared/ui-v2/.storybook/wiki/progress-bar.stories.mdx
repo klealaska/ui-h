@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Progress bar" />
+
+## Progress bar
+
+Progress bar can be implemented by using the `ax-progress-bar` component
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() label: string</td>
+    <td>Sets the label for progress bar.</td>
+  </tr>
+  <tr>
+    <td>@Input() icon: string</td>
+    <td>Sets the icon for progress bar.</td>
+  </tr>
+  <tr>
+    <td>@Input() text: string</td>
+    <td>Sets the text for progress bar.</td>
+  </tr>
+  <tr>
+    <td>@Input() percentage: number</td>
+    <td>Sets the percentage value for progress bar.</td>
+  </tr>
+  <tr>
+    <td>@Input() showPercentage: boolean</td>
+    <td>Sets whether the percentage value is displayed for progress bar or not.</td>
+  </tr>
+  <tr>
+    <td>@Input() error: string</td>
+    <td>Error message for progress bar. Also triggers error state for progress bar.</td>
+  </tr>
+  <tr>
+    <td> @Input() size: ProgressBarSize</td>
+    <td>
+      Changes progress bar size. Supports: <code>small</code> or <code>large</code>
+    </td>
+  </tr>
+  <tr>
+    <td>@Output() iconEvent: EventEmitter</td>
+    <td>Emits the icon value when clicked. e.g. delete icon emits 'delete'.</td>
+  </tr>
+</table>

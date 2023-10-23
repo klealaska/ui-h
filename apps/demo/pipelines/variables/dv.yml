@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-UicoeNp-Dv-Demozombiedice-Rg'
+  resourceGroupWest: 'Ax-Aw1-UicoeNp-Dv-Demozombiedice-Rg'
+  bffEndpoint: 'https://demo-zombie-dice-api-dv-ehgbcwabhea3fmdf.z01.azurefd.net/api'
+  keyVaultNameEast: 'axae1uicoenpdvdemokv'
+  keyVaultNameWest: 'axaw1uicoenpdvdemokv'

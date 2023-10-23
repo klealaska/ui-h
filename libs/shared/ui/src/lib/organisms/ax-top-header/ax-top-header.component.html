@@ -1,0 +1,24 @@
+<header class="top-header" [ngClass]="lightThemeIsActive ? 'light' : ''">
+  <ax-page-title
+    [image]="titleImage"
+    [text]="titleText"
+    [isBeta]="isBeta"
+    [lightThemeIsActive]="lightThemeIsActive"
+    [canClickTitle]="canClickTitle"
+    [avidPartner]="avidPartner"
+    (titleClick)="titleClick.emit()"
+  >
+  </ax-page-title>
+
+  <div class="header-options">
+    <ax-current-user
+      [image]="userImage"
+      [text]="userDisplayName"
+      [menuOptions]="menuOptions"
+      [lightThemeIsActive]="lightThemeIsActive"
+      (logout)="logout.emit()"
+      (selectedMenuItem)="menuItemClick.emit($event)"
+    >
+    </ax-current-user>
+  </div>
+</header>

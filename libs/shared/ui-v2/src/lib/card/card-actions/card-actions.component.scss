@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  padding: 0 16px;
+
+  &:first-child {
+    padding-top: 16px;
+  }
+  &:last-child {
+    padding-bottom: 16px;
+  }
+  &:not(:first-child) {
+    padding-top: 8px;
+  }
+  &:not(:last-child) {
+    padding-bottom: 8px;
+  }
+}

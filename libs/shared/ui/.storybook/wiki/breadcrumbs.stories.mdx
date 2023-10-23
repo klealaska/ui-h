@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import Breadcrumbs from '../assets/breadcrumbs.png';
+import BreadcrumbsArrow from '../assets/breadcrumbs-arrow.png';
+
+<Meta title="Wiki/Breadcrumb" />
+
+# **Overview**
+
+The Breadcrumb component shows users where they are in the hierarchy of the navigation. For example, if a user navigates to the Payment Details page from the Payments page, the Breadcrumb component will display where they are in the navigation as well as the pages that are higher in the navigation hierarchy, allowing them to navigate back to the Payments page by clicking on the link in the Breadcrumb.
+
+**There is no Angular Material component for breadcrumbs**. The breadcrumbs are merely a-tag links with custom classes on them. Unlike other components in our DSM, the Breadcrumb component may have custom classes because it was created specifically for our products.
+
+The large breadcrumb link requires a few different classes: `.breadcrumb-large` on the actual `<a class="breadcrumb-large>` tag gives it the font style and size.
+
+The chevron is styled with a spanned class of `<span class="breadcrumb-break-large">`. The ending link (with no underline) requires `<a class="breadcrumb-large-text">` to change the font color and remove the underline.
+
+The normal font-sized breadcrumb requires `<a class="breadcrumb-small">` on the actual a-tag and `<a class="breadcrumb-small-text">` on the ending link.
+
+<img src={Breadcrumbs} alt="Breadcrumbs" />
+
+# **Additional Specifications**
+
+- The page the user is currently on must never be a link
+- All pages listed before the current page must be a link
+- Chevron arrows must separate each page hierarchy
+
+<img src={BreadcrumbsArrow} alt="BreadcrumbsArrow" />
+
+# **Additional Accessibility Requirements**
+
+None
+
+# **Angular Material**
+
+There is no documentation in Angular Material for the Breadcrumb component as it was explicitly created for AvidXchange use. All specifications and accessibility requirements are in this section of the User Interface Center of Excellence Wiki.

@@ -1,0 +1,7 @@
+{
+  "demo-zombie-dice-spa": "https://demozombiediceuidv.z13.web.core.windows.net",
+  "tenant-spa": "https://tenant-spa-dv-hugxcwfchzfng5a7.z01.azurefd.net",
+  "bank-account-mgmt-spa": "https://bankaccountmgmtspaci.z13.web.core.windows.net/",
+  "pay-transformation-spa": "https://paytransformationspaci.z13.web.core.windows.net/",
+  "bus-hier-spa": "https://bushierspadveastus.z13.web.core.windows.net/"
+}

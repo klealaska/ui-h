@@ -1,0 +1,118 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+.mat-mdc-button-base.mdc-button--unelevated,
+.mat-mdc-button-base.mat-mdc-raised-button {
+  border: 1px solid mat-color($dsm-primary, Main);
+  height: 44px;
+  padding: 0 1rem;
+  border-radius: 0.625rem;
+  font-size: 1rem;
+}
+
+.mat-mdc-raised-button:not([class*='mat-primary']):not([disabled]) {
+  .mat-button-wrapper {
+    color: mat-color($dsm-primary, Main);
+  }
+  &:hover,
+  &:active {
+    .mat-button-wrapper {
+      color: mat-color($dsm-primary, Dark);
+    }
+  }
+}
+
+.mat-mdc-button-base.mdc-button--unelevated.mat-primary,
+.mat-mdc-button-base.mat-mdc-raised-button.mat-primary {
+  border: none;
+}
+
+// Make ripple on click cover all of the button
+.mdc-button--unelevated .mat-mdc-button-ripple.mat-ripple,
+.mat-mdc-raised-button .mat-mdc-button-ripple.mat-ripple {
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+}
+
+// Flat Buttons
+.mdc-button--unelevated {
+  color: mat-color($dsm-primary, Main);
+  &:hover,
+  &:active {
+    color: mat-color($dsm-primary, Dark);
+    border: 1px solid mat-color($dsm-primary, Dark);
+  }
+}
+
+// Flat Buttons Primary
+.mdc-button--unelevated.mat-primary:hover,
+.mdc-button--unelevated.mat-primary:active {
+  color: mat-color($dsm-fill, White);
+  background-color: mat-color($dsm-primary, Dark);
+}
+
+// Raised Buttons
+.mat-mdc-raised-button:not([class*='mat-primary']):not([disabled]),
+.mdc-button--unelevated:not([class*='mat-primary']):not([disabled]) {
+  color: mat-color($dsm-primary, Main) !important;
+  &:hover,
+  &:active {
+    color: mat-color($dsm-primary, Dark) !important;
+  }
+}
+
+.mat-mdc-raised-button {
+  &:hover,
+  &:active {
+    border: 1px solid mat-color($dsm-primary, Dark);
+  }
+}
+
+.mat-mdc-raised-button:not([class*='mat-elevation-z']) {
+  box-shadow: 0px 1px 1px mat-color($dsm-fill, Shadow, 14%),
+    0px 2px 8px mat-color($dsm-fill, Shadow, 14%), 0px 3px 5px mat-color($dsm-fill, Shadow, 14%);
+}
+
+// Raised Buttons Primary
+.mat-mdc-raised-button.mat-primary:not([disabled]):hover,
+.mat-mdc-raised-button.mat-primary:not([disabled]):active {
+  color: mat-color($dsm-fill, White);
+  background-color: mat-color($dsm-primary, Dark);
+}
+
+.mat-mdc-raised-button:not([disabled]):active:not([class*='mat-elevation-z']),
+.mat-mdc-raised-button.mat-primary:not([disabled]):active:not([class*='mat-elevation-z']) {
+  box-shadow: none !important;
+}
+
+// Link Buttons
+a.mat-mdc-button-base.mdc-button--unelevated {
+  line-height: 44px;
+  border: none;
+}
+
+a.mat-mdc-button-base.mdc-button--unelevated:not([disabled]):hover,
+a.mat-mdc-button-base.mdc-button--unelevated:not([disabled]):active {
+  text-decoration: underline;
+}
+
+// Basic Disabled
+.mat-mdc-button-base.mdc-button--unelevated[disabled],
+.mat-mdc-button-base.mat-mdc-raised-button[disabled] {
+  background-color: mat-color($dsm-fill, White);
+  border-color: mat-color($dsm-disabled, Disabled);
+}
+
+// Primary Disabled
+.mdc-button--unelevated.mat-primary[disabled],
+.mat-mdc-raised-button.mat-primary[disabled] {
+  background-color: mat-color($dsm-disabled, Disabled);
+  color: mat-color($dsm-fill, DisabledText);
+}
+
+// Icon Buttons
+button.mat-icon-button {
+  line-height: 24px;
+}

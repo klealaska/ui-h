@@ -1,0 +1,145 @@
+trigger: none
+
+#####################################
+# Use app specific variables template
+#####################################
+variables:
+  - template: './variables/common.yml'
+
+#####################################
+#      DO NOT EDIT BELOW HERE       #
+#####################################
+# Location to reference a container, where the stages will be run
+resources:
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+
+pool:
+  name: linux-vmss-agent-pool
+
+# Calling the env-stage-template.yml file, and passing it variables established above, for each individual environment
+stages:
+  - template: '../../../tools/pipelines/templates/env-stage-template.yml'
+    parameters:
+      capability: $(capability)
+      domain: $(domain)
+      tfDirectory: $(System.DefaultWorkingDirectory)/tools/iac/capability-env
+      stages:
+        - stage:
+          name: Dv
+          dependsOn: ''
+          varFile: '../../../apps/usr-roles/iac/variables/east/vars-dv.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          subscriptionId: $(nonProdSubscriptionId)
+        - stage:
+          name: DvWest
+          dependsOn: ''
+          varFile: '../../../apps/usr-roles/iac/variables/west/vars-dv.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          subscriptionId: $(nonProdSubscriptionId)
+
+        - stage:
+          name: Ci
+          dependsOn: 'dv_network'
+          varFile: '../../../apps/usr-roles/iac/variables/east/vars-ci.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          subscriptionId: $(nonProdSubscriptionId)
+        - stage:
+          name: CiWest
+          dependsOn: 'dv_network'
+          varFile: '../../../apps/usr-roles/iac/variables/west/vars-ci.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          subscriptionId: $(nonProdSubscriptionId)
+
+        - stage:
+          name: Qa
+          dependsOn: 'ci_network'
+          varFile: '../../../apps/usr-roles/iac/variables/east/vars-qa.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          subscriptionId: $(nonProdSubscriptionId)
+        - stage:
+          name: QaWest
+          dependsOn: 'ci_network'
+          varFile: '../../../apps/usr-roles/iac/variables/west/vars-qa.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          subscriptionId: $(nonProdSubscriptionId)
+
+        - stage:
+          name: St
+          dependsOn: 'qa_network'
+          varFile: '../../../apps/usr-roles/iac/variables/east/vars-st.tfvars'
+          serviceConnection: $(prodServiceConnection)
+          subscriptionId: $(prodSubscriptionId)
+        - stage:
+          name: StWest
+          dependsOn: 'qa_network'
+          varFile: '../../../apps/usr-roles/iac/variables/west/vars-st.tfvars'
+          serviceConnection: $(prodServiceConnection)
+          subscriptionId: $(prodSubscriptionId)
+
+        - stage:
+          name: Pr
+          dependsOn: 'st_network'
+          varFile: '../../../apps/usr-roles/iac/variables/east/vars-pr.tfvars'
+          serviceConnection: $(prodServiceConnection)
+          subscriptionId: $(prodSubscriptionId)
+        - stage:
+          name: PrWest
+          dependsOn: 'st_network'
+          varFile: '../../../apps/usr-roles/iac/variables/west/vars-pr.tfvars'
+          serviceConnection: $(prodServiceConnection)
+          subscriptionId: $(prodSubscriptionId)
+
+  - template: '../../../tools/pipelines/templates/env-stage-template.yml'
+    parameters:
+      capability: $(capability)
+      domain: $(domain)
+      tfDirectory: $(System.DefaultWorkingDirectory)/tools/iac/capability-env-networking
+      stages:
+        - stage:
+          name: dv_network
+          dependsOn:
+            - 'Dv'
+            - 'DvWest'
+          varFile: '../../../apps/usr-roles/iac/variables/networking/vars-dv.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          subscriptionId: $(nonProdSubscriptionId)
+
+        - stage:
+          name: ci_network
+          dependsOn:
+            - 'Ci'
+            - 'CiWest'
+          varFile: '../../../apps/usr-roles/iac/variables/networking/vars-ci.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          subscriptionId: $(nonProdSubscriptionId)
+
+        - stage:
+          name: qa_network
+          dependsOn:
+            - 'Qa'
+            - 'QaWest'
+          varFile: '../../../apps/usr-roles/iac/variables/networking/vars-qa.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          subscriptionId: $(nonProdSubscriptionId)
+
+        - stage:
+          name: st_network
+          dependsOn:
+            - 'St'
+            - 'StWest'
+          varFile: '../../../apps/usr-roles/iac/variables/networking/vars-st.tfvars'
+          serviceConnection: $(prodServiceConnection)
+          subscriptionId: $(prodSubscriptionId)
+
+        - stage:
+          name: pr_network
+          dependsOn:
+            - 'Pr'
+            - 'PrWest'
+          varFile: '../../../apps/usr-roles/iac/variables/networking/vars-pr.tfvars'
+          serviceConnection: $(prodServiceConnection)
+          subscriptionId: $(prodSubscriptionId)

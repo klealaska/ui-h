@@ -1,0 +1,115 @@
+trigger: none
+
+#####################################
+# Use app specific variables template
+#####################################
+variables:
+  serviceConnection: User-Interface-Center-of-Excellence_AvidPay-Network-Experience_Np_AzDOSC_SP
+
+#####################################
+#      DO NOT EDIT BELOW HERE       #
+#####################################
+# Location to reference a container, where the stages will be run
+resources:
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+    - container: cicd_ssdt
+      image: axglbhubacr.azurecr.io/cicd-ssdt-tools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--isolation hyperv'
+
+pool:
+  name: linux-vmss-agent-pool
+
+stages:
+  - stage: generate
+    displayName: MFE Generator
+    jobs:
+      - job:
+        displayName: Generate Pipelines
+        container: cicd_devtools
+        pool: linux-vmss-agent-pool
+
+        steps:
+          - checkout: self
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '16.x'
+            displayName: 'Install Node.js'
+
+          - task: AzureCLI@2
+            displayName: Create Pipelines
+            inputs:
+              azureSubscription: $(serviceConnection)
+              scriptLocation: inlineScript
+              scriptType: 'pscore'
+              inlineScript: |
+                az extension add -n azure-devops
+                echo $(PAT) | az devops login
+                $capabilityPipeline = az pipelines create --name "$(capabilityPipelineName)" --description "IAC pipeline for $(mfeName)" --yml-path ./apps/$(mfeName)/pipelines/$(capabilityPipelineName).yml --folder-path $(mfeName) --branch master --skip-first-run | ConvertFrom-Json
+                Write-Host "Capability pipeline id: $($capabilityPipeline.id)"
+                Write-Host "##vso[task.setvariable variable=capabilityPipelineId;]$($capabilityPipeline.id)"
+
+                $capabilityEnvPipeline = az pipelines create --name "$(capabilityEnvPipelineName)" --description "IAC pipeline for $(mfeName)" --yml-path ./apps/$(mfeName)/pipelines/$(capabilityEnvPipelineName).yml --folder-path $(mfeName) --branch master --skip-first-run | ConvertFrom-Json
+                Write-Host "Capability environment pipeline id: $($capabilityEnvPipeline.id)"
+                Write-Host "##vso[task.setvariable variable=capabilityEnvPipelineId;]$($capabilityEnvPipeline.id)"
+
+                $spaPipeline = az pipelines create --name "$(spaPipelineName)" --description "Deploy pipeline for $(spaPipelineName)" --yml-path ./apps/$(mfeName)/pipelines/$(spaPipelineName).yml --folder-path $(mfeName) --branch master --skip-first-run | ConvertFrom-Json
+                Write-Host "SPA pipeline id: $($spaPipeline.id)"
+                Write-Host "##vso[task.setvariable variable=spaPipelineId;]$($spaPipeline.id)"
+
+                $bffPipeline = az pipelines create --name "$(bffPipelineName)" --description "Deploy pipeline for $(bffPipelineName)" --yml-path ./apps/$(mfeName)/pipelines/$(bffPipelineName).yml --folder-path $(mfeName) --branch master --skip-first-run | ConvertFrom-Json
+                Write-Host "BFF pipeline id: $($bffPipeline.id)"
+                Write-Host "##vso[task.setvariable variable=bffPipelineId;]$($bffPipeline.id)"
+
+          - script: az extension add -n azure-devops
+            displayName: Install azure-devops extension
+            condition: eq(variables['wikiEnabled'], 'true')
+
+          - script: echo $(PAT) | az devops login
+            displayName: Login to Azure DevOps
+            condition: eq(variables['wikiEnabled'], 'true')
+
+          - script: npm run generate:lrr-docs -- $(cmsTitle) $(businessService) $(assignmentGroup) $(capabilityPipelineId) $(capabilityEnvPipelineId) $(spaPipelineId) $(bffPipelineId)
+            displayName: Generate Wiki
+            condition: eq(variables['wikiEnabled'], 'true')
+
+      - job:
+        displayName: Update CMS
+        condition: eq(variables['cmsEnabled'], 'true')
+        container: cicd_ssdt
+        pool: windows-vmss-agent-pool
+
+        steps:
+          - powershell: |
+              $headers = @{
+                  'Content-Type' = 'application/json'
+                  'Authorization' = "Bearer $(cmsTokenDv)"
+              }
+
+              $title = "$(cmsTitle)".replace("-", " ")
+              $displayName = "$(cmsTitle)".replace("-", " ")
+              $description = "###### $(cmsTitle) Description"
+              $route = "$(mfeName)-spa"
+              $productID = "$(mfeName)"
+
+              $body = @{
+                  "data" = @{
+                      "title" = $title
+                      "route" = $route
+                      "displayName" = $displayName
+                      "iconName" = $null
+                      "description" = $description
+                      "productID" = $productID
+                      "data" = $null
+                      "locale" = "en"
+                  }
+              }
+
+              Write-Host "Body: $(ConvertTo-Json $body)"
+              $response = Invoke-RestMethod -Uri $(cmsUrlDv) -Method POST -Body (ConvertTo-Json $body) -Headers $headers
+              $response
+            displayName: 'Make CMS POST Requests'

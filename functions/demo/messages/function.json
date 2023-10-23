@@ -1,0 +1,19 @@
+{
+  "bindings": [
+      {
+          "type": "webPubSubTrigger",
+          "direction": "in",
+          "name": "data",
+          "hub": "zombie_dice",
+          "eventName": "message",
+          "eventType": "user"
+      },
+      {
+          "type": "webPubSub",
+          "name": "actions",
+          "hub": "zombie_dice",
+          "direction": "out"
+      }
+  ],
+  "scriptFile": "../dist/messages/index.js"
+}

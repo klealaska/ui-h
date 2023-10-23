@@ -1,0 +1,63 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+mat-tooltip-component .mat-mdc-tooltip {
+  background-color: mat-color($dsm-fill, Muted);
+  overflow: visible;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+
+  .mdc-tooltip__surface {
+    font-size: 13px !important;
+    padding: 0 !important;
+    min-height: auto !important;
+  }
+}
+
+mat-tooltip-component .mdc-tooltip__surface {
+  background-color: mat-color($dsm-fill, Muted);
+}
+
+.mat-mdc-tooltip-panel-above mat-tooltip-component .mat-mdc-tooltip::after {
+  content: ' ';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0.438rem;
+  border-style: solid;
+  border-color: mat-color($dsm-fill, Muted) transparent transparent transparent;
+}
+
+.mat-mdc-tooltip-panel-below mat-tooltip-component .mat-mdc-tooltip::after {
+  content: ' ';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0.438rem;
+  border-style: solid;
+  border-color: transparent transparent mat-color($dsm-fill, Muted) transparent;
+}
+
+.mat-mdc-tooltip-panel-left mat-tooltip-component .mat-mdc-tooltip::after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100%;
+  border-width: 0.438rem 0.5rem;
+  border-style: solid;
+  border-color: transparent transparent transparent mat-color($dsm-fill, Muted);
+}
+
+.mat-mdc-tooltip-panel-right mat-tooltip-component .mat-mdc-tooltip::after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 100%;
+  border-width: 0.438rem 0.5rem;
+  border-style: solid;
+  border-color: transparent mat-color($dsm-fill, Muted) transparent transparent;
+}

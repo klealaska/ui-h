@@ -1,0 +1,24 @@
+<div>
+  <div style="display: flex">
+    <mat-form-field appearance="outline" class="mid-width-input">
+      <input
+        type="text"
+        [placeholder]="property.DefaultValue"
+        [value]="value"
+        name="authInputContent"
+        [readonly]="true"
+        matInput
+        #authInput
+      />
+    </mat-form-field>
+    <button
+      class="signin-button"
+      mat-raised-button
+      type="button"
+      color="primary"
+      (click)="signInAuthProfile()"
+    >
+      Sign In
+    </button>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+{
+  "name": "avidcapture-maintenance-page-feature",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/avidcapture/maintenance-page/feature/src",
+  "prefix": "xdc",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/avidcapture/maintenance-page/feature"],
+      "options": {
+        "project": "libs/avidcapture/maintenance-page/feature/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/avidcapture/maintenance-page/feature/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/avidcapture/maintenance-page/feature/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/avidcapture/maintenance-page/feature"],
+      "options": {
+        "jestConfig": "libs/avidcapture/maintenance-page/feature/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/avidcapture/maintenance-page/feature/**/*.ts",
+          "libs/avidcapture/maintenance-page/feature/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:avidcapture"]
+}

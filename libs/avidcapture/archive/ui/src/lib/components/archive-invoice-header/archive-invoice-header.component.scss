@@ -1,0 +1,54 @@
+$default-header-color: theme('colors.surface.50');
+$white: #ffffff;
+
+.header {
+  background-color: $default-header-color;
+  cursor: default;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .chevron {
+    margin: 0 5px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .link {
+    color: theme('colors.interactive.700');
+    margin: 0 0.25em;
+    cursor: pointer;
+  }
+
+  .text {
+    color: theme('colors.grey.700');
+  }
+}
+
+.mat-expansion-panel-header {
+  padding: 0 15px;
+}
+
+@media (hover: none) {
+  .mat-expansion-panel:not(.mat-expanded):not([aria-disabled='true'])
+    .mat-expansion-panel-header:hover {
+    background-color: $default-header-color;
+  }
+}
+
+@media (pointer: coarse) {
+  .header:hover {
+    background-color: $default-header-color;
+  }
+}
+
+.mb-2 {
+  margin-bottom: 2px;
+}

@@ -1,0 +1,40 @@
+{
+  "name": "shared-util-guards",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/util/guards/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/shared/util/guards"],
+      "options": {
+        "project": "libs/shared/util/guards/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/util/guards/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/shared/util/guards/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/util/guards"],
+      "options": {
+        "jestConfig": "libs/shared/util/guards/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/shared/util/guards/**/*.ts", "libs/shared/util/guards/**/*.html"]
+      }
+    }
+  },
+  "tags": ["scope:shared", "type:util"]
+}

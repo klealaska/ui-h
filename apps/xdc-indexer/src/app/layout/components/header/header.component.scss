@@ -1,0 +1,37 @@
+.header-toolbar {
+  height: 72px;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo-img {
+  height: 30px;
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+mat-divider {
+  margin: 0 !important;
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  box-shadow: none;
+  padding: 16px;
+  height: 72px !important;
+  border-bottom: 1px solid theme('colors.grey.50');
+  background-color: white;
+}
+
+mat-toolbar-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  height: 40px;
+}

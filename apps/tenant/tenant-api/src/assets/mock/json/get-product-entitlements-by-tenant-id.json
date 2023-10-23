@@ -1,0 +1,30 @@
+[
+  {
+    "tenant_id": "u2foihaa61tql4k6ydii",
+    "product_entitlement_id": "u2foihaa61tql4k6ydii",
+    "product_entitlement_name": "Purchase Workflow Automation",
+    "tenant_entitlement_status": "Active",
+    "assignment_date": "2022-08-19T14:02:28Z",
+    "amount": 20,
+    "assignment_source": "Contract",
+    "source_system": "Swagger-UI",
+    "created_date": "2022-08-19T14:03:52Z",
+    "last_modified_date": "2022-08-19T14:03:52Z",
+    "created_by_user_id": "00u12tymcg0y78rTz1d7",
+    "last_modified_by_user_id": "00u12tymcg0y78rTz1d7"
+  },
+  {
+    "tenant_id": "u2foihaa61tql4k6ydii",
+    "product_entitlement_id": "z1vmx2pqms4erx6doaxd",
+    "product_entitlement_name": "Invoice AP Workflow Automation",
+    "tenant_entitlement_status": "Inactive",
+    "assignment_date": "2022-12-12T14:30:05Z",
+    "amount": 20,
+    "assignment_source": "Contract",
+    "source_system": "Swagger-UI",
+    "created_date": "2022-12-12T14:33:25Z",
+    "last_modified_date": "2023-01-10T15:04:46Z",
+    "created_by_user_id": "00u12u14clkvl9mwp1d7",
+    "last_modified_by_user_id": "00u12u14clkvl9mwp1d7"
+  }
+]

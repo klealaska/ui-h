@@ -1,0 +1,10 @@
+{
+    "baseUrl": "",
+    "shellBaseUrl": "",
+    "tenantApiBaseUrl": "https://tenant-api-pr.ambitiouscliff-b9746546.eastus.azurecontainerapps.io/api",
+    "appInsightsInstrumentationKey": "",
+    "cmsFeatureFlag" : "cms-data",
+    "featureFlagUrl" : "https://getfeatureflags-pr-gbgcche0dvbbhpcv.z01.azurefd.net/api/getfeatureflags",
+    "cmsProductId" : "1",
+    "cmsUrl": "https://cms-bff-dv-ajfye7brd7dcdccv.z01.azurefd.net/api/"
+}

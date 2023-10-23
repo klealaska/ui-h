@@ -1,0 +1,27 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+a.breadcrumb-large {
+  font-size: 1.5em;
+}
+
+a.breadcrumb-large-text {
+  font-size: 1.5em;
+  cursor: unset;
+  border-bottom: none;
+  color: inherit;
+}
+
+a.breadcrumb-large-text:hover {
+  color: unset;
+}
+
+a.breadcrumb-small-text {
+  cursor: unset;
+  border-bottom: none;
+  color: inherit;
+}
+
+a.breadcrumb-small-text:hover {
+  color: unset;
+}

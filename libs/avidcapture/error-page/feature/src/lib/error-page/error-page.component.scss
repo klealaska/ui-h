@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 200px;
+}
+
+.icon {
+  color: theme('colors.surface.300');
+  font-size: 74px;
+  height: auto;
+  width: auto;
+  transform: rotate(180deg);
+}

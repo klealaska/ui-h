@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "nrwl.angular-console",
+    "angular.ng-template",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "esbenp.prettier-vscode",
+    "firsttris.vscode-jest-runner",
+    "aaron-bond.better-comments",
+    "ms-playwright.playwright"
+  ]
+}

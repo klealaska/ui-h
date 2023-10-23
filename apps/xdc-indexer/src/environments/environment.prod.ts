@@ -1,0 +1,33 @@
+export const environment = {
+  production: true,
+  isBeta: '#{IsAvidCaptureBeta}#',
+  apiBaseUri: '#{IdcIndexingApi_BaseUri}#',
+  bkwsBaseUri: '#{BuyerKeywordServiceApi_BaseUri}#',
+  lookupApiBaseUri: '#{IdcLookupApi_BaseUri}#',
+  invoiceIngestionApiBaseUri: '#{IdcInvoiceIngestionApi_BaseUri}#',
+  appInsights: {
+    instrumentationKey: '#{instrumentation_Key}#',
+  },
+  avidInboxLink: '#{AvidInboxUrl}#',
+  avidInvoiceLink: '#{AvidInvoice_SSO}#',
+  clientGuidelinesLink: '#{IdcIndexingUi_ClientGuidelinesLink}#',
+  appConfigConnectionString: '#{IdcIndexingUi_AppConfigConnectionString}#',
+  avidSuiteInvoiceUrl: '#{AvidSuiteInvoiceUrl}#',
+  maxUnindexedPages: '#{MaxUnindexedPages}#',
+  avidAuthBaseUri: '#{AvidAuthBaseUri}#',
+  avidAuthLoginUrl: '#{AvidAuthLoginUrl}#',
+  titleImage: {
+    bofa: '#{AvidPartner_Bofa_LogoUrl}#',
+    comdata: '#{AvidPartner_Comdata_LogoUrl}#',
+    fifth: '#{AvidPartner_Fifth_LogoUrl}#',
+    key: '#{AvidPartner_Key_LogoUrl}#',
+  },
+  fullStory: {
+    orgId: '#{fullStory_orgId}#',
+  },
+  macroEnvGroup: '#{MacroEnvGroup}#',
+  cmsProductId: '#{CmsProductId}#',
+  cmsFeatureFlag: '#{CmsFeatureFlag}#',
+  featureFlagUrl: '#{FeatureFlagUrl}#',
+  cmsUrl: '#{CmsUrl}#',
+};

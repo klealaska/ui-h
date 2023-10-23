@@ -1,0 +1,30 @@
+<div *ngIf="opened && backdrop" class="ax-backdrop" (click)="backDropEvent.emit('backdrop')"></div>
+
+<div
+  *ngIf="opened"
+  #sideSheet
+  class="side-sheet"
+  [ngClass]="boxShadow ? 'side-sheet--boxshadow' : ''"
+>
+  <div class="side-sheet__wrapper">
+    <div class="side-sheet__header">
+      <ng-content select="[sideSheetHeader]"></ng-content>
+      <ax-button
+        data-test="side-sheet-close"
+        class="side-sheet__header--close"
+        type="tertiary"
+        color="neutral"
+        (click)="closeEvent.emit('close')"
+        ><mat-icon>close</mat-icon></ax-button
+      >
+    </div>
+
+    <div class="side-sheet__content">
+      <ng-content select="[sideSheetContent]"></ng-content>
+    </div>
+  </div>
+
+  <div class="side-sheet__footer">
+    <ng-content select="[sideSheetFooter]"></ng-content>
+  </div>
+</div>

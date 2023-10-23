@@ -1,0 +1,28 @@
+<ui-coe-page-layout>
+  <div header>
+    <ui-coe-page-header
+      [title]="title | axTranslate: { fontFamilySemibold, fontFamilyLight }"
+      [buttonText]="addSiteBtnText | axTranslate"
+      buttonId="add-site-btn"
+      [showBackBtn]="showBackBtn"
+      (buttonClicked)="addSiteClick()"
+    ></ui-coe-page-header>
+  </div>
+  <div main class="w-full">
+    <ui-coe-tenant-list-filter-bar
+      [nameFieldValue]="(filterSort$ | async)?.siteName"
+      (filterValue)="onFilterValue($event)"
+      data-cy="filter-bar"
+    >
+    </ui-coe-tenant-list-filter-bar>
+    <ui-coe-tenant-list
+      [siteNameHeader]="siteNameHeader | axTranslate"
+      [dateCreatedHeader]="dateCreatedHeader | axTranslate"
+      [statusHeader]="statusHeader | axTranslate"
+      [displayedColumns]="tableDisplayedColumns | axTranslate"
+      [tenants]="tenants$ | async"
+      (tenantId)="onTenantId($event)"
+      (sortChange)="onSortChange($event)"
+    ></ui-coe-tenant-list>
+  </div>
+</ui-coe-page-layout>

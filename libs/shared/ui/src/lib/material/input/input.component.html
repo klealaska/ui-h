@@ -1,0 +1,85 @@
+<mat-form-field
+  class="text-input"
+  [ngStyle]="{ width: this.width + '%' }"
+  [appearance]="fieldAppearance"
+  [floatLabel]="floatLabel"
+  *ngIf="fieldModel === undefined"
+>
+  <mat-label *ngIf="labelText">{{ labelText }}</mat-label>
+  <input
+    *ngIf="this.type === 'textfield'"
+    matInput
+    [id]="id"
+    [value]="value"
+    [type]="type"
+    (blur)="onblur($event.target.value)"
+    (focus)="onfocus($event.target.value)"
+    (keyup)="handleOnKeyUp($event.target.value)"
+    [disabled]="disabled"
+    [required]="required"
+    [pattern]="pattern"
+    [placeholder]="placeholder"
+    #textInput
+  />
+  <textarea
+    *ngIf="this.type === 'textarea'"
+    matInput
+    [id]="id"
+    [value]="value"
+    [ngStyle]="{ resize: this.resize ? '' : 'none' }"
+    [disabled]="this.disabled"
+    [required]="required"
+    [placeholder]="placeholder"
+    [matAutosizeMaxRows]="matAutosizeMaxRows"
+    [matAutosizeMinRows]="matAutosizeMinRows"
+    [matTextareaAutosize]="matTextareaAutosize"
+    (blur)="onblur($event.target.value)"
+    (focus)="onfocus($event.target.value)"
+    (keyup)="handleOnKeyUp($event.target.value)"
+    #textInput
+  ></textarea>
+</mat-form-field>
+<div *ngIf="fieldModel !== undefined && formGroupInstance !== undefined">
+  <div [formGroup]="formGroupInstance">
+    <mat-form-field
+      [appearance]="fieldAppearance"
+      [floatLabel]="floatLabel"
+      class="text-input"
+      [ngStyle]="{ width: this.width + '%' }"
+    >
+      <mat-label *ngIf="labelText">{{ labelText }}</mat-label>
+      <input
+        *ngIf="this.type === 'textfield'"
+        matInput
+        [id]="id"
+        [value]="fieldModel.value"
+        [type]="type"
+        (blur)="onblur($event.target.value)"
+        (focus)="onfocus($event.target.value)"
+        (keyup)="handleOnKeyUp($event.target.value)"
+        [required]="fieldModel.required"
+        [pattern]="pattern"
+        [placeholder]="placeholder"
+        [formControlName]="fieldModel.key"
+        #textInput
+      />
+      <textarea
+        *ngIf="this.type === 'textarea'"
+        matInput
+        [id]="id"
+        [value]="fieldModel.value"
+        [ngStyle]="{ resize: this.resize ? '' : 'none' }"
+        [required]="fieldModel.required"
+        [formControlName]="fieldModel.key"
+        [placeholder]="placeholder"
+        [matAutosizeMaxRows]="matAutosizeMaxRows"
+        [matAutosizeMinRows]="matAutosizeMinRows"
+        [matTextareaAutosize]="matTextareaAutosize"
+        (blur)="onblur($event.target.value)"
+        (focus)="onfocus($event.target.value)"
+        (keyup)="handleOnKeyUp($event.target.value)"
+        #textInput
+      ></textarea>
+    </mat-form-field>
+  </div>
+</div>

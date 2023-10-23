@@ -1,0 +1,70 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import Stepper from '../assets/stepper.png';
+import StepperHorizontal from '../assets/stepper-horizontal.png';
+import StepperVertical from '../assets/stepper-vertical.png';
+
+<Meta title="Wiki/Stepper" />
+
+# **Overview**
+
+The Document Stepper allows users to indicate progress in defined stages. Both a horizontal and a vertical stepper have been designed to provide options to display progress.
+
+##Stepper - Icon, Labels, and Assistive text
+
+<img src={Stepper} alt="Stepper" />
+
+## Stepper - Horizontal
+
+`<mat-horizontal-stepper>`
+
+<img src={StepperHorizontal} alt="StepperHorizontal" />
+
+## Stepper - Vertical
+
+`<mat-vertical-stepper>`
+
+<img src={StepperVertical} alt="StepperVertical" />
+
+# **Additional Specifications**
+
+## Stepper Color
+
+- Needs `color` property set to `accent`
+
+`<mat-horizontal-stepper color="accent">` -or- `<mat-vertical-stepper color="accent">`
+
+## Stepper Connecting Lines
+
+To ensure the lines between the icons change, add a variable declaration and custom class to the selected index.
+
+`<mat-horizontal-stepper #horizontalStepper [class]="'selectedIndex' + horizontalStepper.selectedIndex">`
+
+-or-
+
+`<mat-vertical-stepper #verticalStepper [class]="'selectedIndex' + verticalStepper.selectedIndex">`
+
+## Stepper Sizes
+
+Steppers in three sizes are available for `<mat-horizontal-stepper>` and `<mat-vertical-stepper>`.
+
+Small
+
+- The default material Stepper
+
+Medium
+
+- Requires `class='mat-stepper-medium'`
+
+Large
+
+- Requires `class='mat-stepper-large'`
+
+# **Additional Accessibility Requirements**
+
+None
+
+# **Angular Material**
+
+Review Angular Material for current documentation on how to implement the Document Stepper component.
+
+https://material.angular.io/components/stepper/overview

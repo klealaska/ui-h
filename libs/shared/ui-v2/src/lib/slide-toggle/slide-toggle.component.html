@@ -1,0 +1,21 @@
+<div
+  class="toggle-switch"
+  [ngClass]="{'label-right': labelPosition  === 'right' , 'disabled': disabled, 'readonly':readonly}"
+>
+  <span *ngIf="statusText" class="label top"> {{label}} </span>
+  <label class="switch">
+    <span class="label" *ngIf="!statusText"> {{label}} </span>
+    <span *ngIf="statusText" class="status"> {{statusText}} </span>
+    <input
+      role="switch"
+      type="checkbox"
+      [checked]="checked"
+      [attr.aria-checked]="checked"
+      [disabled]="disabled"
+      (change)="updateValue($event)"
+      (blur)="onTouched()"
+      (click)="onInputClick($event)"
+    />
+    <span class="slider-track round"></span>
+  </label>
+</div>

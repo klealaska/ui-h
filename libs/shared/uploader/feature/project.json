@@ -1,0 +1,41 @@
+{
+  "name": "shared-uploader-feature",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/uploader/feature/src",
+  "prefix": "ax",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "options": {
+        "tsConfig": "libs/shared/uploader/feature/tsconfig.lib.json",
+        "project": "libs/shared/uploader/feature/ng-package.json",
+        "tailwindConfig": "libs/shared/ui/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/uploader/feature/tsconfig.lib.prod.json"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/uploader/feature/src/**/*.ts",
+          "libs/shared/uploader/feature/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/uploader/feature"],
+      "options": {
+        "jestConfig": "libs/shared/uploader/feature/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:shared"]
+}

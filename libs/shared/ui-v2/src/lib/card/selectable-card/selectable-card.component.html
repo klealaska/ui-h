@@ -1,0 +1,15 @@
+<button
+  class="card"
+  [ngClass]="[(disabled ? 'card--disabled' : ''), (selected ? 'card--selected' : ''), (selected && checkbox ? 'card--hasCheckbox' : '')]"
+  [disabled]="disabled"
+  (click)="setSelected()"
+>
+  <ax-checkbox
+    *ngIf="selected && checkbox"
+    class="card__checkbox"
+    [noText]="true"
+    [checked]="selected"
+  ></ax-checkbox>
+
+  <ng-content></ng-content>
+</button>

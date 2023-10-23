@@ -1,0 +1,43 @@
+<avc-page-header [title]="'Portal Dashboard'">
+  <div class="header-options">
+    <div class="customers-options option">
+      <button
+        mat-raised-button
+        [color]="'primary'"
+        [id]="'btnEnrollNewCustomer'"
+        (click)="openEnrollCustomerModal()"
+      >
+        ENROLL CUSTOMER
+      </button>
+    </div>
+  </div>
+</avc-page-header>
+
+<div class="page-content">
+  <nav mat-stretch-tabs="false" mat-tab-nav-bar [tabPanel]="tabPanel">
+    <a
+      mat-tab-link
+      [routerLink]="'/portal-dashboard/customers-list'"
+      routerLinkActive
+      #customersRLA="routerLinkActive"
+      [active]="customersRLA.isActive"
+      id="tabCustomers"
+    >
+      <mat-icon class="icon">people</mat-icon>
+
+      Customers
+    </a>
+    <a
+      mat-tab-link
+      [routerLink]="'/portal-dashboard/connectors-list'"
+      routerLinkActive
+      #connectorsRLA="routerLinkActive"
+      [active]="connectorsRLA.isActive"
+    >
+      <mat-icon class="icon">settings_input_component</mat-icon>
+      Connectors
+    </a>
+  </nav>
+  <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+  <router-outlet></router-outlet>
+</div>

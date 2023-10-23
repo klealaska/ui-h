@@ -1,0 +1,24 @@
+// // Dropdown Menu
+::ng-deep .ax-autocomplete {
+  border: solid 1px theme('colors.onSurface.50');
+  border-radius: 4px !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  max-height: 268px !important;
+  margin-top: 4px !important;
+}
+
+::ng-deep.ax-autocomplete {
+  .mat-mdc-option.mat-active {
+    background-color: theme('colors.secondary.200') !important;
+  }
+
+  .mat-mdc-option {
+    min-height: 38px !important;
+    font-size: 14px;
+    padding: 0 8px;
+    &:hover {
+      background-color: theme('colors.secondary.200') !important;
+    }
+  }
+}

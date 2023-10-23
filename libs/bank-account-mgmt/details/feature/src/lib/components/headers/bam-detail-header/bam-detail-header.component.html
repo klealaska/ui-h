@@ -1,0 +1,18 @@
+<section class="detail__header">
+  <ng-container *ngIf="account; else headerSkeleton">
+    <p
+      class="bam-detail-header__label mr-6 truncate"
+      [axTooltip]="tooltip?.tooltipText"
+      [axTooltipStyle]=" tooltip?.tooltipStyle"
+      [axTooltipPosition]=" tooltip?.tooltipPosition"
+      [axTooltipPointerPosition]="tooltip?.pointerPosition"
+      [axDynamicOverflow]="tooltip?.dynamicOverflow"
+    >
+      {{accountDisplayName}}
+    </p>
+  </ng-container>
+</section>
+
+<ng-template #headerSkeleton>
+  <ui-coe-bam-panel-header-skeleton></ui-coe-bam-panel-header-skeleton>
+</ng-template>

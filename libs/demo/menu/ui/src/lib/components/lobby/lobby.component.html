@@ -1,0 +1,31 @@
+<h1>Waiting to Start Game</h1>
+<p>{{(currentGame$ | async)?.players.length }} of 4 players have joined.</p>
+<ul *ngFor="let player of (currentGame$ | async)?.players">
+  <li>{{player.nickname}} <span *ngIf="player.isHost">(Host)</span></li>
+</ul>
+
+<div
+  *ngIf="(currentPlayer$ | async)?.isHost"
+  style="margin-top: 30px"
+  class="buttons-primary button-block"
+>
+  <ax-button
+    data-cy="start-game-btn"
+    [type]="'secondary'"
+    [fixed]="true"
+    (click)="startGameEvent.emit()"
+    >Start Game</ax-button
+  >
+</div>
+<div style="margin-top: 30px" class="buttons-primary button-block">
+  <ax-button
+    data-cy="exit-lobby-btn"
+    [type]="'secondary'"
+    [fixed]="true"
+    (click)="exitLobbyEvent.emit()"
+    ><span *ngIf="(currentPlayer$ | async)?.isHost" data-cy="remove-game-btn">Remove Game</span
+    ><span *ngIf="!(currentPlayer$ | async)?.isHost" data-cy="leave-game-btn"
+      >Leave Game</span
+    ></ax-button
+  >
+</div>

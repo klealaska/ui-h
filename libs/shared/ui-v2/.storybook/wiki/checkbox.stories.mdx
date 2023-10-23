@@ -1,0 +1,114 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Checkbox" />
+
+## Checkbox
+
+**A working example of this Checkbox implementation can be found @ \_libs/shared/ui-v2/src/lib/Checkbox/Checkbox.component.stories.ts **
+
+The checkbox component can be implemented in two ways
+
+**1.Individual checkbox without layout and heading**
+
+Individual checkbox can be implemented by using the `ax-checkbox` component. Example provided below.
+
+```
+<ax-checkbox
+        [labelPosition]="labelPosition"
+        (checkedChange)="checkedChange($event)"
+        [(ngModel)]="selectedValue"
+        name="checkbox1"
+        value="optionA"
+        [label]="label"
+        [disabled]="disabled"
+        [indeterminate]="true"
+        [noText]="false"
+        [fixed]="true"
+  ></ax-checkbox>
+
+```
+
+## Directives for `ax-checkbox`
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() labelPosition: string</td>
+    <td>To set the label position `left` or `right`. Default is `right`</td>
+  </tr>
+  <tr>
+    <td>@Input() label: string</td>
+    <td>Sets the label. Used for accessibility </td>
+  </tr>
+  <tr>
+    <td>@Input() checked: boolean</td>
+    <td>Sets checked state</td>
+  </tr>
+  <tr>
+    <td>@Input() name: string</td>
+    <td>Set name for the checkbox</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Disable state for the checkbox. Default is `false`</td>
+  </tr>
+  <tr>
+    <td>@Input() indeterminate: boolean</td>
+    <td>Set indeterminate state for the checkbox. Default is `false`</td>
+  </tr>
+  <tr>
+    <td>@Input() noText: boolean</td>
+    <td> Set Checkbox without Label. Default is `false`</td>
+  </tr>
+  <tr>
+    <td>@Input() fixed: boolean</td>
+    <td>Set the `fixed` state. Default is `false`</td>
+  </tr>
+</table>
+
+**2.Group of checkbox with layout and heading**
+
+Checkbox Group can be implemented by using the `ax-checkbox-group` component. Example provided below.
+
+```
+
+<ax-checkbox-group
+        [layout]="layout"
+        [labelHeading]="labelHeading"
+        [disabled]="disabled"
+        name="checkboxButton2"
+        (checkedChange)="checkedChange($event)"
+>
+    <ax-checkbox [labelPosition]="labelPosition" [(ngModel)]="selectedValue1" value="optionA" [fixed]="true">{{ label }}</ax-checkbox>
+    <ax-checkbox [labelPosition]="labelPosition" [(ngModel)]="selectedValue2" value="optionB" [fixed]="true">{{ label }}</ax-checkbox>
+</ax-checkbox-group>
+
+```
+
+## Directives for `ax-checkbox-group`
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() layout: string</td>
+    <td>To set the `horizontal` or `vertical`layout. Default is `horizontal`</td>
+  </tr>
+  <tr>
+    <td>@Input() labelHeading: string</td>
+    <td>Heading for the checkbox group</td>
+  </tr>
+  <tr>
+    <td>@Input() name: string</td>
+    <td>Name for the checkbox. Used for accessibility</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Disable state for the checkbox. Default is `false`</td>
+  </tr>
+</table>

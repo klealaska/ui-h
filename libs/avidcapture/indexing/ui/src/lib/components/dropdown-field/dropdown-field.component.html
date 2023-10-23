@@ -1,0 +1,18 @@
+<ax-dropdown
+  class="full-width"
+  [label]="fieldTitle"
+  [options]="choices"
+  [control]="formCtrl"
+  (selectEvent)="onSelectedItem($event.value)"
+></ax-dropdown>
+<p *ngIf="selectedValue ===''" class="errorValidationMessage">Required</p>
+
+<!-- <div class="confidence-text" *ngIf="confidence > 0">
+  <xdc-document-field-label
+    [bold]="true"
+    [text]="'Confidence: ' + confidence + '%'"
+    [textColor]="confidenceColor"
+    [size]="'xxs'"
+    [italics]="true"
+  ></xdc-document-field-label>
+</div> -->

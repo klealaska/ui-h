@@ -1,0 +1,64 @@
+trigger: none
+#####################################
+# DO NOT RUN this before capability-env #
+#####################################
+#####################################
+# Use app specific variables template
+#####################################
+variables:
+  - template: './variables/common.yml'
+
+#####################################
+#      DO NOT EDIT BELOW HERE       #
+#####################################
+# Location to reference a container, where the stages will be run
+resources:
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+
+pool:
+  name: linux-vmss-agent-pool
+
+# Calling the env-stage-template.yml file, and passing it variables established above, for each individual environment
+stages:
+  - template: '../../../tools/pipelines/templates/apim.yml'
+    parameters:
+      capability_apim: $(capability_apim)
+      domain: $(domain)
+      apimTfDirectory: $(System.DefaultWorkingDirectory)/tools/iac/apim
+      bffPath: $(bffPath)
+      stages:
+        - stage:
+          name: Dv
+          dependsOn: ''
+          varFile: '../../../apps/usr-mgmt/iac/variables/apim/vars-dv.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          apimSubscriptionId: $(nonProdSharedApimSubscriptionId)
+        - stage:
+          name: Ci
+          dependsOn: 'Dv'
+          varFile: '../../../apps/usr-mgmt/iac/variables/apim/vars-ci.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          apimSubscriptionId: $(nonProdSharedApimSubscriptionId)
+        - stage:
+          name: Qa
+          dependsOn: 'Ci'
+          varFile: '../../../apps/usr-mgmt/iac/variables/apim/vars-qa.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          apimSubscriptionId: $(nonProdSharedApimSubscriptionId)
+
+        - stage:
+          name: St
+          dependsOn: 'Qa'
+          varFile: '../../../apps/usr-mgmt/iac/variables/apim/vars-st.tfvars'
+          serviceConnection: $(prodServiceConnection)
+          subscriptionId: $(prodSharedApimSubscriptionId)
+        - stage:
+          name: Pr
+          dependsOn: 'St'
+          varFile: '../../../apps/usr-mgmt/iac/variables/apim/vars-pr.tfvars'
+          serviceConnection: $(prodServiceConnection)
+          subscriptionId: $(prodSharedApimSubscriptionId)

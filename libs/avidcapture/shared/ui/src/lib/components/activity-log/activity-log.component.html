@@ -1,0 +1,245 @@
+<div class="container">
+  <div class="row">
+    <h4>{{'xdc.shared.activity-log-label' | translate }}</h4>
+  </div>
+
+  <div class="card-wrapper">
+    <mat-card
+      class="mt-40"
+      *ngFor="let activity of compositeDocument.indexed.activities; let i=index"
+      [appearance]="'outlined'"
+    >
+      <mat-card-header>
+        <div class="card-header">
+          <div class="row">
+            <span class="card-header-activity text-gray mr-10">{{activity.activity}}</span>
+            <span class="b2 text-gray">{{activity.endDate | date:"dd MMM yyyy"}}</span>
+          </div>
+
+          <div class="b1 text-gray">
+            Performed by:
+            <span class="card-header-indexer"
+              >{{activity.indexer}} at {{activity.endDate | date:"shortTime" | uppercase}}
+              {{activity.endDate | timezone }}</span
+            >
+          </div>
+        </div>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="escalation-container" *ngIf="activity.escalation">
+          <div>
+            <p>
+              <span class="escalation-title">{{'xdc.shared.issue-label' | translate }}</span>
+              <span data-cy="escalation-reason" class="b4 text-gray"
+                >{{activity.escalation.category.issue}}</span
+              >
+            </p>
+            <p>
+              <span class="escalation-title">{{'xdc.shared.reason-label' | translate }}</span>
+              <span
+                data-cy="escalation-reason"
+                *ngIf="activity.escalation.category.reason"
+                class="b4 text-gray"
+                >{{activity.escalation.category.reason}}</span
+              >
+              <span *ngIf="!activity.escalation.category.reason" class="b4 text-gray">-</span>
+            </p>
+            <p>
+              <span class="escalation-title">{{'xdc.shared.comment-label' | translate }}</span>
+              <ng-template
+                [ngIf]="activity.escalation.category.issue === escalationCategoryTypes.DuplicateResearch"
+                [ngIfElse]="notDuplicateResearch"
+              >
+                <ng-template [ngIf]="activity.escalation.category.reason">
+                  <span data-cy="escalation-reason" class="b4 text-gray"
+                    >{{'xdc.shared.review-document-label' | translate }}</span
+                  >
+                  <ul>
+                    <li *ngIf="activity.escalation.description | duplicateDocumentId">
+                      <a
+                        target="_blank"
+                        [routerLink]="['/archive', activity.escalation.description | duplicateDocumentId]"
+                        >{{'xdc.shared.view-document-label' | translate }}</a
+                      >
+                    </li>
+                    <li *ngIf="activity.escalation.description | duplicateDocumentId:true">
+                      <a
+                        href="{{avidSuiteBaseUrl}}{{activity.escalation.description | duplicateDocumentId:true}}"
+                        target="_blank"
+                        >{{'xdc.shared.view-document-avidinvoice-label' | translate }}</a
+                      >
+                    </li>
+                  </ul>
+                </ng-template>
+
+                <!-- Keeping old check for duplicate doc id for older docs -->
+                <ng-template [ngIf]="activity.escalation.category.reason === ''">
+                  <span class="b4 text-gray"
+                    >{{'xdc.shared.review-original-document-label' | translate }}&nbsp;</span
+                  >
+                  <a target="_blank" [routerLink]="['/archive', activity.escalation.description]"
+                    >{{'xdc.shared.here-label' | translate }}</a
+                  >
+                </ng-template>
+              </ng-template>
+              <ng-template #notDuplicateResearch>
+                <span *ngIf="activity.escalation.description" class="b4 text-gray"
+                  >{{activity.escalation.description}}</span
+                >
+                <span *ngIf="!activity.escalation.description" class="b4 text-gray">-</span>
+              </ng-template>
+            </p>
+          </div>
+        </div>
+
+        <ng-template [ngIf]="activity.labels && activity.labels.length > 0">
+          <div class="content-row">
+            <div class="content-header content-first text-gray">
+              {{'xdc.shared.field-label' | translate }}
+            </div>
+            <div
+              *ngIf="activity.indexer === 'System'"
+              class="content-header content-second text-gray"
+            >
+              {{'xdc.shared.new-value-label' | translate }}
+            </div>
+            <div
+              *ngIf="activity.indexer !== 'System'"
+              class="content-header content-second text-gray"
+            >
+              {{'xdc.shared.indexed-value-label' | translate }}
+            </div>
+            <div
+              *ngIf="isSponsorUser && (multipleDisplayThresholdsIsActive || supplierPredictionIsActive)"
+              class="content-header content-third text-gray"
+            >
+              {{'xdc.shared.machine-predicted-value-label' | translate }}
+            </div>
+          </div>
+          <div class="divider-horz mt-5"></div>
+
+          <ng-template [ngIf]="activity.changeLog !== null">
+            <div *ngFor="let changeLog of activity.changeLog">
+              <div
+                class="content-row"
+                *ngIf="changeLog?.current && documentLabelDisplayNames[changeLog.current.label] &&
+                (changeLog.current | activityLogDisplayLabel:initialLookupFieldCheck:initialNonLookupFieldCheck:documentType)"
+              >
+                <div class="b4 text-gray content-first">
+                  {{documentLabelDisplayNames[changeLog.current.label]}}
+                </div>
+
+                <ng-template [ngIf]="changeLog.current.value.text" [ngIfElse]="noValue">
+                  <div
+                    class="b4 text-gray"
+                    [ngClass]="{
+                      'content-second': isSponsorUser && (multipleDisplayThresholdsIsActive || supplierPredictionIsActive),
+                      'content-nothird': !isSponsorUser || (!multipleDisplayThresholdsIsActive && !supplierPredictionIsActive)
+                    }"
+                    *ngIf="changeLog.current.value.text === 'api'"
+                  >
+                    {{'xdc.shared.user-upload-label' | translate }}
+                  </div>
+
+                  <div
+                    class="b4 text-gray"
+                    [ngClass]="{
+                      'content-second': isSponsorUser && (multipleDisplayThresholdsIsActive || supplierPredictionIsActive),
+                      'content-nothird': !isSponsorUser || (!multipleDisplayThresholdsIsActive && !supplierPredictionIsActive)
+                    }"
+                    *ngIf="changeLog.current.value.text !== 'api'"
+                  >
+                    {{changeLog.current | activityLogColumnValue:i:documentType}}
+                  </div>
+
+                  <div
+                    class="b4 text-gray content-third"
+                    *ngIf="changeLog.current.value.text !== 'api' &&
+                    (isSponsorUser && (multipleDisplayThresholdsIsActive || supplierPredictionIsActive))"
+                  >
+                    {{changeLog.current | activityLogMachineValue:i:documentType}}
+                  </div>
+
+                  <div
+                    class="b4 text-gray content-third"
+                    *ngIf="changeLog.current.value.text === 'api' &&
+                    (isSponsorUser && (multipleDisplayThresholdsIsActive || supplierPredictionIsActive))"
+                  >
+                    -
+                  </div>
+                </ng-template>
+
+                <ng-template #noValue>
+                  <div class="b4 text-gray content-second">-</div>
+                  <div
+                    class="b4 text-gray content-third"
+                    *ngIf="isSponsorUser && (multipleDisplayThresholdsIsActive || supplierPredictionIsActive)"
+                  >
+                    {{changeLog.current | activityLogMachineValue:i:documentType}}
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template [ngIf]="activity.changeLog === null">
+            <div *ngFor="let label of activity.labels">
+              <div
+                class="content-row"
+                *ngIf="documentLabelDisplayNames[label.label] &&
+                (label | activityLogDisplayLabel:initialLookupFieldCheck:initialNonLookupFieldCheck:documentType)"
+              >
+                <div class="b4 text-gray content-first">
+                  {{documentLabelDisplayNames[label.label]}}
+                </div>
+                <div
+                  class="b4 text-gray"
+                  [ngClass]="{
+                    'content-second': isSponsorUser && (multipleDisplayThresholdsIsActive || supplierPredictionIsActive),
+                    'content-nothird': !isSponsorUser || (!multipleDisplayThresholdsIsActive && !supplierPredictionIsActive)
+                  }"
+                  *ngIf="compositeDocument.indexed.activities | activityLogNextValue:label.label:i:documentType"
+                >
+                  {{compositeDocument.indexed.activities |
+                  activityLogNextValue:label.label:i:documentType}}
+                </div>
+
+                <div
+                  class="b4 text-gray"
+                  [ngClass]="{
+                    'content-second': isSponsorUser && (multipleDisplayThresholdsIsActive || supplierPredictionIsActive),
+                    'content-nothird': !isSponsorUser || (!multipleDisplayThresholdsIsActive && !supplierPredictionIsActive)
+                  }"
+                  *ngIf="!(compositeDocument.indexed.activities | activityLogNextValue:label.label:i:documentType) &&
+                          (compositeDocument.indexed.labels | activityLogCurrentValue:label.label)"
+                >
+                  {{compositeDocument.indexed.labels | activityLogCurrentValue:label.label}}
+                </div>
+
+                <div
+                  class="b4 text-gray"
+                  [ngClass]="{
+                    'content-second': isSponsorUser && (multipleDisplayThresholdsIsActive || supplierPredictionIsActive),
+                    'content-nothird': !isSponsorUser || (!multipleDisplayThresholdsIsActive && !supplierPredictionIsActive)
+                  }"
+                  *ngIf="!(compositeDocument.indexed.activities | activityLogNextValue:label.label:i:documentType) &&
+                         !(compositeDocument.indexed.labels | activityLogCurrentValue:label.label)"
+                >
+                  -
+                </div>
+
+                <div
+                  class="b4 text-gray content-third"
+                  *ngIf="isSponsorUser && (multipleDisplayThresholdsIsActive || supplierPredictionIsActive)"
+                >
+                  {{label | activityLogMachineValue:i:documentType}}
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ng-template>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

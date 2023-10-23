@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  font-size: 24px;
+  line-height: 28px;
+  font-family: theme('fontFamily.interSemibold');
+  color: theme('colors.grey.800');
+  padding: 0 16px;
+
+  &:first-child {
+    padding-top: 16px;
+  }
+  &:last-child {
+    padding-bottom: 16px;
+  }
+  &:not(:first-child) {
+    padding-top: 8px;
+  }
+  &:not(:last-child) {
+    padding-bottom: 8px;
+  }
+}

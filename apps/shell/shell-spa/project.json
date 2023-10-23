@@ -1,0 +1,103 @@
+{
+  "name": "shell-spa",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/shell/shell-spa/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/shell/shell-spa",
+        "index": "apps/shell/shell-spa/src/index.html",
+        "main": "apps/shell/shell-spa/src/main.ts",
+        "polyfills": "apps/shell/shell-spa/src/polyfills.ts",
+        "tsConfig": "apps/shell/shell-spa/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/shell/shell-spa/src/favicon.ico", "apps/shell/shell-spa/src/assets"],
+        "styles": [
+          "apps/shell/shell-spa/src/styles.scss",
+          "libs/shared/dsm-styles-v2/src/lib/scss/styles.scss"
+        ],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/shell/shell-spa/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "1mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "10kb",
+              "maximumError": "20kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/shell/shell-spa/src/environments/environment.ts",
+              "with": "apps/shell/shell-spa/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/shell/shell-spa/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:module-federation-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "shell-spa:build:production"
+        },
+        "development": {
+          "browserTarget": "shell-spa:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4200,
+        "publicHost": "http://localhost:4200",
+        "proxyConfig": "apps/shell/shell-spa/proxy.conf.json"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "shell-spa:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/shell/shell-spa/**/*.ts", "apps/shell/shell-spa/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/shell/shell-spa"],
+      "options": {
+        "jestConfig": "apps/shell/shell-spa/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:shell", "type:spa"]
+}

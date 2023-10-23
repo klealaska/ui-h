@@ -1,0 +1,151 @@
+<div *ngIf="canViewGetNextDocument" class="skip-doc-bar">
+  <div class="button-container" (click)="getPreviousDocument.emit()">
+    <mat-icon>arrow_back</mat-icon>
+    <button class="button-link b3">{{'xdc.shared.previous-document-label' | translate }}</button>
+  </div>
+
+  <div class="button-container" (click)="getNextDocument.emit()">
+    <button class="button-link b3">{{'xdc.shared.next-document-label' | translate }}</button>
+    <mat-icon>arrow_forward</mat-icon>
+  </div>
+</div>
+
+<section class="document-command-bar">
+  <div class="paging-rotation">
+    <div class="page-numbers-container">
+      <p class="b3">{{'xdc.shared.page-label' | translate }}</p>
+      <input
+        #pageNumberInput
+        class="page-numbers-input"
+        [value]="currentPage"
+        (keypress)="numberCheck($event)"
+        (keyup.enter)="goToPageEntered.emit(pageNumberInput.value)"
+        (focusout)="focusOut()"
+        (click)="pageNumberInput.select()"
+      />
+      <span class="b3">of {{ totalPages }}</span>
+      <button
+        mat-icon-button
+        class="top-page-button"
+        [id]="'button-go-first-page'"
+        [disabled]="currentPage <= 2"
+        (click)="goToFirstPage.emit()"
+        aria-label="Go top"
+        [axTooltip]="'Go to first page'"
+        [axTooltipStyle]="'primary'"
+        [axTooltipPosition]="'below'"
+        [axTooltipPointerPosition]="'center'"
+      >
+        <mat-icon>first_page</mat-icon>
+      </button>
+    </div>
+
+    <div *ngIf="!isReadOnlyMode && currentPage <= maxUnindexedPages" class="ml-10">
+      <button
+        mat-icon-button
+        [id]="'button-rotate-left'"
+        (click)="rotateLeft.emit()"
+        aria-label="Rotate left"
+        [axTooltip]="'Rotate left'"
+        [axTooltipStyle]="'primary'"
+        [axTooltipPosition]="'below'"
+        [axTooltipPointerPosition]="'center'"
+      >
+        <mat-icon>rotate_left</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        [id]="'button-rotate-right'"
+        (click)="rotateRight.emit()"
+        aria-label="Rotate right"
+        [axTooltip]="'Rotate right'"
+        [axTooltipStyle]="'primary'"
+        [axTooltipPosition]="'below'"
+        [axTooltipPointerPosition]="'center'"
+      >
+        <mat-icon>rotate_right</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div>
+    <button
+      mat-icon-button
+      [id]="'button-zoom-out'"
+      (click)="zoomOut.emit()"
+      aria-label="Zoom out"
+      [axTooltip]="'Zoom out'"
+      [axTooltipStyle]="'primary'"
+      [axTooltipPosition]="'below'"
+      [axTooltipPointerPosition]="'center'"
+    >
+      <mat-icon>zoom_out</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      [id]="'button-zoom-in'"
+      (click)="zoomIn.emit()"
+      aria-label="Zoom in"
+      [axTooltip]="'Zoom in'"
+      [axTooltipStyle]="'primary'"
+      [axTooltipPosition]="'below'"
+      [axTooltipPointerPosition]="'center'"
+    >
+      <mat-icon>zoom_in</mat-icon>
+    </button>
+  </div>
+
+  <div class="container-menu">
+    <div class="mr-5" *ngIf="!isArchivePage">
+      <mat-icon
+        [ngClass]="isReadOnlyMode || currentPage > maxUnindexedPages ? 'icon-readonlyon' : 'icon-readonlyoff'"
+        [axTooltip]="isReadOnlyMode || currentPage > maxUnindexedPages ? 'Click to type: OFF' : 'Click to type: ON'"
+        [axTooltipStyle]="'primary'"
+        [axTooltipPosition]="'below'"
+        [axTooltipPointerPosition]="'center'"
+        >ads_click</mat-icon
+      >
+    </div>
+
+    <a
+      *ngIf="canDownloadPdf"
+      class="mr-5"
+      (click)="downloadFile.emit(compositeData)"
+      download="Invoice"
+      [axTooltip]="'Download'"
+      [axTooltipStyle]="'primary'"
+      [axTooltipPosition]="'below'"
+      [axTooltipPointerPosition]="'center'"
+    >
+      <mat-icon class="icon-download">download</mat-icon>
+    </a>
+
+    <mat-icon
+      data-cy="command-bar-menu"
+      class="cursor"
+      [matMenuTriggerFor]="menuMoreActions"
+      [axTooltip]="'Settings'"
+      [axTooltipStyle]="'primary'"
+      [axTooltipPosition]="'below'"
+      [axTooltipPointerPosition]="'center'"
+      >settings</mat-icon
+    >
+    <mat-menu
+      #menuMoreActions="matMenu"
+      [hasBackdrop]="true"
+      [xPosition]="'before'"
+      [yPosition]="'below'"
+    >
+      <div *ngFor="let option of menuOptions" class="settings-container">
+        <span class="mr-5 b3">{{option.text}}</span>
+        <ax-slide-toggle
+          *ngIf="option.selectable"
+          [label]="''"
+          [checked]="option.value"
+          [labelPosition]="'left'"
+          (checkedChange)="selectedMenuItemChanged($event, option.text)"
+        ></ax-slide-toggle>
+      </div>
+    </mat-menu>
+  </div>
+</section>

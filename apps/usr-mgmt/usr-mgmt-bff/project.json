@@ -1,0 +1,73 @@
+{
+  "name": "usr-mgmt-bff",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/usr-mgmt/usr-mgmt-bff/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/usr-mgmt/usr-mgmt-bff",
+        "main": "apps/usr-mgmt/usr-mgmt-bff/src/main.ts",
+        "tsConfig": "apps/usr-mgmt/usr-mgmt-bff/tsconfig.app.json",
+        "assets": ["apps/usr-mgmt/usr-mgmt-bff/src/assets"],
+        "webpackConfig": "apps/usr-mgmt/usr-mgmt-bff/webpack.config.js",
+        "generatePackageJson": true
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false
+        },
+        "mock": {
+          "fileReplacements": [
+            {
+              "replace": "apps/usr-mgmt/usr-mgmt-bff/src/environments/environment.ts",
+              "with": "apps/usr-mgmt/usr-mgmt-bff/src/environments/environment.mock.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "usr-mgmt-bff:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "usr-mgmt-bff:build:production"
+        },
+        "mock": {
+          "buildTarget": "usr-mgmt-bff:build:mock"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/usr-mgmt/usr-mgmt-bff/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/usr-mgmt/usr-mgmt-bff/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": ["type:bff", "scope:usr-mgmt"]
+}

@@ -1,0 +1,38 @@
+<div class="flex-container row align-items-center width-fill-available end half-bottom-padding">
+  <div class="flex-container row align-items-center right-margin">
+    <img [src]="getFileIcon()" alt="" />
+  </div>
+  <div class="bar right-margin">
+    <ngx-dropzone-label class="mat-subtitle-2 truncated-text">{{ file.name }}</ngx-dropzone-label>
+    <div class="status" *ngIf="showUploadCompleted()">complete</div>
+    <mat-progress-bar
+      *ngIf="showUploadBar()"
+      mode="indeterminate"
+      color="primary"
+    ></mat-progress-bar>
+  </div>
+  <div class="flex-container row align-items-center" *ngIf="showUploadCompleted() && !hideIcons">
+    <mat-icon color="primary" class="half-left-margin" (click)="openFileEvent.emit(actualFile.id)"
+      >visibility</mat-icon
+    >
+    <mat-icon
+      color="primary"
+      class="half-left-margin"
+      (click)="downloadFileEvent.emit(actualFile.id)"
+      >download</mat-icon
+    >
+    <mat-icon
+      color="primary"
+      class="half-left-margin"
+      *ngIf="removable && isEditable"
+      (click)="_remove($event)"
+      >delete
+    </mat-icon>
+  </div>
+  <div class="flex-container row align-items-center cancel-container" *ngIf="showUploadBar()">
+    <mat-icon color="accent" class="half-left-margin" *ngIf="removable" (click)="_remove($event)"
+      >cancel</mat-icon
+    >
+  </div>
+</div>
+<mat-divider class="width-fill-available"></mat-divider>

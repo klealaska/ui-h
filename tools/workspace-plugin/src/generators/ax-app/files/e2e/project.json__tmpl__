@@ -1,0 +1,22 @@
+{
+  "name": "<%= e2eAppName %>",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/test/<%= e2eAppName %>/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/apps/test/<%= e2eAppName %>"],
+      "options": {
+        "config": "apps/test/<%= e2eAppName %>/playwright.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/<%= domain %>/<%= e2eAppName %>/**/*.{js,ts}"]
+      }
+    }
+  },
+  "implicitDependencies": ["<%= appName %>"]
+}

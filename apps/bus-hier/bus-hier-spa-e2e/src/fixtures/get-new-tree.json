@@ -1,0 +1,31 @@
+{
+  "businessLevel": {
+      "depth": 2,
+      "businessLevels": [
+        {
+          "id": "4324234",
+          "isActive": true,
+          "level": 1,
+          "name": {
+            "singular": "company",
+            "plural": "companies"
+          },
+          "count": 2,
+          "selectedEntityName": null
+        },
+        {
+          "id": "4324235",
+          "isActive": true,
+          "level": 2,
+          "name": {
+            "singular": "department",
+            "plural": "departments"
+          },
+          "count": 60,
+          "selectedEntityName": null
+        }
+      ]
+    },
+    "organization": { "id": "1234", "code": "New Code", "count": 1, "name": "New Name" },
+    "erp": { "id": "233", "code": "456", "count": 1, "name": "My ERP" }
+}

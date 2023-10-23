@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-Uicoe-Pr-usr-roles-Rg'
+  resourceGroupWest: 'Ax-Aw1-Uicoe-Pr-usr-roles-Rg'
+  bffEndpoint: 'https://usr-roles-bff-pr-hmdadnevfgajendt.z01.azurefd.net/api'
+  keyVaultNameEast: 'axae1uicoeprusrrolekv'
+  keyVaultNameWest: 'axaw1uicoeprusrrolekv'

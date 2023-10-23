@@ -1,0 +1,4 @@
+variables:
+  resourceGroup: Ax-Ae1-UicoeNp-Dv-Shared-Frontdoor-Rg
+  securityPolicy: fd-Dv-security-policy
+  fdProfileName: frontdoor-dv

@@ -1,0 +1,123 @@
+{
+  "name": "buyer-keyword",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/buyer-keyword/src",
+  "prefix": "bkws",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/buyer-keyword",
+        "index": "apps/buyer-keyword/src/index.html",
+        "main": "apps/buyer-keyword/src/main.ts",
+        "polyfills": "apps/buyer-keyword/src/polyfills.ts",
+        "tsConfig": "apps/buyer-keyword/tsconfig.app.json",
+        "aot": true,
+        "assets": [
+          "apps/buyer-keyword/src/web.config",
+          "apps/buyer-keyword/src/favicon.ico",
+          "apps/buyer-keyword/src/assets",
+          "apps/buyer-keyword/src/health-probe.jpg",
+          {
+            "glob": "**/*",
+            "input": "libs/shared/dsm-styles-v2/src/lib/assets",
+            "output": "assets"
+          }
+        ],
+        "styles": [
+          "apps/buyer-keyword/src/styles/styles.scss",
+          "libs/shared/dsm-styles-v2/src/lib/scss/styles.scss"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            ".",
+            "apps/buyer-keyword/src/styles",
+            "libs/shared/dsm-styles-v2/src/lib/scss"
+          ]
+        },
+        "scripts": [],
+        "vendorChunk": true,
+        "extractLicenses": false,
+        "buildOptimizer": false,
+        "sourceMap": true,
+        "optimization": false,
+        "namedChunks": true
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/buyer-keyword/src/environments/environment.ts",
+              "with": "apps/buyer-keyword/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "buildOptimizer": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "5mb",
+              "maximumError": "10mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "80kb",
+              "maximumError": "500kb"
+            }
+          ]
+        },
+        "json": {
+          "fileReplacements": [
+            {
+              "replace": "apps/buyer-keyword/src/environments/environment.ts",
+              "with": "apps/buyer-keyword/src/environments/environment.json.ts"
+            }
+          ]
+        }
+      },
+      "defaultConfiguration": ""
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "buyer-keyword:build"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "buyer-keyword:build:production"
+        },
+        "json": {
+          "browserTarget": "buyer-keyword:build:json"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "buyer-keyword:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/buyer-keyword/src/**/*.ts", "apps/buyer-keyword/src/**/*.html"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/buyer-keyword"],
+      "options": {
+        "jestConfig": "apps/buyer-keyword/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:spa"]
+}

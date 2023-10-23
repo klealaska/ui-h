@@ -1,0 +1,16 @@
+{
+  "organization_id": "hl0azeorqasc81qqckwi",
+  "erp_id": "9ng7ljo918qvqunwworx",
+  "erp_name": "ERPNewName",
+  "erp_code": "ERPCode123",
+  "company_database_name": "Database NA",
+  "company_database_id": 1337,
+  "is_cross_company_coding_allowed": false,
+  "is_active": true,
+  "purchase_order_prefix": "PO-",
+  "starting_purchase_order_number": 1000,
+  "created_timestamp": "2023-04-20T22:29:05Z",
+  "created_by_user_id": "00u12tymcg0y78rTz1d7",
+  "last_modified_timestamp": "2023-05-18T15:20:57Z",
+  "last_modified_by_user_id": "00u12tymcg0y78rTz1d7"
+}

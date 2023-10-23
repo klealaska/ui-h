@@ -1,0 +1,24 @@
+.label-heading {
+  font-family: theme('fontFamily.interMedium');
+  font-size: 14px;
+  line-height: 20px;
+  color: theme('colors.grey.800');
+}
+
+.checkbox-group-wrapper {
+  display: flex;
+
+  &.vertical {
+    flex-direction: column;
+  }
+
+  &.horizontal {
+    flex-direction: row;
+  }
+
+  ::ng-deep {
+    .checkbox-control {
+      display: flex;
+    }
+  }
+}

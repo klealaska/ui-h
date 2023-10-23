@@ -1,0 +1,11 @@
+.recycle-bin-page {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}

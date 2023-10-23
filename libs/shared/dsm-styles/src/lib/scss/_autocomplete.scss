@@ -1,0 +1,25 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+// Box shadow and border radius of autocomlete options
+div {
+  .mat-mdc-autocomplete-panel {
+    border-radius: 0px 0px 0.625rem 0.625rem;
+  }
+
+  .mat-mdc-autocomplete-panel:not([class*='mat-elevation-z']) {
+    box-shadow: 0 8px 44px mat-color($dsm-fill, Shadow, 0.14);
+  }
+}
+
+// Hover background of autocomplete options
+.mat-mdc-autocomplete-panel .mat-mdc-option:hover:not(.mat-option-disabled),
+.mat-mdc-option:focus:not(.mat-option-disabled) {
+  background: mat-color($dsm-primary, Light);
+}
+
+// Styles for autocomplete options text
+.mat-mdc-autocomplete-panel .mat-mdc-option {
+  font-size: 16px;
+  color: mat-color($dsm-fill, Text);
+}

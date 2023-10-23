@@ -1,0 +1,43 @@
+{
+  "name": "avidcapture-indexing-util",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/avidcapture/indexing/util/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/avidcapture/indexing/util"],
+      "options": {
+        "project": "libs/avidcapture/indexing/util/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/avidcapture/indexing/util/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/avidcapture/indexing/util/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/avidcapture/indexing/util"],
+      "options": {
+        "jestConfig": "libs/avidcapture/indexing/util/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/avidcapture/indexing/util/**/*.ts",
+          "libs/avidcapture/indexing/util/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:util", "scope:avidcapture"]
+}

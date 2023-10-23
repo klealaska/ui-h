@@ -1,0 +1,132 @@
+<div
+  class="xdc-header"
+  [ngClass]="{'turnOnHighlight': turnOnHighlight}"
+  [ngStyle]="{
+    cursor: !editMode ? 'pointer' : '',
+    'background-color': !meetsReadonlyThreshold ? field?.headerBackgroundColor : '#E0E1E1',
+    'box-shadow': meetsReadonlyThreshold ? 'none' : ''
+  }"
+  (click)="(!meetsReadonlyThreshold || (canEditPredictedValues && meetsReadonlyThreshold)) ? handleSingleClick() : null"
+  (dblclick)="(!meetsReadonlyThreshold || (canEditPredictedValues && meetsReadonlyThreshold)) ? handleDblClick() : null"
+  (mouseover)="!meetsReadonlyThreshold && labelHoverEvent.emit(field.key)"
+  (mouseout)="!meetsReadonlyThreshold && labelHoverEvent.emit('')"
+>
+  <xdc-document-field-label
+    class="xdc-textfield pl-5 cursor"
+    [text]="(field.key === associatedErrorMessage?.label) ||
+    (field.key === nonLookupErrorMessage?.field.key) ||
+    (!isValid && !field?.value) ||
+    (!formGroupInstance?.get(field.key).valid && !editMode)? '*' + field.labelDisplayName : field.labelDisplayName"
+    [bold]="true"
+    [size]="'xxs'"
+    [textColor]="!meetsReadonlyThreshold ? field.headerTextColor : '#333333'"
+    [uppercase]="false"
+    [hasPointer]="true"
+    (mouseover)="!meetsReadonlyThreshold && labelHoverEvent.emit(field.key)"
+    (mouseout)="!meetsReadonlyThreshold && labelHoverEvent.emit(field.key)"
+  ></xdc-document-field-label>
+</div>
+<div
+  *ngIf="!editMode"
+  [id]="'edit-' + field?.htmlId"
+  [ngClass]="{
+    'edit-div': !formGroupInstance?.get(field.key).valid || field.value,
+    'edit-div-no-value': formGroupInstance?.get(field.key).valid && !field.value,
+    'input-fake': !meetsReadonlyThreshold,
+    'input-readonly': meetsReadonlyThreshold
+  }"
+  (click)="(!meetsReadonlyThreshold || (canEditPredictedValues && meetsReadonlyThreshold)) ? handleInputClick() : null"
+>
+  <xdc-document-field-label
+    *ngIf="value && meetsDisplayThreshold"
+    class="xdc-field-value pt-4"
+    [ngStyle]="{
+      'color': !meetsReadonlyThreshold ? labelTextColor : '#6C6C6C'
+    }"
+    [text]="value"
+    [textColor]="!meetsReadonlyThreshold ? labelTextColor : ''"
+    [size]="'xs'"
+  ></xdc-document-field-label>
+  <button
+    *ngIf="meetsReadonlyThreshold"
+    class="edit-button pt-4"
+    mat-icon-button
+    [id]="'edit-' + field?.htmlId"
+    [disableRipple]="true"
+    (click)="(!meetsReadonlyThreshold || (canEditPredictedValues && meetsReadonlyThreshold)) ? edit() : null"
+  ></button>
+</div>
+<p
+  *ngIf="!formGroupInstance?.get(field.key).valid && !editMode && field.required"
+  [class.errorValidationMessage]="!formGroupInstance?.get(field.key).valid"
+>
+  {{'xdc.indexing.required-label' | translate }}
+</p>
+
+<div *ngIf="editMode" class="pr-7">
+  <xdc-text-box
+    *ngIf="!(field.type === 'currency' || field.type === 'date')"
+    [value]="meetsDisplayThreshold ? value : ''"
+    [hasFocus]="hasFocus"
+    [formGroupInstance]="formGroupInstance"
+    [type]="field.type"
+    [width]="100"
+    [pattern]="null"
+    [required]="field.required"
+    [fieldModel]="field"
+    (onBlur)="onblur($event)"
+    (onFocus)="onfocus($event)"
+    (onKeyUp)="handleOnKeyUp($event)"
+    (isValid)="isFormValid($event)"
+  ></xdc-text-box>
+  <xdc-masked-input
+    *ngIf="(field.type === 'currency' || field.type === 'date')"
+    [inputValue]="meetsDisplayThreshold ? value : ''"
+    [isCurrencyFormat]="field.type === 'currency'"
+    [isDateFormat]="field.type === 'date'"
+    [width]="100"
+    [pattern]="null"
+    [required]="field.required"
+    [hasFocus]="hasFocus"
+    (maskInputBlur)="onblur($event)"
+    (maskInputFocus)="onfocus($event)"
+  ></xdc-masked-input>
+</div>
+<p
+  [class.errorValidationMessage]="formGroupInstance?.get(field.key).hasError('dateError')"
+  *ngIf="formGroupInstance?.get(field.key).hasError('dateError')"
+>
+  {{'xdc.indexing.date-invalid-label' | translate }}
+</p>
+<p [class.errorValidationMessage]="!isValid && !field?.value" *ngIf="!isValid && !field?.value">
+  {{ errorMessage }}
+</p>
+<p
+  [class.errorValidationMessage]="field.key === associatedErrorMessage?.label"
+  *ngIf="field.key === associatedErrorMessage?.label"
+>
+  {{ associatedErrorMessage?.message }}
+</p>
+<p
+  [class.errorValidationMessage]="field.key === nonLookupErrorMessage?.field.key"
+  *ngIf="field.key === nonLookupErrorMessage?.field.key"
+>
+  {{ nonLookupErrorMessage?.message }}
+</p>
+
+<p
+  [class.errorValidationMessage]="formGroupInstance?.get(field.key).hasError('maxlength')"
+  *ngIf="formGroupInstance?.get(field.key).hasError('maxlength')"
+>
+  Maximum length reached.
+</p>
+
+<!-- <div class="xdc-field-value" *ngIf="meetsDisplayThreshold && !editMode">
+  <xdc-document-field-label
+    [bold]="true"
+    [text]="'Confidence: ' + confidence + '%'"
+    [textColor]="confidenceColor"
+    [size]="'xxs'"
+    [italics]="true"
+  ></xdc-document-field-label>
+</div> -->

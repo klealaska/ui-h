@@ -1,0 +1,5 @@
+{
+  "baseUrl": "https://bushierspasteastus.z13.web.core.windows.net/",
+  "busHierarchyApiBaseUrl": "https://bus-hier-bff-st.mangowave-e54e98f1.eastus.azurecontainerapps.io",
+  "appInsightsInstrumentationKey": "1b30eb1f-0aae-4b03-abaf-04b9df44d3af"
+}

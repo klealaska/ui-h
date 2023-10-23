@@ -1,0 +1,72 @@
+<ax-slide-panel
+  [title]="user.id ? 'Update Member' : 'Add New Member'"
+  [showPanel]="showUserForm"
+  (panelClosed)="onCloseUserForm()"
+>
+  <form [formGroup]="userForm" #form="ngForm" (ngSubmit)="submitUserForm()">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput type="text" formControlName="firstName" required />
+      <button
+        *ngIf="user.firstName"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clearField('firstName')"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-error> First name is required </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput type="text" formControlName="lastName" required />
+      <button
+        *ngIf="user.lastName"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clearField('lastName')"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-error> Last name is required </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        placeholder="user@mail.com"
+        formControlName="email"
+        pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+        required
+      />
+      <button
+        *ngIf="user.email"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clearField('email')"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-error> Enter a valid email </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        <mat-option [value]="role" *ngFor="let role of roles"> {{role}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="buttons-container">
+      <button mat-raised-button type="button" (click)="onCloseUserForm()">Cancel</button>
+      <button mat-raised-button type="submit" [color]="'primary'">
+        {{user.id ? 'Update Member' : 'Add Member'}}
+      </button>
+    </div>
+  </form>
+</ax-slide-panel>

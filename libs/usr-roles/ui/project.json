@@ -1,0 +1,47 @@
+{
+  "name": "usr-roles-ui",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/usr-roles/ui/src",
+  "prefix": "ui-coe",
+  "tags": ["type:ui", "scope:usr-roles"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/usr-roles/ui/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/usr-roles/ui/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/usr-roles/ui/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/usr-roles/ui/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/usr-roles/ui/**/*.ts", "libs/usr-roles/ui/**/*.html"]
+      }
+    }
+  }
+}

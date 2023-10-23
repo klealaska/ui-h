@@ -1,0 +1,68 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Alert" />
+
+## Alert
+
+**A working example of this Alert implementation can be found @ \_libs/shared/ui-v2/src/lib/alert/alert.component.stories.ts **
+
+Alert can be implemented by using the `ax-alert` component. Example provided below.
+
+```
+   <ax-alert
+      [type]="type"
+      [title]="title"
+      [message]="message"
+      [closable]="closable"
+      [showIcon]="showIcon"
+      [action]="actionTemplate"
+      (onhide)="onhide($event)"
+    >
+      <ng-template #actionTemplate>
+        <button mat-flat-button color="primary" class="md" (click)="actionClick()">
+        Button
+      </button>
+      </ng-template>
+    </ax-alert>
+
+```
+
+Button needs to implement by using ng-template, example provied below.
+
+```
+<ng-template #actionTemplate>
+  <button mat-flat-button color="primary" class="md" (click)="actionClick()">
+    Button
+  </button>
+</ng-template>
+
+```
+
+## Directives for `ax-alert`
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() type: AlertTypes</td>
+    <td>To set the alert type `success`, `error`, `info`, `warning`. Default is `success`</td>
+  </tr>
+  <tr>
+    <td>@Input() title: string</td>
+    <td>title for the alert</td>
+  </tr>
+  <tr>
+    <td>@Input() message: string</td>
+    <td>Message for the alert.</td>
+  </tr>
+  <tr>
+    <td>@Input() closable: boolean</td>
+    <td>closable icon(X) for the alert. Default is `true`</td>
+  </tr>
+  <tr>
+    <td>@Input() showIcon: boolean</td>
+    <td>show icon state for the alert. Default is `true`</td>
+  </tr>
+</table>

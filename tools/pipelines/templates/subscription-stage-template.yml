@@ -1,0 +1,42 @@
+parameters:
+  azureServiceConnection: ''
+  domain: ''
+  capability: 'default'
+  tfDirectory: ''
+  stages: {}
+
+stages:
+  - ${{ each stage in parameters.stages }}:
+      # - ${{ if or(and(eq(stage.name, 'NonProd'), not(eq(variables['Build.SourceBranchName'], 'master'))), eq(variables['Build.SourceBranchName'],'master'))  }}:
+      - stage: ${{ stage.name }}
+        # ${{ if ne(stage.name, 'NonProd') }}:
+        #   condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
+        displayName: 'Deploy ${{ stage.name }} Infrastructure using Terraform'
+        dependsOn: ${{ stage.dependsOn }}
+        jobs:
+          - deployment: Deploy${{ stage.name }}
+            displayName: 'Deploy Infra To ${{ stage.name }}'
+            environment: ${{ stage.name }}
+            # This container name was set in the resource section on the pipeline yaml file, and is called here to establish where the steps will be run.
+            container: cicd_devtools
+            strategy:
+              runOnce:
+                deploy:
+                  steps:
+                    - checkout: self
+
+                    # For this Azure CLI task, the Invoke-CICDTerraformModule script is called, and the arguments are passed to begin calling the CICD module, and plan/apply the terraform files
+                    - task: AzureCLI@2
+                      inputs:
+                        azureSubscription: ${{ stage.serviceConnection }}
+                        scriptType: pscore
+                        scriptPath: '$(System.DefaultWorkingDirectory)/tools/pipelines/scripts/Invoke-CICDTerraformModule.ps1'
+                        arguments: -Domain $(domain) `
+                          -Capability $(capability) `
+                          -Environment ${{ stage.name }} `
+                          -SubscriptionId ${{ stage.azureSubscription }} `
+                          -VarFile ${{ stage.varFile }} `
+                          -WorkingDirectory ${{ parameters.tfDirectory }}
+                        addSpnToEnvironment: true
+                      env:
+                        ACCESS_TOKEN: $(System.AccessToken)

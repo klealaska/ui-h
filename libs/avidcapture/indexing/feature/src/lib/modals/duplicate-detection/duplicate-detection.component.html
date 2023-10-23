@@ -1,0 +1,53 @@
+<div
+  class="modal-body"
+  cdkDrag
+  cdkDragRootElement=".cdk-overlay-pane"
+  cdkDragHandle
+  data-cy="duplicate-detection-modal"
+>
+  <div class="modal-header">
+    <h5>{{'xdc.indexing.duplicate-detected-label' | translate }}</h5>
+    <mat-icon class="icon" (click)="close()" data-cy="duplicate-detection-x-close"
+      >{{'xdc.indexing.close-label' | translate }}</mat-icon
+    >
+  </div>
+
+  <div class="modal-information">
+    <p class="b2 mt-20">{{'xdc.indexing.review-label' | translate }}</p>
+    <ul>
+      <li *ngIf="duplicateDetectionError.documentId">
+        <ax-link [size]="'lg'">
+          <a target="_blank" [routerLink]="['archive', duplicateDetectionError.documentId]"
+            >{{'xdc.indexing.view-document-label' | translate }}</a
+          >
+        </ax-link>
+      </li>
+      <li *ngIf="duplicateDetectionError.sourceDocumentId">
+        <ax-link [size]="'lg'">
+          <a href="{{avidSuiteBaseUrl}}{{duplicateDetectionError.sourceDocumentId}}" target="_blank"
+            >{{'xdc.indexing.view-document-avidinvoice-label' | translate }}</a
+          >
+        </ax-link>
+      </li>
+    </ul>
+  </div>
+
+  <div class="button-container">
+    <ax-button
+      class="mr-10"
+      [type]="'secondary'"
+      (click)="close()"
+      data-cy="duplicate-detection-btn-close"
+    >
+      {{'xdc.indexing.go-back-label' | translate }}
+    </ax-button>
+    <ax-button
+      *ngIf="(canViewAllBuyers$ | async) || (duplicateDetectionError.documentId && duplicateDetectionError.sourceDocumentId) ||
+             (!duplicateDetectionError.documentId && duplicateDetectionError.sourceDocumentId)"
+      (click)="markAsDuplicate()"
+      data-cy="duplicate-detection-btn-mark-as-duplicate"
+    >
+      {{'xdc.indexing.mark-as-duplicate-label' | translate }}
+    </ax-button>
+  </div>
+</div>

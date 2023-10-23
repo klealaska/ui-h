@@ -1,0 +1,15 @@
+<div class="card-bg">
+  <div class="rectangle">
+    <ax-icon [ngClass]="['icon-' + icon]" [svgData]="icons[icon]"></ax-icon>
+  </div>
+  <div class="card-text-wrapper">
+    <ax-header [text]="count" size="h3" [uppercase]="false"></ax-header>
+    <ax-label
+      [bold]="false"
+      size="xxs"
+      [text]="text"
+      textColor="default"
+      [uppercase]="false"
+    ></ax-label>
+  </div>
+</div>

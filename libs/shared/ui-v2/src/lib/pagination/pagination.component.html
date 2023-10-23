@@ -1,0 +1,93 @@
+<ng-container *ngIf="showMobilePagination && (mobile$ | async) === false">
+  <div class="pagination">
+    <ax-button
+      class="nav-prev"
+      [type]="'tertiary'"
+      (click)="previousPage()"
+      [disabled]="disabled || currentPage === 1"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </ax-button>
+    <ax-button
+      *ngFor="let page of visiblePages"
+      [type]="page === currentPage ? 'secondary' : 'tertiary'"
+      [class.active]="page === currentPage"
+      (click)="goToPage(page)"
+      [disabled]="disabled"
+    >
+      {{ extractText(page) }}
+    </ax-button>
+    <ax-button
+      class="nav-next"
+      [type]="'tertiary'"
+      (click)="nextPage()"
+      [disabled]="disabled || currentPage === totalPages"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </ax-button>
+
+    <!-- Dropdown for pagination-->
+    <div class="go-to-page-dropdown" *ngIf="showSizeChanger">
+      <ax-dropdown
+        name="pageChangeDropdown"
+        [control]="selectedPerPage"
+        placeholder="10 per page"
+        [options]="perPageOptions"
+        (selectEvent)="goToSelectedPageDropdown($event)"
+        [disabled]="disabled"
+      ></ax-dropdown>
+    </div>
+
+    <!--input for the pagination -->
+    <div class="go-to-page-input" *ngIf="showQuickJumper">
+      <label for="pageInput">Go to page:</label>
+      <ax-input
+        inputType="number"
+        placeholder="Input#"
+        id="pageInput"
+        [control]="selectedPage"
+        (inputValueEvent)="goToSelectedPageInput($event)"
+        [disabled]="disabled"
+      ></ax-input>
+    </div>
+  </div>
+</ng-container>
+
+<!-- Mobile-friendly layout with four buttons -->
+<ng-container *ngIf="mobile$ | async">
+  <div class="pagination mobile">
+    <ax-button
+      class="nav-first"
+      [type]="'tertiary'"
+      (click)="goToPage(1)"
+      [disabled]="disabled || currentPage === 1"
+    >
+      <mat-icon>first_page</mat-icon>
+    </ax-button>
+    <ax-button
+      class="nav-prev"
+      [type]="'tertiary'"
+      (click)="previousPage()"
+      [disabled]="disabled || currentPage === 1"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </ax-button>
+    <span class="current-page">{{ currentPage }} of {{ totalPages }}</span>
+    <ax-button
+      class="nav-next"
+      [type]="'tertiary'"
+      (click)="nextPage()"
+      [disabled]="disabled || currentPage === totalPages"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </ax-button>
+    <ax-button
+      class="nav-last"
+      [type]="'tertiary'"
+      (click)="goToPage(totalPages)"
+      [disabled]="disabled || currentPage === totalPages"
+    >
+      <mat-icon>last_page</mat-icon>
+    </ax-button>
+  </div>
+</ng-container>

@@ -1,0 +1,149 @@
+{
+  "name": "tenant-spa",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/tenant/tenant-spa/src",
+  "prefix": "ax",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/tenant/tenant-spa",
+        "index": "apps/tenant/tenant-spa/src/index.html",
+        "main": "apps/tenant/tenant-spa/src/main.ts",
+        "polyfills": "apps/tenant/tenant-spa/src/polyfills.ts",
+        "tsConfig": "apps/tenant/tenant-spa/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/tenant/tenant-spa/src/favicon.ico", "apps/tenant/tenant-spa/src/assets"],
+        "styles": [
+          "apps/tenant/tenant-spa/src/styles.scss",
+          "libs/shared/dsm-styles-v2/src/lib/scss/styles.scss"
+        ],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/tenant/tenant-spa/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "5mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "80kb",
+              "maximumError": "200kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/tenant/tenant-spa/src/environments/environment.ts",
+              "with": "apps/tenant/tenant-spa/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/tenant/tenant-spa/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        },
+        "e2e": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true,
+          "customWebpackConfig": {
+            "path": "apps/tenant/tenant-spa/webpack.e2e.config.js"
+          }
+        },
+        "mock": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/tenant/tenant-spa/src/environments/environment.ts",
+              "with": "apps/tenant/tenant-spa/src/environments/environment.mock.ts"
+            }
+          ]
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "tenant-spa:build:production"
+        },
+        "development": {
+          "browserTarget": "tenant-spa:build:development"
+        },
+        "e2e": {
+          "browserTarget": "tenant-spa:build:e2e"
+        },
+        "mock": {
+          "browserTarget": "tenant-spa:build:mock"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4202,
+        "publicHost": "http://localhost:4202"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "tenant-spa:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/tenant/tenant-spa/**/*.ts", "apps/tenant/tenant-spa/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/tenant/tenant-spa"],
+      "options": {
+        "jestConfig": "apps/tenant/tenant-spa/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "tenant-spa:build",
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "tenant-spa:build:development"
+        },
+        "production": {
+          "buildTarget": "tenant-spa:build:production"
+        }
+      }
+    }
+  },
+  "tags": ["type:spa", "scope:tenant"]
+}

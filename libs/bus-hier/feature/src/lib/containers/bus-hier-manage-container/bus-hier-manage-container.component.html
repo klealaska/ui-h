@@ -1,0 +1,53 @@
+<bus-hier-page-layout>
+  <bus-hier-page-header header [title]="pageTitle | translate"></bus-hier-page-header>
+  <div class="flex justify-center h-screen" tree>
+    <bus-hier-loader *ngIf="loading$ | async"></bus-hier-loader>
+    <bus-hier-tree
+      [tree]="tree$ | async"
+      [isLoading]="loading$ | async"
+      (selectNode)="onSelectNode($event)"
+    ></bus-hier-tree>
+  </div>
+  <div details>
+    <bus-hier-page-main
+      [orgId]="(tree$ | async)[0]?.id"
+      [erpId]="(tree$ | async)[1]?.id"
+      [type]="detailsType$ | async"
+      [loading]="detailsLoading$ | async"
+      [details]="details$ | async"
+      [entities]="entities$ | async"
+      [entityListTitle]="selectedEntityListTitleText$ | async"
+      [entityListNameSingular]="selectedEntityListSingularName$ | async"
+      [entityListSubTitle]="selectedEntityListSubTitleText$ | async"
+      [backBtnHidden]="backBtnHidden$ | async"
+      [detailsContent]="detailsPage | axTranslate"
+      [editValidationErrors]="validationErrors$ | async"
+      [renameBusLevelValidationError]="renameBusLevelValidationError"
+      [addressSectionContent]="addressSection | axTranslate"
+      [businessLevelNameSideSheetToggle]="toggleSidesheet"
+      [businessLevelID]="treeNodeID$ | async"
+      [organizations]="organizations$ | async"
+      [erps]="erps$ | async"
+      [selectMode]="viewHierarchySelectMode$ | async"
+      [defaultPageContent]="defaultPageContent | translate: { fontFamily }"
+      [viewHierBtnEnabled]="viewHierBtnEnabled$ | async"
+      [selectMode]="(organizations$| async)?.length >1"
+      [defaultPageContent]="defaultPageContent | axTranslate: { fontFamily }"
+      (backBtnClicked)="backBtnClick()"
+      (selectEntity)="onSelectEntity($event)"
+      (toggleEditDetailsMode)="onToggleEditDetailsMode()"
+      (activateItem)="onActivateItem($event)"
+      (deactivateItem)="onDeactivateItem($event)"
+      (saveDetails)="onSaveDetails($event)"
+      (deactivateAddressButtonClick)="onDeactivateAddress($event)"
+      (activateAddressButtonClick)="onActivateAddress($event)"
+      (addAddressButtonClick)="onAddAddress($event)"
+      (businessLevelNameEdit)="onBusinessLevelNameEdit()"
+      (editAddress)="onEditAddress($event)"
+      (saveBusinessLevelNameEdit)="onSaveBusinessLevelNameEdit($event)"
+      (toggleOrgSelection)="toggleOrgSelection($event)"
+      (toggleErpSelection)="toggleErpSelection($event)"
+      (viewHierBtnClick)="viewHierBtnClick()"
+    ></bus-hier-page-main>
+  </div>
+</bus-hier-page-layout>

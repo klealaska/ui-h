@@ -1,0 +1,10 @@
+{
+  "avidAuthBaseUri": "${defaultKey1}",
+  "avidAuthLoginUrl": "${defaultKey1}",
+  "avidAuthOktaUrl":"${defaultKey1}",
+  "avidAuthLogoutUrl": "${defaultKey1}",
+  "apiBaseUrl": "${defaultKey1}",
+  "production": "${defaultKey1}",
+  "appName": "${defaultKey1}",
+  "redirectUrl": "${defaultKey1}"
+}

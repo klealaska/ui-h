@@ -1,0 +1,42 @@
+.filter {
+  width: 100%;
+  padding: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.25em 0 0.5em;
+
+  &-no-filter {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1.25em 0;
+  }
+
+  &-chips {
+    display: flex;
+    margin: -0.5em 0 1.5em;
+  }
+}
+
+.button {
+  font-size: 1em;
+  height: 2.813em;
+  width: 5.313em;
+
+  &-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+  }
+}
+
+.modal {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25em;
+  }
+}

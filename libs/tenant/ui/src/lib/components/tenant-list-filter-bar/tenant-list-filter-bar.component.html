@@ -1,0 +1,13 @@
+<form [formGroup]="formGroup" class="flex mb-3.5">
+  <!-- Name filter input field -->
+  <ax-input
+    inputType="search"
+    placeholder="Name"
+    buttonIcon="search"
+    [control]="formGroup.controls.nameField"
+    class="grow max-w-md"
+    data-cy="name-filter-input"
+    [id]="'name-filter-input'"
+  >
+  </ax-input>
+</form>

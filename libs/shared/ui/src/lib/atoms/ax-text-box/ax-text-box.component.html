@@ -1,0 +1,37 @@
+<input
+  [id]="id"
+  *ngIf="fieldModel === undefined"
+  class="text-input"
+  [value]="value"
+  [type]="type"
+  [ngStyle]="{ width: this.width + '%' }"
+  (blur)="onblur($event.target.value)"
+  (focus)="onfocus($event)"
+  (keyup)="handleOnKeyUp($event.target.value)"
+  [disabled]="disabled"
+  [required]="required"
+  [pattern]="pattern"
+  [attr.placeholder]="placeholder"
+  #textInput
+/>
+
+<div *ngIf="fieldModel !== undefined && formGroupInstance !== undefined">
+  <div [formGroup]="formGroupInstance">
+    <input
+      [id]="id"
+      class="text-input"
+      [value]="fieldModel.value"
+      [type]="type"
+      [ngStyle]="{ width: this.width + '%' }"
+      (blur)="onblur($event.target.value)"
+      (focus)="onfocus($event)"
+      (keyup)="handleOnKeyUp($event.target.value)"
+      [required]="fieldModel.required"
+      [pattern]="pattern"
+      [attr.placeholder]="placeholder"
+      [formControlName]="fieldModel.key"
+      [maxLength]="fieldModel.maxLength"
+      #textInput
+    />
+  </div>
+</div>

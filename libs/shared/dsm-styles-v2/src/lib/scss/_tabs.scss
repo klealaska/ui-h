@@ -1,0 +1,97 @@
+$primary-color: theme('colors.interactive.700');
+$border-color: theme('colors.surface.300');
+$active-tab-color: theme('colors.grey.800');
+$disabled-color: theme('colors.grey.100');
+$tab-hover-bg-color: theme('colors.interactive.50');
+$tab-hover-color: theme('colors.interactive.800');
+$font-medium: theme('fontFamily.interMedium');
+$font-regular: theme('fontFamily.interRegular');
+
+@mixin matLabelConfig($class: 'md', $text-size: 14px, $icon-size: 7px) {
+  &.#{$class} {
+    mat-tab-header .mat-mdc-tab-labels {
+      font-size: $text-size !important;
+      @if $class == 'sm' {
+        height: 28px !important;
+      }
+    }
+  }
+}
+
+.mat-mdc-tab-group {
+  @include matLabelConfig('lg', 16px, 8px);
+  @include matLabelConfig('md', 14px, 7px);
+  @include matLabelConfig('sm', 12px, 6px);
+}
+.mat-mdc-tab-nav-bar,
+.mat-mdc-tab-header {
+  border-bottom: solid $border-color 1px;
+}
+.mdc-tab-indicator__content--underline {
+  border-top-width: 4px !important;
+  border-radius: 4px 4px 0px 0px;
+  border-color: $primary-color !important ;
+}
+
+.mat-mdc-tab {
+  height: 40px !important;
+  color: $active-tab-color;
+  padding: 0 16px !important;
+  min-width: 50px !important;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  opacity: 1 !important;
+  border-radius: 4px 4px 0px 0px;
+  font-family: $font-medium;
+  &:hover {
+    background-color: $tab-hover-bg-color;
+    color: $tab-hover-color;
+  }
+  &:focus {
+    border-color: theme('colors.focused.500') !important;
+  }
+  &:active {
+    background: none;
+    color: theme('colors.interactive.900');
+    border-color: transparent;
+  }
+  &-active {
+    font-family: $font-medium;
+    color: $primary-color;
+    opacity: 1 !important;
+  }
+}
+
+.mat-mdc-tab-body-wrapper {
+  padding-top: 8px;
+}
+.mdc-tab__content {
+  .mat-icon {
+    margin-right: 8px;
+  }
+}
+.mat-mdc-tab.mat-mdc-tab-disabled,
+.mat-mdc-tab-link.mat-mdc-tab-disabled .mat-mdc-tab-labels {
+  .mdc-tab__text-label {
+    color: $disabled-color;
+  }
+  &:hover {
+    background-color: transparent;
+    color: $disabled-color;
+  }
+}
+
+// Badge styling override for Tabs
+.mdc-tab .mat-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .mat-badge-content {
+    position: relative;
+    margin-left: 8px;
+    right: auto !important;
+    bottom: auto !important;
+  }
+}

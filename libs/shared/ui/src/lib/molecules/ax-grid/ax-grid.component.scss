@@ -1,0 +1,78 @@
+@use '../../stylings/shared-components-variables' as *;
+
+.ax-grid-footer {
+  display: block;
+  padding-top: 1.5em;
+  text-align: center;
+}
+
+.ax-grid-empty-state {
+  display: block;
+  text-align: center;
+}
+
+/* Avid Specific AG Grid Theming */
+ax-grid {
+  .ag-row.ag-row-odd {
+    background-color: $transparent-blue;
+  }
+
+  .ag-row.ag-row-even {
+    background-color: $page-background-color;
+  }
+
+  .ag-theme-alpine .ag-root-wrapper,
+  .ag-theme-alpine .ag-header {
+    background: $transparent-blue;
+    border-radius: 10px 10px 0 0;
+    border-color: $page-background-color;
+  }
+
+  .ag-row.ag-row-odd,
+  .ag-row.ag-row-even {
+    border-color: transparent;
+    justify-content: center;
+  }
+
+  .ag-row.ag-row-last {
+    border-color: transparent;
+  }
+
+  .ag-row .ag-cell {
+    display: flex;
+    align-items: center;
+  }
+
+  .ag-cell-focus,
+  .ag-cell-no-focus {
+    border: 1px solid transparent !important;
+  }
+
+  .ag-header-icon.ag-header-label-icon {
+    padding-top: 6px;
+  }
+
+  .ag-theme-alpine div,
+  .ag-theme-alpine span {
+    color: $gray-muted;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+  }
+
+  .ag-theme-alpine span.ag-header-cell-text {
+    color: $gray-muted;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    justify-content: center;
+  }
+
+  .ag-center-cols-clipper,
+  .ag-center-cols-container {
+    min-height: 0 !important;
+  }
+}

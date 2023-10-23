@@ -1,0 +1,18 @@
+<div class="modal-body">
+  <div class="row">
+    <h5>{{modalConfig.title}}</h5>
+    <mat-icon (click)="cancel()">close</mat-icon>
+  </div>
+  <div class="modal-container">
+    <p class="b2">{{modalConfig.message}}</p>
+  </div>
+  <div class="button-container">
+    <ax-button (click)="confirm()" data-cy="confirm-button">
+      {{modalConfig.confirmButton | translate | uppercaseWord }}
+    </ax-button>
+
+    <ax-button [type]="'tertiary'" [color]="'neutral'" class="button-cancel" (click)="cancel()">
+      {{modalConfig.cancelButton | translate | uppercaseWord}}
+    </ax-button>
+  </div>
+</div>

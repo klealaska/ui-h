@@ -1,0 +1,5 @@
+{
+    "baseUrl": "http://localhost:4206",
+    "busHierarchyApiBaseUrl": "http://localhost:3333/api",
+    "appInsightsInstrumentationKey": ""
+}

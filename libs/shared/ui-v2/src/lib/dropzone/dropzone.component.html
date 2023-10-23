@@ -1,0 +1,57 @@
+<label
+  axDropzone
+  class="container"
+  for="fileUpload"
+  [ngClass]="{
+    'container--error': error,
+    'container--disabled': disabled
+    }"
+  (fileDropped)="onFileDropped($event)"
+>
+  <div>
+    <mat-icon class="container__icon">{{ content?.icon }}</mat-icon>
+  </div>
+  <div class="container__header-content">
+    <input
+      class="container__input"
+      type="file"
+      id="fileUpload"
+      #fileUpload
+      accept="{{supportedFileTypes}}"
+      multiple
+      (change)="onFileUpload()"
+    />
+    <label
+      [ngClass]="{
+      'container__link': !disabled,
+      'container__link-disabled': disabled
+    }"
+      for="fileUpload"
+      >{{ content?.linkText }}
+    </label>
+    <span
+      [ngClass]="{
+      'container__message': !disabled,
+      'container__message-disabled': disabled
+    }"
+      >{{ content?.message }}</span
+    >
+  </div>
+  <div
+    [ngClass]="{
+    'container__instructions': !disabled,
+    'container__instructions-disabled': disabled
+  }"
+  >
+    <div>
+      <span>Supported File Types: </span>
+      <span class="container__instruction-values" id="supportedFileTypes">
+        {{ supportedFileTypes }}
+      </span>
+    </div>
+    <div>
+      <span>Max Size Per File: </span>
+      <span class="container__instruction-values" id="maxFileSize">{{ maxFileSize }}</span>
+    </div>
+  </div>
+</label>

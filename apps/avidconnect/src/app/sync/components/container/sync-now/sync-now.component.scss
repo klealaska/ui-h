@@ -1,0 +1,27 @@
+.data-selection-content {
+  margin: 40px 0;
+}
+.data-selection-list {
+  min-height: 450px;
+  .operation-types {
+    border-bottom: 1px solid #d8d8d8;
+  }
+
+  th {
+    display: inline-block;
+    width: 300px;
+    text-align: left;
+  }
+
+  tr {
+    display: block;
+    border-bottom: 1px solid #d8d8d8;
+    border-top: 1px solid #d8d8d8;
+    padding: 20px 0;
+    margin-bottom: 20px;
+  }
+}
+
+.preview-mode {
+  margin: 20px 0;
+}

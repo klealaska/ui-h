@@ -1,0 +1,51 @@
+<ax-input-header
+  *ngIf="label || tooltip"
+  [readonly]="readonly"
+  [id]="id"
+  [label]="label"
+  [optional]="optional"
+  [tooltip]="tooltip"
+  [control]="control"
+></ax-input-header>
+
+<mat-form-field class="ax-form-field">
+  <!-- Input -->
+  <input
+    matInput
+    [id]="id"
+    class="ax-datepicker-input"
+    [attr.disabled]="control?.disabled"
+    [formControl]="control"
+    placeholder="{{placeholder}}"
+    data-test="ax-datepicker"
+    [matDatepicker]="datePicker"
+    (dateChange)="dataChangeFunc($event)"
+    (dateInput)="dateInputFunc($event)"
+  />
+
+  <!-- Icon -->
+  <mat-datepicker-toggle matIconSuffix [for]="datePicker" class="ax-datepicker-toggle">
+    <mat-icon matDatepickerToggleIcon class="ax-datepicker-icon">calendar_today</mat-icon>
+  </mat-datepicker-toggle>
+
+  <!-- Panel -->
+  <mat-datepicker
+    [dateClass]="dateClass"
+    [panelClass]="'ax-datepicker-panel'"
+    #datePicker
+  ></mat-datepicker>
+
+  <!-- Hint -->
+  <mat-hint>
+    <ax-input-hint [message]="hintMessage"></ax-input-hint>
+  </mat-hint>
+
+  <!-- Error -->
+  <mat-error
+    ><ax-input-error
+      [icon]="error?.icon"
+      [message]="error?.message"
+      [invalid]="control?.invalid"
+    ></ax-input-error
+  ></mat-error>
+</mat-form-field>

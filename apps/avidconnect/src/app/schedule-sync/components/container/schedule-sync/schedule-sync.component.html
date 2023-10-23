@@ -1,0 +1,37 @@
+<avc-page-header [showBackBtn]="true"> </avc-page-header>
+
+<div class="page-content">
+  <section class="tab-content">
+    <avc-loading-wrapper [isLoading]="false" [loadingMessage]="'Loading Settings'">
+      <h2>Accounting System Instance | {{ registration?.description }}</h2>
+
+      <div class="data-selection-content">
+        <div>
+          <h2>Schedule Sync</h2>
+
+          <p>Please add or select a schedule below for the datasets sync</p>
+        </div>
+
+        <div class="buttons-content">
+          <button
+            mat-raised-button
+            type="button"
+            color="outline"
+            id="new-schedule-btn"
+            (click)="openScheduleModal()"
+          >
+            <mat-icon>event_available</mat-icon>
+            ADD SCHEDULE
+          </button>
+        </div>
+      </div>
+      <div class="separator"></div>
+
+      <avc-schedule-list
+        [schedules]="schedules$ |async"
+        (statusChanged)="scheduleStatusChanged($event)"
+        (editScheduleClicked)="editSchedule($event)"
+      ></avc-schedule-list>
+    </avc-loading-wrapper>
+  </section>
+</div>

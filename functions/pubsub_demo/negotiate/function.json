@@ -1,0 +1,22 @@
+{
+    "bindings": [
+        {
+            "authLevel": "anonymous",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        },
+        {
+            "type": "webPubSubConnection",
+            "name": "connection",
+            "hub": "payui_payment_validation",
+            "userId": "{headers.x-ms-client-principal-name}",
+            "direction": "in"
+        }
+    ]
+}

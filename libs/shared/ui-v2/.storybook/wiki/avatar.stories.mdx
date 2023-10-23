@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Avatar" />
+
+## Avatar
+
+**A working example of this Avatar implementation can be found @ \_libs/shared/ui-v2/src/lib/avatar/avatar.component.stories.ts **
+
+Avatar can be implemented by using the `ax-avatar` component. Example provided below.
+
+```
+<ax-avatar
+  size="md"
+  img="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp"
+  [name]="name"
+></ax-avatar>
+
+```
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() size: AvatarSize</td>
+    <td>
+      Changes avatar size. Supports: <code>xs</code>, <code>sm</code>, <code>md</code>, and{' '}
+      <code>lg</code>
+    </td>
+  </tr>
+  <tr>
+    <td>@Input() img: string</td>
+    <td>Set the avatar image</td>
+  </tr>
+  <tr>
+    <td>@Input() name: AvatarName</td>
+    <td>Set the name</td>
+  </tr>
+</table>

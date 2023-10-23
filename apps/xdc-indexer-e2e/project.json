@@ -1,0 +1,30 @@
+{
+  "name": "xdc-indexer-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/xdc-indexer-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/xdc-indexer-e2e/cypress.config.ts",
+        "devServerTarget": "xdc-indexer:serve:ft",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "xdc-indexer:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/xdc-indexer-e2e/**/*.{js,ts}"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["type:e2e"],
+  "implicitDependencies": ["xdc-indexer"]
+}

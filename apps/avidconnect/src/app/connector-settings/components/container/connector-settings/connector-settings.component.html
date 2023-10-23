@@ -1,0 +1,61 @@
+<section class="tab-content">
+  <avc-loading-wrapper [isLoading]="false" [loadingMessage]="'Loading Settings'">
+    <avc-connector-header
+      [connector]="connector$ | async"
+      [accountingSystem]="(registration$ |async)?.description"
+      [platform]="(platform$|async)?.name"
+    ></avc-connector-header>
+
+    <h2 class="underline">Connection Settings</h2>
+
+    <div *ngIf="propertyGroups$ | async; else notFound">
+      <div class="connector-settings-container">
+        <div>
+          <avc-hostname-settings
+            [hostnames]="hostnames$ | async"
+            *ngIf="registrationId"
+          ></avc-hostname-settings>
+          <avc-settings-side-bar
+            [propertyGroups]="propertyGroups$ | async"
+            [groupSelected]="groupSelected?.Name"
+            [errors]="(errors$ | async)"
+            (propertyGroupSelected)="propertyGroupSelected($event)"
+          ></avc-settings-side-bar>
+        </div>
+        <avc-property-group
+          [propertyGroup]="groupSelected"
+          [agentList]="onPremAgents$ | async"
+          [registration]="registration$ | async"
+          [settings]="groupSettingValues"
+          [errors]="getGroupErrors(errors$ | async)"
+          (propertyValueChanged)="propertyValueChanged($event)"
+          (complexPropertyChanged)="complexPropertyChanged($event)"
+          (clearComplexErrors)="clearComplexErrors($event)"
+          (agentDeactivationClick)="handleAgentDeactivation($event)"
+          (activateNewMachineClick)="handleMachineActivation()"
+          (agentSelected)="handleAgentSelection($event)"
+          (agentRegCancel)="goBack()"
+        ></avc-property-group>
+      </div>
+      <ng-container
+        *ngIf="groupSelected?.Name !== 'ActivatedMachines' && groupSelected?.Name !== 'AgentRegistration'"
+      >
+        <div class="buttons-content">
+          <button mat-raised-button type="button" color="outline" (click)="goBack()">CANCEL</button>
+          <button
+            mat-raised-button
+            type="button"
+            color="primary"
+            (click)="submitSettingsChanges()"
+            [disabled]="schemaIsValid"
+          >
+            UPDATE SETTINGS
+          </button>
+        </div>
+      </ng-container>
+    </div>
+    <ng-template #notFound>
+      <avc-no-content [message]="'Connection settings not found'"></avc-no-content>
+    </ng-template>
+  </avc-loading-wrapper>
+</section>

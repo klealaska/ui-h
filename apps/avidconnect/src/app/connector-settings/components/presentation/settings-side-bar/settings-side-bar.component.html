@@ -1,0 +1,14 @@
+<section class="property-groups-list">
+  <div
+    class="property-group"
+    *ngFor="let group of propertyGroups"
+    [ngClass]="{ 'active': groupSelected === group.Name }"
+    (click)="propertyGroupSelected.emit(group)"
+  >
+    <p>
+      <span [matBadge]="getErrorsCount(group.Name)" matBadgeOverlap="false" matBadgeColor="warn"
+        >{{ group.DisplayName || group.Name }}</span
+      >
+    </p>
+  </div>
+</section>

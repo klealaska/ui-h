@@ -1,0 +1,47 @@
+<ng-container *ngIf="currentTenant$ | async as currentTenant">
+  <ui-coe-page-layout-add-edit [sections]="sections">
+    <div header>
+      <ui-coe-page-header
+        [title]="(title | translate: { fontFamily, siteName: currentTenant.siteName })"
+        [smallTitle]="true"
+        [showBackBtn]="showBackBtn"
+        backBtnId="back-btn"
+        (backButtonClicked)="onBackBtnClick()"
+      ></ui-coe-page-header>
+    </div>
+    <div side-nav>
+      <ui-coe-side-menu [menuItems]="menuItems$ | async"></ui-coe-side-menu>
+    </div>
+    <div main>
+      <div [uiCoeScrollSection]="sections[0].id" [id]="sections[0].id">
+        <ui-coe-customer-details
+          data-cy="customer-details-card"
+          [title]="customerDetailsCardTitle | translate"
+          [siteNameLabel]="siteNameLabel | translate"
+          [cmpLabel]="cmpLabel | translate"
+          [siteIdLabel]="siteIdLabel | translate"
+          [submitButtonText]="submitButtonText | translate"
+          [customerNameLabel]="customerNameLabel | translate"
+          [accountIdLabel]="accountIdLabel | translate"
+          [submitButtonId]="'customer-details-submit-button'"
+          [siteNameValue]="currentTenant.siteName"
+          [cmpIdValue]="currentTenant.cmpId"
+          [cmpIdHelperText]="cmpIdHelperLabel | translate"
+          [siteIdValue]="currentTenant.tenantId"
+          [disableCmpIdField]="true"
+          [enableSubmitButton]="enableSubmitButton"
+          [siteNameValidator]="siteNameValidatorFn"
+          (siteNameUpdated)="onSiteNameUpdated($event, currentTenant.siteName)"
+          (submitButtonClick)="onSubmitButtonClick(currentTenant.tenantId, $event)"
+        >
+        </ui-coe-customer-details>
+        <ui-coe-entitlements
+          [title]="entitlementsCardTitle | translate"
+          [text]="entitlementsHelperText | translate"
+          [productEntitlements]="combinedEntitlements$ | async"
+          (productEntitlementChecked)="onProductEntitlementChecked($event)"
+        ></ui-coe-entitlements>
+      </div>
+    </div>
+  </ui-coe-page-layout-add-edit>
+</ng-container>

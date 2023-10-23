@@ -1,0 +1,4 @@
+variables:
+  resourceGroup: Ax-Ae1-Uicoe-St-Shared-Frontdoor-Rg
+  frontdoorName: frontdoor-st
+  endpointName: cms-bff-st

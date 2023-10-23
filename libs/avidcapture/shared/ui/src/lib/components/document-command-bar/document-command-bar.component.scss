@@ -1,0 +1,114 @@
+$white: #fff;
+$command-bar-background-color: theme('colors.primary.800');
+$cornflower-blue: #0574b0;
+$dark-gray: #666;
+
+.document-command-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $command-bar-background-color;
+  color: $white;
+  padding: 10px 20px 20px 20px;
+
+  .paging-rotation {
+    display: flex;
+  }
+
+  .top-page-button {
+    transform: rotate(90deg);
+  }
+}
+
+.skip-doc-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $command-bar-background-color;
+  color: $white;
+  padding: 10px 20px 0 20px;
+}
+
+.page-numbers {
+  &-container {
+    display: flex;
+    align-items: center;
+  }
+  &-input {
+    border-radius: 0.25em;
+    border-width: 0.063em;
+    color: theme('colors.primary.800');
+    font-family: theme('fontFamily.interMedium');
+    font-size: 0.938em;
+    margin: 0 0.313em;
+    padding: 0 0.313em;
+    outline: none;
+    text-align: right;
+    width: 2.5em;
+  }
+}
+
+.container {
+  &-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+.icon {
+  &-reload {
+    color: $white;
+    margin-right: 8px;
+  }
+
+  &-download {
+    color: $white;
+    cursor: pointer;
+    transform: scaleX(-1);
+    margin-top: 0.1em;
+  }
+
+  &-readonlyon {
+    color: $dark-gray;
+    margin-top: 0.23em;
+    padding-right: 0.188em;
+  }
+  &-readonlyoff {
+    margin-top: 0.23em;
+    padding-right: 0.188em;
+  }
+}
+
+.button {
+  &-container {
+    display: flex;
+    align-items: center;
+  }
+  &-link {
+    border: none;
+    background-color: transparent;
+    color: $white;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.settings {
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+  }
+}
+
+.mat-mdc-icon-button:hover {
+  background-color: $command-bar-background-color;
+}
+
+.mat-mdc-button-base:disabled {
+  background-color: transparent !important;
+  color: transparent !important;
+}

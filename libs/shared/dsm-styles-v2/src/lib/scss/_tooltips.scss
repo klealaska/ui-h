@@ -1,0 +1,142 @@
+$primary-color: theme('colors.onSurface.800');
+$secondary-color: theme('colors.white');
+$font-family: theme('fontFamily.interRegular');
+
+@mixin fontStyles {
+  font-family: $font-family;
+  font-size: 14px;
+}
+
+@mixin pointer($color) {
+  content: '';
+  position: absolute;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: 0.5rem solid $color;
+  top: 50%;
+  left: 20%;
+}
+
+@mixin pointerPosition($top, $left, $right, $bottom, $transform) {
+  overflow: initial;
+  &:after {
+    top: $top;
+    left: $left;
+    right: $right;
+    bottom: $bottom;
+    transform: $transform;
+  }
+}
+
+.ax-tooltip {
+  padding: 12px;
+  border-radius: 4px;
+  max-width: 295px;
+
+  & > *:nth-child(2) {
+    margin-top: 12px;
+  }
+
+  &__img {
+    border-radius: 4px;
+  }
+
+  &__primary {
+    @extend .ax-tooltip;
+    @include fontStyles;
+    background-color: $primary-color;
+    color: theme('colors.white') !important; // overrides MatTooltip Material style;
+    &::after {
+      @include pointer($primary-color);
+      z-index: 1;
+    }
+
+    .mdc-tooltip__surface {
+      background-color: $primary-color !important;
+    }
+  }
+
+  &__secondary {
+    @extend .ax-tooltip;
+    @include fontStyles;
+    background-color: $secondary-color;
+    color: theme('colors.grey.800') !important; // overrides MatTooltip Material style
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+
+    &::after {
+      @include pointer($secondary-color);
+    }
+
+    .mdc-tooltip__surface {
+      background-color: $secondary-color !important;
+      color: theme('colors.grey.800') !important; // overrides MatTooltip Material style
+    }
+  }
+
+  &.above {
+    &--start {
+      @include pointerPosition(auto, 12px, auto, -0.48rem, rotate(0));
+    }
+    &--center {
+      @include pointerPosition(auto, auto, calc(50% - 0.5rem), -0.48rem, rotate(0));
+    }
+    &--end {
+      @include pointerPosition(auto, auto, 12px, -0.48rem, rotate(0));
+    }
+    &--none {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &.below {
+    &--start {
+      @include pointerPosition(-0.48rem, 12px, auto, auto, rotate(180deg));
+    }
+    &--center {
+      @include pointerPosition(-0.48rem, auto, calc(50% - 0.5rem), auto, rotate(180deg));
+    }
+    &--end {
+      @include pointerPosition(-0.48rem, auto, 12px, auto, rotate(180deg));
+    }
+    &--none {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &.left {
+    &--end {
+      @include pointerPosition(calc(50% - 0.25rem), auto, -0.7rem, auto, rotate(270deg));
+    }
+    &--none {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &.before {
+    &--none {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &.right {
+    &--start {
+      @include pointerPosition(calc(50% - 0.25rem), -0.7rem, auto, auto, rotate(90deg));
+    }
+    &--none {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &.after {
+    &--none {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

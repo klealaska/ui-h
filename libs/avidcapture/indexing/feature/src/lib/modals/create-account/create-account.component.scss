@@ -1,0 +1,65 @@
+$error: #c70000;
+
+.modal {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2.5em;
+
+    .icon {
+      cursor: pointer;
+    }
+  }
+  &-body {
+    margin: -1.5em;
+    padding: 1.5em;
+  }
+}
+
+.notification {
+  &-error {
+    background-color: rgba(199, 0, 0, 0.1);
+    border-radius: 0.625em;
+
+    .icon-warning {
+      color: $error;
+    }
+
+    p {
+      display: flex;
+      align-items: center;
+      color: $error;
+      font-size: 1em;
+      font-weight: 600;
+      padding: 1em;
+      margin: -1em 0 2em;
+    }
+  }
+}
+
+.ax-form-field-wrapper {
+  display: block;
+}
+
+.ax-input__header {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin-bottom: 4px;
+
+  &-label {
+    color: theme('colors.grey.800');
+    font-family: theme('fontFamily.interSemibold');
+    font-size: 14px;
+    line-height: 16px;
+    height: 16px;
+  }
+}
+
+.button {
+  &-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,23 @@
+<mat-button-toggle-group
+  [appearance]="groupAppearance"
+  [disabled]="groupDisabled"
+  [multiple]="multiple"
+  [name]="groupName"
+  [value]="groupValue"
+  [vertical]="vertical"
+  (change)="groupChange.emit($event)"
+>
+  <ng-template ngFor let-input [ngForOf]="options">
+    <mat-button-toggle
+      [appearance]="input.appearance"
+      [checked]="input.checked"
+      [disableRipple]="input.disableRipple"
+      [disabled]="input.disabled"
+      [id]="input.id"
+      [name]="input.name"
+      [value]="input.value"
+      (change)="change.emit($event)"
+      >{{ input.btnText }}</mat-button-toggle
+    >
+  </ng-template>
+</mat-button-toggle-group>

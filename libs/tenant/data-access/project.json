@@ -1,0 +1,40 @@
+{
+  "name": "tenant-data-access",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/tenant/data-access/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/tenant/data-access"],
+      "options": {
+        "project": "libs/tenant/data-access/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/tenant/data-access/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/tenant/data-access/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/tenant/data-access"],
+      "options": {
+        "jestConfig": "libs/tenant/data-access/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/tenant/data-access/**/*.ts", "libs/tenant/data-access/**/*.html"]
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:tenant"]
+}

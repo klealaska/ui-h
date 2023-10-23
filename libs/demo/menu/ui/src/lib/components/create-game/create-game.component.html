@@ -1,0 +1,40 @@
+<form *ngIf="createGameForm" [formGroup]="createGameForm">
+  <h2>Create a Game</h2>
+
+  <div class="create-game">
+    <div class="userName-input">
+      <ax-input
+        class="mr-[5px]"
+        data-cy="nickname-input"
+        [fixed]="true"
+        [label]="'User Name'"
+        [inputType]="'text'"
+        [placeholder]="'nickname'"
+        [control]="createGameForm?.controls['nickname']"
+        [error]="{message:'nickname is required'}"
+      />
+    </div>
+    <div>
+      <ax-input
+        data-cy="gamename-input"
+        [fixed]="true"
+        [label]="'Game Name'"
+        [inputType]="'text'"
+        [placeholder]="'game name'"
+        [control]="createGameForm?.controls['gameName']"
+        [error]="{message:'Game name is required'}"
+      />
+    </div>
+
+    <div class="buttons-primary button-block">
+      <ax-button
+        data-cy="create-game-btn"
+        [type]="'secondary'"
+        [fixed]="true"
+        (click)="createGameEvent.emit()"
+        [disabled]="!createGameForm.valid"
+        >Create</ax-button
+      >
+    </div>
+  </div>
+</form>

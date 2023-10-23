@@ -1,0 +1,26 @@
+<form>
+  <div mat-dialog-content class="mat-dialog-content">
+    Enter Activation Code for the Installed AvidConnect Agent
+  </div>
+  <mat-form-field>
+    <input
+      matInput
+      [formControl]="activationCodeControl"
+      [maxlength]="24"
+      placeholder="Activation code"
+      avcActivateCode
+    />
+    <mat-error *ngIf="!activationCodeControl.valid">Code must be 20 digits.</mat-error>
+  </mat-form-field>
+</form>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="activationCodeControl.value"
+    [disabled]="!activationCodeControl.valid"
+  >
+    Save
+  </button>
+</mat-dialog-actions>

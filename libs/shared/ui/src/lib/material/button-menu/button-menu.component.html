@@ -1,0 +1,95 @@
+<div [ngSwitch]="btnType">
+  <button
+    *ngSwitchCase="buttonTypes.basic"
+    mat-button
+    [matMenuTriggerFor]="menu"
+    (menuClosed)="menuClosed.emit()"
+    (menuOpened)="menuOpened.emit()"
+    [color]="color"
+    [disableRipple]="disableRipple"
+    [disabled]="disabled"
+    [id]="id"
+    [matBadge]="matBadge"
+    [matBadgeColor]="matBadgeColor"
+    [matBadgeOverlap]="matBadgeOverlap"
+    [matBadgeSize]="matBadgeSize"
+    [matBadgePosition]="matBadgePosition"
+    [matBadgeHidden]="matBadgeHidden"
+  >
+    {{ text }}
+    <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+  </button>
+
+  <button
+    *ngSwitchCase="buttonTypes.raised"
+    mat-raised-button
+    [matMenuTriggerFor]="menu"
+    (menuClosed)="menuClosed.emit()"
+    (menuOpened)="menuOpened.emit()"
+    [color]="color"
+    [disableRipple]="disableRipple"
+    [disabled]="disabled"
+    [id]="id"
+    [matBadge]="matBadge"
+    [matBadgeColor]="matBadgeColor"
+    [matBadgeOverlap]="matBadgeOverlap"
+    [matBadgeSize]="matBadgeSize"
+    [matBadgePosition]="matBadgePosition"
+    [matBadgeHidden]="matBadgeHidden"
+  >
+    {{ text }}
+    <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+  </button>
+
+  <button
+    *ngSwitchCase="buttonTypes.stroked"
+    mat-stroked-button
+    [matMenuTriggerFor]="menu"
+    (menuClosed)="menuClosed.emit()"
+    (menuOpened)="menuOpened.emit()"
+    [color]="color"
+    [disableRipple]="disableRipple"
+    [disabled]="disabled"
+    [id]="id"
+  >
+    {{ text }}
+    <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+  </button>
+
+  <button
+    *ngSwitchCase="buttonTypes.flat"
+    mat-flat-button
+    [matMenuTriggerFor]="menu"
+    (menuClosed)="menuClosed.emit()"
+    (menuOpened)="menuOpened.emit()"
+    [color]="color"
+    [disableRipple]="disableRipple"
+    [disabled]="disabled"
+    [id]="id"
+  >
+    {{ text }}
+    <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+  </button>
+</div>
+
+<mat-menu
+  #menu="matMenu"
+  [aria-describedby]="ariaDescribedby"
+  [aria-label]="ariaLabel"
+  [aria-labelledby]="ariaLabelledby"
+  [backdropClass]="backdropClass"
+  [hasBackdrop]="hasBackdrop"
+  [overlapTrigger]="overlapTrigger"
+  [xPosition]="xPosition"
+  [yPosition]="yPosition"
+>
+  <button
+    mat-menu-item
+    *ngFor="let option of options"
+    [disabled]="option.disabled"
+    [disableRipple]="option.disableRipple"
+    (click)="menuOptionSelected.emit(option.text)"
+  >
+    {{ option.text }}
+  </button>
+</mat-menu>

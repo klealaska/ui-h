@@ -1,0 +1,43 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+.mat-mdc-tab-labels {
+  .mat-mdc-tab,
+  .mat-mdc-tab-link {
+    color: mat-color($dsm-fill, Muted);
+    font-size: 1em;
+    border-radius: 0.625rem 0.625rem 0 0;
+    opacity: 1;
+  }
+
+  .mat-mdc-tab:hover:not(.mdc-tab-indicator--active),
+  .mat-tab-link:hover:not(.mdc-tab-indicator--active) {
+    color: mat-color($dsm-fill, Text);
+  }
+
+  .mat-mdc-tab.mdc-tab-indicator--active,
+  .mat-mdc-tab-link.mdc-tab-indicator--active .mat-mdc-tab.mat-mdc-focus-indicator:active,
+  .mat-mdc-tab-link.mat-mdc-focus-indicator:active {
+    font-family: 'artegra-semi-bold', Arial, Helvetica, sans-serif;
+    color: mat-color($dsm-primary, Main);
+  }
+}
+
+.mdc-tab-indicator__content {
+  border-top-width: 4px;
+  border-radius: 1.25rem 1.25rem 0 0;
+}
+
+.mat-mdc-tab-label .mat-mdc-ripple-element {
+  background-color: mat-color($dsm-primary, Main, 0.1);
+}
+
+.mat-mdc-tab-header-pagination-before:not(.mat-mdc-tab-header-pagination-disabled),
+.mat-mdc-tab-header-pagination-after:not(.mat-mdc-tab-header-pagination-disabled) {
+  &:hover {
+    background-color: mat-color($dsm-fill, Hover);
+  }
+  &:active {
+    background-color: mat-color($dsm-fill, MutedLight);
+  }
+}

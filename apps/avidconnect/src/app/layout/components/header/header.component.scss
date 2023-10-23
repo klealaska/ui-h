@@ -1,0 +1,50 @@
+@use '../../../../styles/mixins' as *;
+@use '../../../../styles/colors' as *;
+
+.ax-header {
+  background-color: white;
+  border-bottom: 1px solid $gray;
+  @include flex-content();
+
+  .app-title {
+    @include flex-content();
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .block > * {
+    float: left;
+    margin: 0;
+  }
+
+  .logo {
+    max-width: 30px;
+    height: auto;
+    margin: 0 0.5rem 0 1rem;
+  }
+
+  .user-nav-menu {
+    @include flex-content();
+  }
+
+  .actions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 16px;
+
+    .action {
+      padding: 30px 22px;
+      border-left: 1px solid $gray;
+      fill: $black;
+      text-align: center;
+
+      @include btn-lighten($white);
+    }
+  }
+
+  .clickable {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

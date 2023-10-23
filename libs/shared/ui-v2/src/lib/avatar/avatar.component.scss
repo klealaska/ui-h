@@ -1,0 +1,64 @@
+$avatar-size-lg: 60px;
+$avatar-size-md: 40px;
+$avatar-size-sm: 32px;
+$avatar-size-xs: 24px;
+$avatar-font-size-lg: 20px;
+$avatar-font-size-md: 14px;
+$avatar-font-size-sm: 12px;
+$avatar-font-size-xs: 10px;
+$avatar-bg: theme('colors.surface.200');
+$avatar-color: theme('colors.grey.800');
+$avatar-border-radius: 50%;
+$avatar-spacing-lg: 12px;
+$avatar-spacing-md: 8px;
+$avatar-spacing-sm: 4px;
+$avatar-spacing-xs: 4px;
+
+@mixin avatar-size($size, $font-size, $spacing) {
+  width: $size;
+  height: $size;
+  padding: $spacing;
+
+  .text {
+    line-height: $font-size;
+    font-size: $font-size;
+    text-transform: uppercase;
+  }
+}
+
+.ax-avatar {
+  white-space: nowrap;
+  text-align: center;
+  font-family: theme('fontFamily.interMedium');
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $avatar-border-radius;
+  color: $avatar-color;
+  background-color: $avatar-bg;
+
+  @include avatar-size($avatar-size-md, $avatar-font-size-md, $avatar-spacing-md);
+
+  &.lg {
+    @include avatar-size($avatar-size-lg, $avatar-font-size-lg, $avatar-spacing-lg);
+  }
+
+  &.sm {
+    @include avatar-size($avatar-size-sm, $avatar-font-size-sm, $avatar-spacing-sm);
+  }
+
+  &.xs {
+    @include avatar-size($avatar-size-xs, $avatar-font-size-xs, $avatar-spacing-xs);
+  }
+
+  & > img {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}

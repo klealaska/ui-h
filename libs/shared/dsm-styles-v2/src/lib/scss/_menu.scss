@@ -1,0 +1,56 @@
+@mixin panel-item-container {
+  display: flex;
+  align-items: center;
+  height: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+  height: -moz-available; /* WebKit-based browsers will ignore this. */
+}
+
+.ax-menu {
+  &.fixed-width {
+    width: 270px;
+    min-width: 270px;
+  }
+
+  &.mat-mdc-menu-panel {
+    margin: 4px 0px;
+    min-width: auto !important;
+    max-width: 270px;
+    max-height: 268px;
+    border: solid 1px theme('colors.onSurface.50');
+    box-shadow: none;
+  }
+
+  .mat-mdc-menu-content:not(:empty) {
+    padding: 0;
+  }
+
+  .mat-mdc-menu-item {
+    font-size: 14px;
+    height: 38px;
+    min-height: 38px;
+    line-height: 38px;
+    padding: 0 8px;
+
+    .mat-icon,
+    span {
+      color: theme('colors.grey.800') !important;
+    }
+
+    &:hover {
+      background-color: theme('colors.secondary.200') !important;
+    }
+  }
+
+  .mat-mdc-menu-item .mat-icon {
+    margin-right: 8px;
+  }
+
+  // Split Button
+  .panel-item-container {
+    @include panel-item-container();
+    justify-content: center;
+    &__icon {
+      @include panel-item-container();
+    }
+  }
+}

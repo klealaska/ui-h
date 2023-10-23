@@ -1,0 +1,11 @@
+<mat-card appearance="outlined">
+  <div class="flex md:flex-col lg:flex-col xl:flex-col 2xl:flex-col">
+    <div *ngFor="let item of menuItems" class="flex flex-col w-[13.313rem] h-[2.5rem]">
+      <ui-coe-menu-item
+        [name]="item?.name"
+        [isActive]="item?.isActive"
+        [anchorId]="item?.anchorId"
+      ></ui-coe-menu-item>
+    </div>
+  </div>
+</mat-card>

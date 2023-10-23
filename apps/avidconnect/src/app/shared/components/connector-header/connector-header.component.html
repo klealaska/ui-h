@@ -1,0 +1,10 @@
+<header class="connector-info">
+  <avc-logo *ngIf="connector?.logoUrl" [connectorId]="connector?.id"></avc-logo>
+  <div>
+    <h2>
+      {{ connector?.displayName }} on {{ platform }} {{ accountingSystem ? '- ' + accountingSystem :
+      '' }}
+    </h2>
+    <p class="sub-title">{{ connector?.version }}</p>
+  </div>
+</header>

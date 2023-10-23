@@ -1,0 +1,82 @@
+<div class="row">
+  <h4 *ngIf="!canViewAllBuyers">{{'xdc.pending.pending-queue-label' | translate }}</h4>
+  <xdc-mat-chips-autocomplete
+    *ngIf="filteredBuyersCore?.length > 1 || canViewAllBuyers"
+    class="filter"
+    data-cy="buyer-filter-input"
+    [data]="customerData"
+    [selectedItems]="canViewAllBuyers ? filteredBuyersCore : filteredBuyers"
+    [labelText]="'Filter by customer'"
+    [placeholder]="'New customer...'"
+    [maxSelections]="10"
+    [minSearchLength]="1"
+    [debounceTime]="300"
+    [multiple]="true"
+    [hintLabel]="filteredBuyers.length >= 10 ? 'Max Filters Reached': ''"
+    (optionSelected)="customerChangedEvent.emit($event)"
+    (removed)="customerChangedEvent.emit($event)"
+    (itemSelected)="buyerAddedEvent.emit($event)"
+    (removedItem)="buyerRemovedEvent.emit($event)"
+    (filterTextChange)="customerTextChangedEvent.emit($event)"
+  ></xdc-mat-chips-autocomplete>
+
+  <div class="button-container">
+    <ax-button
+      class="mr-10"
+      data-cy="queue-refresh-button"
+      [type]="'secondary'"
+      [disabled]="!canRefreshPage"
+      (click)="refreshClicked()"
+    >
+      <mat-icon>{{'xdc.pending.refresh-label' | translate }}</mat-icon>
+    </ax-button>
+    <ax-button
+      *ngIf="canUseAdvancedFilter"
+      class="mr-10"
+      [type]="'secondary'"
+      (click)="showFilters = true"
+      data-cy="queue-filter-button"
+    >
+      {{'xdc.pending.filter-label' | translate }}
+    </ax-button>
+  </div>
+</div>
+
+<div class="row-chips">
+  <mat-chip-listbox aria-label="Applied Filters" [selectable]="false">
+    <div *ngFor="let filter of appliedFilters | keyvalue">
+      <mat-chip-option
+        *ngIf="filter.key === advancedFiltersKeysEnum.DateReceived"
+        class="chip"
+        [highlighted]="true"
+        (removed)="filterChipRemoved.emit(filter.key)"
+        ><span class="mr-5 b2 white">{{advancedFiltersEnum[filter.key]}}:</span
+        ><span class="b2 white">{{transformDates(filter.value)}}</span
+        ><button matChipRemove class="icon-close">
+          <mat-icon>{{'xdc.pending.cancel-label' | translate }}</mat-icon>
+        </button></mat-chip-option
+      >
+      <mat-chip-option
+        *ngIf="filter.key !== advancedFiltersKeysEnum.DateReceived"
+        [highlighted]="true"
+        class="chip"
+        (removed)="filterChipRemoved.emit(filter.key)"
+        ><span class="mr-5 b2 white">{{advancedFiltersEnum[filter.key]}}:</span
+        ><span class="b2 white">{{filter.value}}</span
+        ><button matChipRemove class="icon-close">
+          <mat-icon>{{'xdc.pending.cancel-label' | translate }}</mat-icon>
+        </button></mat-chip-option
+      >
+    </div>
+  </mat-chip-listbox>
+</div>
+
+<xdc-advanced-filter
+  [buyers]="customerData"
+  [advancedFilters]="advancedFilters"
+  [showFilters]="showFilters"
+  [canViewAllBuyers]="canViewAllBuyers"
+  (closeFilters)="showFilters = false"
+  (filtersChanged)="filtersChanged($event)"
+  (buyerFilterTextChange)="customerTextChangedEvent.emit($event)"
+></xdc-advanced-filter>

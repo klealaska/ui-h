@@ -1,0 +1,43 @@
+{
+  "name": "avidcapture-pending-feature",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/avidcapture/pending/feature/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/avidcapture/pending/feature"],
+      "options": {
+        "project": "libs/avidcapture/pending/feature/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/avidcapture/pending/feature/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/avidcapture/pending/feature/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/avidcapture/pending/feature"],
+      "options": {
+        "jestConfig": "libs/avidcapture/pending/feature/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/avidcapture/pending/feature/**/*.ts",
+          "libs/avidcapture/pending/feature/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:avidcapture"]
+}

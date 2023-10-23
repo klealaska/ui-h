@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/List" />
+
+## List
+
+List can be implemented by using the `ax-list` component
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() unordered: boolean</td>
+    <td>Determines whether the list is numbered or not.</td>
+  </tr>
+  <tr>
+    <td>@Input() items: Array</td>
+    <td>Items to be displayed in the list.</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Disables list so no items can be clicked.</td>
+  </tr>
+  <tr>
+    <td>@Output() itemEvent = new EventEmitter()</td>
+    <td>Emits the item selected from list</td>
+  </tr>
+</table>

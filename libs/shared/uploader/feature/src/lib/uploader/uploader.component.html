@@ -1,0 +1,43 @@
+<div class="dropzone-container">
+  <div
+    *ngIf="isEditable"
+    class="custom-dropzone"
+    [disabled]="isDisabled"
+    [maxFileSize]="uploaderConfig.maxSize"
+    [accept]="uploaderConfig.acceptedFiles"
+    (change)="fileSelectEvent($event)"
+    ngx-dropzone
+  >
+    <ngx-dropzone-label>
+      <div class="centered-content">
+        <div>
+          <mat-icon [color]="isDisabled ? 'disabled' : 'primary'" class="icon">backup</mat-icon>
+        </div>
+        <h2>Drag File Here or <a [ngClass]="{'disabled': isDisabled}">choose file</a></h2>
+      </div>
+    </ngx-dropzone-label>
+  </div>
+  <div *ngIf="isEditable" class="information">
+    <p>
+      Max files allowed: <strong>{{ uploaderConfig.maxFiles }}</strong>&nbsp;&nbsp;&nbsp; Files must
+      be less than <strong>{{ formattedMaxFileSize }}MB</strong>
+    </p>
+    <p>Allowed file types: <strong>{{formattedAcceptedFiles}}</strong></p>
+  </div>
+  <div class="files-list">
+    <ax-file
+      class="file-component"
+      ngProjectAs="ngx-dropzone-preview"
+      *ngFor="let file of files"
+      [file]="file"
+      [removable]="true"
+      [isEditable]="isEditable"
+      [hideIcons]="true"
+      (removed)="onRemove(file)"
+      (openFileEvent)="openFile($event)"
+      (downloadFileEvent)="downloadFile(file)"
+    >
+    </ax-file>
+  </div>
+  <div id="dropzone-disabled-overlay" [class.disabled]="!isDisabled"></div>
+</div>

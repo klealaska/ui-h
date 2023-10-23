@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-UicoeNp-Ci-usr-mgmt-Rg'
+  resourceGroupWest: 'Ax-Aw1-UicoeNp-Ci-usr-mgmt-Rg'
+  bffEndpoint: 'https://usr-mgmt-bff-ci-abbca3hvhvdfgdfm.z01.azurefd.net/api'
+  keyVaultNameEast: 'axae1uicoenpciusrmgmtkv'
+  keyVaultNameWest: 'axaw1uicoenpciusrmgmtkv'

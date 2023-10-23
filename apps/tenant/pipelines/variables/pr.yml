@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-Uicoe-Pr-Tenant-Rg'
+  resourceGroupWest: 'Ax-Aw1-Uicoe-Pr-Tenant-Rg'
+  bffEndpoint: 'https://tenant-api-pr.graypond-c7752629.eastus.azurecontainerapps.io/api'
+  keyVaultNameEast: 'axae1uicoeprtenantkv'
+  keyVaultNameWest: 'axaw1uicoeprtenantkv'

@@ -1,0 +1,16 @@
+.uploads-page {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.25em 0;
+}
+
+.search {
+  width: 20%;
+}

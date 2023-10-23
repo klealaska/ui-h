@@ -1,0 +1,16 @@
+<mat-checkbox
+  [checked]="checked"
+  [color]="color"
+  [disableRipple]="disableRipple"
+  [disabled]="disabled"
+  [id]="id"
+  [indeterminate]="indeterminate"
+  [labelPosition]="labelPosition"
+  [name]="name"
+  [required]="required"
+  [value]="value"
+  (change)="change.emit($event)"
+  (indeterminateChange)="indeterminateChange.emit($event)"
+>
+  {{ checkboxLabel }}
+</mat-checkbox>

@@ -1,0 +1,85 @@
+httpConnection:
+  maxPersistentConnectionsPerHost: 6
+  maxConnectedHosts: 30
+  maxRedirectDepth: 10
+  keepAliveTimeout: 60
+  connectTimeout: 120
+  abruptClose: false
+  requestTimeout: 120
+  canonicalHeaderEntries: true
+grpc:
+  connectTimeout: 120
+  keepAliveTime: 0
+  maxRecvMsgSize: 0
+  maxSendMsgSize: 0
+proxy:
+  usePAC: false
+  pacAddress: ''
+  useProxy: false
+  proxyServer: ''
+  proxyDomain: ''
+  proxyUser: ''
+  proxyPassword: ''
+  proxyAuthenticationType: ''
+  excludedHosts:
+    - ''
+ssl:
+  disableHTTP2: false
+  ignoreBadCertificate: false
+  tlsMaxVersion: tls12
+replay:
+  simulateNewUser: true
+  saveSnapshots: always
+  useCache: false
+  enableDynatrace: false
+  resourceHttpErrorAsWarning: true
+  enableIntegratedAuthentication: false
+vts:
+  useProxy: false
+  proxyServer: ''
+  proxyUser: ''
+  proxyPassword: ''
+  portInQueryString: false
+  httpPort: 80
+  httpsPort: 443
+  ignoreBadCertificate: false
+encryption:
+  keyLocation: ''
+vuserLogger:
+  errorBufferSize: 4096
+  logMode: full
+  logLevel: debug
+  showInConsole: true
+  maxBufferSize: 4096
+flow:
+  enabled: true
+  initialize:
+    items:
+      - name: Initialize
+  run:
+    logic: sequential
+    items:
+      - name: T01_Launch
+      - name: T02_Login
+      - name: SelectBuyer
+      - name: OpenInvoice_EnterDetails
+      - name: Submit
+      - name: Action
+  finalize:
+    items:
+      - name: Finalize
+thinkTime:
+  type: asRecorded
+  limit: -1
+  arguments:
+    by: 1
+    min: 50
+    max: 150
+userArguments: {}
+files:
+  - name: T01_Launch.js
+    role: script
+  - name: T02_Login.js
+    role: script
+  - name: Submit.js
+    role: script

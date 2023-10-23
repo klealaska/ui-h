@@ -1,0 +1,5 @@
+{
+    "baseUrl": "http://localhost:4204",
+    "payApiBaseUrl": "http://localhost:3333/api",
+    "appInsightsInstrumentationKey": ""
+  }

@@ -1,0 +1,66 @@
+@mixin btn-darken($color, $amount: 5%) {
+  &:hover {
+    background: darken($color, $amount);
+  }
+  &:active {
+    background: darken($color, $amount);
+  }
+}
+
+@mixin btn-lighten($color, $amount: 3%) {
+  &:hover {
+    background: darken($color, $amount);
+  }
+  &:active {
+    background: darken($color, $amount);
+  }
+}
+
+@mixin txt-link($color, $amount: 10%) {
+  color: $color;
+  cursor: pointer;
+  &:hover {
+    color: lighten($color, $amount);
+  }
+  &:active {
+    color: darken($color, $amount);
+  }
+}
+
+@mixin push--auto {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin headings($from: 1, $to: 6) {
+  @for $i from $from through $to {
+    h#{$i} {
+      @content;
+    }
+  }
+}
+
+@mixin header($size) {
+  font-size: $size;
+}
+
+@mixin flex-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

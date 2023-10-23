@@ -1,0 +1,17 @@
+<div class="bg-surface-50 w-full h-full flex flex-col absolute">
+  <div
+    [ngClass]="smallHeaderHeight ? 'h-[5.5rem] pt-[1.125rem]' : 'h-[6rem] py-6 mb-6'"
+    class="bg-secondary-200"
+    data-cy="main-header-list-page-div"
+  >
+    <ng-content select="[header]"></ng-content>
+  </div>
+  <div>
+    <div class="grid w-[97%] mx-auto absolute top-52 left-0 right-0">
+      <ng-content select="[filter]"></ng-content>
+      <div class="overflow-y-auto">
+        <ng-content select="[main]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

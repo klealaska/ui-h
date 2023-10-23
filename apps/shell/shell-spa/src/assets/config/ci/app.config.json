@@ -1,0 +1,6 @@
+{
+  "cmsUrl": "https://cms-bff-ci-edggdjgufgcddvg6.z01.azurefd.net/api/",
+  "authBaseUrl": "https://api-qa01.devavidxcloud.com/SecPlat/SecAvid/avidauth/avidauth/",
+  "avidAuthUrl": "https://login.qa.avidsuite.com",
+  "appInsightsInstrumentationKey": "46e9780f-d68f-481c-94f2-c531b759da47"
+}

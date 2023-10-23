@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Header" />
+
+## Header
+
+**A working example of this Header implementation can be found @ \_libs/shared/ui-v2/src/lib/header/header.component.stories.ts **
+
+Header can be implemented by using the `ax-header` component. Example provided below.
+
+```
+<ax-header
+  logoImgSrc = ''
+  [avatarInput] = 'avatarInput'
+></ax-header>
+
+```
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() avatarInput: HeaderNavAvatarInput</td>
+    <td>Changes avatar component parameters, size, img, name.</td>
+  </tr>
+  <tr>
+    <td>@Input() logoImgSrc: string</td>
+    <td>Sets the logo for the header</td>
+  </tr>
+
+</table>

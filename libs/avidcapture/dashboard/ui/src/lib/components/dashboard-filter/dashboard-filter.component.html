@@ -1,0 +1,158 @@
+<div class="row">
+  <div class="filter-wrapper">
+    <ax-dropdown
+      *ngIf="orgNames.length > 1"
+      class="filter mr-20"
+      data-cy="dsahboard-select-buyer"
+      [id]="'xdc.dashboard.organization-label' | translate"
+      [label]="'xdc.dashboard.organization-label' | translate"
+      [options]="dropdownOptions"
+      (selectEvent)="orgIdSelectedEvent.emit($event.value)"
+    ></ax-dropdown>
+
+    <div class="ax-form-field-wrapper">
+      <div class="ax-input__header">
+        <mat-label class="ax-input__header-label"
+          >{{'xdc.dashboard.date-range-label' | translate}}</mat-label
+        >
+      </div>
+      <mat-form-field class="ax-form-field">
+        <mat-date-range-input
+          [formGroup]="dateRangeForm"
+          [rangePicker]="picker"
+          [min]="minDate"
+          [max]="today"
+        >
+          <input
+            class="ax-datepicker-input"
+            matStartDate
+            formControlName="startDate"
+            placeholder="From"
+            (blur)="dateChanged()"
+          />
+          <input
+            class="ax-datepicker-input"
+            matEndDate
+            formControlName="endDate"
+            placeholder="To"
+            (dateChange)="dateChanged()"
+          />
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker" class="ax-datepicker-toggle">
+          <mat-icon matDatepickerToggleIcon class="ax-datepicker-icon">calendar_today</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+        <mat-error *ngIf="dateRangeForm.get('startDate').hasError('matStartDateInvalid')"
+          >{{'xdc.dashboard.invalid-start-date-label' | translate }}</mat-error
+        >
+        <mat-error *ngIf="dateRangeForm.controls.endDate.hasError('matEndDateInvalid')"
+          >{{'xdc.dashboard.invalid-end-date-label' | translate }}</mat-error
+        >
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div *ngIf="canViewAllBuyers" class="card-wrapper">
+    <mat-card appearance="outlined" class="card-width mr-10">
+      <div class="card-header">
+        <div class="push-left"></div>
+        <mat-card-header>
+          <mat-card-title
+            >{{'xdc.dashboard.average-time-to-index-label' | translate }}</mat-card-title
+          >
+        </mat-card-header>
+        <div class="push-right"></div>
+        <button
+          class="button-icon"
+          mat-icon-button
+          [matMenuTriggerFor]="atiMenu"
+          aria-label="Icon button to display menu options"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #atiMenu="matMenu">
+          <p class="option-text">{{'xdc.dashboard.convert-to-label' | translate }}</p>
+          <mat-divider></mat-divider>
+          <button
+            mat-menu-item
+            class="option-button"
+            [ngClass]="{
+            'button-active': indexTimeInterval === timeIntervals.Seconds
+          }"
+            (click)="indexTimeInterval = timeIntervals.Seconds"
+          >
+            {{'xdc.dashboard.seconds-label' | translate }}
+          </button>
+          <button
+            mat-menu-item
+            class="option-button"
+            [ngClass]="{
+            'button-active': indexTimeInterval === timeIntervals.IndexingPerHour
+          }"
+            (click)="indexTimeInterval = timeIntervals.IndexingPerHour"
+          >
+            {{'xdc.dashboard.IPH-label' | translate }}
+          </button>
+        </mat-menu>
+      </div>
+
+      <p class="avg-text ml-5" *ngIf="indexTimeInterval === timeIntervals.Seconds">
+        {{averageTimeToIndex}}&nbsp;<span class="avg-subtext">
+          {{'xdc.dashboard.secs-label' | translate }}</span
+        >
+      </p>
+
+      <p class="avg-text ml-5" *ngIf="indexTimeInterval === timeIntervals.IndexingPerHour">
+        {{getAvgTimeToIndexIph()}}&nbsp;<span class="avg-subtext">
+          {{'xdc.dashboard.IPH-label' | translate }}</span
+        >
+      </p>
+    </mat-card>
+
+    <mat-card appearance="outlined" class="card-width">
+      <div class="card-header">
+        <mat-card-header>
+          <mat-card-title
+            >{{'xdc.dashboard.average-time-to-submission-label' | translate }}</mat-card-title
+          >
+        </mat-card-header>
+        <button
+          class="button-icon"
+          mat-icon-button
+          [matMenuTriggerFor]="atsMenu"
+          aria-label="Icon button to display menu options"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #atsMenu="matMenu">
+          <p class="option-text">{{'xdc.dashboard.display-in-label' | translate }}</p>
+          <mat-divider></mat-divider>
+          <button
+            mat-menu-item
+            class="option-button"
+            [ngClass]="{
+            'button-active': submissionTimeInterval === timeIntervals.Hours
+          }"
+            (click)="submissionTimeIntervalChange(timeIntervals.Hours)"
+          >
+            {{'xdc.dashboard.hours-label' | translate }}
+          </button>
+          <button
+            mat-menu-item
+            class="option-button"
+            [ngClass]="{
+            'button-active': submissionTimeInterval === timeIntervals.Minutes
+          }"
+            (click)="submissionTimeIntervalChange(timeIntervals.Minutes)"
+          >
+            {{'xdc.dashboard.minutes-label' | translate }}
+          </button>
+        </mat-menu>
+      </div>
+
+      <p class="avg-text ml-5">
+        {{averageTimeToSubmission}}&nbsp;<span class="avg-subtext">{{submissionTimeInterval}}</span>
+      </p>
+    </mat-card>
+  </div>
+</div>

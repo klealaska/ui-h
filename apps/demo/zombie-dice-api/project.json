@@ -1,0 +1,56 @@
+{
+  "name": "demo-zombie-dice-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/demo/zombie-dice-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/demo/zombie-dice-api",
+        "main": "apps/demo/zombie-dice-api/src/main.ts",
+        "tsConfig": "apps/demo/zombie-dice-api/tsconfig.app.json",
+        "assets": ["apps/demo/zombie-dice-api/src/assets"],
+        "generatePackageJson": true,
+        "target": "node",
+        "compiler": "tsc"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/demo/zombie-dice-api/src/environments/environment.ts",
+              "with": "apps/demo/zombie-dice-api/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "demo-zombie-dice-api:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/demo/zombie-dice-api/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/demo/zombie-dice-api"],
+      "options": {
+        "jestConfig": "apps/demo/zombie-dice-api/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:api", "scope:demo"]
+}

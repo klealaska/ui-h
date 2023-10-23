@@ -1,0 +1,37 @@
+<section class="connectors tab-content">
+  <avc-loading-wrapper
+    [isLoading]="isLoadingRegistrations$ | async"
+    [loadingMessage]="'Loading Connectors'"
+  >
+    <div class="buttons-content">
+      <button
+        mat-raised-button
+        type="button"
+        color="outline"
+        id="new-registration-btn"
+        (click)="getCustomerSettings()"
+      >
+        CUSTOMER SETTINGS
+      </button>
+      <button
+        mat-raised-button
+        type="button"
+        color="outline"
+        id="new-registration-btn"
+        (click)="openNewRegistrationModal()"
+      >
+        NEW REGISTRATION
+      </button>
+    </div>
+
+    <avc-no-content
+      *ngIf="connectors.length === 0 && (isLoadingRegistrations$ | async) === false"
+      [message]="'Customer connectors not found.'"
+    ></avc-no-content>
+
+    <avc-connector-item
+      [connector]="connector"
+      *ngFor="let connector of connectors"
+    ></avc-connector-item>
+  </avc-loading-wrapper>
+</section>

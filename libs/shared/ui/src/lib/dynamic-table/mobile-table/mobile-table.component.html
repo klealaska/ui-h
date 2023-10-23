@@ -1,0 +1,85 @@
+<mat-card appearance="outlined" class="card" *ngFor="let card of dataSource | async">
+  <div class="card-header">
+    <ng-container
+      *ngFor="let column of columnDefs"
+      [matColumnDef]="column.columnDef"
+      [ngSwitch]="column.columnDef"
+    >
+      <div *ngSwitchCase="'multiSelect'" class="card-multiSelect">
+        <mat-checkbox
+          color="primary"
+          (click)="checkboxEvent.emit($event)"
+          (change)="$event ? checkboxToggle.emit(card) : null"
+          [checked]="selectionType.isSelected(card)"
+        ></mat-checkbox>
+      </div>
+
+      <div *ngSwitchCase="'singleSelect'" class="card-singleSelect">
+        <mat-radio-button
+          color="primary"
+          (change)="$event ? changeRadioButton.emit(card) : null"
+          [class]="selectionType.isSelected(card) ? 'mat-radio-checked' : ''"
+          (click)="buttonEvent.emit(card)"
+        ></mat-radio-button>
+      </div>
+
+      <div
+        class="expandable-icon card-action"
+        *ngIf="card.component || checkCardValue(column, card)"
+      >
+        <mat-icon (click)="card.isExpanded = !card.isExpanded">
+          {{card.isExpanded ? 'expand_less' : 'expand_more'}}
+        </mat-icon>
+      </div>
+
+      <ng-container *ngIf="column.cellDef?.mobileView === 1 || column.cellDef?.mobileView === 2">
+        <div
+          [ngClass]="column.cellDef?.mobileView === 2 && card.mobileView?.doubleColumnTop
+           ? 'card-content-bottom card-content-' + column.cellDef?.mobileView
+           : 'card-content card-content-' + column.cellDef?.mobileView"
+        >
+          <ax-dynamic-table-cell
+            [ngClass]="column.cellDef?.mobileView === 1 ? 'column-header' : ''"
+            [columnDef]="column"
+            [data]="card"
+          >
+          </ax-dynamic-table-cell>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <div
+      class="card-double"
+      [ngClass]="card.mobileView?.doubleColumnTop ? 'card-content-top' : 'card-content-bottom'"
+    >
+      <ng-container *ngFor="let column of columnDefs" [matColumnDef]="column.columnDef">
+        <ng-container *ngIf="column.cellDef?.mobileView === 3 || column.cellDef?.mobileView === 4">
+          <div [ngClass]="'card-content-' + column.cellDef?.mobileView">
+            <ax-dynamic-table-cell [columnDef]="column" [data]="card"> </ax-dynamic-table-cell>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <div *ngIf="card.isExpanded" class="expanded-detail-row">
+    <div>
+      <div class="expanded-data-container">
+        <ng-container *ngFor="let column of columnDefs" [matColumnDef]="column.columnDef">
+          <ng-container *ngIf="!column.cellDef?.mobileView && checkCardValue(column, card)">
+            <mat-divider class="expanded-detail-divider"></mat-divider>
+            <span class="column-header column-header-def">{{column.headerCellDef}}</span>
+            <ax-dynamic-table-cell [columnDef]="column" [data]="card"></ax-dynamic-table-cell>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+
+    <div *ngIf="card.component?.value">
+      <mat-divider class="expanded-detail-divider"></mat-divider>
+      <div class="expanded-data-container">
+        <ax-dynamic-expandable-cell [data]="card"> </ax-dynamic-expandable-cell>
+      </div>
+    </div>
+  </div>
+</mat-card>

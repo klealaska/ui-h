@@ -1,0 +1,33 @@
+::ng-deep.mat-mdc-cell {
+  font-size: 14px !important;
+}
+
+// Tabs
+::ng-deep.mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active,
+::ng-deep.mat-mdc-tab-link:not(.mat-mdc-tab-disabled).mdc-tab--active {
+  background-color: #f8f8f8;
+}
+
+::ng-deep.mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label,
+::ng-deep.mat-mdc-tab-link:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+// Slide Toggle
+::ng-deep.mdc-switch__icon {
+  display: none;
+}
+
+// Input Label
+::ng-deep.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+// Pagninator
+::ng-deep.mat-mdc-paginator .mat-mdc-select-value {
+  font-size: 14px !important;
+}
+
+::ng-deep.mat-mdc-icon-button[disabled] .mat-mdc-paginator-icon {
+  fill: rgba(0, 0, 0, 0.25);
+}

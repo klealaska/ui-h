@@ -1,0 +1,37 @@
+.logo-img {
+  height: 30px;
+  cursor: pointer;
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  box-shadow: none;
+  padding: 16px;
+  height: 72px !important;
+  border-bottom: 1px solid theme('colors.grey.50');
+  background-color: white;
+}
+
+mat-toolbar-row {
+  padding: 0px;
+  height: 40px;
+}
+
+.avatar-button {
+  margin-left: auto;
+  padding: 0px;
+}
+
+.header-toolbar {
+  height: 72px;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidenav-toolbar {
+  height: 72px;
+  display: flex;
+  flex-direction: row;
+}

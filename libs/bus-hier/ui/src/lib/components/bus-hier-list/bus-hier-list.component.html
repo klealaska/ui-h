@@ -1,0 +1,75 @@
+<div class="p-8" data-cy="entity-list">
+  <div class="flex items-baseline">
+    <h3 class="pb-[.5rem] text-[24px] font-[600] font-color font-['inter-semibold']">
+      {{ entityListTitle }}
+    </h3>
+    <div>
+      <ax-button
+        class="pl-2"
+        data-cy="edit-name-btn"
+        [type]="'tertiary'"
+        [fixed]="true"
+        [color]="buttonColors.default"
+        (click)="openSideSheet()"
+      >
+        <mat-icon>edit</mat-icon>
+      </ax-button>
+    </div>
+  </div>
+  <div
+    class="pb-[2.625rem] font-color font-['inter-regular']"
+    [innerHTML]="entityListSubTitle"
+  ></div>
+  <div class="grid grid-cols-3 gap-3">
+    <div class="" *ngFor="let entity of entities; index as i">
+      <bus-hier-actionable-card [id]="i">
+        <bus-hier-item
+          data-cy="entity-list"
+          [id]="entity?.id"
+          [name]="entity?.name"
+          [type]="entity?.type"
+          [level]="entity?.level"
+          [entityTypeName]="entity?.entityTypeName"
+          status="{{ entity?.isActive ? 'success' : 'default' }}"
+          statusText="{{entity?.isActive ? 'ACTIVE': 'INACTIVE'}}"
+          (selectItem)="selectEntity.emit($event)"
+        ></bus-hier-item>
+      </bus-hier-actionable-card>
+    </div>
+  </div>
+</div>
+<ax-side-sheet
+  [opened]="showBusinessLevelNameSideSheet"
+  [sheetTitle]="'Edit'"
+  [btn1]="{text:'Cancel', type:'secondary', color:'default'}"
+  [btn2]="{text:'Save', type:'primary', disabled: !businessNameForm.valid, color:'default'}"
+  (closeButtonEvent)="onCancelButtonClick()"
+  (btn1Event)="onCancelButtonClick()"
+  (btn2Event)="onSaveButtonClick()"
+>
+  <div>
+    <p>Enter the business level display names.</p>
+    <form [formGroup]="businessNameForm">
+      <div>
+        <ax-input
+          class="w-full p-4"
+          [label]="'Singular'"
+          [control]="businessNameForm.controls['singular']"
+          [inputType]="'text'"
+          [maxLength]="256"
+          [error]="buildErrorMessage('singular')"
+          [fixed]="false"
+        ></ax-input>
+        <ax-input
+          class="w-full p-4"
+          [label]="'Plural'"
+          [control]="businessNameForm.controls['plural']"
+          [inputType]="'text'"
+          [maxLength]="256"
+          [error]="buildErrorMessage('plural')"
+          [fixed]="false"
+        ></ax-input>
+      </div>
+    </form>
+  </div>
+</ax-side-sheet>

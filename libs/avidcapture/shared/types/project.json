@@ -1,0 +1,35 @@
+{
+  "name": "avidcapture-shared-types",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/avidcapture/shared/types/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/avidcapture/shared/types"],
+      "options": {
+        "project": "libs/avidcapture/shared/types/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/avidcapture/shared/types/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/avidcapture/shared/types/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/avidcapture/shared/types/src/**/*.ts",
+          "libs/avidcapture/shared/types/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:types", "scope:avidcapture"]
+}

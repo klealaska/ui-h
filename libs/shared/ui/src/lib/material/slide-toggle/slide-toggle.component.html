@@ -1,0 +1,14 @@
+<mat-slide-toggle
+  aria-Label="ariaLabel"
+  aria-Labelledby="ariaLabelledby"
+  [checked]="checked"
+  [disableRipple]="disableRipple"
+  [disabled]="disabled"
+  [id]="id"
+  [labelPosition]="labelPosition"
+  [name]="name"
+  [required]="required"
+  (change)="change.emit($event)"
+  (toggleChange)="toggleChange.emit()"
+  >{{ label }}</mat-slide-toggle
+>

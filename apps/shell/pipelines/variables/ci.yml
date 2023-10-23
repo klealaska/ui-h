@@ -1,0 +1,8 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-UicoeNp-Ci-Shell-Rg'
+  resourceGroupWest: 'Ax-Aw1-UicoeNp-Ci-Shell-Rg'
+  bffEndpoint: 'https://shell-bff-ci-b9athpbca5gjfggy.z01.azurefd.net/api'
+  keyVaultNameEast: 'axae1uicoenpcishellkv'
+  keyVaultNameWest: 'axaw1uicoenpcishellkv'
+  appConfigNameEast: 'Ax-Ae1-UicoeNp-Ci-Shared-Resources-AppConfig'
+  appConfigNameWest: 'Ax-Aw1-UicoeNp-Ci-Shared-Resources-AppConfig'

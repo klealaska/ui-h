@@ -1,0 +1,163 @@
+<div
+  class="grid m-2.5 font-['inter-regular'] border-solid border-[1px] rounded border-primary-50 p-[.5rem]"
+  [attr.data-cy]="addressType + '-org-address'"
+>
+  <div class="flex items-center">
+    <ax-tag
+      data-cy="address-status"
+      class="status"
+      [type]="address?.isActive ? success : default"
+      [style]="'filled'"
+      [size]="'md'"
+      [text]="address?.isActive ? activateAddressText : inactiveAddressText"
+    ></ax-tag>
+    <ax-button
+      [attr.data-cy]="address?.addressId + '-edit-btn'"
+      [type]="'tertiary'"
+      (click)="onEditAddress()"
+    >
+      <mat-icon>edit</mat-icon>
+    </ax-button>
+  </div>
+  <span class="mt-2.5" data-cy="address-line-1"> {{ address?.addressLine1 }}</span>
+  <span>
+    <span data-cy="address-locality">{{ address?.locality }}</span>
+    <span data-cy="address-comma-space">,&nbsp;</span>
+    <span data-cy="address-region">{{ address?.region }}</span>
+    <span data-cy="address-postal-code">&nbsp; &nbsp;{{ address?.postalCode }}</span></span
+  >
+  <div class="w-full mt-2.5">
+    <div class="float-right">
+      <ax-button
+        *ngIf="address?.isActive; else activateAddress"
+        [type]="'tertiary'"
+        [color]="'critical'"
+        data-cy="deactivate-address-btn"
+        (click)="onDeactivateActivateAddress(address)"
+        >{{ deactivateButtonText }}</ax-button
+      >
+      <ng-template #activateAddress
+        ><ax-button
+          [type]="'tertiary'"
+          (click)="onDeactivateActivateAddress(address)"
+          data-cy="activate-address-btn"
+          >{{ activateButtonText }}</ax-button
+        ></ng-template
+      >
+    </div>
+  </div>
+</div>
+<!-- TODO Remove hardcoded text, put it in content -->
+<ax-side-sheet
+  data-cy="side-sheet"
+  [opened]="editAddressSideSheetToggle"
+  [sheetTitle]="sideSheetEditAddressTitleText"
+  [btn1]="{text: sideSheetEditAddressCancelButtonText, type: secondaryBtn, color: btnColorDefault}"
+  [btn2]="{text: sideSheetEditAddressSaveButtonText, type: primaryBtn, color: btnColorDefault, disabled: !editAddressForm.valid}"
+  (closeButtonEvent)="onCancelButtonClick()"
+  (btn1Event)="onCancelButtonClick()"
+  (btn2Event)="onSaveButtonClick()"
+>
+  <div>
+    <form [formGroup]="editAddressForm">
+      <ax-input
+        id="address-input"
+        [maxLength]="100"
+        data-cy="address-input"
+        class="w-full px-2 py-1"
+        [label]="'Address'"
+        [control]="editAddressForm.controls['addressLine1']"
+        [inputType]="'text'"
+        [placeholder]="'Enter street number and name'"
+        [optional]="false"
+        [fixed]="false"
+      ></ax-input>
+      <ax-input
+        id="address-2-input"
+        [maxLength]="100"
+        data-cy="address-2-input"
+        class="w-full px-2 py-1"
+        [label]="'Address 2'"
+        [control]="editAddressForm.controls['addressLine2']"
+        [inputType]="'text'"
+        [placeholder]="'Enter street number and name'"
+        [fixed]="false"
+      ></ax-input>
+      <ax-input
+        id="address-3-input"
+        [maxLength]="100"
+        data-cy="address-3-input"
+        class="w-full px-2 py-1"
+        [label]="'Address 3'"
+        [control]="editAddressForm.controls['addressLine3']"
+        [inputType]="'text'"
+        [placeholder]="'Enter street number and name'"
+        [fixed]="false"
+      ></ax-input>
+      <ax-input
+        id="address-4-input"
+        [maxLength]="100"
+        data-cy="address-4-input"
+        class="w-full px-2 py-1"
+        [label]="'Address 4'"
+        [control]="editAddressForm.controls['addressLine4']"
+        [inputType]="'text'"
+        [placeholder]="'Enter street number and name'"
+        [fixed]="false"
+      ></ax-input>
+      <ax-input
+        id="city-input"
+        [maxLength]="40"
+        data-cy="city-input"
+        class="w-full px-2 py-1"
+        [label]="'City'"
+        [control]="editAddressForm.controls['locality']"
+        [inputType]="'text'"
+        [placeholder]="'Enter city name'"
+        [optional]="false"
+        [fixed]="false"
+      ></ax-input>
+      <ax-input
+        id="state-input"
+        [maxLength]="2"
+        data-cy="state-input"
+        class="w-1/2 px-2 py-1"
+        [label]="'State'"
+        [control]="editAddressForm.controls['region']"
+        [inputType]="'text'"
+        [placeholder]="'Enter state name'"
+        [optional]="false"
+        [fixed]="false"
+      ></ax-input>
+      <ax-input
+        id="postal-code-input"
+        [maxLength]="10"
+        data-cy="postal-code-input"
+        class="w-1/2 px-2 py-1"
+        [label]="'Postal code'"
+        [control]="editAddressForm.controls['postalCode']"
+        [inputType]="'text'"
+        [placeholder]="'Enter postal code'"
+        [optional]="false"
+        [fixed]="false"
+      ></ax-input>
+      <ax-dropdown
+        data-cy="address-type-dropdown"
+        [control]="editAddressForm.controls['addressType']"
+        [options]="options"
+      ></ax-dropdown>
+      <ax-input
+        id="address-code-input"
+        [maxLength]="32"
+        data-cy="address-code-input"
+        class="w-1/2 px-2 py-1"
+        [label]="'Address code'"
+        [control]="editAddressForm.controls['addressCode']"
+        [inputType]="'text'"
+        [placeholder]="'Enter address code'"
+        [optional]="false"
+        [fixed]="false"
+      ></ax-input>
+    </form>
+  </div>
+</ax-side-sheet>

@@ -1,0 +1,75 @@
+// @use 'colors' as *;
+
+$red: #c32727;
+
+.mat-icon-text-field {
+  height: 44px;
+  width: 30px;
+  font-size: 26px;
+}
+
+.edit-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-div-no-value {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hasError {
+  ::ng-deep {
+    ax-text-box .text-input,
+    ax-text-box .text-input:focus {
+      border: 2px solid $red !important;
+      outline: none;
+    }
+  }
+}
+
+.errorValidationMessage {
+  padding-top: 0.25em;
+  margin: 0;
+  color: $red;
+  margin-left: 0.313em;
+  font-family: theme('fontFamily.interRegular');
+}
+
+.xdc-field-value {
+  margin-left: 0.25em;
+  word-break: break-all;
+}
+
+.turnOnHighlight {
+  box-shadow: 0.188em 0.313em 0.313em rgba(0, 0, 0, 0.3);
+  transition: box-shadow 100ms;
+}
+
+.input {
+  &-fake {
+    display: flex;
+    align-items: center;
+    border: 1px solid #2f3941;
+    border-radius: 0 0 4px 4px;
+    min-height: 2.5em;
+    cursor: pointer;
+  }
+
+  &-readonly {
+    border: none;
+    min-height: 2.5em;
+  }
+}
+
+button:focus {
+  cursor: pointer;
+}
+
+.edit-icon {
+  color: #e0e1e1;
+}
+
+.edit-button {
+  margin-top: -0.3em;
+}

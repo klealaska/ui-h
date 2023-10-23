@@ -1,0 +1,6 @@
+{
+  "baseUrl": "http://localhost:4203",
+  "bankAccountMgmtApiBaseUrl": "http://localhost:3333/api",
+  "appInsightsInstrumentationKey": ""
+}
+

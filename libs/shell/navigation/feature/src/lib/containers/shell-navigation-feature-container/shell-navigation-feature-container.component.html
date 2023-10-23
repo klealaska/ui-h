@@ -1,0 +1,6 @@
+<ax-header
+  *ngIf="content$ | async"
+  [logoImgSrc]="(headerContent$ | async)?.imageUrl"
+  [avatarInput]="avatarInput"
+></ax-header>
+<ax-sidenav [navItems]="content$ | async"></ax-sidenav>

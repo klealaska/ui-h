@@ -1,0 +1,20 @@
+{
+    "itemsRequested": 2,
+    "itemsReturned": 2,
+    "itemsTotal": 2,
+    "offset": 0,
+    "items": [
+      {
+        "tenantId": "syn9jaqeyiu352243ckw",
+        "siteName": "Burger King",
+        "createdDate": "2022-11-02T14:43:11Z",
+        "tenantStatus": "Active"
+      },
+      {
+        "tenantId": "7hp0nqlpvwg0dyyehi1m",
+        "siteName": "Burger King",
+        "createdDate": "2022-09-16T16:00:33Z",
+        "tenantStatus": "Active"
+      }
+    ]
+  }

@@ -1,0 +1,65 @@
+name: Playwright Tests
+
+resources:
+  containers:
+    - container: cicd_devtools
+      image: 'axglbhubacr.azurecr.io/cicd-devtools:latest'
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+
+trigger:
+  - '*'
+
+variables:
+  CI: true
+
+jobs:
+  - job: test
+    timeoutInMinutes: 60
+    pool:
+      name: 'linux-vmss-agent-pool'
+
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '16.x'
+        displayName: 'Install Node.js'
+
+      - script: |
+          npm ci
+        displayName: 'Install dependencies'
+
+      - script: |
+          npx playwright install --with-deps
+        displayName: 'Install Playwright Browsers'
+
+      - task: AzureKeyVault@2
+        displayName: 'Connect to Azure Key Vault'
+        inputs:
+          connectedServiceName: Engineering-Productivity_Engineering-Productivity_Np_AzDOSC_SP
+          keyVaultName: axae1engprdnputavidecokv
+          runAsPreJob: false
+
+      - script: |
+          npx playwright test
+        displayName: 'Run Playwright tests'
+        env:
+          AZURE_TENANT_ID: $(TestClientTenantId)
+          AZURE_CLIENT_ID: $(TestClientClientId)
+          AZURE_CLIENT_SECRET: $(TestClientSecret)
+
+      - task: PublishTestResults@2
+        displayName: 'Publish Test Results in Azure'
+        inputs:
+          searchFolder: 'test-results'
+          testResultsFormat: 'JUnit'
+          testResultsFiles: 'e2e-junit-results.xml'
+          mergeTestResults: true
+          failTaskOnFailedTests: true
+          testRunTitle: 'My End-To-End Tests'
+        condition: succeededOrFailed()
+
+      - publish: $(System.DefaultWorkingDirectory)/playwright-report
+        displayName: 'Publish HTML Report'
+        artifact: playwright-report
+        condition: always()

@@ -1,0 +1,148 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Button-v2" />
+
+# Inputs
+
+## Imports
+
+Component - `import { ButtonComponent, AnchorComponent } from '@ui-coe/shared/ui-v2';`
+
+Enums - `import { ButtonTypes, ButtonSizes, ButtonColors, ButtonHTMLTypes } from '@ui-coe/shared/ui-v2';`
+
+## Description
+
+Input can me implemented by using `ax-button` or `ax-anchor` if you need an `href`
+
+These utilized the `ButtonStyles`, `ButtonColors`, `ButtonSizes`, `ButtonHTMLTypes` enums
+
+## Button Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Disables button</td>
+  </tr>
+  <tr>
+    <td> @Input() type: ButtonType</td>
+    <td>
+      Changes button style. Supports: <code>primary</code>, <code>secondary</code>, and
+      <code>tertiary</code>. Default is
+      <code>primary</code>
+    </td>
+  </tr>
+  <tr>
+    <td> @Input() color: ButtonColor</td>
+    <td>
+      Changes button color. Supports: <code>default</code>, <code>critical</code>, and{' '}
+      <code>neutral</code>. Default is
+      <code>default</code>
+    </td>
+  </tr>
+  <tr>
+    <td> @Input() size: ButtonSize</td>
+    <td>
+      Changes button size. Supports: <code>sm</code>, <code>md</code>, and <code>lg</code> Default
+      is <code>lg</code>
+    </td>
+  </tr>
+  <tr>
+    <td>@Input() fixed: boolean</td>
+    <td>Sets button to a fixed width</td>
+  </tr>
+  <tr>
+    <td>@Input() btnType: ButtonHTMLType</td>
+    <td>
+      Can set button to either <code>button</code>, <code>submit</code>, or <code>reset</code>
+    </td>
+  </tr>
+</table>
+
+## Anchor Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td> @Input() type: ButtonType</td>
+    <td>
+      Changes button style. Supports: <code>primary</code>, <code>secondary</code>, and
+      <code>tertiary</code>. Default is <code>primary</code>
+    </td>
+  </tr>
+  <tr>
+    <td> @Input() color: ButtonColor</td>
+    <td>
+      Changes button color. Supports: <code>default</code>, <code>critical</code>, and{' '}
+      <code>neutral</code>. Default is
+      <code>default</code>
+    </td>
+  </tr>
+  <tr>
+    <td> @Input() size: ButtonSize</td>
+    <td>
+      Changes button size. Supports: <code>sm</code>, <code>md</code>, and <code>lg</code> Default
+      is <code>lg</code>
+    </td>
+  </tr>
+  <tr>
+    <td>@Input() href: string</td>
+    <td>
+      Sets the <code>href</code>
+    </td>
+  </tr>
+  <tr>
+    <td>@Input() fixed: boolean</td>
+    <td>Sets button to a fixed width</td>
+  </tr>
+</table>
+
+No properties are needed to be passed in to get a basic button
+
+```
+<ax-button>Button</ax-button>
+```
+
+Change the style by passing in `ButtonStyles` enum. Supports `primary`, `secondary`, or `tertiary`
+
+```
+<ax-button [style]="ButtonStyles.primary">Button</ax-button>
+```
+
+Change the color by using the `ButtonColors` enum. Supports `default`, `critical`, or `neutral`
+
+```
+<ax-button [color]="ButtonColors.default">Button</ax-button>
+```
+
+Change size by passing in `ButtonSizes` enum. Supports `sm`, `md`, or `lg`
+
+```
+<ax-button [size]="ButtonSizes.lg">Button</ax-button>
+```
+
+Buttons support passing `mat-icons` into them. Pass them in by themselves or to the left or right of some text
+
+```
+<ax-button>
+  <mat-icon>add<mat-icon>
+<ax-button>
+```
+
+```
+<ax-button>
+  <mat-icon>add<mat-icon>Button
+<ax-button>
+```
+
+```
+<ax-button>
+  Button<mat-icon>add<mat-icon>
+<ax-button>
+```

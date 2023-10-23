@@ -1,0 +1,24 @@
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: avidxchange/templates
+
+trigger:
+  branches:
+    include:
+    - master
+    - release/*
+  paths:
+    include: 
+    - apps/xdc-indexer/devops/infra/idc.indexerUI.deployment.json
+
+stages:
+- stage: Build
+  displayName: Build Stage
+  jobs:
+  - template: CopyFiles.yml@templates
+    parameters:
+      poolName: 'eastUS-buildAgentPool-container'
+      artifactPath: 'apps/xdc-indexer/devops/infra'
+      artifactFiles: 'idc.indexerUI.deployment.json'

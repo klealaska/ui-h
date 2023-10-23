@@ -1,0 +1,62 @@
+<div class="modal-body" cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+  <div class="modal-header">
+    <h5>{{'xdc.indexing.create-new-account-label' | translate }}</h5>
+    <mat-icon [id]="'customer-account-number-close'" class="icon" (click)="close()"
+      >{{'xdc.indexing.close-label' | translate }}</mat-icon
+    >
+  </div>
+
+  <form class="ax-form-field-wrapper" [formGroup]="createAccountForm">
+    <ax-input
+      class="full-width"
+      [id]="'customer-account-number'"
+      [label]="'xdc.indexing.customer-account-number-label' | translate"
+      [control]="createAccountForm.get('customerAccountNumber')"
+      [maxLength]="accountNumberLimit"
+      [error]="createAccountForm.get('customerAccountNumber').hasError('alphaNumericError') || createAccountForm.get('customerAccountNumber').hasError('specialCharactersError') ? { message:errorMessageCustomerNumber } : null"
+      hintMessage="{{currentCharCount$ | async}} {{'xdc.indexing.characters-remaining-label' | translate}}"
+      #input
+    ></ax-input>
+
+    <div class="ax-input__header mt-10">
+      <mat-label class="ax-input__header-label"
+        >{{'xdc.indexing.payment-terms-label' | translate}}</mat-label
+      >
+    </div>
+    <mat-form-field class="full-width ax-form-field">
+      <input
+        class="ax-input"
+        type="text"
+        matInput
+        formControlName="paymentTerms"
+        [id]="'payment-terms'"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions$ | async" [value]="option.id">
+          {{ option.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+  <div *ngIf="errorMessage" class="notification-error">
+    <p>
+      <mat-icon class="icon-warning mr-5">{{'xdc.indexing.warning-label' | translate }}</mat-icon
+      >{{errorMessage}}
+    </p>
+  </div>
+</div>
+
+<div class="button-container mt-20">
+  <ax-button [id]="'button-cancel'" [type]="'secondary'" (click)="close()" class="mr-10">
+    {{'xdc.indexing.cancel-label' | translate }}
+  </ax-button>
+  <ax-button
+    [id]="'button-confirm'"
+    [disabled]="!createAccountForm.valid || ((currentCharCount$ | async) > this.accountNumberLimit)"
+    (click)="confirm()"
+  >
+    {{'xdc.indexing.confirm-label' | translate }}
+  </ax-button>
+</div>

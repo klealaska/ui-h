@@ -1,0 +1,11 @@
+<ol>
+  <ng-container *ngFor="let item of items">
+    <li
+      id="item"
+      [ngClass]="{ 'unordered': unordered, 'disabled': disabled }"
+      (click)="itemEvent.emit(item)"
+    >
+      {{ item }}
+    </li>
+  </ng-container>
+</ol>

@@ -1,0 +1,72 @@
+{
+  "name": "bank-account-mgmt-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/bank-account-mgmt/bank-account-mgmt-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/bank-account-mgmt/bank-account-mgmt-api",
+        "main": "apps/bank-account-mgmt/bank-account-mgmt-api/src/main.ts",
+        "tsConfig": "apps/bank-account-mgmt/bank-account-mgmt-api/tsconfig.app.json",
+        "assets": ["apps/bank-account-mgmt/bank-account-mgmt-api/src/assets"],
+        "generatePackageJson": true,
+        "target": "node",
+        "compiler": "tsc"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/bank-account-mgmt/bank-account-mgmt-api/src/environments/environment.ts",
+              "with": "apps/bank-account-mgmt/bank-account-mgmt-api/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "mock": {
+          "fileReplacements": [
+            {
+              "replace": "apps/bank-account-mgmt/bank-account-mgmt-api/src/environments/environment.ts",
+              "with": "apps/bank-account-mgmt/bank-account-mgmt-api/src/environments/environment.mock.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "bank-account-mgmt-api:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "bank-account-mgmt-api:build:production"
+        },
+        "mock": {
+          "buildTarget": "bank-account-mgmt-api:build:mock"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/bank-account-mgmt/bank-account-mgmt-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/bank-account-mgmt/bank-account-mgmt-api"],
+      "options": {
+        "jestConfig": "apps/bank-account-mgmt/bank-account-mgmt-api/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:api", "scope:bank-account-mgmt"]
+}

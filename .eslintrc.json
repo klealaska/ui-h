@@ -1,0 +1,128 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nx"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "extends": ["plugin:prettier/recommended"],
+      "rules": {
+        "@nx/enforce-module-boundaries": [
+          "warn",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "scope:avidcapture",
+                "onlyDependOnLibsWithTags": ["scope:shared", "scope:avidcapture"]
+              },
+              {
+                "sourceTag": "type:spa",
+                "onlyDependOnLibsWithTags": [
+                  "type:feature",
+                  "type:data-access",
+                  "type:ui",
+                  "type:util",
+                  "type:types",
+                  "type:test"
+                ]
+              },
+              {
+                "sourceTag": "type:e2e",
+                "onlyDependOnLibsWithTags": ["type:spa"]
+              },
+              {
+                "sourceTag": "type:api",
+                "onlyDependOnLibsWithTags": [
+                  "type:data-access",
+                  "type:util",
+                  "type:types",
+                  "type:test"
+                ]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": [
+                  "type:feature",
+                  "type:data-access",
+                  "type:ui",
+                  "type:util",
+                  "type:test",
+                  "type:types"
+                ]
+              },
+              {
+                "sourceTag": "type:data-access",
+                "onlyDependOnLibsWithTags": [
+                  "type:util",
+                  "type:test",
+                  "type:types",
+                  "type:data-access"
+                ]
+              },
+              {
+                "sourceTag": "scope:shared",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
+              },
+              {
+                "sourceTag": "type:ui",
+                "onlyDependOnLibsWithTags": ["type:ui", "type:util", "type:test", "type:types"]
+              },
+              {
+                "sourceTag": "type:util",
+                "onlyDependOnLibsWithTags": [
+                  "type:data-access",
+                  "type:util",
+                  "type:test",
+                  "type:types"
+                ]
+              },
+              {
+                "sourceTag": "type:test",
+                "onlyDependOnLibsWithTags": ["type:test", "type:types"]
+              },
+              {
+                "sourceTag": "type:types",
+                "onlyDependOnLibsWithTags": ["type:types"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nx/typescript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nx/javascript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@nx/angular-template", "plugin:@angular-eslint/template/recommended"],
+      "rules": {}
+    },
+    {
+      "files": ["*.html"],
+      "excludedFiles": ["*inline-template-*.component.html"],
+      "extends": ["plugin:prettier/recommended"],
+      "rules": {
+        "prettier/prettier": [
+          "error",
+          {
+            "parser": "html"
+          }
+        ]
+      }
+    },
+    {
+      "files": "*.json",
+      "parser": "jsonc-eslint-parser",
+      "rules": {}
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Stepper" />
+
+## Stepper
+
+Component - `import { Stepper } from '@ui-coe/shared/ui-v2';`
+
+## Description
+
+ax-stepper provides a wizard-like workflow by dividing content into logical steps.
+`ax-stepper` builds on the foundation of the CDK stepper that is responsible for the logic that drives a stepped workflow. `ax-stepper` extends the CDK stepper and has Material Design styling.
+Stepper can be implemented by using the `ax-stepper` and `ax-step`(child) components. Example provided below.
+
+```
+<ax-stepper [direction]="vertical" #stepper>
+    <ax-step label="Basic Details 1" subtitle="Assistive Text 1" status="status step 1" >
+      <p> This is any content of "Step 1"</p>
+      <button mat-flat-button color="primary" class="sm" (click)="stepper.next()">Next Step</button>
+    </ax-step>
+    <!--custom error state on step 2-->
+    <ax-step label="Basic Details 2" subtitle="Assistive Text 2" status="status step 2" [hasError]="hasError">
+      <p> This is any content of "Step 2"</p>
+      <button mat-stroked-button color="primary" class="sm" (click)="stepper.previous()">Go Back</button>
+      <button mat-flat-button color="primary" class="sm" (click)="stepper.next()">Next Step</button>
+    </ax-step>
+    <ax-step subtitle="Assistive Text 3" status="status step 3" [completed]="completed">
+       <!-- Label content with template Here -->
+      <ng-template cdkStepLabel>
+        Basic Details 3
+      </ng-template>
+      <p> This is any content of "Step 3"</p>
+      <button mat-stroked-button color="primary" class="sm" (click)="stepper.previous()">Go Back</button>
+      <button mat-flat-button color="primary" class="sm" (click)="stepper.next()">Next Step</button>
+    </ax-step>
+    <!--Step with icon example-->
+    <ax-step label="Basic Details 4" subtitle="Assistive Text 4"  status="status step 4" icon="account_circle">
+      <p> This is any content of "Step 4"</p>
+      <button mat-stroked-button color="primary" class="sm" (click)="stepper.previous()">Go Back</button>
+    </ax-step>
+</ax-stepper>`
+
+```
+
+## Properties for stepper
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() direction: StepperOrientation</td>
+    <td>
+      To specify the direction of the stepper, `horizontal` and `vertical` are currently supported.
+      Default is `horizontal`.
+    </td>
+  </tr>
+</table>
+
+## Properties for step
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() label: string</td>
+    <td>Label of the given step.</td>
+  </tr>
+  <tr>
+    <td>@Input() subtitle: string</td>
+    <td>Subtitle of the given step.</td>
+  </tr>
+  <tr>
+    <td>@Input() Status: string</td>
+    <td>Status text for the step.</td>
+  </tr>
+  <tr>
+    <td>@Input() icon: string</td>
+    <td>icon of the step, optional property.</td>
+  </tr>
+  <tr>
+    <td>@Input() completed: boolean</td>
+    <td>Whether step is marked as completed.</td>
+  </tr>
+  <tr>
+    <td>@Input() hasError: boolean</td>
+    <td> Whether step has an error.</td>
+  </tr>
+</table>

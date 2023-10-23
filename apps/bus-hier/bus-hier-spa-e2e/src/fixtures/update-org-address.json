@@ -1,0 +1,20 @@
+{
+    "addressId": "ggsgegsewfy042a4sn24",
+    "organizationId": "1234",
+    "addressCode": "Headquarters",
+    "addressLine1": "123 AvidXChange Street",
+    "addressLine2": null,
+    "addressLine3": null,
+    "addressLine4": null,
+    "locality": "New York City",
+    "region": "NY",
+    "country": "US",
+    "postalCode": "28227",
+    "isPrimary": true,
+    "addressType": "ShipTo",
+    "isActive": true,
+    "createdTimestamp": "2023-07-03T15:50:58Z",
+    "createdByUserId": "43c7gse0n12q2viuxrqu",
+    "lastModifiedTimestamp": "2023-07-03T15:50:58Z",
+    "lastModifiedByUserId": "l1ptq8btj2e9dqdel7ib"
+}

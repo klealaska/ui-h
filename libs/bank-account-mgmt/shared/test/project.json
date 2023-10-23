@@ -1,0 +1,43 @@
+{
+  "name": "bank-account-mgmt-shared-test",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/bank-account-mgmt/shared/test/src",
+  "prefix": "ax",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/bank-account-mgmt/shared/test"],
+      "options": {
+        "project": "libs/bank-account-mgmt/shared/test/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/bank-account-mgmt/shared/test/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/bank-account-mgmt/shared/test/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/bank-account-mgmt/shared/test"],
+      "options": {
+        "jestConfig": "libs/bank-account-mgmt/shared/test/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/bank-account-mgmt/shared/test/**/*.ts",
+          "libs/bank-account-mgmt/shared/test/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:test", "scope:shared"]
+}

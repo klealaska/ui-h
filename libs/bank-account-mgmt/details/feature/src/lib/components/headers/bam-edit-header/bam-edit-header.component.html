@@ -1,0 +1,9 @@
+<!-- <ui-coe-bank-account-header-container>
+  <ng-container left-content> Edit account </ng-container>
+</ui-coe-bank-account-header-container> -->
+<div class="flex items-center">
+  <ax-button [type]="'tertiary'" [color]="'neutral'" class="mr-2" (click)="backClick.emit()">
+    <mat-icon>arrow_back_ios_new</mat-icon>
+  </ax-button>
+  <span>Edit account</span>
+</div>

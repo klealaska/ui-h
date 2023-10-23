@@ -1,0 +1,9 @@
+<a
+  [href]="href"
+  class="ax-button type-{{type}} size-{{size}} color-{{color}}"
+  (click)="onClickButton($event)"
+  [ngClass]="fixed ? 'fixed-width' : ''"
+  #ref
+>
+  <ng-content></ng-content>
+</a>

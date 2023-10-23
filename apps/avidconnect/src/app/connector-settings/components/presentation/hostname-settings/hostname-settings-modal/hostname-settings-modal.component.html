@@ -1,0 +1,33 @@
+<div class="hostname-settings">
+  <header class="underline">
+    <h2>{{ editMode ? 'Update Hostname' :'Add Hostname'}}</h2>
+  </header>
+
+  <form [formGroup]="hostnameForm">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Machine Name</mat-label>
+      <input matInput placeholder="Enter machine name" formControlName="machine" />
+      <mat-error>Machine Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Enter name" formControlName="name" />
+      <mat-error>Name is required</mat-error>
+    </mat-form-field>
+
+    <div>
+      <mat-slide-toggle class="example-margin" formControlName="enabled">
+        {{hostnameForm.get('enabled').value ? 'Active' : 'Inactive' }}</mat-slide-toggle
+      >
+    </div>
+  </form>
+  <div class="buttons-content">
+    <button mat-raised-button type="button" color="outline" (click)="dialogRef.close()">
+      CANCEL
+    </button>
+    <button mat-raised-button type="submit" color="primary" (click)="saveHostname()">
+      {{ editMode ? 'UPDATE' :'SAVE'}}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "name": "buyer-keyword-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/buyer-keyword/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/buyer-keyword-e2e/cypress.config.ts",
+        "devServerTarget": "buyer-keyword:serve",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "buyer-keyword:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/buyer-keyword-e2e/**/*.{js,ts}"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["type:e2e"],
+  "implicitDependencies": ["buyer-keyword"]
+}

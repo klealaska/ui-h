@@ -1,0 +1,25 @@
+.operation-info {
+  background: white;
+  margin: 20px 0px;
+  padding: 20px;
+
+  .grid-header {
+    display: flex;
+    justify-content: space-between;
+
+    .header-btns button {
+      margin-right: 25px;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 15% 20% 10% auto;
+    margin: 15px 0;
+    line-height: 1.6;
+  }
+}

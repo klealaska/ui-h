@@ -1,0 +1,14 @@
+<div class="flex flex-col bg-white h-screen overflow-auto">
+  <router-outlet></router-outlet>
+  <ng-container [ngSwitch]="sidePanelComponentId$ | async">
+    <ng-container *ngSwitchCase="'add'">
+      <ax-bank-account-add></ax-bank-account-add>
+    </ng-container>
+    <ng-container *ngSwitchCase="'detail'">
+      <ax-bank-account-detail-container></ax-bank-account-detail-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'edit'">
+      <ax-bank-account-edit-container></ax-bank-account-edit-container>
+    </ng-container>
+  </ng-container>
+</div>

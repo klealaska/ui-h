@@ -1,0 +1,15 @@
+<div class="bg-surface-50 w-full h-full flex flex-col absolute">
+  <div class="bg-secondary-200 h-[6rem] py-6 mb-6" data-cy="main-header-list-page-div">
+    <ng-content select="[header]"></ng-content>
+  </div>
+  <div>
+    <div class="flex flex-col w-[97%] mx-auto">
+      <div>
+        <ng-content select="[subHeader]"></ng-content>
+      </div>
+      <div>
+        <ng-content select="[main]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

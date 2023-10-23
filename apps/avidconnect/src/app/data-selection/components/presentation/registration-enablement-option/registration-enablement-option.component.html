@@ -1,0 +1,45 @@
+<tr *ngIf="updatedEnablement" class="operation-type-item">
+  <td class="data-selection">
+    <mat-checkbox
+      [(ngModel)]="updatedEnablement.isActive"
+      (change)="enablementChanged.emit(updatedEnablement)"
+      [disabled]="isOperationSelected"
+    >
+      {{updatedEnablement?.operationTypeName}}
+    </mat-checkbox>
+  </td>
+
+  <td class="source-selection">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-select
+        [(ngModel)]="updatedEnablement.isApibased"
+        (selectionChange)="enablementChanged.emit(updatedEnablement)"
+      >
+        <mat-option [value]="true">From System</mat-option>
+        <mat-option [value]="false">From File</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </td>
+
+  <td class="file-selection" *ngIf="isOperationSelected">
+    <button
+      mat-stroked-button
+      *ngIf="updatedEnablement.registrationEnablementUrl"
+      (click)="downloadButtonClicked.emit()"
+    >
+      {{ updatedEnablement?.operationTypeName }}.xslt <mat-icon>file_download</mat-icon>
+    </button>
+    <input
+      type="file"
+      name="file"
+      id="uploadFile"
+      class="inputfile"
+      accept=".xslt"
+      #fileInput
+      (input)="processFile($event.target.files[0])"
+    />
+    <button mat-stroked-button color="primary" (click)="fileInput.click()">
+      <mat-icon color="primary">file_upload</mat-icon>
+    </button>
+  </td>
+</tr>

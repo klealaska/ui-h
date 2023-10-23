@@ -1,0 +1,47 @@
+<div class="accounting-system">
+  <p class="title">{{ registration.description }}</p>
+  <div class="modified-info createdByContainer">
+    <span>Created by</span>
+    <p>{{ registration.createdBy }}</p>
+  </div>
+  <div class="modified-info modifiedByContainer">
+    <span>Last modified by</span>
+    <p>{{ registration.modifiedBy }}</p>
+  </div>
+
+  <div class="menu-actions">
+    <button
+      mat-icon-button
+      class="settingsMenu"
+      [matMenuTriggerFor]="settingsMenu"
+      aria-label="Settings"
+    >
+      <mat-icon>settings</mat-icon>
+    </button>
+    <mat-menu #settingsMenu="matMenu">
+      <button mat-menu-item (click)="loadPage('/customer-dashboard/connectors/settings')">
+        <mat-icon>settings_applications</mat-icon> <span>Settings</span>
+      </button>
+      <button mat-menu-item (click)="loadPage('/data-selection')">
+        <mat-icon>task</mat-icon> <span>Configure Data Types</span>
+      </button>
+    </mat-menu>
+
+    <button
+      class="actionsMenu"
+      mat-icon-button
+      [matMenuTriggerFor]="actionsMenu"
+      aria-label="Settings"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #actionsMenu="matMenu">
+      <button mat-menu-item (click)="loadPage('/schedule-sync')">
+        <mat-icon>event_available</mat-icon> <span>Schedule Sync</span>
+      </button>
+      <button mat-menu-item (click)="loadPage('/sync-now')">
+        <mat-icon>sync</mat-icon> <span>Sync Now</span>
+      </button>
+    </mat-menu>
+  </div>
+</div>

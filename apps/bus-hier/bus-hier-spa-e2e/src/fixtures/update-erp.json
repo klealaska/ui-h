@@ -1,0 +1,11 @@
+{
+    "erpId": "fooId",
+    "erpName": "My new ERP Name",
+    "erpCode": "123Code",
+    "isActive": true,
+    "createdTimestamp": "2023-04-20T16:54:33Z",
+    "createdByUserId": "00u12tymcg0y78rTz1d7",
+    "lastModifiedTimestamp": "2023-04-20T16:54:33Z",
+    "lastModifiedByUserId": "00u12tymcg0y78rTz1d7"
+}
+  

@@ -1,0 +1,47 @@
+{
+  "name": "bank-account-mgmt-pop-list-data-access",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/bank-account-mgmt/pop-list/data-access/src",
+  "projectType": "library",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/bank-account-mgmt/pop-list/data-access"],
+      "options": {
+        "project": "libs/bank-account-mgmt/pop-list/data-access/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/bank-account-mgmt/pop-list/data-access/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/bank-account-mgmt/pop-list/data-access/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/bank-account-mgmt/pop-list/data-access/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/bank-account-mgmt/pop-list/data-access"],
+      "options": {
+        "jestConfig": "libs/bank-account-mgmt/pop-list/data-access/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:bank-account-mgmt"]
+}

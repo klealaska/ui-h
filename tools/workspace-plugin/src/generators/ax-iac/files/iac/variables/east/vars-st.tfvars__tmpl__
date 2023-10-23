@@ -1,0 +1,26 @@
+environment   = "St"
+is_production = true
+
+application_name = "<%= domain.replace(/-/g, "") %>spa"
+capability = {
+  name   = "<%= domain %>"
+  abbrev = "<%= domain.replace(/-/g, "").substring(0,7) %>"
+}
+
+domain = {
+  name   = "uicoe"
+  abbrev = "uicoe"
+}
+
+workspace_name = "uicoe-<%= domain %>-prod"
+shared_env_workspace_name = "uicoe-shared-resources-st"
+
+container_app_required = <%= includeBff %>
+
+container_app_name = "<%= domain %>-bff"
+
+container_image_name = "axglbhubacr.azurecr.io/<%= domain %>-bff:latest"
+
+location = "eastus"
+
+alerts_email = "<%= email %>"

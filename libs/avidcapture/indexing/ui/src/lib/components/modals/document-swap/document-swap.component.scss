@@ -1,0 +1,17 @@
+.modal {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25em;
+
+    .icon {
+      cursor: pointer;
+    }
+  }
+
+  &-body {
+    margin: -1.5em;
+    padding: 1.5em;
+  }
+}

@@ -1,0 +1,80 @@
+name: devWeb
+version: 2020.2.0
+enabled: true                                                 # Allows the user to enable or disable all the rules in a category.
+reporterType: JUnit                                           # Allows to change the reporter type, supported reporters: [JUnit, Tap].
+reportName: SLA_Report_IDC_S01_Indexer_Submit_Invoice.xml                              # The report name, which is generated inside the script directory.
+rules:                                                        # List of the rules which the SLA enforces.
+  - rule: Transaction Response Time                           # The SLA rule measures the average duration of the given transactions.
+    type: averageTRT                                          # The transaction type.
+    enabled: true                                             # Allows the user to enable or disable a specific rule.
+    arguments:
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T01_Launch           # The name of the transaction for which we want to calculate the average.
+        threshold:
+        - averageTime: 5000    # The arguments which a given type is expecting (at least one entry).
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T02_Login       # The name of the transaction for which we want to calculate the average.
+        threshold:
+        - averageTime: 5000                                   # The average time in milliseconds above which the SLA rule will fail.     
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T03_Select_Buyer # The name of the transaction for which we want to calculate the average.
+        threshold:
+        - averageTime: 5000                                   # The average time in milliseconds above which the SLA rule will fail.     
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T04_Open_Invoice # The name of the transaction for which we want to calculate the average.
+        threshold:
+        - averageTime: 5000                                   # The average time in milliseconds above which the SLA rule will fail.     
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T05_Enter_Details # The name of the transaction for which we want to calculate the average.
+        threshold:
+        - averageTime: 5000                                   # The average time in milliseconds above which the SLA rule will fail.     
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T06_Submit # The name of the transaction for which we want to calculate the average.
+        threshold:
+        - averageTime: 5000                                   # The average time in milliseconds above which the SLA rule will fail.     
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T07_Logout # The name of the transaction for which we want to calculate the average.
+        threshold:
+        - averageTime: 5000                                   # The average time in milliseconds above which the SLA rule will fail.     
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T08_Logout_Auth # The name of the transaction for which we want to calculate the average.
+        threshold:
+        - averageTime: 5000                                   # The average time in milliseconds above which the SLA rule will fail.                                           
+  - rule: Percentage of Failed Transactions                   # The SLA rule measures the percentage of total failed transactions.
+    type: failureRate                                         # The transaction type.
+    enabled: true                                             # Allows the user to enable or disable a specific rule.
+    arguments:                                                # The arguments which a given type is expecting (one entry).
+      percentage: 3                                           # The percentage threshold above which the SLA rule will fail.
+  - rule: Transaction Rank Percentile                         # The SLA rule validates if transaction duration measurements meet percentile rank specified in the arguments.
+    type: TRP                                                 # The transaction type.
+    enabled: true                                             # Allows the user to enable or disable a specific rule.
+    arguments:                                                # The arguments which a given type is expecting (at least one entry).
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T01_Launch           # The name of the transaction for which we want to calculate the transaction percentile rank.
+        ranges: [5000]                     				      # Defines the duration ranges in milliseconds. For example, 3500 defines the range 0-3500.
+        threshold:                                            # The number of threshold ranks must match the number of ranges.
+          ranks: [90]                            			  # Defines the percentile ranks for the ranges. For example, 85% of transactions are required to have a duration of 0-3500 milliseconds.
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T02_Login       # The name of the transaction for which we want to calculate the transaction percentile rank.
+        ranges: [5000]                     					  # Defines the duration ranges in milliseconds. For example, 3500 defines the range 0-3500.
+        threshold:                                            # The number of threshold ranks must match the number of ranges.
+          ranks: [90]                             			  # Defines the percentile ranks for the ranges. For example, 85% of transactions are required to have a duration of 0-3500 milliseconds.
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T03_Select_Buyer # The name of the transaction for which we want to calculate the transaction percentile rank.
+        ranges: [5000]                      				  # Defines the duration ranges in milliseconds. For example, 3500 defines the range 0-3500.
+        threshold:                                            # The number of threshold ranks must match the number of ranges.
+          ranks: [90]                             			  # Defines the percentile ranks for the ranges. For example, 85% of transactions are required to have a duration of 0-3500 milliseconds.
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T04_Open_Invoice # The name of the transaction for which we want to calculate the transaction percentile rank.
+        ranges: [5000]                      				  # Defines the duration ranges in milliseconds. For example, 3500 defines the range 0-3500.
+        threshold:                                            # The number of threshold ranks must match the number of ranges.
+          ranks: [90]                             			  # Defines the percentile ranks for the ranges. For example, 85% of transactions are required to have a duration of 0-3500 milliseconds.          
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T05_Enter_Details # The name of the transaction for which we want to calculate the transaction percentile rank.
+        ranges: [5000]                      				  # Defines the duration ranges in milliseconds. For example, 3500 defines the range 0-3500.
+        threshold:                                            # The number of threshold ranks must match the number of ranges.
+          ranks: [90]                             			  # Defines the percentile ranks for the ranges. For example, 85% of transactions are required to have a duration of 0-3500 milliseconds.
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T06_Submit # The name of the transaction for which we want to calculate the transaction percentile rank.
+        ranges: [5000]                      				  # Defines the duration ranges in milliseconds. For example, 3500 defines the range 0-3500.
+        threshold:                                            # The number of threshold ranks must match the number of ranges.
+          ranks: [90]                             			  # Defines the percentile ranks for the ranges. For example, 85% of transactions are required to have a duration of 0-3500 milliseconds.
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T07_Logout # The name of the transaction for which we want to calculate the transaction percentile rank.
+        ranges: [5000]                      				  # Defines the duration ranges in milliseconds. For example, 3500 defines the range 0-3500.
+        threshold:                                            # The number of threshold ranks must match the number of ranges.
+          ranks: [90]                             			  # Defines the percentile ranks for the ranges. For example, 85% of transactions are required to have a duration of 0-3500 milliseconds.
+      - transactionName: IDC_S01_Indexer_Submit_Invoice_T08_Logout_Auth # The name of the transaction for which we want to calculate the transaction percentile rank.
+        ranges: [5000]                      				  # Defines the duration ranges in milliseconds. For example, 3500 defines the range 0-3500.
+        threshold:                                            # The number of threshold ranks must match the number of ranges.
+          ranks: [90]                             			  # Defines the percentile ranks for the ranges. For example, 85% of transactions are required to have a duration of 0-3500 milliseconds.
+  - rule: Total Passed Transactions                           # The SLA rule validates that the amount of passed transactions reach a minimum threshold.
+    type: passingTransactions                                 # The transaction type.
+    enabled: true                                             # Allows the user to enable or disable a specific rule.
+    arguments:                                                # The arguments which a given type is expecting (at least one entry).
+      amount: 1   

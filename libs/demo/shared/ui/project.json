@@ -1,0 +1,37 @@
+{
+  "name": "demo-shared-ui",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/demo/shared/ui/src",
+  "prefix": "ax",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/demo/shared/ui"],
+      "options": {
+        "tsConfig": "libs/demo/shared/ui/tsconfig.lib.json",
+        "project": "libs/demo/shared/ui/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/demo/shared/ui/tsconfig.lib.prod.json"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/demo/shared/ui/src/**/*.ts", "libs/demo/shared/ui/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/demo/shared/ui"],
+      "options": {
+        "jestConfig": "libs/demo/shared/ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:shared"]
+}

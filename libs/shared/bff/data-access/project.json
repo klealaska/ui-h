@@ -1,0 +1,35 @@
+{
+  "name": "shared-bff-data-access",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/bff/data-access/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/bff/data-access",
+        "tsConfig": "libs/shared/bff/data-access/tsconfig.lib.json",
+        "packageJson": "libs/shared/bff/data-access/package.json",
+        "main": "libs/shared/bff/data-access/src/index.ts",
+        "assets": ["libs/shared/bff/data-access/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/shared/bff/data-access/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/bff/data-access"],
+      "options": {
+        "jestConfig": "libs/shared/bff/data-access/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:shared", "scope:bff"]
+}

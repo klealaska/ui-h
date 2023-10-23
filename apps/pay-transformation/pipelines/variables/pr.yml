@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-Uicoe-Pr-pay-transformation-Rg'
+  resourceGroupWest: 'Ax-Aw1-Uicoe-Pr-pay-transformation-Rg'
+  bffEndpoint: ''
+  keyVaultNameEast: 'axae1uicoeprpaytrankv'
+  keyVaultNameWest: 'axaw1uicoeprpaytrankv'

@@ -1,0 +1,36 @@
+<usr-mgmt-layout>
+  <div header>
+    <usr-mgmt-header
+      [title]="pageTitle | axTranslate: { fontFamilySemibold, fontFamilyLight }"
+    ></usr-mgmt-header>
+  </div>
+  <div subHeader>
+    <ax-button class="float-right mb-4" data-cy="add-user-btn" (click)="onCreateNew()"
+      >{{ addUserBtnLabel | axTranslate }}
+    </ax-button>
+  </div>
+  <div main class="flex flex-col">
+    <usr-mgmt-list
+      [displayedColumns]="tableDisplayedColumns | axTranslate"
+      [tooltips]="statusTooltips | axTranslate"
+      [userListData]="users$ | async"
+      [deactivateUserModal]="deactivateUserModal | axTranslate"
+      [reactivateUserModal]="reactivateUserModal | axTranslate"
+      (deactivateButtonClick)="onDeactivateUser($event)"
+      (rowActionSelected)="onRowActionSelected($event)"
+    >
+    </usr-mgmt-list>
+  </div>
+</usr-mgmt-layout>
+
+<ng-container *ngIf="opened">
+  <usr-create-edit
+    [opened]="opened"
+    [isEdit]="edit"
+    [user]="userToEdit"
+    [content]="createEditSideSheetContent | axTranslate"
+    (closeSideSheet)="onCloseSideSheet()"
+    (cancel)="onCancel()"
+    (save)="onSaveUser($event)"
+  ></usr-create-edit>
+</ng-container>

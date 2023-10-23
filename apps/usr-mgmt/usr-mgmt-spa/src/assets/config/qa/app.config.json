@@ -1,0 +1,5 @@
+{
+  "baseUrl": "https://usr-mgmt-spa-qa-hgd8gtajg5e4fmae.z01.azurefd.net",
+  "usrMgmtApiBaseUrl": "https://usr-mgmt-bff-qa-becyfsdma4gcfhha.z01.azurefd.net/api",
+  "appInsightsInstrumentationKey": "6efcdfed-77cf-47f2-928f-8707b6e93e93"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "tenant-ui",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/tenant/ui/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/tenant/ui"],
+      "options": {
+        "project": "libs/tenant/ui/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/tenant/ui/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/tenant/ui/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/tenant/ui"],
+      "options": {
+        "jestConfig": "libs/tenant/ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/tenant/ui/**/*.ts", "libs/tenant/ui/**/*.html"]
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:tenant"]
+}

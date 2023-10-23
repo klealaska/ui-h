@@ -1,0 +1,43 @@
+{
+  "name": "avidcapture-dashboard-feature",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/avidcapture/dashboard/feature/src",
+  "prefix": "xdc",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/avidcapture/dashboard/feature"],
+      "options": {
+        "project": "libs/avidcapture/dashboard/feature/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/avidcapture/dashboard/feature/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/avidcapture/dashboard/feature/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/avidcapture/dashboard/feature"],
+      "options": {
+        "jestConfig": "libs/avidcapture/dashboard/feature/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/avidcapture/dashboard/feature/**/*.ts",
+          "libs/avidcapture/dashboard/feature/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:avidcapture"]
+}

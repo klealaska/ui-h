@@ -1,0 +1,44 @@
+{
+  "name": "pay-transformation-feature",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/pay-transformation/feature/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/pay-transformation/feature"],
+      "options": {
+        "project": "libs/pay-transformation/feature/ng-package.json",
+        "tailwindConfig": "libs/pay-transformation/feature/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/pay-transformation/feature/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/pay-transformation/feature/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["coverage/libs/pay-transformation/feature"],
+      "options": {
+        "jestConfig": "libs/pay-transformation/feature/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/pay-transformation/feature/**/*.ts",
+          "libs/pay-transformation/feature/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:pay-transformation"]
+}

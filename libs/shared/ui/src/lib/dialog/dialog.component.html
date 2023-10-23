@@ -1,0 +1,34 @@
+<div class="dialog">
+  <h2 class="dialog__title">{{ data.title }}</h2>
+  <div class="dialog__content">
+    <mat-icon class="dialog__icon" *ngIf="data.icon" aria-hidden="false" aria-label="icon">
+      {{ data.icon }}</mat-icon
+    >
+    <p>{{ data.message }}</p>
+  </div>
+  <div class="dialog__actions">
+    <div *ngIf="data.cta">
+      <button mat-raised-button (click)="closeDialog(false)" data-cy="ax-dialog-cancel-button">
+        {{ data.cancelAction ? data.cancelAction: 'Cancel' }}
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="closeDialog(true)"
+        data-cy="ax-dialog-submit-button"
+      >
+        {{ data.initAction ? data.initAction : "Submit" }}
+      </button>
+    </div>
+    <div *ngIf="!data.cta">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="closeDialog(false)"
+        data-cy="ax-dialog-dismiss-button"
+      >
+        Dismiss
+      </button>
+    </div>
+  </div>
+</div>

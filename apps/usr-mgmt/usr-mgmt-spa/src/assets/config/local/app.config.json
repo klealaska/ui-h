@@ -1,0 +1,6 @@
+{
+ "baseUrl": "http://localhost:4207",
+ "appInsightsInstrumentationKey": "",
+ "usrMgmtApiBaseUrl": "http://localhost:3333/api"
+}
+  

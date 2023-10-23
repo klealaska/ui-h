@@ -1,0 +1,118 @@
+$grey800: theme('colors.grey.800');
+$grey50: theme('colors.grey.50');
+$grey600: theme('colors.grey.600');
+
+:host {
+  &:nth-child(n + 2) .ax-expansion-panel {
+    margin-top: 16px;
+  }
+}
+
+.ax-expansion-panel {
+  box-shadow: none;
+  border-radius: 4px 4px 0px 0px !important;
+
+  &--header {
+    border-bottom: solid 1px theme('colors.surface.300');
+    height: auto;
+    padding: 16px;
+    padding-right: 8px;
+    &:hover {
+      background-color: theme('colors.interactive.50') !important;
+    }
+    &:focus-visible {
+      background-color: transparent !important;
+      border: solid 2px theme('colors.focused.500');
+      padding: 14px 6px 15px 14px;
+      border-radius: 4px;
+    }
+    &__title {
+      font-family: theme('fontFamily.interRegular');
+      font-size: 24px;
+      line-height: 26px;
+      color: $grey800;
+    }
+  }
+}
+
+// Secondary
+.ax-expansion-panel-secondary {
+  background: transparent !important;
+}
+
+// Expanded
+.mat-expanded.ax-expansion-panel {
+  border-radius: 4px !important;
+  &--header {
+    border-radius: initial !important;
+    &__title {
+      font-family: theme('fontFamily.interMedium');
+    }
+  }
+  .expand-icon {
+    transform: rotate(180deg);
+  }
+}
+
+::ng-deep.mat-expansion-panel-body {
+  font-family: theme('fontFamily.interRegular');
+  color: $grey800;
+  padding: 16px !important;
+}
+
+// Primary Disabled
+.ax-expansion-panel-primary.expansion-panel-disabled {
+  color: $grey50;
+
+  .ax-expansion-panel {
+    &--header {
+      border-bottom: solid 1px $grey50;
+      cursor: default;
+      &__title {
+        font-family: theme('fontFamily.interRegular');
+        font-size: 24px;
+        line-height: 26px;
+        color: $grey50;
+      }
+      &:hover {
+        background-color: inherit !important;
+      }
+    }
+  }
+  ::ng-deep.mat-expansion-panel-body {
+    color: $grey50;
+  }
+}
+
+// Secondary Disabled
+.ax-expansion-panel-secondary.expansion-panel-disabled {
+  color: $grey600;
+
+  .ax-expansion-panel {
+    &--header {
+      border-bottom-color: $grey600;
+      background: theme('colors.grey.50');
+      cursor: default;
+      &:hover {
+        background-color: theme('colors.grey.50') !important;
+      }
+      &__title {
+        font-family: theme('fontFamily.interRegular');
+        font-size: 24px;
+        line-height: 26px;
+        color: $grey600;
+      }
+      .mat-icon {
+        color: $grey600;
+      }
+    }
+  }
+  ::ng-deep.mat-expansion-panel-body {
+    background-color: $grey50;
+    color: $grey600;
+  }
+}
+
+.mat-expansion-panel {
+  box-shadow: none !important;
+}

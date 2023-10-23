@@ -1,0 +1,25 @@
+<section
+  class="bam-detail-footer__container"
+  *ngIf="account && content && buttonConfig?.length; else footerSkeleton"
+>
+  <ng-container *ngFor="let config of buttonConfig">
+    <ax-button
+      class="bam-detail-footer__account-actions w-full mb-4"
+      [type]="config?.buttonType"
+      [color]="config?.buttonColor"
+      (click)="handleButtonClick(config?.updatedStatus)"
+    >
+      {{config?.label}}
+    </ax-button>
+  </ng-container>
+  <!--  <ax-button-->
+  <!--    *ngIf="buttonConfig[0]?.displayEdit"-->
+  <!--    class="bam-detail-footer__edit w-full"-->
+  <!--    (click)="editClick.emit()"-->
+  <!--    >{{content?.editAccountBtn}}</ax-button-->
+  <!--  >-->
+</section>
+
+<ng-template #footerSkeleton>
+  <ui-coe-bam-panel-footer-skeleton></ui-coe-bam-panel-footer-skeleton>
+</ng-template>

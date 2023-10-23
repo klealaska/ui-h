@@ -1,0 +1,43 @@
+{
+  "items_requested": 0,
+  "items_returned": 0,
+  "items_total": 0,
+  "offset": 0,
+  "items": [
+    {
+      "entity_name": "string",
+      "entity_code": "string",
+      "entity_id": "string",
+      "erp_id": "string",
+      "parent_entity_id": "string",
+      "business_level": 0,
+      "entity_addresses": [
+        {
+          "address_code": "string",
+          "address_line1": "string",
+          "address_line2": "string",
+          "address_line3": "string",
+          "address_line4": "string",
+          "locality": "string",
+          "region": "string",
+          "country": "string",
+          "postal_code": "string",
+          "is_primary": true,
+          "address_type": "string",
+          "address_id": "string",
+          "entity_id": "string",
+          "is_active": true,
+          "created_timestamp": "2023-05-05T18:06:24.554Z",
+          "created_by_user_id": "string",
+          "last_modified_timestamp": "2023-05-05T18:06:24.554Z",
+          "last_modified_by_user_id": "string"
+        }
+      ],
+      "is_active": true,
+      "created_timestamp": "2023-05-05T18:06:24.554Z",
+      "created_by_user_id": "string",
+      "last_modified_timestamp": "2023-05-05T18:06:24.554Z",
+      "last_modified_by_user_id": "string"
+    }
+  ]
+}

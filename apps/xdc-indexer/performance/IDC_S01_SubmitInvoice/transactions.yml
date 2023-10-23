@@ -1,0 +1,8 @@
+- name: IDC_S01_Indexer_Submit_Invoice_T05_Enter_Details
+- name: IDC_S01_Indexer_Submit_Invoice_T06_Submit
+- name: IDC_S01_Indexer_Submit_Invoice_T07_Logout
+- name: IDC_S01_Indexer_Submit_Invoice_T08_Logout_Auth
+- name: IDC_S01_Indexer_Submit_Invoice_T01_Launch
+- name: IDC_S01_Indexer_Submit_Invoice_T02_Login
+- name: IDC_S01_Indexer_Submit_Invoice_T03_Select_Buyer
+- name: IDC_S01_Indexer_Submit_Invoice_T04_Open_Invoice

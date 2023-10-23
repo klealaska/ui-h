@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-Uicoe-Pr-<%= domain %>-Rg'
+  resourceGroupWest: 'Ax-Aw1-Uicoe-Pr-<%= domain %>-Rg'
+  bffEndpoint: 'MUST BE ENTERED MANUALLY'
+  keyVaultNameEast: 'axae1uicoepr<%= domain.replace(/-/g, "").substring(0,7) %>kv'
+  keyVaultNameWest: 'axaw1uicoepr<%= domain.replace(/-/g, "").substring(0,7) %>kv'

@@ -1,0 +1,14 @@
+node_modules
+# XDC IGNORE LIST
+apps/xdc-indexer/src/testing/*.ts
+apps/xdc-indexer/src/assets/
+
+# CFM IGNORE LIST
+apps/supplier-cfm-e2e/pipelines/
+apps/supplier-cfm-e2e/src/integration/
+
+# Storybook IGNORE LIST
+libs/shared/**/src/lib/**/*.stories.ts
+
+# DEMO IGNORE LIST
+apps/demo/zombie-dice-spa-e2e/src/integration/

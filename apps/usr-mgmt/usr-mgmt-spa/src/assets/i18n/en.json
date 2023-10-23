@@ -1,0 +1,84 @@
+{
+  "listPage": {
+    "title": "<span class='{{ fontFamilySemibold }}'>User</span><span class='{{ fontFamilyLight }}'> Management </span>",
+    "addUserButtonLabel": "Create user",
+    "table": {
+      "displayedColumns": {
+        "name": "Name",
+        "email": "Email",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "tooltips": {
+        "userStatus": {
+          "active": "User has activated their account.",
+          "inactive": "User was deactivated and can no longer access the system.",
+          "invited": "User was sent an invitation to activate the account.",
+          "notInvited": "User has been added but not yet invited."
+        }
+      },
+      "actions": {
+        "edit": "Edit",
+        "invite": "Invite",
+        "resendInvite": "Re-Invite",
+        "activate": "Activate",
+        "deactivate": "Deactivate",
+        "forcePasswordReset": "Password Reset"
+      }
+    },
+    "modalDialog": {
+      "deactivate": {
+        "bodyText": "Remove access for {{ user }}",
+        "buttonText": "Deactivate"
+      },
+      "reactivate": {
+        "bodyText": "",
+        "buttonText": "Reactivate"
+      }
+    },
+    "toaster": {
+      "getUsers": {
+        "error": "Failed to load users."
+      },
+      "deactivateUser": {
+        "success": "User deactivated.",
+        "error": "Failed to deactivate."
+      },
+      "reactivateUser": {
+        "success": "User Reactivated."
+      }
+    }
+  },
+  "createEditSideSheet": {
+    "createTitle": "Create user",
+    "editTitle": "Edit user",
+    "saveButtonText": "Save",
+    "cancelButtonText": "Cancel",
+    "form": {
+      "firstName": {
+        "labelText": "First name",
+        "requiredValidationErrorText": "Enter first name"
+      },
+      "lastName": {
+        "labelText": "Last name",
+        "requiredValidationErrorText": "Enter last name"
+      },
+      "email": {
+        "labelText": "Email",
+        "requiredValidationErrorText": "Enter email address",
+        "invalidFormatValidationErrorText": "TBD",
+        "hintText": "This will be their username"
+      }
+    },
+    "toaster": {
+      "create": {
+        "successText": "User created",
+        "failureText": "Failure"
+      },
+      "edit": {
+        "successText": "Changes saved",
+        "failureText": "Failure"
+      }
+    }
+  }
+}

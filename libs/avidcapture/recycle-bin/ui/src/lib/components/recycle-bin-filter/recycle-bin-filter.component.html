@@ -1,0 +1,83 @@
+<div class="row">
+  <h4 *ngIf="!canViewAllBuyers">{{'xdc.recycle-bin.recycle-bin-label' | translate }}</h4>
+  <xdc-mat-chips-autocomplete
+    *ngIf="filteredBuyersCore?.length > 1 || canViewAllBuyers"
+    class="filter"
+    data-cy="buyer-filter-input"
+    [data]="buyers"
+    [selectedItems]="canViewAllBuyers ? filteredBuyersCore : filteredBuyers"
+    [labelText]="'Filter by customer'"
+    [placeholder]="'New customer...'"
+    [maxSelections]="10"
+    [minSearchLength]="1"
+    [debounceTime]="300"
+    [multiple]="true"
+    [hintLabel]="filteredBuyers.length >= 10 ? 'Max Filters Reached': ''"
+    (optionSelected)="buyerChangedEvent.emit($event)"
+    (removed)="buyerChangedEvent.emit($event)"
+    (itemSelected)="buyerAddedEvent.emit($event)"
+    (removedItem)="buyerRemovedEvent.emit($event)"
+    (filterTextChange)="buyerTextChangedEvent.emit($event)"
+  ></xdc-mat-chips-autocomplete>
+
+  <div class="button-container">
+    <ax-button
+      class="mr-10"
+      data-cy="recyclebin-refresh-button"
+      [disabled]="!canRefreshPage"
+      [type]="'secondary'"
+      (click)="refreshPage.emit($event)"
+    >
+      <mat-icon>{{'xdc.recycle-bin.refresh-label' | translate }}</mat-icon>
+    </ax-button>
+    <ax-button
+      *ngIf="canUseAdvancedFilter"
+      data-cy="recycleBin-filter-button"
+      [type]="'secondary'"
+      (click)="showFilters = true"
+    >
+      {{'xdc.recycle-bin.filter-label' | translate }}
+    </ax-button>
+  </div>
+</div>
+
+<div class="row-chips">
+  <mat-chip-listbox aria-label="Applied Filters" [selectable]="false">
+    <div *ngFor="let filter of appliedFilters | keyvalue">
+      <mat-chip-option
+        *ngIf="filter.key === advancedFiltersKeysEnum.DateReceived"
+        class="chip"
+        [highlighted]="true"
+        (removed)="filterChipRemoved.emit(filter.key)"
+        ><span class="mr-5 b2 white">{{advancedFiltersEnum[filter.key]}}:</span
+        ><span class="b2 white">{{transformDates(filter.value)}}</span
+        ><button matChipRemove class="icon-close">
+          <mat-icon>{{'xdc.recycle-bin.cancel-label' | translate }}</mat-icon>
+        </button></mat-chip-option
+      >
+      <mat-chip-option
+        *ngIf="filter.key !== advancedFiltersKeysEnum.DateReceived"
+        class="chip"
+        [highlighted]="true"
+        (removed)="filterChipRemoved.emit(filter.key)"
+        ><span class="mr-5 b2 white">{{advancedFiltersEnum[filter.key]}}:</span
+        ><span class="b2 white">{{filter.value}}</span
+        ><button matChipRemove class="icon-close">
+          <mat-icon>{{'xdc.recycle-bin.cancel-label' | translate }}</mat-icon>
+        </button></mat-chip-option
+      >
+    </div>
+  </mat-chip-listbox>
+</div>
+
+<xdc-advanced-filter
+  [buyers]="buyers"
+  [advancedFilters]="advancedFilters"
+  [showFilters]="showFilters"
+  [minDateForFilter]="minDateForFilter"
+  [dateFieldText]="'Recycled Date'"
+  [canViewAllBuyers]="canViewAllBuyers"
+  (closeFilters)="showFilters = false"
+  (filtersChanged)="filtersChanged($event)"
+  (buyerFilterTextChange)="buyerTextChangedEvent.emit($event)"
+></xdc-advanced-filter>

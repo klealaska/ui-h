@@ -1,0 +1,71 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title class="mb-3.5 font-['inter-semibold']"> {{ title }} </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="formGroup" class="grid grid-cols-[1fr,1fr] gap-4">
+      <div class="flex flex-col text-sm">
+        <!-- site name -->
+        <ax-input
+          label="{{siteNameLabel}}"
+          [control]="formGroup.controls['siteName']"
+          [id]="'site-name-id'"
+          data-cy="site-name"
+          [error]="siteNameError"
+          class="mb-3.5"
+        ></ax-input>
+        <!-- cmp id -->
+        <ax-input
+          label="{{cmpLabel}}"
+          hintMessage="{{cmpIdHelperText}}"
+          [control]="formGroup.controls['cmpId']"
+          [id]="'cmp-id'"
+          data-cy="cmp-id"
+          class="mb-3.5"
+          [error]="cmpError"
+        ></ax-input>
+        <!-- customer name -->
+        <ax-input
+          label="{{customerNameLabel}}"
+          [control]="formGroup.controls['customerName']"
+          [id]="'customer-name-id'"
+          class="mb-3.5"
+          data-cy="customer-name"
+        ></ax-input>
+        <!-- account id -->
+        <ax-input
+          label="{{accountIdLabel}}"
+          [control]="formGroup.controls['accountId']"
+          [id]="'account-id'"
+          class="mb-3.5"
+          data-cy="account"
+        ></ax-input>
+      </div>
+      <!-- site Id -->
+      <div *ngIf="siteIdValue" class="bg-secondary-200 h-[6rem] p-4 rounded" data-cy="site-id-card">
+        <div
+          class="font-['inter-semibold'] text-primary-500 text-base mb-4"
+          data-cy="site-id-label"
+        >
+          {{ siteIdLabel }}
+        </div>
+        <div class="font-['inter-regular'] text-primary-500 text-base" data-cy="site-id-text">
+          {{ siteIdValue }}
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <!-- submit button -->
+    <button
+      [attr.data-cy]="submitButtonId"
+      mat-flat-button
+      color="primary"
+      class="lg w-[5.4rem]"
+      [disabled]="!formGroup.valid || !enableSubmitButton"
+      (click)="submitButtonClick.emit(formGroup)"
+    >
+      {{ submitButtonText }}
+    </button>
+  </mat-card-actions>
+</mat-card>

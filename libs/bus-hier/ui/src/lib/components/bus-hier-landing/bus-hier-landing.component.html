@@ -1,0 +1,59 @@
+<div class="pl-[5.5rem] pt-[5.5rem]">
+  <h3 class="pb-[1.5rem] text-2xl font-[600] font-color font-['inter-semibold']">{{title}}</h3>
+  <div class="pb-[2.625rem] font-color font-['inter-regular']" [innerHTML]="subTitle"></div>
+  <ul *ngIf="!selectMode " class="pl-[0.75rem] list-disc font-color font-['inter-regular']">
+    <li class="{{ fontFamily }}">{{listItem}}</li>
+    <li>
+      <b class="font-['inter-regular']">{{createLevelText}}</b>
+      <span class="{{ fontFamily }}">{{listItemTwo}}</span>
+    </li>
+    <li><b>{{createObjectText}}</b> <span class="{{ fontFamily }}">{{listItemThree}}</span></li>
+  </ul>
+  <!-- when selectMode is false span below will show -->
+  <span *ngIf="selectMode" class="font-['inter-regular'] font-color">{{intructionsTitle}}</span>
+</div>
+
+<!-- when selectMode is false div below will show-->
+<div *ngIf="selectMode" class="pl-[5.5rem] pt-[2.625rem]">
+  <h3 class="font-[600] text-2xl pb-[1rem]">{{organizationsTitle}}</h3>
+  <div class="grid grid-cols-3 gap-3">
+    <div *ngFor="let organization of organizations" data-cy="organizations-list">
+      <bus-hier-toggle-card
+        [id]="organization?.id"
+        [name]="organization?.name"
+        [type]="organizationType"
+        [isSelected]="organization?.isSelected"
+        [isDisabled]="organization?.isDisabled"
+        status="{{organization?.isActive === true ? 'success' : 'default' }}"
+        statusText="{{organization?.isActive === true ? 'ACTIVE': 'INACTIVE'}}"
+        (toggleItemSelection)="toggleOrgSelection.emit($event)"
+      >
+      </bus-hier-toggle-card>
+    </div>
+  </div>
+  <h3 class="font-[600] text-2xl pb-[1rem] pt-[1.5rem]">{{erpsTitle}}</h3>
+  <div class="grid grid-cols-3 gap-3">
+    <div *ngFor="let erp of erps" data-cy="erps-list">
+      <bus-hier-toggle-card
+        [id]="erp?.id"
+        [name]="erp?.name"
+        [type]="erpType"
+        [isSelected]="erp?.isSelected"
+        [isDisabled]="erp?.isDisabled"
+        status="{{ erp?.isActive === true ? 'success' : 'default' }}"
+        statusText="{{erp?.isActive === true ? 'ACTIVE': 'INACTIVE'}}"
+        (toggleItemSelection)="toggleErpSelection.emit($event)"
+      >
+      </bus-hier-toggle-card>
+    </div>
+  </div>
+  <ax-button
+    data-cy="view-hier-btn"
+    [type]="buttonTypes.primary"
+    [disabled]="!viewHierBtnEnabled"
+    [fixed]="false"
+    class="pt-[3rem]"
+    (click)="viewHierBtnClick.emit()"
+    >{{viewHierBtnText}}</ax-button
+  >
+</div>

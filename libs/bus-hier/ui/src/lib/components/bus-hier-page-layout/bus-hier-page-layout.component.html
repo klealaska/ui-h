@@ -1,0 +1,18 @@
+<div class="bg-surface-50 w-full h-fit flex flex-col absolute">
+  <div class="bg-secondary-200 h-28 pt-6" data-cy="main-header-list-page-div">
+    <ng-content select="[header]"></ng-content>
+  </div>
+  <div>
+    <ng-content select="[filter]"></ng-content>
+    <div class="overflow-y-auto">
+      <div class="grid grid-cols-12 gap-3">
+        <div class="col-span-5 h-screen">
+          <ng-content select="[tree]"></ng-content>
+        </div>
+        <div class="col-span-7 bg-white border-l-[2px] border-primary-50">
+          <ng-content select="[details]"></ng-content>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

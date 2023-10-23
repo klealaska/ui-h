@@ -1,0 +1,58 @@
+<div
+  cdkDrag
+  [cdkDragDisabled]="!data?.draggable"
+  cdkDragRootElement=".cdk-overlay-pane"
+  cdkDragHandle
+  [ngClass]="data?.draggable ? 'non-modal-dialog' : 'modal-dialog'"
+  [ngClass]="data?.type === 'alert' ? 'ax-dialog__container alert' : 'ax-dialog__container'"
+>
+  <!-- Close Icon -->
+  <ax-button
+    *ngIf="data?.closeIcon"
+    class="ax-dialog__close"
+    [type]="'tertiary'"
+    [color]="data?.type === 'alert' ? 'critical' : 'neutral'"
+    (click)="closeDialog('close')"
+  >
+    <mat-icon>close</mat-icon>
+  </ax-button>
+
+  <!-- Overline -->
+  <p class="ax-dialog__overline" *ngIf="data?.overline">
+    <mat-icon
+      class="ax-dialog__overline--icon"
+      *ngIf="data?.overline?.hasAlertIcon && data?.type === 'alert'"
+      >warning</mat-icon
+    >
+    {{data?.overline?.text}}
+  </p>
+
+  <!-- Title -->
+  <h1 class="ax-dialog__title" *ngIf="data?.title">{{data?.title}}</h1>
+
+  <!-- Message -->
+  <p class="ax-dialog__message" *ngIf="data?.message">{{data?.message}}</p>
+
+  <!-- Content Projection -->
+  <div class="ax-dialog__ngContent">
+    <ng-content></ng-content>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="ax-dialog__action-container" *ngIf="data?.actionBtn || data?.cancelBtn">
+    <!-- Cancel Btn -->
+    <ax-button
+      [type]="data?.cancelBtn?.type || 'secondary'"
+      [color]="data?.cancelBtn?.color || 'default'"
+      (click)="closeDialog(data?.cancelBtn?.text)"
+      >{{data?.cancelBtn?.text}}</ax-button
+    >
+    <!-- Action Btn -->
+    <ax-button
+      [type]="data?.actionBtn?.type || 'primary'"
+      [color]="data?.actionBtn?.color || 'default'"
+      (click)="closeDialog(data?.actionBtn?.text)"
+      >{{data?.actionBtn?.text}}</ax-button
+    >
+  </div>
+</div>

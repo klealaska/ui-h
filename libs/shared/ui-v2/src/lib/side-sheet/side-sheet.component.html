@@ -1,0 +1,40 @@
+<div [class.screen-shade]="opened" (click)="toggleSideSheet()"></div>
+<div *ngIf="opened" class="ax-side-sheet">
+  <div class="ax-side-sheet__header">
+    <label class="ax-side-sheet__header-title">{{sheetTitle}}</label>
+    <ax-button data-test="exit" [type]="'tertiary'" (click)="toggleSideSheet()">
+      <mat-icon>close</mat-icon>
+    </ax-button>
+  </div>
+  <div class="ax-side-sheet__contents">
+    <div class="ax-side-sheet__contents-scroll-container">
+      <ng-content></ng-content>
+    </div>
+    <div class="ax-side-sheet__contents-footer">
+      <ax-button
+        *ngIf="btn1 && btn1?.text !== ''"
+        data-test="btn1"
+        class="w-full"
+        style="margin: 0px 2.5px"
+        [type]="btn1?.type || 'primary'"
+        [color]="btn1?.color"
+        [disabled]="btn1?.disabled"
+        (click)="btn1Event.emit($event)"
+      >
+        {{btn1?.text}}
+      </ax-button>
+      <ax-button
+        *ngIf=" btn2 && btn2?.text !== ''"
+        data-test="btn2"
+        class="w-full"
+        style="margin: 0px 2.5px"
+        [type]="btn2?.type || 'primary'"
+        [color]="btn2?.color"
+        [disabled]="btn2?.disabled"
+        (click)="btn2Event.emit($event)"
+      >
+        {{btn2?.text}}
+      </ax-button>
+    </div>
+  </div>
+</div>

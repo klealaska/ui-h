@@ -1,0 +1,23 @@
+.connector-settings-container {
+  display: flex;
+
+  avc-settings-side-bar {
+    min-width: 300px;
+  }
+
+  avc-property-group {
+    width: 100%;
+    padding: 0 3%;
+  }
+}
+
+avc-connector-header {
+  display: block;
+  margin: 30px 0;
+}
+
+.buttons-content {
+  margin: 20px;
+  position: sticky;
+  bottom: 20px;
+}

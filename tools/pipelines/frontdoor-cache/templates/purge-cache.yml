@@ -1,0 +1,26 @@
+parameters:
+  stages: {}
+
+stages:
+  - ${{ each stage in parameters.stages }}:
+      - stage: ${{ stage.environment }}
+        displayName: 'Purge Cache in ${{ stage.environment }}'
+        variables:
+          - template: '../variables/${{ lower(stage.environment) }}.yml'
+        jobs:
+          - job:
+            displayName: Purge Cache
+            container: cicd_devtools
+            pool: linux-vmss-agent-pool
+
+            steps:
+              - checkout: none
+
+              - task: AzureCLI@2
+                displayName: Purge Cache
+                inputs:
+                  azureSubscription: ${{ stage.serviceConnection }}
+                  scriptLocation: inlineScript
+                  scriptType: 'bash'
+                  inlineScript: |
+                    az afd endpoint purge --endpoint-name $(endpointName) --profile-name $(frontdoorName) --resource-group $(resourceGroup) --content-paths '/*'

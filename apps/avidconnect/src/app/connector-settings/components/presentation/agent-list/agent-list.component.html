@@ -1,0 +1,46 @@
+<ng-container *ngIf="dataSource && dataSource?.data.length">
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="hostName">
+      <mat-header-cell *matHeaderCellDef>Machine</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span class="mobile-label">Machine:</span>
+        {{element?.hostName}}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="createdDate">
+      <mat-header-cell *matHeaderCellDef>Created Date</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span class="mobile-label">Created Date:</span>
+        {{element?.createdDate | date:'MM/dd/yyyy, h:mm a'}}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="createdBy">
+      <mat-header-cell *matHeaderCellDef>Created By</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span class="mobile-label">Created By:</span>
+        {{element?.createdBy}}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="button">
+      <mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          class="deactivate-btn"
+          (click)="agentDeactivateClick.emit(element)"
+        >
+          Deactivate
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of agents"
+  ></mat-paginator>
+</ng-container>
+<button mat-raised-button class="add-agent-btn" (click)="activateMachineClick.emit()">
+  Activate Additional Machine
+</button>

@@ -1,0 +1,34 @@
+<ax-input-header
+  *ngIf="label || tooltip"
+  [readonly]="readonly"
+  [id]="id"
+  [label]="label"
+  [optional]="optional"
+  [tooltip]="tooltip"
+  [control]="control"
+></ax-input-header>
+
+<mat-form-field class="ax-form-field">
+  <textarea
+    matInput
+    [id]="id"
+    class="ax-textarea"
+    placeholder="{{placeholder}}"
+    [formControl]="control"
+    (keyup)="applyFilter($event)"
+    data-test="ax-textarea"
+    [maxlength]="maxLength || 250"
+  ></textarea>
+
+  <mat-hint>
+    <ax-input-hint [message]="hintMessage"></ax-input-hint>
+  </mat-hint>
+
+  <mat-error
+    ><ax-input-error
+      [icon]="error?.icon"
+      [message]="error?.message"
+      [invalid]="control?.invalid"
+    ></ax-input-error
+  ></mat-error>
+</mat-form-field>

@@ -1,0 +1,83 @@
+{
+  "bankAccountsHeader": {
+    "firstWord": "Bank ",
+    "secondWord": "Accounts"
+  },
+  "bankAccountAddHeader": {
+    "firstWord": "Add ",
+    "secondWord": "Account"
+  },
+  "bankAccountList": {
+    "addAccountBtn": "Add account",
+    "addAccountDesc": "There are no bank accounts in the system.",
+    "myBankAccountLabel": "My bank account",
+    "bankAccountHeaderLabel": "Bank Accounts",
+    "accountNumberLabel": "Account number"
+  },
+  "popBamList": {
+    "addAccountBtn": "Add account",
+    "addAccountDesc": "There are no bank accounts in the system.",
+    "accountNumberCol": "Account number",
+    "routingNumberCol": "Routing number",
+    "bankCol": "Banking institution",
+    "customerCol": "Customer",
+    "statusCol": "Status"
+  },
+  "bankAccountAdd": {
+    "bankAccountAddHeader": "Add Account",
+    "nicknameLabel": "Bank account nickname",
+    "nicknamePlaceholder": "Enter a display name",
+    "routingNumberLabel": "Routing number",
+    "routingNumberPlaceholder": "Enter 9 digits",
+    "accountNumberLabel": "Account number",
+    "accountNumberPlaceholder": "Enter 4-17 digits",
+    "accountTypeLabel": "Account Type",
+    "accountTypePlaceholder": "Select account type",
+    "accountOwnerLabel": "Account Owner",
+    "companyLabel": "Company",
+    "individualLabel": "Individual",
+    "companyNamLabel": "Company name",
+    "firstNameLabel": "First name",
+    "lastNameLabel": "Last name",
+    "companyAccountHint": "This account is owned by a company.",
+    "individualAccountHint": "This account is owned by an individual.",
+    "tAndCTitle": "AvidXchange Bank Account Terms and Conditions",
+    "tAndCLastUpdatedLabel": "Last updated",
+    "tAndCAcceptLabel": "I have read and agree to the AvidXchange Bank Account Terms and Conditions",
+    "cancelBtnLabel": "Cancel",
+    "addBtnLabel": "Add account",
+    "routingNumberTooltip": "Your routing number is the first set of \n digits at the bottom of your check.",
+    "accountNumberTooltip": "Your account number is at the bottom of your check, between the routing number and check number."
+  },
+  "bankAccountDetails": {
+    "approveBtn": "Approve",
+    "rejectBtn": "Reject",
+    "editAccountBtn": "Edit",
+    "deactivateBtn": "Deactivate",
+    "reactivateBtn": "Reactivate",
+    "cancelBtn": "Cancel",
+    "saveBtn": "Save",
+    "routingNumberLabel": "Routing number",
+    "accountNumberLabel": "Account number",
+    "accountHolderLabel": "Account holder",
+    "bankLabel": "Banking institution",
+    "editAccountNicknameLabel": "Account nickname",
+    "accountTypeLabel": "Account type",
+    "deactivateDialog": {
+      "title": "Deactivate account",
+      "message": "This account will be inactive and can no longer be used for processing payments, refunds, or other transactions.",
+      "actionBtnText": "Deactivate",
+      "cancelBtnText": "Cancel"
+    },
+    "detailHeader": {
+      "accountInfo": "Account information",
+      "viewHistory": "History"
+    }
+  },
+  "bankAccountEdit": {
+    "header": "Edit account",
+    "inputLabel": "Bank account nickname",
+    "cancelBtn": "Cancel",
+    "saveBtn": "Save"
+  }
+}

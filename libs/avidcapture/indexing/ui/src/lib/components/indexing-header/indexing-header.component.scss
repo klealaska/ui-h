@@ -1,0 +1,88 @@
+$default-header-color: theme('colors.surface.50');
+$white: #ffffff;
+
+.header,
+.header.mat-expanded,
+.header.mat-expanded:hover,
+.header:hover,
+.header.mat-expanded:focus,
+.header.mat-expanded:focus:not([aria-disabled='true']),
+.mat-expansion-panel .header.cdk-keyboard-focused:not([aria-disabled='true']),
+.mat-expansion-panel .header.cdk-keyboard-focused:not([aria-disabled='true']),
+.mat-expansion-panel .header.cdk-program-focused:not([aria-disabled='true']),
+.mat-expansion-panel:not(.mat-expanded) .header:hover:not([aria-disabled='true']),
+.header.mat-expanded:hover:not([aria-disabled='true']) {
+  background-color: $default-header-color;
+  cursor: default;
+}
+
+.mat-expansion-panel-header {
+  padding: 0 15px;
+}
+
+@media (hover: none) {
+  .mat-expansion-panel:not(.mat-expanded):not([aria-disabled='true'])
+    .mat-expansion-panel-header:hover {
+    background-color: $default-header-color;
+  }
+}
+
+@media (pointer: coarse) {
+  .header:hover {
+    background-color: $default-header-color;
+  }
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.text {
+  &-span {
+    font-family: theme('fontFamily.interRegular');
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+
+    @media (max-width: 1536px) {
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+  &-color {
+    color: theme('colors.grey.700');
+  }
+}
+
+.chevron {
+  margin: 0 5px;
+}
+
+.link {
+  font-family: theme('fontFamily.interRegular');
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: theme('colors.interactive.700');
+  margin: 0 0.25em;
+  cursor: pointer;
+
+  @media (max-width: 1536px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ax-input-hint {
+  font-size: 14px;
+  font-family: theme('fontFamily.interRegular');
+  color: theme('colors.grey.700');
+}

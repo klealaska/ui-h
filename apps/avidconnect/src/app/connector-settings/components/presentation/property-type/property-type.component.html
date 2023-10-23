@@ -1,0 +1,69 @@
+<div class="property-field">
+  <mat-form-field
+    class="form-field"
+    appearance="outline"
+    [class.error]="!!error"
+    *ngIf="property.Type === 'text' || property.Type === 'password'"
+  >
+    <input
+      matInput
+      [value]="value"
+      [type]="getPropertyType()"
+      [name]="property.Name"
+      [formControl]="propertyFormControl"
+      [errorStateMatcher]="matcher"
+      (input)="valueChanged.emit($event.target.value)"
+    />
+    <mat-error class="error">{{error}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field" appearance="outline" *ngIf="property.Type === 'numeric' ">
+    <input
+      type="number"
+      matInput
+      [value]="value"
+      [name]="property.Name"
+      [min]="property.MinValue"
+      [max]="property.MaxValue"
+      [formControl]="propertyFormControl"
+      [errorStateMatcher]="matcher"
+      (input)="valueChanged.emit($event.target.value)"
+    />
+    <mat-error class="error">{{error}}</mat-error>
+  </mat-form-field>
+
+  <div class="boolean-property" *ngIf="property.Type === 'boolean'">
+    <mat-slide-toggle [(ngModel)]="value" (change)="valueChanged.emit($event.checked)">
+    </mat-slide-toggle>
+  </div>
+
+  <avc-choice-property
+    *ngIf="property.Type === 'choice'"
+    [property]="property"
+    [value]="value"
+    [error]="error"
+    (choiceChanged)="valueChanged.emit($event)"
+  ></avc-choice-property>
+
+  <avc-auth-property
+    *ngIf="property.Type === 'auth'"
+    [property]="property"
+    [value]="value"
+    (authChanged)="valueChanged.emit($event)"
+  >
+  </avc-auth-property>
+
+  <div class="complex-property-type" *ngIf="property.Type === 'complex'">
+    <avc-complex-property
+      [groupName]="groupName"
+      [property]="property"
+      [value]="value"
+      [isNew]="isNew"
+      [error]="error"
+      [complexValues]="complexValues"
+      (valueChanged)="valueChanged.emit($event)"
+      (complexModalClosed)="complexModalClosed.emit($event);"
+      (complexPropertyChanged)="complexPropertyChanged.emit($event)"
+    ></avc-complex-property>
+    <mat-error class="error complex-error" *ngIf="isTypeOfErrorString()">{{error}}</mat-error>
+  </div>
+</div>

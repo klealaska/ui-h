@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Spinner" />
+
+# Spinner
+
+## Imports
+
+Component - `import { SpinnerComponent } from '@ui-coe/shared/ui-v2';`
+
+Enums - `import { SpinnerColors, SpinnerSizes } from '@ui-coe/shared/types';`
+
+Types - `import { SpinnerColor, SpinnerSize } from '@ui-coe/shared/types';`
+
+## Description
+
+Spinner can be implemented by using the `ax-spinner` component
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Args</th>
+    <th>Description</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <td>@Input() size: SpinnerSize</td>
+    <td>`sm`, `md`, `lg`</td>
+    <td>Sets the spinner size</td>
+    <td>`lg`</td>
+  </tr>
+  <tr>
+    <td>@Input() color: SpinnerColor</td>
+    <td>`default`, `destructive`, `neutral`, `washed`</td>
+    <td>Sets the spinner color</td>
+    <td>`default`</td>
+  </tr>
+</table>

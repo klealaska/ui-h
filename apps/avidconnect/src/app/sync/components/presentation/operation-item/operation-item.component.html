@@ -1,0 +1,23 @@
+<tr class="operation-type-item">
+  <td class="data-selection">
+    <mat-checkbox color="primary" (change)="handleCheckboxChange($event.checked)">
+      {{enablement?.operationTypeName}}
+    </mat-checkbox>
+  </td>
+
+  <td class="description">
+    <span *ngIf="enablement?.isApibased">{{dataSourceText}}</span>
+    <ng-container *ngIf="!enablement?.isApibased">
+      <span *ngIf="selectedFile?.isUploading">Uploading File...</span>
+      <span *ngIf="selectedFile?.fileId">{{selectedFile.fileName}}</span>
+      <button
+        (click)="uploadClick.emit(enablement)"
+        mat-stroked-button
+        color="primary"
+        [disabled]="disableUpload"
+      >
+        <mat-icon>file_upload</mat-icon>
+      </button>
+    </ng-container>
+  </td>
+</tr>

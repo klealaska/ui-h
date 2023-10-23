@@ -1,0 +1,24 @@
+<a
+  mat-list-item
+  [ngStyle]="{'padding-left': depth ? depth > 1 ? '56px' : '48px' : '8px' }"
+  (click)="onItemSelected(item)"
+  (keydown.enter)="onItemSelected(item)"
+  class="menu-list-item"
+  tabindex="0"
+  #matListItem
+>
+  <mat-icon *ngIf="!item?.imageUrl && item?.iconName" class="routeIcon"
+    >{{item?.iconName}}</mat-icon
+  >
+  <img *ngIf="item?.imageUrl" class="product-img-logo" [src]="item?.imageUrl" />
+  {{item?.displayName}}
+  <span class="flexClass" fxFlex *ngIf="item?.children?.length">
+    <mat-icon class="expandIcon" [@indicatorRotate]="expanded ? 'expanded': 'collapsed'">
+      expand_more
+    </mat-icon>
+  </span>
+</a>
+<div *ngIf="expanded">
+  <ax-menu-list-item *ngFor="let child of item?.children" [item]="child" [depth]="depth+1">
+  </ax-menu-list-item>
+</div>

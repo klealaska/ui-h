@@ -1,0 +1,159 @@
+{
+    "message": "Game has been successfully created",
+    "game": {
+        "gameName": "CyGame",
+        "gameStatus": "Lobby",
+        "players": [
+            {
+                "nickname": "CyName",
+                "id": "1",
+                "isHost": true,
+                "score": 0,
+                "brainsRolled": 0,
+                "shotgunsRolled": 0,
+                "initialRoll": true
+            }
+        ],
+        "gameData": {
+            "hostId": "1",
+            "turnIndex": 0,
+            "playerTurn": "1",
+            "turns": [],
+            "winner": {
+                "id": "",
+                "name": ""
+            },
+            "dicePool": [
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "yellow"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "yellow"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "yellow"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "yellow"
+                },
+                {
+                    "1": "brain",
+                    "2": "shotgun",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "red"
+                },
+                {
+                    "1": "brain",
+                    "2": "shotgun",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "red"
+                },
+                {
+                    "1": "brain",
+                    "2": "shotgun",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "red"
+                }
+            ],
+            "response": ""
+        },
+        "_id": "1",
+        "__v": 0
+    },
+    "player": {
+        "nickname": "CyName",
+        "id": "1",
+        "isHost": true,
+        "score": 0,
+        "brainsRolled": 0,
+        "shotgunsRolled": 0,
+        "initialRoll": true
+    }
+}

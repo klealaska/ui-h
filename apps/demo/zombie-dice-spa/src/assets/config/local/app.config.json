@@ -1,0 +1,4 @@
+{
+  "zombieDiceApiUrl": "http://localhost:3333",
+  "pubSubFunctionUrl": "https://demo-zombie-dice-websockets-dv.azurewebsites.net/api/negotiate"
+}

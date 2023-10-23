@@ -1,0 +1,39 @@
+/*Primary Colors*/
+$cornflower-blue: #0574b0;
+$eucalyptus: #03a678;
+$navy: #004e74;
+
+/*Secondary Colors*/
+$charcoal: #404041;
+$soft-blue: #404041;
+$jam-purple: #ab218e;
+$sunshine: #ffc63e;
+$poppy: #c32526;
+
+/*Neutral Colors*/
+$white: #fff;
+$black: #333;
+$light-gray: #ddd;
+$dark-gray: #666;
+
+/*  Support colors */
+$gray: #d8d8d8;
+$grey: #eee;
+$soft-blue: #dbe7ee;
+$darker-gray: #949494;
+$green: #03a647;
+
+/* UIP theme variables */
+$light-green: $eucalyptus;
+$red: $poppy;
+
+$primary-color: $cornflower-blue;
+$secondary-color: $navy;
+$alt-color: $secondary-color;
+$font-color: $black;
+
+$error-color: $red;
+$success-color: $eucalyptus;
+$info-color: #014576;
+$warning-color: rgb(243, 115, 4);
+$debug-color: #828282;

@@ -1,0 +1,8 @@
+<div [ngClass]="background ? 'container__background' : 'container'">
+  <mat-icon class="icon" [ngClass]="size">{{ icon }}</mat-icon>
+  <div class="title" [ngClass]="size">{{ title }}</div>
+  <div class="text" [ngClass]="size">{{ text }}</div>
+  <div class="actions">
+    <ng-content></ng-content>
+  </div>
+</div>

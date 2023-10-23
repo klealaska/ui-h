@@ -1,0 +1,28 @@
+<!-- <bkws-home-buyer-filter
+  [filteredBuyers]="filteredBuyers$ | async"
+  (searchTextChanged)="searchBuyers($event)"
+  (buyerSelected)="buyerSelected($event)"
+  (clearFilterBuyers)="clearFilterBuyers()"
+></bkws-home-buyer-filter> -->
+
+<ng-container *ngIf="buyers$ | async as buyers">
+  <ng-template ngFor let-buyer [ngForOf]="buyers">
+    <bkws-home-panel
+      [buyer]="buyer"
+      [canViewMassVoid]="canViewMassVoid$ | async"
+      [canViewAttributeFunctions]="canViewAttributeFunctions$ | async"
+      [canViewThreshold]="canViewThreshold$ | async"
+      [canViewBuyerGoLive]="canViewBuyerGoLive$ | async"
+      [resetForm]="resetForm$ | async"
+      (updateBuyerValues)="updateBuyerValues($event)"
+      (executeMassVoid)="executeMassVoid($event)"
+      (updateFormStatus)="updateFormStatus($event)"
+    ></bkws-home-panel>
+  </ng-template>
+  <!-- <div class="loadmore-container">
+    <button *ngIf="canLoadMore$ | async" mat-raised-button [color]="'primary'" (click)="loadMore()">
+      Load More
+    </button>
+    <p *ngIf="(canLoadMore$ | async) === false" class="loadmore-text">No more results</p>
+  </div> -->
+</ng-container>

@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-Uicoe-St-Bank-Account-Mgmt-Rg'
+  resourceGroupWest: 'Ax-Aw1-Uicoe-St-Bank-Account-Mgmt-Rg'
+  bffEndpoint: ''
+  keyVaultNameEast: 'axae1uicoestbamkv'
+  keyVaultNameWest: 'axaw1uicoestbamkv'

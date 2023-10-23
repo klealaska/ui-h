@@ -1,0 +1,10 @@
+{
+  "avidAuthBaseUri": "https://api.avidxcloud.com/SecPlat/SecAvid/avidauth/avidauth/",
+  "avidAuthLoginUrl": "https://login.avidsuite.com",
+  "avidAuthLogoutUrl": "https://login.avidsuite.com/Auth/LogOut",
+  "avidAuthOktaUrl": "https://avidxchange.oktapreview.com/oauth2/aus1gxgc39wUFexQp1d7",
+  "apiBaseUrl": "https://api.avidxcloud.com/avidconnect/management/",
+  "production": true,
+  "appName": "AvidConnect",
+  "redirectUrl": "portal-dashboard/customers-list"
+}

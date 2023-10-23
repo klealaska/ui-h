@@ -1,0 +1,6 @@
+{
+  "cmsUrl": "https://cms-bff-pr-dddhgagachekcbbc.z01.azurefd.net/api/",
+  "authBaseUrl": "https://api.avidxcloud.com/SecPlat/SecAvid/avidauth/avidauth/",
+  "avidAuthUrl": "https://login.avidsuite.com",
+  "appInsightsInstrumentationKey": "f14087c2-e056-4cc7-a0f6-5df68b683f58"
+}

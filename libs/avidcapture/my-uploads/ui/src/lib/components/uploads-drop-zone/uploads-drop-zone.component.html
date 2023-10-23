@@ -1,0 +1,70 @@
+<ax-dropdown
+  *ngIf="filteredBuyers.length > 1"
+  class="mb-10"
+  data-cy="upload-select-buyer"
+  [id]="'xdc.shared.organization-label' | translate"
+  [label]="'xdc.shared.organization-label' | translate"
+  [options]="dropdownOptions"
+  (selectEvent)="optionSelected($event.value)"
+></ax-dropdown>
+
+<label
+  axDropzone
+  class="container"
+  for="fileUpload"
+  [ngClass]="{
+    'container--disabled': disabled
+    }"
+  (fileDropped)="fileAdded($event)"
+>
+  <div>
+    <mat-icon class="container__icon">{{ content?.icon }}</mat-icon>
+  </div>
+  <div class="container__header-content">
+    <input
+      class="container__input"
+      type="file"
+      id="fileUpload"
+      #fileUpload
+      accept=".pdf"
+      multiple
+      (change)="fileUploaded()"
+    />
+    <label
+      class="b3"
+      [ngClass]="{
+      'container__link': !disabled,
+      'container__link-disabled': disabled
+    }"
+      for="fileUpload"
+      >{{ content?.linkText }}
+    </label>
+    <span
+      [ngClass]="{
+      'container__message': !disabled,
+      'container__message-disabled': disabled
+    }"
+      >{{ content?.message }}</span
+    >
+  </div>
+  <div
+    [ngClass]="{
+    'container__instructions': !disabled,
+    'container__instructions-disabled': disabled
+  }"
+  >
+    <div>
+      <span>Supported file types: </span>
+      <span class="container__instruction-values" id="supportedFileTypes"> .pdf </span>
+    </div>
+    <div>
+      <span>Max files allowed: 50, Max size per file: 10MB</span>
+    </div>
+    <div class="mt-20">
+      <span>
+        Files are available in My uploads after processing is complete. Larger files can take a few
+        minutes to process.</span
+      >
+    </div>
+  </div>
+</label>

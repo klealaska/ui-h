@@ -1,0 +1,133 @@
+{
+  "name": "avidconnect",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/avidconnect/src",
+  "prefix": "avc",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/avidconnect",
+        "index": "apps/avidconnect/src/index.html",
+        "main": "apps/avidconnect/src/main.ts",
+        "polyfills": "apps/avidconnect/src/polyfills.ts",
+        "tsConfig": "apps/avidconnect/tsconfig.app.json",
+        "assets": [
+          "apps/avidconnect/src/favicon.ico",
+          "apps/avidconnect/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/shared/ui/src/lib",
+            "output": ""
+          }
+        ],
+        "styles": [
+          "apps/avidconnect/src/styles/styles.scss",
+          "libs/shared/dsm-styles/src/lib/scss/styles.scss",
+          "libs/shared/ui/src/lib/stylings/shared-components-toast.scss"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            ".",
+            "apps/avidconnect/src/styles",
+            "libs/shared/dsm-styles/src/lib/scss",
+            "libs/shared/ui/src/lib/stylings"
+          ]
+        },
+        "scripts": [],
+        "vendorChunk": true,
+        "extractLicenses": false,
+        "buildOptimizer": false,
+        "sourceMap": true,
+        "optimization": false,
+        "namedChunks": true
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/avidconnect/src/environments/environment.ts",
+              "with": "apps/avidconnect/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "buildOptimizer": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "5mb",
+              "maximumError": "10mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "80kb",
+              "maximumError": "500kb"
+            }
+          ]
+        },
+        "dev": {
+          "fileReplacements": [
+            {
+              "replace": "apps/avidconnect/src/environments/environment.ts",
+              "with": "apps/avidconnect/src/environments/environment.dev.ts"
+            }
+          ]
+        },
+        "json": {
+          "fileReplacements": [
+            {
+              "replace": "apps/avidconnect/src/environments/environment.ts",
+              "with": "apps/avidconnect/src/environments/environment.json.ts"
+            }
+          ]
+        }
+      },
+      "defaultConfiguration": ""
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "avidconnect:build"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "avidconnect:build:production"
+        },
+        "dev": {
+          "browserTarget": "avidconnect:build:dev"
+        },
+        "json": {
+          "browserTarget": "avidconnect:build:json"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "avidconnect:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/avidconnect/src/**/*.ts", "apps/avidconnect/src/**/*.html"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/avidconnect"],
+      "options": {
+        "jestConfig": "apps/avidconnect/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:spa"]
+}

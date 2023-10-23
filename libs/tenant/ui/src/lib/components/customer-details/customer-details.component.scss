@@ -1,0 +1,24 @@
+/* TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version. */
+.mat-form-field-infix {
+  top: -0.25em;
+}
+
+/* TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version. */
+.mat-form-field-appearance-outline .mat-form-field-prefix,
+.mat-form-field-appearance-outline .mat-form-field-suffix {
+  top: -0.25em !important;
+}
+
+/* TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version. */
+.mat-form-field-appearance-outline .mat-form-field-label {
+  margin-top: 0em;
+}
+
+mat-card-title.mat-mdc-card-title {
+  font-size: 24px;
+  @apply font-['inter-semibold'];
+}
+mat-card-actions.mat-mdc-card-actions {
+  @apply pl-[1rem];
+  @apply pb-[1rem];
+}

@@ -1,0 +1,55 @@
+<div class="table-container">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- Logo Column -->
+    <ng-container matColumnDef="logoUrl">
+      <th mat-header-cell *matHeaderCellDef>Logo</th>
+      <td mat-cell *matCellDef="let connector">
+        <avc-logo *ngIf="connector.logoUrl" [connectorId]="connector.id"></avc-logo>
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td
+        mat-cell
+        *matCellDef="let connector"
+        class="td-text-link"
+        (click)="connectorSelected.emit(connector.id)"
+      >
+        <span> {{connector.displayName}}</span>
+      </td>
+    </ng-container>
+
+    <!-- Type Column -->
+    <ng-container matColumnDef="connectorTypeName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+      <td mat-cell *matCellDef="let connector">{{connector.connectorTypeName }}</td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+      <td mat-cell *matCellDef="let connector">{{connector.description}}</td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="isActive">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let connector">{{connector.isActive ? 'Active' : 'Inactive'}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr class="not-found-message" *matNoDataRow>
+      <td class="mat-cell" colspan="9999">No connectors found.</td>
+    </tr>
+  </table>
+</div>
+
+<mat-paginator
+  [pageSizeOptions]="[100, 500, 1000]"
+  showFirstLastButtons
+  aria-label="Select page of periodic elements"
+>
+</mat-paginator>

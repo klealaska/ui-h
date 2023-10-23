@@ -1,0 +1,31 @@
+{
+  "requisitionId": "cqcx420h31tz3vtuo8rz",
+  "attachmentId": "cqcx420h31tz3vtuo8rz",
+  "metaData": {
+    "file_name": "bigger_picture.jpg",
+    "mime_type": "image/jpeg",
+    "source_system": "Experience-DEV",
+    "user_id": "sbt3ktmttkruvzf1haeu"
+  },
+  "response": {
+    "id": "443uybmkbzebhpvke5b2",
+    "message": "Successfully created an attachment"
+  },
+  "addedFileScenario": {
+    "rejectedFiles": [],
+    "addedFiles": [
+      {
+        "lastModified": 1612930326247,
+        "name": "picture.jpg",
+        "size": 10117248,
+        "type": "image/jpeg"
+      },
+      {
+        "lastModified": 1612930326247,
+        "name": "big_picture.jpg",
+        "size": 14117248,
+        "type": "image/jpeg"
+      }
+    ]
+  }
+}

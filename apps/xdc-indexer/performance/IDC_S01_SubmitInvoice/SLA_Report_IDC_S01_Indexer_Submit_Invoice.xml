@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="IDC_S01_SubmitInvoice" tests="18" errors="0">
+        <testcase name="Transaction Response Time: IDC_S01_Indexer_Submit_Invoice_T01_Launch - average of 478 ms, compared to the defined amount of 5000 ms" time="0.478">
+            <system-out>SLA &#34;Transaction Response Time&#34; passed.&#xA;The transaction name: IDC_S01_Indexer_Submit_Invoice_T01_Launch, has an average of 478 ms, compared to the defined amount of 5000 ms.</system-out>
+        </testcase>
+        <testcase name="Transaction Response Time: IDC_S01_Indexer_Submit_Invoice_T02_Login - average of 3304 ms, compared to the defined amount of 5000 ms" time="3.304">
+            <system-out>SLA &#34;Transaction Response Time&#34; passed.&#xA;The transaction name: IDC_S01_Indexer_Submit_Invoice_T02_Login, has an average of 3304 ms, compared to the defined amount of 5000 ms.</system-out>
+        </testcase>
+        <testcase name="Transaction Response Time: IDC_S01_Indexer_Submit_Invoice_T03_Select_Buyer - average of 122 ms, compared to the defined amount of 5000 ms" time="0.122">
+            <system-out>SLA &#34;Transaction Response Time&#34; passed.&#xA;The transaction name: IDC_S01_Indexer_Submit_Invoice_T03_Select_Buyer, has an average of 122 ms, compared to the defined amount of 5000 ms.</system-out>
+        </testcase>
+        <testcase name="Transaction Response Time: IDC_S01_Indexer_Submit_Invoice_T04_Open_Invoice - average of 200 ms, compared to the defined amount of 5000 ms" time="0.200">
+            <system-out>SLA &#34;Transaction Response Time&#34; passed.&#xA;The transaction name: IDC_S01_Indexer_Submit_Invoice_T04_Open_Invoice, has an average of 200 ms, compared to the defined amount of 5000 ms.</system-out>
+        </testcase>
+        <testcase name="Transaction Response Time: IDC_S01_Indexer_Submit_Invoice_T05_Enter_Details - average of 855 ms, compared to the defined amount of 5000 ms" time="0.855">
+            <system-out>SLA &#34;Transaction Response Time&#34; passed.&#xA;The transaction name: IDC_S01_Indexer_Submit_Invoice_T05_Enter_Details, has an average of 855 ms, compared to the defined amount of 5000 ms.</system-out>
+        </testcase>
+        <testcase name="Transaction Response Time: IDC_S01_Indexer_Submit_Invoice_T06_Submit - average of 1889 ms, compared to the defined amount of 5000 ms" time="1.889">
+            <system-out>SLA &#34;Transaction Response Time&#34; passed.&#xA;The transaction name: IDC_S01_Indexer_Submit_Invoice_T06_Submit, has an average of 1889 ms, compared to the defined amount of 5000 ms.</system-out>
+        </testcase>
+        <testcase name="Transaction Response Time: IDC_S01_Indexer_Submit_Invoice_T07_Logout - average of 164 ms, compared to the defined amount of 5000 ms" time="0.164">
+            <system-out>SLA &#34;Transaction Response Time&#34; passed.&#xA;The transaction name: IDC_S01_Indexer_Submit_Invoice_T07_Logout, has an average of 164 ms, compared to the defined amount of 5000 ms.</system-out>
+        </testcase>
+        <testcase name="Transaction Response Time: IDC_S01_Indexer_Submit_Invoice_T08_Logout_Auth - average of 264 ms, compared to the defined amount of 5000 ms" time="0.264">
+            <system-out>SLA &#34;Transaction Response Time&#34; passed.&#xA;The transaction name: IDC_S01_Indexer_Submit_Invoice_T08_Logout_Auth, has an average of 264 ms, compared to the defined amount of 5000 ms.</system-out>
+        </testcase>
+        <testcase name="Percentage of Failed Transactions - 0% compared to the defined amount of 3%">
+            <system-out>SLA &#34;Percentage of Failed Transactions&#34; passed.&#xA;The failing transactions ratio is 0%, compared to the defined amount of 3%.</system-out>
+        </testcase>
+        <testcase name="Transaction Rank Percentile: IDC_S01_Indexer_Submit_Invoice_T01_Launch - rank of  90.00% for 5000 ms">
+            <system-out>SLA &#34;Transaction Rank Percentile&#34; passed.&#xA;Transaction: IDC_S01_Indexer_Submit_Invoice_T01_Launch, has the percentile rank of 90.00%, compared to the defined amount of 100.00% for the range of 5000 ms.&#xA;--------------------------------------------+----------&#xA;  Name                                      | 5000 ms  &#xA;--------------------------------------------+----------&#xA;  IDC_S01_Indexer_Submit_Invoice_T01_Launch | 100.00%  &#xA;--------------------------------------------+----------&#xA;.</system-out>
+        </testcase>
+        <testcase name="Transaction Rank Percentile: IDC_S01_Indexer_Submit_Invoice_T02_Login - rank of  90.00% for 5000 ms">
+            <system-out>SLA &#34;Transaction Rank Percentile&#34; passed.&#xA;Transaction: IDC_S01_Indexer_Submit_Invoice_T02_Login, has the percentile rank of 90.00%, compared to the defined amount of 100.00% for the range of 5000 ms.&#xA;-------------------------------------------+----------&#xA;  Name                                     | 5000 ms  &#xA;-------------------------------------------+----------&#xA;  IDC_S01_Indexer_Submit_Invoice_T02_Login | 100.00%  &#xA;-------------------------------------------+----------&#xA;.</system-out>
+        </testcase>
+        <testcase name="Transaction Rank Percentile: IDC_S01_Indexer_Submit_Invoice_T03_Select_Buyer - rank of  90.00% for 5000 ms">
+            <system-out>SLA &#34;Transaction Rank Percentile&#34; passed.&#xA;Transaction: IDC_S01_Indexer_Submit_Invoice_T03_Select_Buyer, has the percentile rank of 90.00%, compared to the defined amount of 100.00% for the range of 5000 ms.&#xA;--------------------------------------------------+----------&#xA;  Name                                            | 5000 ms  &#xA;--------------------------------------------------+----------&#xA;  IDC_S01_Indexer_Submit_Invoice_T03_Select_Buyer | 100.00%  &#xA;--------------------------------------------------+----------&#xA;.</system-out>
+        </testcase>
+        <testcase name="Transaction Rank Percentile: IDC_S01_Indexer_Submit_Invoice_T04_Open_Invoice - rank of  90.00% for 5000 ms">
+            <system-out>SLA &#34;Transaction Rank Percentile&#34; passed.&#xA;Transaction: IDC_S01_Indexer_Submit_Invoice_T04_Open_Invoice, has the percentile rank of 90.00%, compared to the defined amount of 100.00% for the range of 5000 ms.&#xA;--------------------------------------------------+----------&#xA;  Name                                            | 5000 ms  &#xA;--------------------------------------------------+----------&#xA;  IDC_S01_Indexer_Submit_Invoice_T04_Open_Invoice | 100.00%  &#xA;--------------------------------------------------+----------&#xA;.</system-out>
+        </testcase>
+        <testcase name="Transaction Rank Percentile: IDC_S01_Indexer_Submit_Invoice_T05_Enter_Details - rank of  90.00% for 5000 ms">
+            <system-out>SLA &#34;Transaction Rank Percentile&#34; passed.&#xA;Transaction: IDC_S01_Indexer_Submit_Invoice_T05_Enter_Details, has the percentile rank of 90.00%, compared to the defined amount of 100.00% for the range of 5000 ms.&#xA;---------------------------------------------------+----------&#xA;  Name                                             | 5000 ms  &#xA;---------------------------------------------------+----------&#xA;  IDC_S01_Indexer_Submit_Invoice_T05_Enter_Details | 100.00%  &#xA;---------------------------------------------------+----------&#xA;.</system-out>
+        </testcase>
+        <testcase name="Transaction Rank Percentile: IDC_S01_Indexer_Submit_Invoice_T06_Submit - rank of  90.00% for 5000 ms">
+            <system-out>SLA &#34;Transaction Rank Percentile&#34; passed.&#xA;Transaction: IDC_S01_Indexer_Submit_Invoice_T06_Submit, has the percentile rank of 90.00%, compared to the defined amount of 100.00% for the range of 5000 ms.&#xA;--------------------------------------------+----------&#xA;  Name                                      | 5000 ms  &#xA;--------------------------------------------+----------&#xA;  IDC_S01_Indexer_Submit_Invoice_T06_Submit | 100.00%  &#xA;--------------------------------------------+----------&#xA;.</system-out>
+        </testcase>
+        <testcase name="Transaction Rank Percentile: IDC_S01_Indexer_Submit_Invoice_T07_Logout - rank of  90.00% for 5000 ms">
+            <system-out>SLA &#34;Transaction Rank Percentile&#34; passed.&#xA;Transaction: IDC_S01_Indexer_Submit_Invoice_T07_Logout, has the percentile rank of 90.00%, compared to the defined amount of 100.00% for the range of 5000 ms.&#xA;--------------------------------------------+----------&#xA;  Name                                      | 5000 ms  &#xA;--------------------------------------------+----------&#xA;  IDC_S01_Indexer_Submit_Invoice_T07_Logout | 100.00%  &#xA;--------------------------------------------+----------&#xA;.</system-out>
+        </testcase>
+        <testcase name="Transaction Rank Percentile: IDC_S01_Indexer_Submit_Invoice_T08_Logout_Auth - rank of  90.00% for 5000 ms">
+            <system-out>SLA &#34;Transaction Rank Percentile&#34; passed.&#xA;Transaction: IDC_S01_Indexer_Submit_Invoice_T08_Logout_Auth, has the percentile rank of 90.00%, compared to the defined amount of 100.00% for the range of 5000 ms.&#xA;-------------------------------------------------+----------&#xA;  Name                                           | 5000 ms  &#xA;-------------------------------------------------+----------&#xA;  IDC_S01_Indexer_Submit_Invoice_T08_Logout_Auth | 100.00%  &#xA;-------------------------------------------------+----------&#xA;.</system-out>
+        </testcase>
+        <testcase name="Total Passed Transactions - 8 passing transactions, passed the threshold of 1">
+            <system-out>SLA &#34;Total Passed Transactions&#34; passed.&#xA;There are 8 passing transactions, passed the threshold of 1.</system-out>
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -1,0 +1,330 @@
+@use 'mixins' as *;
+// If the css starts with md or sm, it is for small or medium sizes. If not its for base and large size
+
+// Base/Large Toggle
+.mat-button-toggle {
+  font-family: theme('fontFamily.interMedium');
+  position: static !important;
+}
+
+.mat-button-toggle-group-appearance-standard .mat-button-toggle + .mat-button-toggle {
+  border: solid 1px theme('colors.interactive.700');
+}
+
+.mat-button-toggle-group-appearance-standard:not([ng-reflect-disabled='true']) {
+  border: none;
+}
+
+.mat-button-toggle.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+  line-height: 40px;
+  font-size: 16px;
+  padding: 0px 16px;
+}
+
+// Medium
+.md .mat-button-toggle.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+  line-height: 32px;
+  font-size: 14px;
+  padding: 0px 16px;
+}
+
+// Small
+.sm .mat-button-toggle.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+  line-height: 28px;
+  font-size: 12px;
+  padding: 0px 16px;
+}
+
+// Large, Medium, Small Icons
+.mat-button-toggle-label-content .mat-icon {
+  display: flex;
+  height: 38px;
+}
+
+.md .mat-button-toggle-label-content .mat-icon {
+  height: 30px;
+}
+
+.sm .mat-button-toggle-label-content .mat-icon {
+  height: 26px;
+}
+
+.mat-button-toggle-group {
+  .material-icons {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    width: 24px;
+  }
+
+  &.md {
+    .material-icons {
+      display: flex;
+      align-items: center;
+      font-size: 19px;
+      width: 19px;
+    }
+  }
+  &.sm {
+    .material-icons {
+      display: flex;
+      align-items: center;
+      font-size: 17px;
+      width: 17px;
+    }
+  }
+}
+
+// Borders
+.mat-button-toggle-appearance-standard:not(.mat-button-toggle-checked, .mat-button-toggle-disabled),
+.mat-button-toggle-group-appearance-standard
+  .mat-button-toggle
+  + .mat-button-toggle:not(.mat-button-toggle-checked, .mat-button-toggle-disabled) {
+  border: solid 1px theme('colors.interactive.700');
+  &:hover {
+    border-color: theme('colors.interactive.800');
+  }
+  &:active {
+    border-color: theme('colors.interactive.700');
+  }
+}
+
+// Background and color
+.mat-button-toggle-appearance-standard:not(.mat-button-toggle-checked, .mat-button-toggle-disabled) {
+  color: theme('colors.interactive.700');
+  &:hover {
+    background-color: theme('colors.interactive.50');
+  }
+  &:active {
+    background-color: theme('colors.interactive.700');
+    color: theme('colors.white');
+  }
+}
+
+// First Button
+.mat-button-toggle-appearance-standard:first-child {
+  border-radius: 4px 0 0 4px;
+  margin-right: 1px;
+}
+
+.mat-button-toggle-appearance-standard .mat-button-toggle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-button-toggle-group:not(.btn-toggle-secondary) {
+  .mat-button-toggle-checked.mat-button-toggle.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):first-child {
+    &:after {
+      @include button-toggle-after-large;
+    }
+  }
+
+  .mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):first-child {
+    &:hover {
+      &:after {
+        @include button-toggle-after-large;
+      }
+    }
+  }
+}
+
+.md.mat-button-toggle-group:not(.btn-toggle-secondary) {
+  .mat-button-toggle-checked.mat-button-toggle.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):first-child {
+    &:after {
+      @include button-toggle-after-medium;
+    }
+  }
+
+  .mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):first-child {
+    &:hover {
+      &:after {
+        @include button-toggle-after-medium;
+      }
+    }
+  }
+}
+
+.sm.mat-button-toggle-group:not(.btn-toggle-secondary) {
+  .mat-button-toggle-checked.mat-button-toggle.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):first-child {
+    &:after {
+      @include button-toggle-after-small;
+    }
+  }
+
+  .mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):first-child {
+    &:hover {
+      &:after {
+        @include button-toggle-after-small;
+      }
+    }
+  }
+}
+
+// Middle Buttons
+.mat-button-toggle-appearance-standard:not(:first-child, :last-child) {
+  margin: 0px 1px;
+}
+
+.mat-button-toggle-group:not(.btn-toggle-secondary) {
+  .mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled, :first-child, :last-child) {
+    margin: 0px 1px;
+    &:hover {
+      &:before {
+        @include button-toggle-before-large;
+      }
+      &:after {
+        @include button-toggle-after-large;
+      }
+    }
+  }
+  .mat-button-toggle-checked.mat-button-toggle.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled, :first-child, :last-child) {
+    &:before {
+      @include button-toggle-before-large;
+    }
+    &:after {
+      @include button-toggle-after-large;
+    }
+  }
+}
+
+.md.mat-button-toggle-group:not(.btn-toggle-secondary) {
+  .mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled, :first-child, :last-child) {
+    &:hover {
+      &:before {
+        @include button-toggle-before-medium;
+      }
+      &:after {
+        @include button-toggle-after-medium;
+      }
+    }
+  }
+  .mat-button-toggle-checked.mat-button-toggle.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled, :first-child, :last-child) {
+    &:before {
+      @include button-toggle-before-medium;
+    }
+    &:after {
+      @include button-toggle-after-medium;
+    }
+  }
+}
+
+.sm.mat-button-toggle-group:not(.btn-toggle-secondary) {
+  .mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled, :first-child, :last-child) {
+    &:hover {
+      &:before {
+        @include button-toggle-before-small;
+      }
+      &:after {
+        @include button-toggle-after-small;
+      }
+    }
+  }
+  .mat-button-toggle-checked.mat-button-toggle.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled, :first-child, :last-child) {
+    &:before {
+      @include button-toggle-before-small;
+    }
+    &:after {
+      @include button-toggle-after-small;
+    }
+  }
+}
+
+// Last Button
+
+.mat-button-toggle-appearance-standard:last-child {
+  margin-left: 1px;
+}
+.mat-button-toggle-group-appearance-standard:not(.btn-toggle-secondary) {
+  .mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):last-child {
+    &:hover {
+      &:before {
+        @include button-toggle-before-large;
+      }
+    }
+  }
+
+  .mat-button-toggle:not(.mat-button-toggle-disabled):last-child {
+    border-radius: 0px 4px 4px 0px;
+  }
+
+  .mat-button-toggle-checked.mat-button-toggle.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):last-child {
+    &:before {
+      @include button-toggle-before-large;
+    }
+  }
+}
+
+.md.mat-button-toggle-group-appearance-standard:not(.btn-toggle-secondary) {
+  .mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):last-child {
+    &:hover {
+      &:before {
+        @include button-toggle-before-medium;
+      }
+    }
+  }
+
+  .mat-button-toggle:not(.mat-button-toggle-disabled):last-child {
+    border-radius: 0px 4px 4px 0px;
+    margin-left: 1px;
+  }
+
+  .mat-button-toggle-checked.mat-button-toggle.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):last-child {
+    &:before {
+      @include button-toggle-before-medium;
+    }
+  }
+}
+
+.sm.mat-button-toggle-group-appearance-standard:not(.btn-toggle-secondary) {
+  .mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):last-child {
+    &:hover {
+      &:before {
+        @include button-toggle-before-small;
+      }
+    }
+  }
+
+  .mat-button-toggle:not(.mat-button-toggle-disabled):last-child {
+    border-radius: 0px 4px 4px 0px;
+    margin-left: 1px;
+  }
+
+  .mat-button-toggle-checked.mat-button-toggle.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):last-child {
+    &:before {
+      @include button-toggle-before-small;
+    }
+  }
+}
+
+// Checked Buttons
+.mat-button-toggle-checked:not(.mat-button-toggle-disabled) {
+  color: theme('colors.white');
+  border: solid 1px theme('colors.interactive.700');
+  background-color: theme('colors.interactive.700');
+}
+
+// Remove Overplay
+.mat-button-toggle.mat-button-toggle-checked .mat-button-toggle-focus-overlay {
+  border-bottom: none;
+}
+
+.mat-button-toggle-appearance-standard .mat-button-toggle-focus-overlay {
+  background: none;
+}
+
+// Disabled
+.mat-button-toggle-disabled.mat-button-toggle-appearance-standard {
+  background-color: theme('colors.grey.50');
+  color: theme('colors.grey.600');
+  pointer-events: none;
+}
+
+.mat-button-toggle + .mat-button-toggle.mat-button-toggle-disabled {
+  border: none;
+}
+
+.mat-button-toggle-standalone.mat-button-toggle-appearance-standard,
+.mat-button-toggle-group-appearance-standard {
+  border: none;
+}

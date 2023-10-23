@@ -1,0 +1,58 @@
+@use '../../stylings/shared-components-variables' as *;
+
+.ax-link {
+  color: $link-text-color;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($link-text-color, 15%);
+  }
+}
+
+.ax-link-xxs {
+  font-size: $text-size-xxs;
+}
+
+.ax-link-xs {
+  font-size: $text-size-xs;
+}
+
+.ax-link-sm {
+  font-size: $text-size-sm;
+}
+
+.ax-link-md {
+  font-size: $text-size-md;
+}
+
+.ax-link-lg {
+  font-size: $text-size-lg;
+}
+
+.ax-link-xl {
+  font-size: $text-size-xl;
+}
+
+.ax-link-xxl {
+  font-size: $text-size-xxl;
+}
+
+.ax-link-bold {
+  font-weight: bold;
+}
+
+.ax-link-uppercase {
+  text-transform: uppercase;
+}
+
+.ax-link-disabled {
+  text-decoration: none;
+  color: $default-text-color;
+  font-weight: normal !important;
+  cursor: default;
+
+  &:hover {
+    color: $default-text-color;
+  }
+}

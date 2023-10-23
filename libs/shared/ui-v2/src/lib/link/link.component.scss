@@ -1,0 +1,89 @@
+.visited-disabled {
+  &.visited {
+    ::ng-deep a {
+      color: theme('colors.interactive.900');
+    }
+    ::ng-deep mat-icon {
+      color: theme('colors.interactive.900');
+    }
+  }
+
+  &.disabled {
+    @extend .link;
+    ::ng-deep a {
+      color: theme('colors.grey.50');
+      pointer-events: none;
+    }
+    ::ng-deep mat-icon {
+      color: theme('colors.grey.50');
+      pointer-events: none;
+    }
+  }
+}
+
+@mixin icon-styles($font-size) {
+  ::ng-deep mat-icon {
+    height: auto;
+    width: auto;
+    margin-left: 8px;
+    font-size: $font-size;
+    color: theme('colors.interactive.700');
+  }
+}
+
+@mixin a-styles($font-size) {
+  ::ng-deep a {
+    @extend .link;
+    font-size: $font-size;
+    color: theme('colors.interactive.700');
+  }
+
+  ::ng-deep a:visited {
+    outline: none;
+  }
+
+  ::ng-deep a:hover {
+    text-decoration: underline;
+  }
+
+  ::ng-deep a:active {
+    padding: 2px;
+    color: theme('colors.interactive.700');
+    border: 2px solid theme('colors.focused.500');
+    border-radius: 4px;
+  }
+
+  ::ng-deep a:focus {
+    padding: 2px;
+    color: theme('colors.interactive.700');
+    border: 2px solid theme('colors.focused.500');
+    border-radius: 4px;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  font-family: theme('fontFamily.interRegular');
+  height: 24px;
+
+  :hover {
+    color: theme('colors.interactive.800');
+  }
+
+  &--sm {
+    @extend .visited-disabled;
+    @include a-styles(12px);
+    @include icon-styles(16px);
+  }
+  &--md {
+    @extend .visited-disabled;
+    @include a-styles(14px);
+    @include icon-styles(20px);
+  }
+  &--lg {
+    @extend .visited-disabled;
+    @include a-styles(16px);
+    @include icon-styles(24px);
+  }
+}

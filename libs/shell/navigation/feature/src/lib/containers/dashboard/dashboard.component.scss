@@ -1,0 +1,23 @@
+.card {
+  border-radius: 1.5rem;
+  border: none;
+  background-color: rgba(55, 65, 81, 1);
+  padding: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: white;
+  width: 100%;
+}
+
+.container {
+  margin: auto;
+  width: 50%;
+  // width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  // text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}

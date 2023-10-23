@@ -1,0 +1,8 @@
+{
+  "$schema": "../../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../../dist/libs/avidcapture/error-page/feature",
+  "assets": ["src/assets/**"],
+  "lib": {
+    "entryFile": "src/index.ts"
+  }
+}

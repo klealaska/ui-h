@@ -1,0 +1,58 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/SideSheetv2" />
+
+## Sidenav
+
+**A working example of this Side implementation can be found @ \_libs/shared/ui-v2/src/lib/SideSheetv2/side-sheet-v2.component.stories.ts **
+
+Sidenav can be implemented by using the `ax-side-sheet-v2` component.
+
+This component can take in three templates `sideSheetHeader`, `sideSheetContent`, `sideSheetFooter` as shown in the exmaple below.
+
+```
+<ax-side-sheet-v2 [opened]='opened'>
+
+    <div sideSheetHeader>
+        <p>Side Sheet Header</p>
+    </div>
+
+    <div sideSheetContent>
+        <p>Side Sheet Content</p>
+    </div>
+
+    <div sideSheetFooter>
+        <p>Side Sheet Footer</p>
+    </div>
+</ax-side-sheet-v2>
+
+```
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() opened: boolean</td>
+    <td>Opens and closes the side sheet</td>
+  </tr>
+  <tr>
+    <td>@Input() backdrop: boolean</td>
+    <td>Displays backdrop</td>
+  </tr>
+  <tr>
+    <td>@Input() boxShadow: boolean</td>
+    <td>Adds a box-shadow to the side-sheet component. True by default</td>
+  </tr>
+  <tr>
+    <td>@Output() closeEvent = new EventEmitter()</td>
+    <td>Emits event when close button is clicked</td>
+  </tr>
+  <tr>
+    <td>@Output() backDropEvent = new EventEmitter()</td>
+    <td>Emits event when backdrop is clicked</td>
+  </tr>
+</table>

@@ -1,0 +1,34 @@
+{
+  "name": "demo-shared-util",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/demo/shared/util/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/demo/shared/util",
+        "main": "libs/demo/shared/util/src/index.ts",
+        "tsConfig": "libs/demo/shared/util/tsconfig.lib.json",
+        "assets": ["libs/demo/shared/util/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/demo/shared/util/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/demo/shared/util"],
+      "options": {
+        "jestConfig": "libs/demo/shared/util/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:demo", "scope:shared", "type:util"]
+}

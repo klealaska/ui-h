@@ -1,0 +1,5 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-Uicoe-St-xdc-indexer-Rg'
+  resourceGroupWest: 'Ax-Aw1-Uicoe-St-xdc-indexer-Rg'
+  keyVaultNameEast: 'axae1uicoestcapturekv'
+  keyVaultNameWest: 'axaw1uicoestcapturekv'

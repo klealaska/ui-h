@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "ax-app",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "App name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "type": {
+      "type": "string",
+      "enum": ["remote"],
+      "description": "This app will be generated as a Remote app.",
+      "default": "remote"
+    },
+    "title": {
+      "type": "string",
+      "description": "App title. Multiple words must be wrapped in quotes."
+    },
+    "host": {
+      "type": "string",
+      "description": "Specify the Host app to connect to (shell-spa is our default Host)",
+      "default": "shell-spa"
+    },
+    "remotePortNumber": {
+      "type": "number",
+      "description": "Specify a unique port number that is not already being used."
+    },
+    "includeBff": {
+      "type": "boolean",
+      "description": "If selected, generator will scaffold a NestJS BFF",
+      "default": true
+    },
+    "includeIaC": {
+      "type": "boolean",
+      "description": "If selected, generator will scaffold infrastructure as Code for this application",
+      "default": true
+    },
+    "includeMockServer": {
+      "type": "boolean",
+      "description": "If this is on it will include mock server configuration for bff",
+      "default": true
+    },
+    "style": {
+      "description": "The file extension to be used for style files.",
+      "type": "string",
+      "default": "scss",
+      "enum": ["css", "scss", "sass", "less"],
+      "x-prompt": {
+        "message": "Which stylesheet format would you like to use?",
+        "type": "list",
+        "items": [
+          {
+            "value": "css",
+            "label": "CSS"
+          },
+          {
+            "value": "scss",
+            "label": "SASS(.scss)  [ http://sass-lang.com   ]"
+          },
+          {
+            "value": "sass",
+            "label": "SASS(.sass)  [ http://sass-lang.com   ]"
+          },
+          {
+            "value": "less",
+            "label": "LESS         [ http://lesscss.org     ]"
+          }
+        ]
+      }
+    },
+    "notificationsEmail": {
+      "type": "string",
+      "description": "Alerts notification email for observability. This is required if you include Iac option."
+    },
+    "cmsEnabled": {
+      "type": "boolean",
+      "description": "If selected, generator will deploy generic content to the CMS in CI and DV. This content is used to integrate the MFE with the Shell Spa.",
+      "default": true
+    },
+    "wikiEnabled": {
+      "type": "boolean",
+      "description": "If selected, generator will create LRR wiki documentation for the MFE.",
+      "default": true
+    },
+    "businessService": {
+      "type": "string",
+      "description": "The ServiceNow business service name for your app. This will be used in your LRR documentation."
+    },
+    "assignmentGroup": {
+      "type": "string",
+      "description": "The ServiceNow assignment group name for your app. This will be used in your LRR documentation."
+    }
+  },
+  "required": ["name", "style", "type"]
+}

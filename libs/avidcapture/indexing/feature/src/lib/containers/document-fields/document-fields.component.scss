@@ -1,0 +1,19 @@
+.fields-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .fields-dynamic-child {
+    flex: 0 49%;
+    margin-bottom: 10px;
+
+    &-full {
+      flex: 0 100%;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.dropdown-margin {
+  margin-top: -0.25em;
+}

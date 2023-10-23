@@ -1,0 +1,110 @@
+{
+  "bkws": {
+    "display-name": {
+      "name": "Name",
+      "keyword": "Keyword",
+      "keywordIsActive": "Keyword Status",
+      "bounceBackMessage": "Bounce Back Message",
+      "bounceBackEmail": "Bounce Back Email",
+      "sourceSystem": "Keyword Source System",
+      "indexingSolution": "Go Live",
+      "displayPredictedValues": "Display Threshold",
+      "displayIdentifierSearchValues": "Display Identifier Search Values",
+      "massVoid" : "Mass Delete"
+    },
+    "header" : {
+      "CacheControl" : "Cache-Control",
+      "NoCache" : "no-cache",
+      "NoStore" : "no-store",
+      "ContentSecurityPolicy" : "Content-Security-Policy",
+      "StrictTransportSecurity" : "Strict-Transport-Security",
+      "ContentType" : "Content-Type",
+      "appJson" : "application/json",
+      "appPdf" : "application/pdf"
+    },
+    "indexingSolution" : {
+      "Legacy" : "1",
+      "AvidCapture" : "2"
+    },
+    "searchReduceFunction" : {
+      "Count" : "COUNT",
+      "CountDistinct" : "COUNT_DISTINCT",
+      "CountDistinctish" : "COUNT_DISTINCTISH",
+      "Sum" : "SUM",
+      "Average" : "AVG",
+      "Max" : "MAX",
+      "Min" : "MIN"
+    },
+    "searchApplyFunction" : {
+      "Contains" : "contains",
+      "StartsWith" : "startswith",
+      "Day" : "day",
+      "DaysToProcess" : "days_to_process",
+      "HoursToProcess" : "hours_to_process",
+      "MinutesToProcess" : "minutes_to_process",
+      "SecondsToSubmit" : "seconds_to_submit"
+    },
+    "searchContext" : {
+      "AvidSuite" : "AvidSuite"
+    },
+    "searchAlias" : {
+      "Average" : "average",
+      "Count" : "count",
+      "Days" : "days",
+      "Hours" : "hours",
+      "Group" : "group",
+      "Sum" : "sum",
+      "Minutes" : "minutes",
+      "Seconds" : "seconds"
+    },
+    "searchLabel" : {
+      "SecondsSpentIndexing" : "secondsSpentIndexing"
+    },
+    "userRoles" : {
+      "PortalAdmin" : "PortalAdmin",
+      "CustomerCareLeadership" : "CustomerCareLeadership",
+      "Engineering" : "Engineering",
+      "IndexingSponsorManager" : "IndexingSponsorManager"
+    },
+    "toast" : {
+      "success" : "Success",
+      "error" : "Error",
+      "warning" : "Warning",
+      "informational" : "Informational"
+
+    },
+    "coreState" : {
+      "noBuyerWarning" : "Attention! There isn't a Buyer assigned to your user name.",
+      "sessionExpired" : "Session expired"
+    },
+    "home" : {
+      "home-buyer-filter" : {
+        "buyer-search" : "Buyer Search",
+        "search" : "search",
+        "close" : "close"
+      },
+      "home-model" : {
+        "confirm" : "Confirm",
+        "cancel" : "Cancel",
+        "close" : "close"
+      },
+      "home-panel" : {
+        "execute" : "Execute",
+        "update" : "Update"
+      },
+      "home-state" : {
+        "executedToast" : "Your changes have been successfully executed",
+        "nonExecutedToast" : "Oops! Unable to execute the changes. Please try again later",
+        "massVoidExecuted" : "Mass Void has been successfully executed",
+        "massVoidNonExecuted" : "Oops! Unable to execute Mass Void. Please try again later"
+      }
+    },
+    "layout" : {
+      "header" : {
+        "title" : "AvidCapture Profile",
+        "logout" : "Logout"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,5 @@
+{
+  "baseUrl": "https://bank-account-mgmt-spa-ci-fgebgkgve9byhehr.z01.azurefd.net/",
+  "bankAccountMgmtApiBaseUrl": "https://bank-account-mgmt-api-ci-g5e3e0cegnb6h7g0.z01.azurefd.net/api",
+  "appInsightsInstrumentationKey": "46e9780f-d68f-481c-94f2-c531b759da47"
+}

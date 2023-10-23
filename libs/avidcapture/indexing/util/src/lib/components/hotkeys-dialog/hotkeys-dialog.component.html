@@ -1,0 +1,16 @@
+<div class="modal-body">
+  <div class="modal-header">
+    <h5>{{'xdc.indexing.keyboard-shortcuts-label' | translate }}</h5>
+    <mat-icon [id]="'hotkey-modal-close'" class="icon" (click)="close()">close</mat-icon>
+  </div>
+
+  <div class="row" *ngFor="let keys of hotkeys">
+    <div class="container-icons">
+      <span class="key">{{ keys.keyList[0] }}</span>
+      <span class="plus">+</span>
+      <span class="key">{{ keys.keyList[1] }}</span>
+    </div>
+
+    <p class="b1">{{ keys.description }}</p>
+  </div>
+</div>

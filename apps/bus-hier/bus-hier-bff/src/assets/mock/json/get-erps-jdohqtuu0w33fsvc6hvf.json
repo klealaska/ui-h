@@ -1,0 +1,24 @@
+{
+  "items_requested": 1,
+  "items_returned": 1,
+  "items_total": 1,
+  "offset": 0,
+  "items": [
+    {
+      "organization_id": "jdohqtuu0w33fsvc6hvf",
+      "erp_id": "lzgtdjdyv7es8skxoueo",
+      "erp_name": "Sage Intacct0",
+      "erp_code": null,
+      "company_database_name": null,
+      "company_database_id": null,
+      "is_cross_company_coding_allowed": null,
+      "is_active": true,
+      "purchase_order_prefix": null,
+      "starting_purchase_order_number": null,
+      "created_timestamp": "2023-04-12T21:08:17Z",
+      "created_by_user_id": "7nsxqpkecdggnk3i1wqj",
+      "last_modified_timestamp": "2023-04-12T21:08:17Z",
+      "last_modified_by_user_id": "ktgt8esvnjvstz2oujd3"
+    }
+  ]
+}

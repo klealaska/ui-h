@@ -1,0 +1,5 @@
+<avc-app-header [userDisplayName]="userDisplayName$ | async" (logout)="onLogout()"></avc-app-header>
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>
+<avc-footer></avc-footer>

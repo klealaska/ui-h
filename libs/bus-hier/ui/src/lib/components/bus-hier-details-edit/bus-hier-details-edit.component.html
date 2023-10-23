@@ -1,0 +1,46 @@
+<form [formGroup]="editFormGroup" class="pt-6" data-cy="edit-details-form">
+  <div class="flex items-center">
+    <ax-input
+      [label]="details?.type + ' name'"
+      [control]="editFormGroup.controls['name']"
+      [error]="buildErrorMessage('name')"
+      class="ml-11 font-['inter-regular'] font-color"
+      data-cy="edit-name"
+      [fixed]="true"
+    ></ax-input>
+    <div class="pl-2">
+      <ax-tag
+        class="status ml-4"
+        type="{{details?.status === 'Active' ? 'success' : 'critical'}}"
+        [style]="'filled'"
+        [size]="'md'"
+        text="{{details?.status}}"
+      ></ax-tag>
+    </div>
+  </div>
+  <ax-input
+    [label]="details?.type + ' code'"
+    [control]="editFormGroup.controls['code']"
+    class="ml-11 font-['inter-regular'] font-color"
+    data-cy="edit-code"
+    [error]="buildErrorMessage('code')"
+    [fixed]="true"
+    >{{details?.code}}</ax-input
+  >
+</form>
+
+<ax-button
+  (click)="onSaveButtonClick()"
+  [disabled]="!editFormGroup.valid"
+  class="ml-11 pt-6"
+  [type]="'primary'"
+  data-cy="save-details-btn"
+  >{{ saveBtnText }}</ax-button
+>
+<ax-button
+  (click)="onCancelButtonClick()"
+  class="ml-[.75rem] pt-6"
+  [type]="tertiary"
+  data-cy="cancel-button"
+  >{{ cancelBtnText }}</ax-button
+>

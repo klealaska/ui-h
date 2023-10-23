@@ -1,0 +1,34 @@
+{
+    "organizations": [
+       {
+         "organizationId": "123",
+         "organizationName": "orgName",
+         "organizationCode": "code",
+         "isActive": true,
+         "erps": []
+       },
+       {
+        "organizationId": "456",
+        "organizationName": "orgNameTwo",
+        "organizationCode": "code",
+        "isActive": true,
+        "erps": []
+      }
+     ],
+     "erps": [
+       {
+         "erpId": "233",
+         "organizationId": "123",
+         "erpCode": "codeerp",
+         "erpName": "erpName",
+         "isActive": true
+       },
+       {
+        "erpId": "244",
+        "organizationId": "456",
+        "erpCode": "codeerp",
+        "erpName": "erpNameTwo",
+        "isActive": true
+      }
+     ]
+   }

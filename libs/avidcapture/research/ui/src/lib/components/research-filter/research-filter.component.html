@@ -1,0 +1,114 @@
+<div class="row">
+  <h4 *ngIf="!canViewAllBuyers">{{'xdc.research.research-queue-label' | translate }}</h4>
+  <xdc-mat-chips-autocomplete
+    *ngIf="filteredBuyersCore?.length > 1 || canViewAllBuyers"
+    class="filter"
+    data-cy="buyer-filter-input"
+    [data]="buyers"
+    [selectedItems]="canViewAllBuyers ? filteredBuyersCore : filteredBuyers"
+    [labelText]="'Filter by customer'"
+    [placeholder]="'New customer...'"
+    [maxSelections]="10"
+    [minSearchLength]="1"
+    [debounceTime]="300"
+    [multiple]="true"
+    [hintLabel]="filteredBuyers.length >= 10 ? 'Max Filters Reached': ''"
+    (optionSelected)="buyerChangedEvent.emit($event)"
+    (removed)="buyerChangedEvent.emit($event)"
+    (itemSelected)="buyerAddedEvent.emit($event)"
+    (removedItem)="buyerRemovedEvent.emit($event)"
+    (filterTextChange)="buyerTextChangedEvent.emit($event)"
+  ></xdc-mat-chips-autocomplete>
+
+  <div class="button-container">
+    <ax-button
+      [type]="'secondary'"
+      class="mr-10"
+      data-cy="research-refresh-button"
+      [disabled]="!canRefreshPage"
+      (click)="refreshPage.emit($event)"
+    >
+      <mat-icon>{{'xdc.research.refresh-label' | translate }}</mat-icon>
+    </ax-button>
+    <ax-button
+      *ngIf="canUseAdvancedFilter"
+      [type]="'secondary'"
+      data-cy="research-filter-button"
+      class="button button-filter"
+      (click)="showFilters = true"
+    >
+      {{'xdc.research.filter-label' | translate }}
+      <span class="button-filter-count">({{filterCount}})</span>
+    </ax-button>
+  </div>
+</div>
+
+<div class="row-chips">
+  <mat-chip-listbox aria-label="Applied Filters" [selectable]="false" class="chip-list mr-10">
+    <div *ngFor="let filter of appliedFilters | keyvalue">
+      <ng-template [ngIf]="filter.key === advancedFiltersKeysEnum.EscalationCategoryIssue">
+        <ng-template ngFor let-escalation [ngForOf]="getEscalations(filter.key)">
+          <mat-chip-option
+            class="chip"
+            [highlighted]="true"
+            (removed)="escalationChipRemoved.emit(escalation)"
+          >
+            <span class="b2 white">{{escalation}}</span
+            ><button matChipRemove class="icon-close">
+              <mat-icon>{{'xdc.research.cancel-label' | translate }}</mat-icon>
+            </button></mat-chip-option
+          >
+        </ng-template>
+      </ng-template>
+      <mat-chip-option
+        *ngIf="filter.key !== advancedFiltersKeysEnum.DateReceived && filter.key !== advancedFiltersKeysEnum.EscalationCategoryIssue"
+        class="chip"
+        [highlighted]="true"
+        (removed)="filterChipRemoved.emit(filter.key)"
+        ><span class="mr-5 b2 white">{{advancedFiltersEnum[filter.key]}}:</span
+        ><span class="b2 white">{{filter.value}}</span
+        ><button matChipRemove class="icon-close">
+          <mat-icon>{{'xdc.research.cancel-label' | translate }}</mat-icon>
+        </button></mat-chip-option
+      >
+      <mat-chip-option
+        *ngIf="filter.key === advancedFiltersKeysEnum.DateReceived"
+        class="chip"
+        [highlighted]="true"
+        (removed)="filterChipRemoved.emit(filter.key)"
+        ><span class="mr-5 b2 white">{{advancedFiltersEnum[filter.key]}}:</span
+        ><span class="b2 white">{{transformDates(filter.value)}}</span
+        ><button matChipRemove class="icon-close">
+          <mat-icon>{{'xdc.research.cancel-label' | translate }}</mat-icon>
+        </button></mat-chip-option
+      >
+    </div>
+  </mat-chip-listbox>
+  <div class="chip-list" *ngIf="canSeeExposedFilters">
+    <button
+      *ngFor="let ef of exposedFilters"
+      class="fake-chip mr-10"
+      mat-raised-button
+      (click)="exposedFilterSelected.emit(ef.name)"
+    >
+      <span *ngIf="ef.name === escalationCategoryTypes.ShipToResearch" class="b2 fake-chip-text">
+        Ship To ({{ef.count}})
+      </span>
+      <span *ngIf="ef.name !== escalationCategoryTypes.ShipToResearch" class="b2 fake-chip-text">
+        {{ef.name}} ({{ef.count}})
+      </span>
+    </button>
+  </div>
+</div>
+
+<xdc-advanced-filter
+  [buyers]="buyers"
+  [advancedFilters]="advancedFilters"
+  [showFilters]="showFilters"
+  [showExceptionTypeFilter]="true"
+  [researchQueuesNotAllowedList]="queuesNotAllowedList"
+  [canViewAllBuyers]="canViewAllBuyers"
+  (closeFilters)="showFilters = false"
+  (filtersChanged)="filtersChanged($event)"
+  (buyerFilterTextChange)="buyerTextChangedEvent.emit($event)"
+></xdc-advanced-filter>

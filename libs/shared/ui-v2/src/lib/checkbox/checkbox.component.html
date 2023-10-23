@@ -1,0 +1,20 @@
+<div class="checkbox-wrapper">
+  <label
+    class="checkbox-control"
+    [ngClass]="{'disabled': disabled, 'label-left': labelPosition  === 'left', 'indeterminate': indeterminate, 'no-text': noText  }"
+    [class.flex-grow]="fixed === false"
+  >
+    <input
+      #input
+      type="checkbox"
+      [name]="name"
+      [checked]="checked"
+      [disabled]="disabled"
+      (change)="updateValueAndIndeterminate($event)"
+      (blur)="setTouched()"
+      (click)="$event.stopPropagation()"
+      [indeterminate]="indeterminate"
+    />
+    <span class="text">{{label}}<ng-content></ng-content> </span>
+  </label>
+</div>

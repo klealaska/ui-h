@@ -1,0 +1,55 @@
+<mat-form-field
+  class="autocomplete-wrapper"
+  [appearance]="appearance"
+  [color]="color"
+  [floatLabel]="floatLabel"
+  [hideRequiredMarker]="hideRequiredMarker"
+>
+  <mat-label>{{ labelText }}</mat-label>
+  <mat-chip-grid #chipList>
+    <mat-chip-row
+      *ngFor="let chip of chosenItems"
+      class="chip"
+      color="primary"
+      [disableRipple]="chipDisableRipple"
+      [disabled]="disabled"
+      [removable]="removable"
+      [selectable]="selectable"
+      [selected]="selectedChip"
+      [value]="value"
+      (destroyed)="destroyed.emit($event)"
+      (removed)="remove(chip)"
+      (selectionChange)="selectionChange.emit($event)"
+    >
+      {{ chip.name }}
+      <button matChipRemove class="icon-close">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip-row>
+  </mat-chip-grid>
+  <input
+    #formInput
+    placeholder="{{ placeholder }}"
+    [formControl]="formCtrl"
+    [matAutocomplete]="auto"
+    [matChipInputFor]="chipList"
+    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+  />
+  <mat-autocomplete
+    #auto="matAutocomplete"
+    [autoActiveFirstOption]="autoActiveFirstOption"
+    [disableRipple]="disableRipple"
+    [displayWith]="displayWith"
+    [panelWidth]="panelWidth"
+    (closed)="closed.emit()"
+    (opened)="opened.emit()"
+    (optionActivated)="optionActivated.emit($event)"
+    (optionSelected)="selected($event.option.value)"
+  >
+    <mat-option *ngFor="let value of data" [value]="value"> {{ value.name }} </mat-option>
+  </mat-autocomplete>
+  <mat-hint *ngIf="!showRemainingHint" [align]="hintAlign">{{ hintLabel }}</mat-hint>
+  <mat-hint *ngIf="showRemainingHint" [align]="hintAlign"
+    >{{ chosenItems.length }} of {{ maxSelections }} remaining</mat-hint
+  >
+</mat-form-field>

@@ -1,0 +1,108 @@
+trigger: none
+
+variables:
+  - template: 'variables/bff.yml'
+
+resources:
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+  pipelines:
+    - pipeline: ui-coe-ci-tagged
+      source: ui-coe-ci-tagged
+      project: User Interface Center of Excellence
+      trigger:
+        branches:
+          - master
+        tags:
+          - bus-hier-bff
+
+pool:
+  name: linux-vmss-agent-pool
+
+stages:
+  - template: '../../../tools/pipelines/templates/deploy-bff.yml'
+    parameters:
+      environment: dv
+      varPath: bus-hier/pipelines/variables
+      gate: dv-bus-hier
+      serviceConnection: $(nonProdServiceConnection)
+      stageCondition: "and(succeeded(), and(ne(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'Manual')))"
+      dependsOn: ''
+      appPath: $(appPath)
+      appTag: $(appTag)
+      containerRegistry: $(containerRegistry)
+      registryRepoName: $(registryRepoName)
+      imageName: $(imageName)
+      functionAppEnabled: false
+
+  - template: '../../../tools/pipelines/templates/deploy-bff.yml'
+    parameters:
+      environment: ci
+      varPath: bus-hier/pipelines/variables
+      gate: ci-bus-hier
+      serviceConnection: $(nonProdServiceConnection)
+      stageCondition: "eq(variables['Build.SourceBranch'], 'refs/heads/master')"
+      dependsOn: ''
+      appPath: $(appPath)
+      appTag: $(appTag)
+      containerRegistry: $(containerRegistry)
+      registryRepoName: $(registryRepoName)
+      imageName: $(imageName)
+      functionAppEnabled: false
+
+  - template: '../../../tools/pipelines/templates/deploy-bff.yml'
+    parameters:
+      environment: qa
+      varPath: bus-hier/pipelines/variables
+      gate: qa-bus-hier
+      serviceConnection: $(nonProdServiceConnection)
+      stageCondition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))"
+      dependsOn: 'ci'
+      appPath: $(appPath)
+      appTag: $(appTag)
+      containerRegistry: $(containerRegistry)
+      registryRepoName: $(registryRepoName)
+      imageName: $(imageName)
+      functionAppEnabled: false
+
+  - template: '../../../tools/pipelines/templates/deploy-bff.yml'
+    parameters:
+      environment: st
+      varPath: bus-hier/pipelines/variables
+      gate: st-bus-hier
+      serviceConnection: $(prodServiceConnection)
+      stageCondition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))"
+      dependsOn: 'qa'
+      appPath: $(appPath)
+      appTag: $(appTag)
+      containerRegistry: $(containerRegistry)
+      registryRepoName: $(registryRepoName)
+      imageName: $(imageName)
+      functionAppEnabled: false
+
+  # Fortify scans.
+  - template: '../../../tools/pipelines/templates/fortify-scan.yml'
+    parameters:
+      appTag: $(appTag)
+      dependsOn: 'qa'
+      applicationRoot: '/apps/$(appPath)/src'
+      fortifyApplicationName: 'User Interface Center of Excellence'
+      microserviceName: 'ui-coe'
+
+  - template: '../../../tools/pipelines/templates/deploy-bff.yml'
+    parameters:
+      environment: pr
+      varPath: bus-hier/pipelines/variables
+      gate: pr-bus-hier
+      serviceConnection: $(prodServiceConnection)
+      stageCondition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))"
+      dependsOn: 'st'
+      appPath: $(appPath)
+      appTag: $(appTag)
+      containerRegistry: $(containerRegistry)
+      registryRepoName: $(registryRepoName)
+      imageName: $(imageName)
+      functionAppEnabled: false

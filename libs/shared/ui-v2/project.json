@@ -1,0 +1,85 @@
+{
+  "name": "shared-ui-v2",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/ui-v2/src",
+  "prefix": "ax",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/shared/ui-v2"],
+      "options": {
+        "project": "libs/shared/ui-v2/ng-package.json",
+        "tailwindConfig": "libs/shared/ui-v2/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/ui-v2/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/shared/ui-v2/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/ui-v2"],
+      "options": {
+        "jestConfig": "libs/shared/ui-v2/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/shared/ui-v2/src/**/*.ts", "libs/shared/ui-v2/src/**/*.html"]
+      }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "styles": [
+          "libs/shared/dsm-styles-v2/src/lib/scss/styles.scss",
+          "libs/shared/ui-v2/.storybook/styles.css"
+        ],
+        "configDir": "libs/shared/ui-v2/.storybook",
+        "browserTarget": "shared-ui-v2:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "styles": [
+          "libs/shared/dsm-styles-v2/src/lib/scss/styles.scss",
+          "libs/shared/ui-v2/.storybook/styles.css"
+        ],
+        "outputDir": "dist/storybook/shared-ui-v2",
+        "configDir": "libs/shared/ui-v2/.storybook",
+        "browserTarget": "shared-ui-v2:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "e2e": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/libs/shared/ui-v2"],
+      "options": {
+        "config": "libs/shared/ui-v2/playwright.config.ts"
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:shared"]
+}

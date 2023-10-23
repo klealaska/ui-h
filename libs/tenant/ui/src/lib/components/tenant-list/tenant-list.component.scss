@@ -1,0 +1,21 @@
+.mat-mdc-header-row {
+  @apply bg-primary-800;
+  @apply h-7;
+  @apply w-[87rem];
+}
+
+th {
+  @apply text-white;
+  @apply bg-primary-800;
+  @apply text-base;
+  @apply font-['inter-regular'];
+}
+
+td {
+  @apply font-['inter-regular'];
+}
+
+//TODO please remove ng deep in favor of creating a directive instead to address the changes or override material theme locally; whichever applicable
+::ng-deep .mat-sort-header-arrow {
+  color: white;
+}

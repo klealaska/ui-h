@@ -1,0 +1,96 @@
+<mat-expansion-panel class="panel" hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title class="panel-title"
+      >{{buyer.buyerName}}<span *ngIf="">&nbsp;({{buyer.buyerKeyword}}) </span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <mat-card-content>
+    <div class="subtitle-container">
+      <div class="subtitle-row">
+        <div class="subtitle-text">{{buyer.buyerKeyword}}</div>
+      </div>
+
+      <div class="subtitle-row">
+        <div class="subtitle-text">{{buyer.sourceSystemId}}</div>
+      </div>
+    </div>
+
+    <div class="divider-horz"></div>
+
+    <form [formGroup]="buyerKeywordForm">
+      <div class="content-row" *ngIf="canViewAttributeFunctions">
+        <div class="content-first">{{'bkws.display-name.keywordIsActive' | translate }}</div>
+        <div class="content-second">
+          <ax-slide-toggle formControlName="portalStatus"></ax-slide-toggle>
+        </div>
+      </div>
+
+      <div class="content-row" *ngIf="canViewThreshold">
+        <div class="content-first">{{'bkws.display-name.displayPredictedValues' | translate }}</div>
+        <div class="content-second">
+          <ax-slide-toggle formControlName="displayPredictedValues"></ax-slide-toggle>
+        </div>
+      </div>
+
+      <div class="content-row" *ngIf="canViewThreshold">
+        <div class="content-first">
+          {{'bkws.display-name.displayIdentifierSearchValues' | translate }}
+        </div>
+        <div class="content-second">
+          <ax-slide-toggle formControlName="displayIdentifierSearchValues"></ax-slide-toggle>
+        </div>
+      </div>
+
+      <div class="content-row" *ngIf="canViewBuyerGoLive">
+        <div class="content-first">{{'bkws.display-name.indexingSolution' | translate }}</div>
+        <div class="content-second">
+          <mat-form-field class="content-input" appearance="outline">
+            <mat-select formControlName="indexingSolutionId">
+              <mat-option
+                *ngFor="let solution of indexingSolutionEnum | keyvalue"
+                [value]="solution.value"
+                >{{solution.key}}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="content-row" *ngIf="canViewAttributeFunctions">
+        <div class="content-first">{{'bkws.display-name.bounceBackEmail' | translate }}</div>
+        <div class="content-second">
+          <mat-form-field class="content-input" appearance="outline">
+            <input matInput formControlName="forwardingEmailAddress" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="content-row" *ngIf="canViewAttributeFunctions">
+        <div class="content-first">{{'bkws.display-name.bounceBackMessage' | translate }}</div>
+        <div class="content-second">
+          <mat-form-field class="content-input" appearance="outline">
+            <input matInput formControlName="bounceBackMessage" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div *ngIf="canViewMassVoid" class="content-row">
+        <div class="content-first">{{'bkws.display-name.massVoid' | translate }}</div>
+        <div class="content-second">
+          <ax-button (click)="massVoid(buyer.buyerName)"
+            >{{'bkws.home.home-panel.execute' | translate }}</ax-button
+          >
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+
+  <div class="button-container">
+    <ax-button
+      [disabled]="!buyerKeywordForm.dirty"
+      (click)="updateBuyerValues.emit(buyerKeywordForm.value)"
+      >{{'bkws.home.home-panel.update' | translate }}</ax-button
+    >
+  </div>
+</mat-expansion-panel>

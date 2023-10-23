@@ -1,0 +1,11 @@
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav class="sidenav" mode="side" opened="true">
+    <mat-nav-list class="mat-nav-list">
+      <ax-menu-list-item *ngFor="let item of navItems" [item]="item"></ax-menu-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "ax-service",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Service name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "projectName": {
+      "type": "string",
+      "description": "Project name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "swaggerUrl": {
+      "type": "string",
+      "description": "Swagger Url",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "configKey": {
+      "type": "string",
+      "description": "Config service key",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    }
+  },
+  "required": ["name", "projectName", "configKey"]
+}

@@ -1,0 +1,81 @@
+<div class="table-container">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    matSortActive="createdDate"
+    matSortDirection="desc"
+    id="gridCustomers"
+  >
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-column name">Name</th>
+      <td
+        mat-cell
+        *matCellDef="let customer"
+        class="td-text-link"
+        (click)="customerSelected.emit(customer)"
+      >
+        <span>{{customer.name}}</span>
+      </td>
+    </ng-container>
+
+    <!-- Org ID Column -->
+    <ng-container matColumnDef="externalKey">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Org ID</th>
+      <td mat-cell *matCellDef="let customer">{{customer.externalKey}}</td>
+    </ng-container>
+
+    <!-- Platform Column -->
+    <ng-container matColumnDef="platformName">
+      <th mat-header-cell *matHeaderCellDef>
+        <span class="header-sort" mat-sort-header>Platform</span>
+        <mat-select
+          multiple
+          class="select-filter"
+          panelClass="select-filter-panel"
+          [(ngModel)]="platformsSelected"
+          (ngModelChange)="customersFilterChanged()"
+          id="platformFilters"
+        >
+          <mat-option [value]="platform.name" *ngFor="let platform of platforms">
+            {{platform.name}}</mat-option
+          >
+        </mat-select>
+      </th>
+      <td mat-cell *matCellDef="let customer">{{customer.platformName}}</td>
+    </ng-container>
+
+    <!-- Created On Column -->
+    <ng-container matColumnDef="createdDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Created On</th>
+      <td mat-cell *matCellDef="let customer">
+        <avc-date [date]="customer.createdDate"></avc-date>
+      </td>
+    </ng-container>
+
+    <!-- Created By Column -->
+    <ng-container matColumnDef="createdBy">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Created By</th>
+      <td mat-cell *matCellDef="let customer">{{customer.createdBy}}</td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="isActive">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let customer">{{customer.isActive ? 'Active' : 'Inactive'}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr class="not-found-message" *matNoDataRow>
+      <td class="mat-cell" colspan="9999">No customers found.</td>
+    </tr>
+  </table>
+</div>
+<mat-paginator
+  [pageSizeOptions]="[100, 500, 1000]"
+  showFirstLastButtons
+  aria-label="Select page of periodic elements"
+>
+</mat-paginator>

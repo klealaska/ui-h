@@ -1,0 +1,43 @@
+{
+  "name": "pay-transformation-data-access",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/pay-transformation/data-access/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/pay-transformation/data-access"],
+      "options": {
+        "project": "libs/pay-transformation/data-access/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/pay-transformation/data-access/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/pay-transformation/data-access/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["coverage/libs/pay-transformation/data-access"],
+      "options": {
+        "jestConfig": "libs/pay-transformation/data-access/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/pay-transformation/data-access/**/*.ts",
+          "libs/pay-transformation/data-access/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:pay-transformation"]
+}

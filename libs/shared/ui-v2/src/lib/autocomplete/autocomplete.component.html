@@ -1,0 +1,49 @@
+<ax-input-header
+  *ngIf="label || tooltip"
+  [readonly]="readonly"
+  [id]="id"
+  [label]="label"
+  [optional]="optional"
+  [tooltip]="tooltip"
+  [control]="control"
+></ax-input-header>
+
+<mat-form-field class="ax-form-field">
+  <input
+    matInput
+    type="text"
+    [id]="id"
+    placeholder="{{placeholder}}"
+    [formControl]="control"
+    [matAutocomplete]="auto"
+    class="ax-input"
+    data-test="ax-autocomplete"
+    [maxlength]="maxLength"
+  />
+  <mat-autocomplete
+    #auto="matAutocomplete"
+    class="ax-autocomplete"
+    classList="ax-autocomplete"
+    (optionSelected)="selectEvent.emit($event)"
+  >
+    <mat-option
+      *ngFor="let option of filterOptions | async"
+      [value]="option?.value"
+      [disabled]="option?.disabled"
+    >
+      {{option.text}}
+    </mat-option>
+  </mat-autocomplete>
+
+  <mat-hint>
+    <ax-input-hint [message]="hintMessage"></ax-input-hint>
+  </mat-hint>
+
+  <mat-error
+    ><ax-input-error
+      [icon]="error?.icon"
+      [message]="error?.message"
+      [invalid]="control?.invalid"
+    ></ax-input-error
+  ></mat-error>
+</mat-form-field>

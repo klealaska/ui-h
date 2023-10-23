@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Sidenav" />
+
+## Sidenav
+
+**A working example of this Side implementation can be found @ \_libs/shared/ui-v2/src/lib/header/header.component.stories.ts **
+
+Sidenav can be implemented by using the `ax-sidenav` component. Example provided below.
+
+```
+<ax-sidenav
+  [navItems]='navItems'
+></ax-sidenav>
+
+```
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() navItems: NavItem[]</td>
+    <td>Input for the side navigation items</td>
+  </tr>
+
+</table>

@@ -1,0 +1,40 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+.mat-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0.625rem 0.625rem 0 0;
+  overflow: hidden;
+  .mat-row {
+    font-size: 0.875em;
+  }
+}
+
+.mat-mdc-header-cell {
+  font-family: 'artegra-semi-bold';
+  font-size: 14px;
+  color: mat-color($dsm-fill, Text);
+  .mat-sort-header-arrow {
+    color: mat-color($dsm-fill, Text);
+  }
+}
+
+table .mat-table thead {
+  margin-bottom: 0.625rem;
+}
+
+table td.mat-mdc-cell {
+  border-bottom: none;
+  color: mat-color($dsm-fill, Text);
+}
+
+// Whole Table Row Hover
+tr.mat-row:not(.expanded-detail-row):hover {
+  box-shadow: 0px 3px 15px mat-color($dsm-fill, Shadow, 14%);
+  transform: scale(1);
+}
+
+table caption {
+  display: none;
+}

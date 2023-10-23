@@ -1,0 +1,115 @@
+@use '../../stylings/shared-components-variables' as *;
+
+.table-adminUsers {
+  width: 100%;
+}
+
+img {
+  width: 2.5em;
+  height: 2.5em;
+  object-fit: contain;
+  margin: 0.7em;
+  border-radius: 50%;
+}
+
+.icon {
+  background-color: $gray-dark;
+  width: 2.5em;
+  height: 2.5em;
+  object-fit: contain;
+  margin: 0.7em;
+  border-radius: 50%;
+  padding: 5px;
+  text-align: center;
+}
+
+.mat-column-behavior {
+  width: 8em;
+  text-align: right;
+  color: $cornflower-blue;
+  font-weight: bold;
+  cursor: pointer;
+  justify-content: center;
+
+  span {
+    justify-content: center;
+  }
+}
+
+.behavior {
+  display: flex;
+  align-items: center;
+}
+
+.mat-column-image {
+  width: 6em;
+  padding: 0px;
+}
+
+.statusActive {
+  background-color: #dceceb;
+  width: fit-content;
+  height: 1.7em;
+  border-radius: 5px;
+  align-items: center;
+  display: flex;
+
+  span {
+    align-items: center;
+    padding: 1em;
+    color: #007756;
+    font-weight: bold;
+  }
+}
+
+.statusInitiated {
+  background-color: #d3e1ef;
+  width: fit-content;
+  height: 1.7em;
+  border-radius: 5px;
+  align-items: center;
+  display: flex;
+
+  span {
+    align-items: center;
+    padding: 1em;
+    color: #556378;
+    font-weight: bold;
+  }
+}
+
+table {
+  border-color: transparent;
+}
+
+.mat-mdc-row:nth-child(even) {
+  background-color: $transparent-blue;
+}
+
+.mat-mdc-row:nth-child(odd) {
+  background-color: #f5f9fb;
+}
+
+td.mat-mdc-cell {
+  border-bottom-style: none;
+}
+
+th.mat-mdc-header-cell {
+  border-bottom-style: none;
+  background-color: $transparent-blue;
+}
+
+.span-th {
+  color: #556378;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+th {
+  color: #556378;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+}

@@ -1,0 +1,115 @@
+trigger: none
+
+#######################################################
+# Setting up reusable variables for the pipeline      #
+#              CHANGE ALL VARS HERE                   #
+#######################################################
+variables:
+  - template: './variables/common.yml'
+
+#######################################################
+#                 DONT CHANGE BELOW                   #
+#######################################################
+
+# Declaration of an Agent pool. The Linux-VMSS-agent-pool will be used if the pipeline is to run in a container
+pool: linux-vmss-agent-pool
+
+# Declartion of the container for the pipeline to run in
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: User Interface Center of Excellence/templates
+      ref: refs/heads/master
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+    - container: cypress-base
+      image: demozombiedice.azurecr.io/cypress/base:16
+      endpoint: DemoZombieDice
+  pipelines:
+    - pipeline: ui-coe-ci-tagged
+      source: ui-coe-ci-tagged
+      project: 'User Interface Center of Excellence'
+      trigger:
+        branches:
+          - master
+        tags:
+          - demo-zombie-dice-spa
+
+stages:
+  # All Deploy steps. Each Environment is called, similarly, with required parameters passed to the templates.
+  - template: '../../../tools/pipelines/templates/deploy-spa.yml'
+    parameters:
+      stages:
+        - stage:
+          environment: dv
+          varPath: demo/pipelines/variables
+          gate: dv-demo
+          serviceConnection: $(nonProdServiceConnection)
+          dependsOn: ''
+          stageCondition: "and(succeeded(), and(ne(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'Manual')))"
+          applicationName: $(applicationName)
+          region1: $(region1)
+          region2: $(region2)
+          keyVaultName: $(keyVaultNameDv)
+          appPath: $(appPath)
+          appTag: $(appTag)
+
+        - stage:
+          environment: ci
+          varPath: demo/pipelines/variables
+          gate: ci-demo
+          serviceConnection: $(nonProdServiceConnection)
+          dependsOn: ''
+          stageCondition: "eq(variables['Build.SourceBranch'], 'refs/heads/master')"
+          applicationName: $(applicationName)
+          region1: $(region1)
+          region2: $(region2)
+          keyVaultName: $(keyVaultNameCi)
+          appPath: $(appPath)
+          appTag: $(appTag)
+
+        - stage:
+          environment: qa
+          varPath: demo/pipelines/variables
+          gate: qa-demo
+          serviceConnection: $(nonProdServiceConnection)
+          dependsOn: 'ci'
+          stageCondition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))"
+          applicationName: $(applicationName)
+          region1: $(region1)
+          region2: $(region2)
+          keyVaultName: $(keyVaultNameQa)
+          appPath: $(appPath)
+          appTag: $(appTag)
+
+        - stage:
+          environment: st
+          varPath: demo/pipelines/variables
+          gate: st-demo
+          serviceConnection: $(prodServiceConnection)
+          dependsOn: 'qa'
+          stageCondition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))"
+          applicationName: $(applicationName)
+          region1: $(region1)
+          region2: $(region2)
+          keyVaultName: $(keyVaultNameSt)
+          appPath: $(appPath)
+          appTag: $(appTag)
+
+        - stage:
+          environment: pr
+          varPath: demo/pipelines/variables
+          gate: pr-demo
+          serviceConnection: $(prodServiceConnection)
+          dependsOn: 'st'
+          stageCondition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))"
+          applicationName: $(applicationName)
+          region1: $(region1)
+          region2: $(region2)
+          keyVaultName: $(keyVaultNamePr)
+          appPath: $(appPath)
+          appTag: $(appTag)

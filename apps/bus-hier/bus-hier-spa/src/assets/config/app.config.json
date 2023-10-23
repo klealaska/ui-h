@@ -1,0 +1,6 @@
+{
+  "baseUrl": "http://localhost:4206",
+  "busHierarchyApiBaseUrl": "http://localhost:3333/api",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIwMHUxMnR5bWNnMHk3OHJUejFkNyIsInRlbmFudElkIjoiY3Zoa3pqMndjZGZjNGlnZWkwcTIiLCJuYmYiOjE2ODE5MTE4MjYsImV4cCI6MTcxMzQ0NzgyNiwiaWF0IjoxNjgxOTExODI2LCJpc3MiOiJBY2NvdW50aW5nQXV0aFNlcnZlciIsImF1ZCI6IkFjY291bnRpbmcifQ.QNcP0fo0fmIm3UQ85tgpQzz6AHlk621JrCtt_XRHLPY",
+  "appInsightsInstrumentationKey": ""
+}

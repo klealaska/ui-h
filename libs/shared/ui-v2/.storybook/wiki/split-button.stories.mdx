@@ -1,0 +1,85 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/SplitButton" />
+
+# Split Button
+
+## Imports
+
+Component - `import { SplitButtonComponent } from '@ui-coe/shared/ui-v2';`
+
+Enums - `import { ButtonTypes, ButtonSizes, ButtonColors } from '@ui-coe/shared/ui-v2';`
+
+## Description
+
+Split button can be implemented by using `ax-split-button`.
+
+These utilized the `ButtonStyles`, `ButtonColors`, `ButtonSizes`, enums
+
+## Button Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() dropdown: Array: string</td>
+    <td>Items displayed in Split-buttons dropdown menu</td>
+  </tr>
+  <tr>
+    <td> @Input() type: ButtonType</td>
+    <td>
+      Changes button style. Supports: <code>primary</code>, <code>secondary</code>, and
+      <code>tertiary</code>. Default is
+      <code>primary</code>
+    </td>
+  </tr>
+  <tr>
+    <td> @Input() color: ButtonColor</td>
+    <td>
+      Changes button color. Supports: <code>default</code>, <code>critical</code>, and{' '}
+      <code>neutral</code>. Default is
+      <code>default</code>
+    </td>
+  </tr>
+  <tr>
+    <td> @Input() size: ButtonSize</td>
+    <td>
+      Changes button size. Supports: <code>sm</code>, <code>md</code>, and <code>lg</code> Default
+      is <code>lg</code>
+    </td>
+  </tr>
+  <tr>
+    <td>@Input() fixed: boolean</td>
+    <td>Sets split button to a fixed width</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Disables button</td>
+  </tr>
+</table>
+
+No properties are needed to be passed in to get a basic button. However you do need to provide dropdown array property.
+
+```
+<ax-split-button [dropdown]="dropdown">Button</ax-split-button>
+```
+
+Change the style by passing in `ButtonStyles` enum. Supports `primary`, `secondary`, or `tertiary`
+
+```
+<ax-split-button [style]="ButtonStyles.primary">Button</ax-split-button>
+```
+
+Change the color by using the `ButtonColors` enum. Supports `default`, `critical`, or `neutral`
+
+```
+<ax-split-button [color]="ButtonColors.default">Button</ax-split-button>
+```
+
+Change size by passing in `ButtonSizes` enum. Supports `sm`, `md`, or `lg`
+
+```
+<ax-split-button [size]="ButtonSizes.lg">Button</ax-split-button>
+```

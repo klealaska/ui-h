@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-flow: column;
+
+  &__diceRolled {
+    display: flex;
+    flex-flow: row;
+    &__green {
+      color: green;
+    }
+    &__yellow {
+      color: #ffc900;
+    }
+    &__red {
+      color: red;
+    }
+  }
+
+  &__diceValue {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+  }
+}
+
+.icon {
+  width: 70px;
+  height: 70px;
+}

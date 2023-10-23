@@ -1,0 +1,185 @@
+<div class="modal-body">
+  <div class="modal-header">
+    <mat-icon class="icon" (click)="close()" data-cy="rts-template-x-close">close</mat-icon>
+  </div>
+
+  <mat-tab-group
+    class="close-align"
+    mat-stretch-tabs="false"
+    mat-align-tabs="start"
+    animationDuration="0"
+    dynamicHeight
+    (selectedTabChange)="tabChanged($event)"
+  >
+    <mat-tab [label]="'xdc.indexing.reject-to-sender-add-template-label' | translate">
+      <ng-container *ngIf="(templates$ | async)?.length >= 20">
+        <div class="exceeded-container mt-20">
+          <h5>{{'xdc.indexing.rts-templates-exceeded-header-label' | translate}}</h5>
+          <p class="b2">{{'xdc.indexing.rts-templates-exceeded-info-line1-label' | translate}}</p>
+          <p class="b2">{{'xdc.indexing.rts-templates-exceeded-info-line2-label' | translate}}</p>
+        </div>
+
+        <div class="button-container">
+          <ax-button
+            [id]="'button-rts-cancel-template'"
+            [type]="'secondary'"
+            (click)="close()"
+            data-cy-reject-to-sender-cancel-template
+          >
+            {{'xdc.indexing.rts-cancel-template-btn-label' | translate }}
+          </ax-button>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="(templates$ | async)?.length < 20">
+        <form class="mt-20" [formGroup]="templateForm">
+          <ax-input
+            class="full-width"
+            [label]="'xdc.indexing.rts-template-name-label' | translate"
+            [control]="templateForm.get('templateName')"
+            [attr.ariaLabel]="'template name input'"
+            [error]="
+              templateForm.get('templateName').hasError('required') ?
+              { message: 'xdc.indexing.rts-template-name-error-label' | translate } : null
+            "
+            #addTemplateNameInput
+          ></ax-input>
+
+          <ax-input
+            class="full-width mt-10"
+            [label]="'xdc.indexing.rts-template-subject-line-label' | translate"
+            [control]="templateForm.get('templateSubject')"
+            [attr.ariaLabel]="'template subject line input'"
+            [error]="
+              templateForm.get('templateSubject').hasError('required') ?
+              { message: 'xdc.indexing.rts-template-subject-line-error-label' | translate } : null
+            "
+          ></ax-input>
+
+          <xdc-text-editor
+            [htmlTemplate]="htmlTemplate"
+            (updateHtmlTemplate)="templateForm.get('templateBody').setValue($event)"
+            (isValid)="errorMessage = $event"
+          ></xdc-text-editor>
+          <mat-error class="mat-error" *ngIf="errorMessage !==''">{{errorMessage}}</mat-error>
+        </form>
+
+        <div class="button-container">
+          <ax-button
+            class="mr-10"
+            [id]="'button-cancel'"
+            [type]="'secondary'"
+            (click)="close()"
+            data-cy-reject-to-sender-cancel-add-template
+          >
+            {{'xdc.indexing.cancel-label' | translate }}
+          </ax-button>
+
+          <ax-button
+            [id]="'button-add-rts-template'"
+            [disabled]="!templateForm.valid || (errorMessage !== '')"
+            (click)="addTemplate()"
+            data-cy-reject-to-sender-add-template
+          >
+            {{'xdc.indexing.rts-add-template-btn-label' | translate }}
+          </ax-button>
+        </div>
+      </ng-container>
+    </mat-tab>
+
+    <mat-tab
+      [label]="'xdc.indexing.reject-to-sender-edit-templates-label' | translate"
+      [disabled]="(templates$ | async)?.length === 0"
+    >
+      <ng-container *ngIf="!templateSelected">
+        <div class="templates-container mt-20">
+          <div *ngFor="let template of (templates$ | async)" class="templates-button mb-10">
+            <div class="templates-text" (click)="updateTemplate(template)">
+              {{template.templateName}}
+            </div>
+            <mat-icon class="templates-icon" (click)="deleteTemplate(template.templateId)"
+              >delete</mat-icon
+            >
+          </div>
+        </div>
+
+        <div class="button-container">
+          <ax-button
+            [id]="'button-rts-cancel-template'"
+            [type]="'secondary'"
+            (click)="close()"
+            data-cy-reject-to-sender-cancel-template
+          >
+            {{'xdc.indexing.rts-cancel-template-btn-label' | translate }}
+          </ax-button>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="templateSelected">
+        <form class="mt-20" [formGroup]="templateForm">
+          <ax-input
+            class="full-width"
+            [label]="'xdc.indexing.rts-template-name-label' | translate"
+            [control]="templateForm.get('templateName')"
+            [attr.ariaLabel]="'template name input'"
+            [error]="
+              templateForm.get('templateName').hasError('required') ?
+              { message: 'xdc.indexing.rts-template-name-error-label' | translate } : null
+            "
+          ></ax-input>
+
+          <ax-input
+            class="full-width mt-10"
+            [label]="'xdc.indexing.rts-template-subject-line-label' | translate"
+            [control]="templateForm.get('templateSubject')"
+            [attr.ariaLabel]="'template subject line input'"
+            [error]="
+              templateForm.get('templateSubject').hasError('required') ?
+              { message: 'xdc.indexing.rts-template-subject-line-error-label' | translate } : null
+            "
+          ></ax-input>
+
+          <xdc-text-editor
+            [htmlTemplate]="htmlTemplate"
+            (updateHtmlTemplate)="templateForm.get('templateBody').setValue($event)"
+            (isValid)="errorMessage = $event"
+          ></xdc-text-editor>
+          <mat-error class="mat-error" *ngIf="errorMessage !==''">{{errorMessage}}</mat-error>
+        </form>
+
+        <div class="button-edit-row mt-20">
+          <ax-button
+            [id]="'button-rts-back-template'"
+            [type]="'tertiary'"
+            (click)="templateSelected = !templateSelected"
+            data-cy-reject-to-sender-back-template
+          >
+            <mat-icon>arrow_back</mat-icon>
+            {{'xdc.indexing.rts-back-template-btn-label' | translate }}
+          </ax-button>
+
+          <div>
+            <ax-button
+              class="mr-10"
+              [id]="'button-rts-delete-template'"
+              [type]="'secondary'"
+              (click)="deleteTemplate()"
+              data-cy-reject-to-sender-delete-template
+            >
+              {{'xdc.indexing.rts-delete-template-btn-label' | translate }}
+            </ax-button>
+
+            <ax-button
+              [id]="'button-add-rts-template'"
+              [disabled]="!templateForm.valid || (errorMessage !== '')"
+              (click)="editTemplate()"
+              data-cy-reject-to-sender-save-template
+            >
+              {{'xdc.indexing.rts-save-template-btn-label' | translate }}
+            </ax-button>
+          </div>
+        </div>
+      </ng-container>
+    </mat-tab>
+  </mat-tab-group>
+</div>

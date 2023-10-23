@@ -1,0 +1,14 @@
+<!-- The ternary below automatically sets the pointer for left & right tooltip positions -->
+<!-- Ternary is not required but prevents pointer from breaking if someone passes in the incorrect value -->
+<div
+  @tooltip
+  class="
+    ax-tooltip__{{ tooltipStyle }}
+    {{ tooltipPosition }}--{{
+      tooltipPosition === 'left' ? 'end' : tooltipPosition === 'right' ? 'start' : pointerPosition
+    }}
+  "
+>
+  <img *ngIf="tooltipImage" src="{{ tooltipImage }}" class="ax-tooltip__img" alt="tooltip image" />
+  <div *ngIf="tooltipText">{{ tooltipText | slice:0:250 }}</div>
+</div>

@@ -1,0 +1,67 @@
+<div *ngIf="amountOfUnindexedPages.length > 0" class="document-viewer" id="docViewer" #docViewer>
+  <xdc-document-canvas
+    *ngFor="let pageNumber of amountOfUnindexedPages"
+    [loadedPdf]="loadedPdf"
+    [pageNumber]="pageNumber + 1"
+    [currentPage]="currentPage"
+    [fields]="fields"
+    [compositeData]="compositeData"
+    [labelColors]="labelColors"
+    [showLabels]="showLabels"
+    [rotateLeft]="rotateLeft"
+    [rotateRight]="rotateRight"
+    [zoomIn]="zoomIn"
+    [zoomOut]="zoomOut"
+    [boundingBoxToHighlight]="boundingBoxToHighlight"
+    [isArchive]="isArchive"
+    [isReadOnlyMode]="isReadOnlyMode"
+    [maxUnindexedPages]="maxUnindexedPages"
+    [isSponsorUser]="isSponsorUser"
+    (selectedItemsChanged)="selectedItemsChanged.emit($event)"
+    (highlightField)="highlightField.emit($event)"
+    xdcViewportNotifier
+    [viewportPage]="pageNumber + 1"
+    (visibilityChange)="getCurrentPage($event)"
+    [disableHighlight]=" disableHighlight"
+    [multipleDisplayThresholdsIsActive]="multipleDisplayThresholdsIsActive"
+  ></xdc-document-canvas>
+</div>
+
+<ng-container *ngIf="amountOfReadOnlyPages.length > 0">
+  <cdk-virtual-scroll-viewport
+    scrollWindow
+    [itemSize]="1500"
+    minBufferPx="0"
+    maxBufferPx="0"
+    class="document-viewer"
+  >
+    <xdc-document-canvas
+      *cdkVirtualFor="let pageNumber of amountOfReadOnlyPages; templateCacheSize: 0"
+      [loadedPdf]="loadedPdf"
+      [pageNumber]="pageNumber + 1"
+      [currentPage]="currentPage"
+      [fields]="fields"
+      [compositeData]="compositeData"
+      [labelColors]="labelColors"
+      [showLabels]="showLabels"
+      [rotateLeft]="rotateLeft"
+      [rotateRight]="rotateRight"
+      [zoomIn]="zoomIn"
+      [zoomOut]="zoomOut"
+      [boundingBoxToHighlight]="boundingBoxToHighlight"
+      [isArchive]="isArchive"
+      [isReadOnlyMode]="isReadOnlyMode"
+      [maxUnindexedPages]="maxUnindexedPages"
+      [isSponsorUser]="isSponsorUser"
+      (selectedItemsChanged)="selectedItemsChanged.emit($event)"
+      (highlightField)="highlightField.emit($event)"
+      xdcViewportNotifier
+      [viewportPage]="pageNumber + 1"
+      (visibilityChange)="getCurrentPage($event)"
+      [disableHighlight]=" disableHighlight"
+      [multipleDisplayThresholdsIsActive]="multipleDisplayThresholdsIsActive"
+    ></xdc-document-canvas>
+  </cdk-virtual-scroll-viewport>
+</ng-container>
+
+<xdc-loading-spinner-app *ngIf="isLoading"></xdc-loading-spinner-app>

@@ -1,0 +1,118 @@
+<div>
+  <div class="flex items-center">
+    <h1 class="pt-6 ml-11 font-['inter-semibold'] font-[600] font-color text-3xl" data-cy="name">
+      {{details?.name}}
+    </h1>
+    <div class="pl-2 pt-5">
+      <ax-tag
+        class="status ml-4"
+        type="{{details?.status === 'Active' ? 'success' : 'default'}}"
+        [style]="'filled'"
+        [size]="'md'"
+        text="{{details?.status}}"
+      ></ax-tag>
+    </div>
+  </div>
+  <div class="ml-11">
+    <h2 class="font-['inter-semibold'] font-[500] font-color pt-6">
+      {{details?.type === entitiesType ? details?.entityTypeName : details?.type }} code
+    </h2>
+    <div class="font-['inter-regular'] font-color" data-cy="code">{{details?.code}}</div>
+  </div>
+  <div class="ml-11 pt-5">
+    <ax-button
+      data-cy="edit-details-btn"
+      [type]="buttonTypes.secondary"
+      [fixed]="false"
+      [color]="buttonColors.default"
+      (click)="toggleEditDetailsMode.emit()"
+      >{{ editBtnText }}
+    </ax-button>
+    <ax-button
+      data-cy="activate-deactivate-btn"
+      class="ml-2"
+      [type]="buttonTypes.tertiary"
+      [fixed]="false"
+      [color]="details?.status === 'Active' ? buttonColors.critical : buttonColors.default"
+      (click)="onActivateOrDeactivateItem(details)"
+      >{{details?.status === 'Active' ? deactivateText : reactivateText}}
+    </ax-button>
+  </div>
+  <!-- Addresses -->
+  <ng-container *ngIf="details?.type === orgType || details?.type === entitiesType">
+    <div class="border-t-[1px] border-primary-50 mt-11 mx-11" data-cy="divider"></div>
+    <div class="flex items-center">
+      <h1
+        class="pt-6 ml-11 font-['inter-semibold'] font-[600] font-color text-3xl"
+        data-cy="address-section-title"
+      >
+        {{ addressSectionContent?.titleText }}
+      </h1>
+    </div>
+    <div class="ml-11 mt-4">
+      <h2 class="font-['inter-semibold'] font-[500] font-color" data-cy="address-section-ship-to">
+        {{ addressSectionContent?.shipToText }}
+      </h2>
+    </div>
+    <div class="ml-11 mt-4 grid grid-cols-3 gap-3 mr-11">
+      <ng-container *ngFor="let address of details?.shipToAddresses;">
+        <bus-hier-address
+          [id]="details?.id"
+          [hierarchyType]="details?.type"
+          [addressType]="shipTo"
+          [address]="address"
+          [activateAddressText]="addressSectionContent?.activeAddressText"
+          [inactiveAddressText]="addressSectionContent?.inactiveAddressText"
+          [deactivateButtonText]="addressSectionContent?.deactivateButtonText"
+          [activateButtonText]="addressSectionContent?.activateButtonText"
+          [deactiveWarningModalBodyText]="addressSectionContent?.deactiveWarningModalBodyText"
+          [deactiveWarningModalTitleText]="addressSectionContent?.deactiveWarningModalTitleText"
+          [reActiveWarningModalTitleText]="addressSectionContent?.reActiveWarningModalTitleText"
+          [reActiveWarningModalBodyText]="addressSectionContent?.reActiveWarningModalBodyText"
+          [sideSheetEditAddressTitleText]="addressSectionContent?.sideSheetEditAddressTitleText"
+          [sideSheetEditAddressSaveButtonText]="addressSectionContent?.sideSheetEditAddressSaveButtonText"
+          [sideSheetEditAddressCancelButtonText]="addressSectionContent?.sideSheetEditAddressCancelButtonText"
+          (activateButtonClick)="activateAddressButtonClick.emit($event)"
+          (deactivateButtonClick)="deactivateAddressButtonClick.emit($event)"
+          (editAddress)="editAddress.emit($event)"
+        ></bus-hier-address>
+      </ng-container>
+      <!-- TODO uncomment below when working on add addresses -->
+      <!-- <bus-hier-add-address
+      [addAddressButonText]="addressSectionContent?.addAddressButonText"
+      (addAddress)="addAddress.emit(shipTo)"
+    ></bus-hier-add-address> -->
+    </div>
+    <div class="ml-11 mt-4">
+      <h2 class="font-['inter-semibold'] font-[500] font-color" data-cy="address-section-bill-to">
+        {{ addressSectionContent?.billToText }}
+      </h2>
+    </div>
+    <div class="ml-11 mt-4 grid grid-cols-3 gap-3 mr-11">
+      <ng-container *ngFor="let address of details?.billToAddresses;">
+        <bus-hier-address
+          [id]="details?.id"
+          [hierarchyType]="details?.type"
+          [addressType]="billTo"
+          [address]="address"
+          [activateAddressText]="addressSectionContent?.activeAddressText"
+          [inactiveAddressText]="addressSectionContent?.inactiveAddressText"
+          [deactivateButtonText]="addressSectionContent?.deactivateButtonText"
+          [activateButtonText]="addressSectionContent?.activateButtonText"
+          [deactiveWarningModalBodyText]="addressSectionContent?.deactiveWarningModalBodyText"
+          [deactiveWarningModalTitleText]="addressSectionContent?.deactiveWarningModalTitleText"
+          [reActiveWarningModalTitleText]="addressSectionContent?.reActiveWarningModalTitleText"
+          [reActiveWarningModalBodyText]="addressSectionContent?.reActiveWarningModalBodyText"
+          (activateButtonClick)="activateAddressButtonClick.emit($event)"
+          (deactivateButtonClick)="deactivateAddressButtonClick.emit($event)"
+          (editAddress)="editAddress.emit($event)"
+        ></bus-hier-address>
+      </ng-container>
+      <!-- TODO uncomment below when working on add addresses -->
+      <!-- <bus-hier-add-address
+      [addAddressButonText]="addressSectionContent?.addAddressButonText"
+      (addAddress)="addAddress.emit(billTo)"
+    ></bus-hier-add-address> -->
+    </div>
+  </ng-container>
+</div>

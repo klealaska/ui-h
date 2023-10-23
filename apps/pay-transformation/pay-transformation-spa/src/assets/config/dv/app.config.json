@@ -1,0 +1,4 @@
+{
+    "payApiBaseUrl": "https://pay-transformation-bff-dv-esfsbdd4csbmbvgz.z01.azurefd.net/api",
+    "appInsightsInstrumentationKey": "4d36557a-596c-4bcc-8e1b-e74e71f60736"
+}

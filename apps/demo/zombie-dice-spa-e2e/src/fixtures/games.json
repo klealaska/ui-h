@@ -1,0 +1,296 @@
+[
+    {
+        "_id": "1",
+        "gameName": "Game 1",
+        "gameStatus": "Lobby",
+        "players": [
+            {
+                "nickname": "CyName",
+                "id": "1",
+                "isHost": true,
+                "score": 0,
+                "brainsRolled": 0,
+                "shotgunsRolled": 0,
+                "initialRoll": true
+            }
+        ],
+        "gameData": {
+            "hostId": "1",
+            "turnIndex": 0,
+            "playerTurn": "1",
+            "turns": [],
+            "winner": {
+                "id": "",
+                "name": ""
+            },
+            "dicePool": [
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "yellow"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "yellow"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "yellow"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "yellow"
+                },
+                {
+                    "1": "brain",
+                    "2": "shotgun",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "red"
+                },
+                {
+                    "1": "brain",
+                    "2": "shotgun",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "red"
+                },
+                {
+                    "1": "brain",
+                    "2": "shotgun",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "red"
+                }
+            ],
+            "response": ""
+        },
+        "__v": 0
+    },
+    {
+        "_id": "6",
+        "gameName": "Game 2",
+        "gameStatus": "Lobby",
+        "players": [
+            {
+                "nickname": "CyName",
+                "id": "6",
+                "isHost": true,
+                "score": 0,
+                "brainsRolled": 0,
+                "shotgunsRolled": 0,
+                "initialRoll": true
+            }
+        ],
+        "gameData": {
+            "hostId": "2",
+            "turnIndex": 0,
+            "playerTurn": "2",
+            "turns": [],
+            "winner": {
+                "id": "",
+                "name": ""
+            },
+            "dicePool": [
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "brain",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "green"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "yellow"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "yellow"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "yellow"
+                },
+                {
+                    "1": "brain",
+                    "2": "brain",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "yellow"
+                },
+                {
+                    "1": "brain",
+                    "2": "shotgun",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "red"
+                },
+                {
+                    "1": "brain",
+                    "2": "shotgun",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "red"
+                },
+                {
+                    "1": "brain",
+                    "2": "shotgun",
+                    "3": "shotgun",
+                    "4": "shotgun",
+                    "5": "footsteps",
+                    "6": "footsteps",
+                    "color": "red"
+                }
+            ],
+            "response": ""
+        },
+        "__v": 0
+    }
+]

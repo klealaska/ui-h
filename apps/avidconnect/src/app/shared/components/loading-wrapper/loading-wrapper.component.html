@@ -1,0 +1,7 @@
+<div class="loading-wrapper">
+  <div class="loading-content-wrapper" *ngIf="isLoading">
+    <avc-loading-spinner [title]="loadingMessage"></avc-loading-spinner>
+  </div>
+
+  <ng-content></ng-content>
+</div>

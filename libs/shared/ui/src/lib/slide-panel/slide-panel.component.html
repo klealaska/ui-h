@@ -1,0 +1,12 @@
+<div [class.overlay]="showPanel" (click)="panelClosed.emit()"></div>
+<section class="advanced-filter-form" [class.open]="showPanel">
+  <header>
+    <h3>{{title}}</h3>
+
+    <button matSuffix mat-icon-button aria-label="Close" (click)="panelClosed.emit()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+
+  <ng-content></ng-content>
+</section>

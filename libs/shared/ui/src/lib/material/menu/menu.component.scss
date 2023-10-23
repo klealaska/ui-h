@@ -1,0 +1,52 @@
+@use '../../stylings/shared-components-variables' as *;
+
+button.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-mdc-slide-toggle {
+  padding-left: 1em;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-icon {
+  color: $white;
+}
+
+.menu-item {
+  &-text {
+    color: $cornflower-blue;
+    font-weight: bold;
+  }
+  &-icon {
+    margin-left: 10px;
+    color: $cornflower-blue;
+  }
+}
+
+.ax-menu-item .mdc-list-item__primary-text {
+  font-size: $text-size-xs !important;
+}
+
+.ax-menu-item,
+.mat-mdc-menu-content .mat-mdc-menu-item .mdc-list-item__primary-text {
+  color: $cornflower-blue !important;
+  font-weight: bold;
+  margin-right: 0;
+}
+
+.mat-mdc-menu-item.no-hover:hover {
+  background: transparent;
+  background-color: transparent;
+}
+
+.mat-mdc-icon-button {
+  --mat-mdc-button-persistent-ripple-color: none;
+}

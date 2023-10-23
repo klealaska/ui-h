@@ -1,0 +1,30 @@
+{
+  "name": "bank-account-mgmt-spa-e2e",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/bank-account-mgmt/bank-account-mgmt-spa-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/bank-account-mgmt/bank-account-mgmt-spa-e2e/cypress.config.ts",
+        "devServerTarget": "bank-account-mgmt-spa:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "bank-account-mgmt-spa:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/bank-account-mgmt/bank-account-mgmt-spa-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["bank-account-mgmt-spa"]
+}

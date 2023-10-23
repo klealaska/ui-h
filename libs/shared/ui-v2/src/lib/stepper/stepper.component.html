@@ -1,0 +1,91 @@
+<ng-container *ngIf="showStepper && (mobile$ | async) === false">
+  <!--Add class based on orientation of steps-->
+  <div
+    class="ax-stepper-wrapper"
+    [class.horizontal]="direction === 'horizontal'"
+    [class.vertical]="direction === 'vertical'"
+  >
+    <!--Loop over stepper steps-->
+    <ng-container *ngFor="let step of steps; let current = index;">
+      <div
+        class="ax-stepper-item"
+        [class.active]="current === selectedIndex"
+        [class.error]="step.hasError"
+        [class.completed]="step.completed"
+      >
+        <!-- Header content should render here -->
+        <ng-container
+          [ngTemplateOutlet]="stepHeaderTemplate"
+          [ngTemplateOutletContext]="{step: step, current: current}"
+        >
+        </ng-container>
+        <!-- For 'vertical' orientation content should render here adjacent to step-header -->
+        <ng-container *ngIf="direction === 'vertical'">
+          <div class="ax-stepper-desc">
+            <ng-container
+              *ngIf="current === selectedIndex"
+              [ngTemplateOutlet]="step.content"
+            ></ng-container>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+  <!-- For 'horizontal' orientation content should render here adjacent to 'stepper-wrapper'-->
+  <ng-container
+    *ngIf="direction === 'horizontal'"
+    [ngTemplateOutlet]="contentTemplate"
+  ></ng-container>
+
+  <!-- Steps Header template for vertical and horizntal orientation-->
+  <ng-template let-step="step" let-current="current" #stepHeaderTemplate>
+    <ax-step-header
+      [label]="step.stepLabel || step.label"
+      [subtitle]="step?.subtitle"
+      [status]="step?.status"
+      [icon]="step?.icon"
+      [stepIndex]="current"
+    >
+    </ax-step-header>
+  </ng-template>
+</ng-container>
+
+<!--Description/content of step will be displayed via wrapper class around it-->
+<ng-template #contentTemplate>
+  <div class="ax-stepper-desc">
+    <ng-container [ngTemplateOutlet]="selected.content"> </ng-container>
+  </div>
+</ng-template>
+
+<!-- Mobile version of Stepper-->
+<ng-container *ngIf="mobile$ | async">
+  <div class="ax-mobile-stepper">
+    <ax-circular-stepper
+      [class.active]="selectedIndex === selectedIndex"
+      [class.error]="selected?.hasError"
+      [class.completed]="selected?.completed"
+      [progress]="(selectedIndex+1)"
+      [totalStep]="steps.length"
+      [text]="(selectedIndex+1) +' of '+ steps.length"
+    >
+    </ax-circular-stepper>
+    <div class="ax-step-label-wrapper">
+      <!-- Step label heading -->
+      <!-- If there is a label template, use it. -->
+      <div class="label-title" *ngIf="_templateLabel(selected)">
+        <ng-container [ngTemplateOutlet]="_templateLabel(selected)!.template"></ng-container>
+      </div>
+      <!-- If there is no label template, fall back to the text label. -->
+      <div class="label-title" *ngIf="_stringLabel(selected)">{{selected.label}}</div>
+
+      <!-- Step label assistive text -->
+      <div class="label-text">{{selected.subtitle}}</div>
+
+      <!-- Step progress status -->
+      <div class="label-status">{{selected?.status}}</div>
+    </div>
+  </div>
+
+  <!-- For Mobile content should render here  -->
+  <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+</ng-container>

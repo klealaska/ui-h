@@ -1,0 +1,84 @@
+$text-clr: theme('colors.grey.800');
+$font-regular: theme('fontFamily.interRegular');
+$disabled: theme('colors.grey.50');
+$disabled-text: theme('colors.grey.600');
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  .go-to-page {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+
+    mat-form-field {
+      margin-bottom: 0;
+    }
+
+    &-input {
+      display: flex;
+      align-items: center;
+      border-radius: 4px;
+      padding: 8px;
+
+      label {
+        margin-right: 8px;
+        color: $text-clr;
+        font-size: 14px;
+        font-family: $font-regular;
+        line-height: 18px;
+      }
+
+      ax-input {
+        width: 80px;
+      }
+    }
+
+    &-dropdown {
+      .ax-form-field {
+        width: 138px;
+      }
+    }
+  }
+
+  &.mobile {
+    justify-content: center;
+
+    .current-page {
+      font-size: 14px;
+    }
+  }
+
+  ::ng-deep {
+    ax-button {
+      &.active {
+        .ax-button {
+          &:disabled {
+            background-color: $disabled;
+            color: $disabled-text;
+            font-family: $font-regular;
+          }
+        }
+      }
+
+      .ax-button {
+        &:disabled {
+          background-color: #fff;
+          color: $disabled;
+        }
+      }
+    }
+
+    input[type='number']::-webkit-outer-spin-button,
+    input[type='number']::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+}

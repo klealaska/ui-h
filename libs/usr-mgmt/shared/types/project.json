@@ -1,0 +1,40 @@
+{
+  "name": "usr-mgmt-shared-types",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/usr-mgmt/shared/types/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/usr-mgmt/shared/types",
+        "main": "libs/usr-mgmt/shared/types/src/index.ts",
+        "tsConfig": "libs/usr-mgmt/shared/types/tsconfig.lib.json",
+        "assets": ["libs/usr-mgmt/shared/types/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/usr-mgmt/shared/types/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/usr-mgmt/shared/types/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": ["type:types", "scope:shared"]
+}

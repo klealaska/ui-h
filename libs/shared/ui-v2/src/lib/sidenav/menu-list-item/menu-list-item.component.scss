@@ -1,0 +1,69 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.mat-list-item {
+  display: flex;
+  width: auto;
+  gap: 10px;
+  font-family: theme('fontFamily.interRegular');
+
+  .routeIcon {
+    margin-right: 40px;
+    align-items: center;
+  }
+  .expandIcon {
+    align-items: center;
+  }
+}
+
+.menu-list-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-right: 8px;
+  font-family: theme('fontFamily.interRegular');
+  font-size: 14px;
+  border-radius: 4px;
+  line-height: 20px;
+  height: 40px;
+  margin-bottom: 16px;
+}
+
+.flexClass {
+  display: flex;
+  margin-left: auto;
+}
+
+a:hover {
+  font-family: theme('fontFamily.interRegular');
+  background-color: theme('colors.interactive.50') !important;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+a:active {
+  border: none !important;
+  background-color: theme('colors.grey.100');
+  font-size: 14px;
+  font-family: theme('fontFamily.interSemibold');
+  border-radius: 4px;
+}
+
+a:focus-visible {
+  outline: 2px solid theme('colors.focused.500');
+  border-radius: 4px;
+}
+
+.product-img-logo {
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+  overflow: hidden;
+}

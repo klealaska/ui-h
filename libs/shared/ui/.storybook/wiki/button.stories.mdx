@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+import FlatBtn from '../assets/buttons/mat-flat-button.png';
+import StrokedBtn from '../assets/buttons/mat-stroked-button.png';
+import BasicBtn from '../assets/buttons/mat-basic-button.png';
+
+<Meta title="Wiki/Button" />
+
+Support Basic, Flat, Stroked, and Icon. All of these buttons use `color="primary"` and are given a `sm`, `md`, or `lg` class depending on the size.
+
+<br></br>
+<img src={FlatBtn} alt="Flat Button" width="140" />
+
+```
+<button mat-flat-button color="primary" class="lg">Primary</button>
+```
+
+```
+<button mat-flat-button mat-icon-button color="primary" class="lg"> <mat-icon class="lg">add</mat-icon> </button>
+```
+
+<img src={StrokedBtn} alt="Stroked Button" width="140" />
+
+```
+<button mat-stroked-button color="primary" class="lg">Primary</button>
+```
+
+```
+<button mat-flat-button color="primary">Primary</button>
+```
+
+<img src={BasicBtn} alt="Basic Button" width="140" />
+
+```
+<button mat-button color="primary" class="lg">Primary</button>
+```
+
+```
+<button mat-icon-button color="primary" class="lg" > <mat-icon class="lg">add</mat-icon> </button>
+```

@@ -1,0 +1,99 @@
+$success600: theme('colors.success.600');
+$warn600: theme('colors.warning.600');
+$crit600: theme('colors.critical.600');
+$info600: theme('colors.informational.600');
+
+@mixin grid-position($column-start, $column-end, $row-start, $row-end) {
+  grid-column-start: $column-start;
+  grid-column-end: $column-end;
+  grid-row-start: $row-start;
+  grid-row-end: $row-end;
+}
+@mixin toast-type($color) {
+  border: 1px solid $color;
+  border-left-width: 4px;
+  border-radius: 4px;
+}
+::ng-deep.mdc-snackbar__label,
+::ng-deep.mdc-snackbar__surface {
+  padding: 0;
+}
+
+.toast-container {
+  font-family: theme('fontFamily.interMedium');
+  background-color: theme('colors.white');
+  display: grid;
+  grid-template-rows: fit-content(100%);
+  grid-template-columns: 0.1fr auto 0.1fr;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 8px;
+  padding: 12px;
+
+  &__title {
+    @include grid-position(2, 3, 1, 2);
+    color: theme('colors.grey.800');
+    font-size: 14px;
+  }
+  &__message {
+    @include grid-position(2, 3, 2, 3);
+    color: theme('colors.grey.800');
+    font-size: 14px;
+  }
+  &__message-center {
+    @include grid-position(2, 3, 1, 2);
+    color: theme('colors.grey.800');
+    font-size: 14px;
+  }
+  &__action {
+    @include grid-position(2, 3, 3, 4);
+    color: theme('colors.interactive.700');
+    font-size: 16px;
+    cursor: pointer;
+    width: auto;
+  }
+  &__close {
+    @include grid-position(3, 4, 1, 2);
+    color: theme('colors.grey.800');
+    font-size: 16px;
+    cursor: pointer;
+  }
+  &__icon {
+    @include grid-position(1, 2, 1, 2);
+    vertical-align: middle;
+    font-size: 20px;
+
+    &.success {
+      color: theme('colors.success.600');
+    }
+    &.warning {
+      color: theme('colors.warning.600');
+    }
+    &.critical {
+      color: theme('colors.critical.600');
+    }
+    &.informational {
+      color: theme('colors.informational.600');
+    }
+  }
+
+  &.success {
+    @include toast-type($success600);
+  }
+  &.warning {
+    @include toast-type($warn600);
+  }
+  &.critical {
+    @include toast-type($crit600);
+  }
+  &.informational {
+    @include toast-type($info600);
+  }
+}
+
+// Material overrides
+::ng-deep.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  color: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}

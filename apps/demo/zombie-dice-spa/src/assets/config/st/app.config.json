@@ -1,0 +1,4 @@
+{
+  "zombieDiceApiUrl": "https://demo-zombie-dice-api-st.jollydune-b6be7802.eastus.azurecontainerapps.io",
+  "pubSubFunctionUrl": "https://demo-zombie-dice-websockets-st.azurewebsites.net/api/negotiate"
+}

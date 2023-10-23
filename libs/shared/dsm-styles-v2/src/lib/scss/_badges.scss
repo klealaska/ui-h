@@ -1,0 +1,117 @@
+$default-bg-color: theme('colors.informational.600');
+$dark-bg-color: theme('colors.interactive.900');
+$light-bg-color: theme('colors.interactive.100');
+
+.mat-badge-content {
+  background-color: $default-bg-color;
+  color: #fff;
+  font-family: theme('fontFamily.interMedium');
+  padding: 0px 4px;
+  border-radius: 4px;
+}
+
+@mixin badgeContent($height, $text-size, $lh: 1.5) {
+  height: $height;
+  width: auto;
+  min-width: $height;
+  font-size: $text-size;
+  overflow: visible;
+  line-height: $lh;
+}
+
+.mat-badge-informational .mat-badge-content {
+  background-color: $default-bg-color;
+}
+
+.mat-badge-informational-stroked .mat-badge-content {
+  background-color: $default-bg-color;
+  border: solid 1px theme('colors.white');
+}
+
+.mat-badge-dark .mat-badge-content {
+  background-color: $dark-bg-color;
+}
+
+.mat-badge-dark-stroked .mat-badge-content {
+  background-color: $dark-bg-color;
+  border: solid 1px theme('colors.white');
+}
+
+.mat-badge-light .mat-badge-content {
+  background-color: $light-bg-color;
+  color: theme('colors.grey.800');
+}
+
+.mat-badge-light-stroked .mat-badge-content {
+  background-color: $light-bg-color;
+  color: theme('colors.grey.800');
+  border: solid 1px theme('colors.white');
+}
+
+.mat-badge-large {
+  .mat-badge-content {
+    @include badgeContent(24px, 16px, 1.5);
+  }
+
+  &.mat-badge-overlap {
+    &.mat-badge-after .mat-badge-content {
+      right: -7px;
+    }
+
+    &.mat-badge-before .mat-badge-content {
+      left: -7px;
+    }
+  }
+
+  &.mat-badge-above .mat-badge-content {
+    top: -7px;
+  }
+  &.mat-badge-below .mat-badge-content {
+    bottom: -7px;
+  }
+}
+
+.mat-badge-medium {
+  .mat-badge-content {
+    @include badgeContent(20px, 14px, 1.5);
+  }
+
+  &.mat-badge-overlap {
+    &.mat-badge-after .mat-badge-content {
+      right: -6px;
+    }
+
+    &.mat-badge-before .mat-badge-content {
+      left: -6px;
+    }
+  }
+
+  &.mat-badge-above .mat-badge-content {
+    top: -6px;
+  }
+  &.mat-badge-below .mat-badge-content {
+    bottom: -6px;
+  }
+}
+
+.mat-badge-small {
+  .mat-badge-content {
+    @include badgeContent(16px, 10px, 1.6);
+  }
+  &.mat-badge-overlap {
+    &.mat-badge-after .mat-badge-content {
+      right: -4px;
+    }
+
+    &.mat-badge-before .mat-badge-content {
+      left: -4px;
+    }
+  }
+
+  &.mat-badge-above .mat-badge-content {
+    top: -4px;
+  }
+  &.mat-badge-below .mat-badge-content {
+    bottom: -4px;
+  }
+}

@@ -1,0 +1,24 @@
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: avidxchange/templates
+
+trigger:
+  branches:
+    include:
+    - master
+    - release/*
+  paths:
+    include: 
+    - apps/buyer-keyword/devops/idc.bkwsUI.deployment.json
+
+stages:
+- stage: Build
+  displayName: Build Stage
+  jobs:
+  - template: CopyFiles.yml@templates
+    parameters:
+      poolName: 'eastUS-buildAgentPool-container'
+      artifactPath: 'apps/buyer-keyword/devops'
+      artifactFiles: 'idc.bkwsUI.deployment.json'

@@ -1,0 +1,8 @@
+// active
+.mat-mdc-slide-toggle .mdc-switch.mdc-switch--selected:enabled .mdc-switch__handle::after {
+  background-color: #0574b0 !important;
+}
+
+.mat-mdc-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+  background-color: #0574b08a !important;
+}

@@ -1,0 +1,43 @@
+{
+  "name": "shared-dsm-styles-v2",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/dsm-styles-v2/src",
+  "prefix": "ax",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/shared/dsm-styles-v2"],
+      "options": {
+        "project": "libs/shared/dsm-styles-v2/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/dsm-styles-v2/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/shared/dsm-styles-v2/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/dsm-styles-v2"],
+      "options": {
+        "jestConfig": "libs/shared/dsm-styles-v2/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/dsm-styles-v2/src/**/*.ts",
+          "libs/shared/dsm-styles-v2/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:shared"]
+}

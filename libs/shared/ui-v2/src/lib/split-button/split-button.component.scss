@@ -1,0 +1,59 @@
+:host {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+::ng-deep .btn-container {
+  display: inline-flex;
+  align-items: center;
+
+  &__left .ax-button {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-right: 0px !important;
+  }
+
+  &__right {
+    .ax-button {
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+    }
+
+    &--spacing .ax-button {
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+      border-left: 1px solid theme('colors.white') !important;
+    }
+  }
+}
+
+// default color
+::ng-deep .default-primary-active .ax-button {
+  background-color: theme('colors.interactive.900') !important;
+}
+::ng-deep .default-secondary-active .ax-button {
+  background-color: theme('colors.interactive.100') !important;
+}
+::ng-deep .default-tertiary-active .ax-button {
+  background-color: theme('colors.interactive.100') !important;
+}
+// critical color
+::ng-deep .critical-primary-active .ax-button {
+  background-color: theme('colors.critical.900') !important;
+}
+::ng-deep .critical-secondary-active .ax-button {
+  background-color: theme('colors.critical.100') !important;
+}
+::ng-deep .critical-tertiary-active .ax-button {
+  background-color: theme('colors.critical.100') !important;
+}
+// neutral color
+::ng-deep .neutral-primary-active .ax-button {
+  background-color: theme('colors.surface.900') !important;
+}
+::ng-deep .neutral-secondary-active .ax-button {
+  background-color: theme('colors.surface.100') !important;
+}
+::ng-deep .neutral-tertiary-active .ax-button {
+  background-color: theme('colors.surface.100') !important;
+}

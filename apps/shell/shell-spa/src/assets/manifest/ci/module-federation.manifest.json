@@ -1,0 +1,8 @@
+{
+  "demo-zombie-dice-spa": "https://demo-zombie-dice-spa-ci-eabjbjdddtfyb3fq.z01.azurefd.net/",
+  "tenant-spa": "https://tenant-spa-ci-b0dad2apd0evaqbn.z01.azurefd.net",
+  "bank-account-mgmt-spa": "https://bank-account-mgmt-spa-ci-fgebgkgve9byhehr.z01.azurefd.net/",
+  "pay-transformation-spa": "https://pay-transformation-spa-ci-cbg9bugqdch3e0c3.z01.azurefd.net/",
+  "bus-hier-spa": "https://bus-hier-spa-ci-gca5f8c7e9hreqb6.z01.azurefd.net/",
+  "usr-mgmt-spa": "https://usr-mgmt-spa-ci-fsczb8azanfhbrer.z01.azurefd.net/"
+}

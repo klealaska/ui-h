@@ -1,0 +1,41 @@
+@use '../../stylings/shared-components-variables' as *;
+
+.page-title {
+  &.light {
+    label {
+      color: $blue-text-color;
+    }
+  }
+
+  a {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+
+    img {
+      margin: 1px 0 0 3px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    label {
+      margin: 18px 0px 18px 6px;
+      height: 20px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      display: inline-block;
+    }
+  }
+
+  .beta-label {
+    label {
+      border: 1px solid $gray-light;
+      padding: 2px 4px;
+    }
+  }
+}

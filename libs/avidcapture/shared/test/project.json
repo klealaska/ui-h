@@ -1,0 +1,19 @@
+{
+  "name": "avidcapture-shared-test",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/avidcapture/shared/test/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/avidcapture/shared/test/src/**/*.ts",
+          "libs/avidcapture/shared/test/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:test", "scope:avidcapture"]
+}

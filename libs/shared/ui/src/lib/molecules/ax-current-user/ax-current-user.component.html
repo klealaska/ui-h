@@ -1,0 +1,23 @@
+<div class="ax-user" [ngClass]="lightThemeIsActive ? 'light' : ''">
+  <div class="user-info">
+    <ax-image ngClass="user-image" *ngIf="image" [image]="image"></ax-image>
+    <mat-icon class="icon-image">account_circle</mat-icon>
+    <ax-label
+      [bold]="false"
+      size="xs"
+      [text]="text"
+      textColor="white"
+      [uppercase]="false"
+    ></ax-label>
+    <ax-mat-menu
+      class="user-menu"
+      [addLogoutOption]="true"
+      [menuOptions]="menuOptions"
+      [xPosition]="'before'"
+      [menuItemClass]="'ax-menu-item'"
+      (logout)="logout.emit()"
+      (selectedMenuItem)="selectedMenuItem.emit($event)"
+    >
+    </ax-mat-menu>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Textarea" />
+
+## Textarea
+
+Textarea can me implemented by using the `ax-textarea` component
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() fixed: boolean</td>
+    <td>Sets a fixed width. Default is false</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Sets the disabled state</td>
+  </tr>
+  <tr>
+    <td>@Input() readOnly: boolean</td>
+    <td>Sets the readOnly state</td>
+  </tr>
+  <tr>
+    <td>@Input() id: string</td>
+    <td>Adds an id to the textarea. Used for accessible (required if using a label)</td>
+  </tr>
+  <tr>
+    <td>@Input() label: string</td>
+    <td>Title for an input</td>
+  </tr>
+  <tr>
+    <td> @Input() tooltip: InputTooltip</td>
+    <td>
+      Adds a tooltip beside label. Only need to pass in tooltipText. Other properties can be over
+      written
+    </td>
+  </tr>
+  <tr>
+    <td> @Input() maxLength: number</td>
+    <td>Sets the max length. Default 50</td>
+  </tr>
+  <tr>
+    <td>@Input() placeholder: string</td>
+    <td>Placeholder text</td>
+  </tr>
+  <tr>
+    <td>@Input() control: UntypedFormControl</td>
+    <td>Adds a formControl to an input</td>
+  </tr>
+  <tr>
+    <td>@Input() hintMessage: string</td>
+    <td>Hint text</td>
+  </tr>
+  <tr>
+    <td>@Input() error: FormFieldError</td>
+    <td>Object that takes in message and optional icon to populate an error message</td>
+  </tr>
+  <tr>
+    <td>@Output() textareaValueEvent = new EventEmitter()</td>
+    <td>Emits the value of a textarea</td>
+  </tr>
+</table>

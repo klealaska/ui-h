@@ -1,0 +1,21 @@
+<header class="ax-header">
+  <div class="app-title" routerLink="/">
+    <img src="/assets/svg/Avidxchange_Symbol_Blue_RGB.svg" alt="avid-logo" class="logo" />
+    <h1 id="test-appName">AvidConnect</h1>
+  </div>
+  <div class="user-nav-menu text welcome-user'" v-if="isAuthenticated">
+    <div *ngIf="userDisplayName" class="text">Hi {{userDisplayName}}!</div>
+
+    <ul class="actions">
+      <li
+        class="action clickable"
+        id="logoutButton"
+        title="Log Out"
+        id="logoutButton"
+        (click)="logout.emit()"
+      >
+        <a> <img src="/assets/svg/logout.svg" alt="logout" /> </a>
+      </li>
+    </ul>
+  </div>
+</header>

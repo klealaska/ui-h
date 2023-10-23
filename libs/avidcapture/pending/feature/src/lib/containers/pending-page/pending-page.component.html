@@ -1,0 +1,61 @@
+<div *ngIf="token$ | async" class="queue-page">
+  <div *ngIf="canViewAllBuyers$ | async" class="row">
+    <h4>{{'xdc.pending.pending-queue-label' | translate }}</h4>
+    <xdc-document-card-set [documentCards]="documentCards$ | async"></xdc-document-card-set>
+  </div>
+
+  <xdc-pending-filter
+    *ngIf=" {
+    buyers: buyers$ | async,
+    filteredBuyers: filteredBuyers$ | async,
+    canViewAllBuyers: canViewAllBuyers$ | async,
+    currentUsername: currentUsername$ | async
+  } as data"
+    [customerData]="data.buyers"
+    [filteredBuyers]="data.filteredBuyers"
+    [advancedFilters]="advancedFilters$ | async"
+    [appliedFilters]="appliedFilters$ | async"
+    [filteredBuyersCore]="filteredBuyersCore$ | async"
+    [canUpload]="canUpload$ | async"
+    [canRefreshPage]="canRefreshPage$ | async"
+    [canViewAllBuyers]="canViewAllBuyers$ | async"
+    [canUseAdvancedFilter]="canUseAdvancedFilter$ | async"
+    (customerTextChangedEvent)="searchCustomers($event, data.canViewAllBuyers)"
+    (buyerAddedEvent)="filteredBuyerAdded($event, data.canViewAllBuyers)"
+    (buyerRemovedEvent)="filteredBuyerRemoved($event, data.canViewAllBuyers)"
+    (advanceSearchApplied)="advanceSearchApplied($event)"
+    (filterChipRemoved)="filterRemoved($event)"
+    (refreshPage)="refreshPage($event)"
+  ></xdc-pending-filter>
+
+  <div class="queue-container">
+    <xdc-pending-grid
+      *ngIf=" {
+        filteredBuyers: filteredBuyers$ | async
+      } as data"
+      data-cy="queue-grid"
+      [documents]="invoices$ | async"
+      [canViewAllBuyers]="canViewAllBuyers$ | async"
+      [loadMoreHidden]="loadMoreHidden$ | async"
+      [isLoading]="isLoading$ | async"
+      [currentUsername]="currentUsername$ | async"
+      [batchSelectIsActive]="batchSelectIsActive$ | async"
+      [resetBatchSelection]="resetBatchSelection"
+      (openInvoiceEvent)="openInvoice($event)"
+      (loadNextPageEvent)="loadNextPage($event)"
+      (columnSorted)="columnSorted($event)"
+      (rowsSelected)="batchSelect($event)"
+      (unlockDocumentEvent)=" unlockDocumentManually($event)"
+      [canUnlockDocumentManually]="canUnlockDocumentManually$|async"
+    ></xdc-pending-grid>
+
+    <div *ngIf="(invoices$ | async).length === 0" class="empty-queue">
+      <h4>No active pending invoices.</h4>
+      <p class="b2 pt-10">
+        Invoices waiting to be indexed that entered through email or via the PO Box will appear
+        here.
+      </p>
+    </div>
+  </div>
+</div>
+<xdc-loading-spinner-app *ngIf="isLoading$ | async"></xdc-loading-spinner-app>

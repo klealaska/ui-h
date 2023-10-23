@@ -1,0 +1,8 @@
+<!-- Recall how earlier we had that check to see if we are actually rendering a component, or just plain text. We also check this here. -->
+
+<!-- This is where we want our dynamic component to be generated eventually -->
+<ng-container *ngIf="isRenderingDynamicComponent" #container></ng-container>
+
+<ng-container *ngIf="!isRenderingDynamicComponent">
+  {{ columnDef?.cellDef?.value(data) }}
+</ng-container>

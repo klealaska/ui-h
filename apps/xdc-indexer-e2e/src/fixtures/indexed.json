@@ -1,0 +1,775 @@
+{
+   "id": "3a784454-d11b-4ee2-aadf-f17f8e90e7d6",
+   "documentId": "37943294-9650-42c7-bf19-9e59f807752e",
+   "documentType": "Indexed",
+   "fileId": "4501825",
+   "dateReceived": "2021-03-16T17:23:03.4877376+00:00",
+   "indexer": "IDC",
+   "lastModified": "2021-03-16T17:23:40.9819872Z",
+   "labels": [
+       {
+           "label": "ServiceBusMessage",
+           "page": 0,
+           "value": {
+               "text": "{\"BuyerId\":\"25\",\"FileId\":\"4501825\",\"FileName\":\"bad-image-microsoft.pdf\",\"CorrelationId\":\"b7e50f1d-09cf-4626-a36f-e8bd32bf4679\",\"InvoiceSourceId\":\"AvidSuite\",\"IngestionType\":\"email\",\"SourceEmail\":\"SSmith@avidxchange.com\",\"id\":\"00000000-0000-0000-0000-000000000000\"}",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "IdcServiceBusMessage",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "BuyerName",
+           "page": 0,
+           "value": {
+               "text": "Cypress E2E",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "BuyerId",
+           "page": 0,
+           "value": {
+               "text": "25",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "SourceSystem",
+           "page": 0,
+           "value": {
+               "text": "AvidSuite",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "IngestionType",
+           "page": 0,
+           "value": {
+               "text": "email",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "BuyerKeyword",
+           "page": 0,
+           "value": {
+               "text": "avidxchange",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "BillingAddress",
+           "page": 1,
+           "value": {
+               "text": "CHARLOTTE NC 28206-3560 United States",
+               "confidence": 0.687,
+               "boundingBox": [
+                   0.4159,
+                   2.9747,
+                   1.819,
+                   2.9747,
+                   1.819,
+                   3.1556,
+                   0.4159,
+                   3.1556
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "BillingAddressRecipient",
+           "page": 1,
+           "value": {
+               "text": "AvidXchange, Inc. ATTN: ACCOUNTS PAYABLE",
+               "confidence": 0.853,
+               "boundingBox": [
+                   0.416,
+                   2.5577,
+                   2.7767,
+                   2.5577,
+                   2.7767,
+                   2.6577,
+                   0.416,
+                   2.6577
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "CustomerAddress",
+           "page": 1,
+           "value": {
+               "text": "1210 AVID XCHANGE LN 28206-3560,Charlotte,United States",
+               "confidence": 0.916,
+               "boundingBox": [
+                   5.7427,
+                   2.6532,
+                   7.3366,
+                   2.6532,
+                   7.3366,
+                   2.8478,
+                   5.7427,
+                   2.8478
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "CustomerAddressRecipient",
+           "page": 1,
+           "value": {
+               "text": "AvidXchange, Inc.",
+               "confidence": 0.948,
+               "boundingBox": [
+                   5.741,
+                   2.5484,
+                   6.574,
+                   2.5484,
+                   6.574,
+                   2.6484,
+                   5.741,
+                   2.6484
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "CustomerId",
+           "page": 1,
+           "value": {
+               "text": "0005246067",
+               "confidence": 0.979,
+               "boundingBox": [
+                   1.0714,
+                   2.6624,
+                   1.6186,
+                   2.6624,
+                   1.6186,
+                   2.7392,
+                   1.0714,
+                   2.7392
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "CustomerName",
+           "page": 1,
+           "value": {
+               "text": "AvidXchange, Inc.",
+               "confidence": 0.948,
+               "boundingBox": [
+                   5.741,
+                   2.5484,
+                   6.574,
+                   2.5484,
+                   6.574,
+                   2.6484,
+                   5.741,
+                   2.6484
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "DueDate",
+           "page": 1,
+           "value": {
+               "text": "31-JUL-2020",
+               "confidence": 0.99,
+               "boundingBox": [
+                   8.6692,
+                   1.474,
+                   9.2604,
+                   1.474,
+                   9.2604,
+                   1.5506,
+                   8.6692,
+                   1.5506
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "date",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "InvoiceDate",
+           "page": 1,
+           "value": {
+               "text": "01-JUL-2020",
+               "confidence": 0.978,
+               "boundingBox": [
+                   8.667,
+                   1.349,
+                   9.2604,
+                   1.349,
+                   9.2604,
+                   1.4256,
+                   8.667,
+                   1.4256
+               ],
+               "required": true,
+               "incomplete": true,
+               "incompleteReason": "Required but not found by IDC",
+               "type": "date",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "InvoiceId",
+           "page": 2,
+           "value": {
+               "text": "9879328517",
+               "confidence": 0.974,
+               "boundingBox": [
+                   8.6677,
+                   1.2238,
+                   9.2143,
+                   1.2238,
+                   9.2143,
+                   1.3015,
+                   8.6677,
+                   1.3015
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "InvoiceTotal",
+           "page": 2,
+           "value": {
+               "text": "USD 328.19",
+               "confidence": 0.856,
+               "boundingBox": [
+                   8.7913,
+                   3.8216,
+                   10.5763,
+                   3.8216,
+                   10.5763,
+                   3.9222,
+                   8.7913,
+                   3.9222
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "number",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "PurchaseOrder",
+           "page": 1,
+           "value": {
+               "text": "3/12/2019",
+               "confidence": 0.786,
+               "boundingBox": [
+                   4.7745,
+                   0.9047,
+                   5.2158,
+                   0.9047,
+                   5.2158,
+                   0.9822,
+                   4.7745,
+                   0.9822
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "ServiceStartDate",
+           "page": 1,
+           "value": {
+               "text": "Jul2020-Jun2021",
+               "confidence": 0.915,
+               "boundingBox": [
+                   5.4397,
+                   4.6705,
+                   6.1923,
+                   4.6705,
+                   6.1923,
+                   4.7478,
+                   5.4397,
+                   4.7478
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "date",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "ShippingAddress",
+           "page": 1,
+           "value": {
+               "text": "1210 AvidXChange Lane CHARLOTTE NC 28206-3560 United States",
+               "confidence": 0.806,
+               "boundingBox": [
+                   8.2732,
+                   2.8583,
+                   9.6612,
+                   2.8583,
+                   9.6612,
+                   3.15,
+                   8.2732,
+                   3.15
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "ShippingAddressRecipient",
+           "page": 1,
+           "value": {
+               "text": "AvidXchange, Inc. ATTN: ACCOUNTS PAYABLE",
+               "confidence": 0.941,
+               "boundingBox": [
+                   8.2714,
+                   2.546,
+                   10.5639,
+                   2.546,
+                   10.5639,
+                   2.6565,
+                   8.2714,
+                   2.6565
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "SubTotal",
+           "page": 2,
+           "value": {
+               "text": "306.00",
+               "confidence": 0.986,
+               "boundingBox": [
+                   10.206,
+                   2.8153,
+                   10.5786,
+                   2.8153,
+                   10.5786,
+                   2.911,
+                   10.206,
+                   2.911
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "number",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "TotalTax",
+           "page": 2,
+           "value": {
+               "text": "USD 22.19",
+               "confidence": 0.795,
+               "boundingBox": [
+                   8.7913,
+                   3.1508,
+                   10.5763,
+                   3.1508,
+                   10.5763,
+                   3.2512,
+                   8.7913,
+                   3.2512
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "number",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "VendorAddress",
+           "page": 1,
+           "value": {
+               "text": "1950 N Stemmons Fwy Ste 5010 LB #842467 DALLAS TX 75207 United States",
+               "confidence": 0.798,
+               "boundingBox": [
+                   0.4159,
+                   1.2944,
+                   2.4675,
+                   1.2944,
+                   2.4675,
+                   1.5712,
+                   0.4159,
+                   1.5712
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "VendorAddressRecipient",
+           "page": 2,
+           "value": {
+               "text": "Microsoft Corporation C/O Bank of America",
+               "confidence": 0.788,
+               "boundingBox": [
+                   0.4157,
+                   0.9188,
+                   1.4157,
+                   0.9188,
+                   1.4157,
+                   1.0929,
+                   0.4157,
+                   1.0929
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "VendorName",
+           "page": 2,
+           "value": {
+               "text": "Microsoft",
+               "confidence": 0.998,
+               "boundingBox": [
+                   2.497,
+                   0.3247,
+                   3.8529,
+                   0.3104,
+                   3.8529,
+                   0.5921,
+                   2.5065,
+                   0.5826
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "SearchScore",
+           "page": 0,
+           "value": {
+               "text": "80.516624",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "ShipToName",
+           "page": 0,
+           "value": {
+               "text": "",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": true,
+               "incomplete": true,
+               "incompleteReason": "Required but not found by IDC",
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "ShipToAddress",
+           "page": 0,
+           "value": {
+               "text": "",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": true,
+               "incomplete": true,
+               "incompleteReason": "Required but not found by IDC",
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "ShipToID",
+           "page": 0,
+           "value": {
+               "text": "",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": true,
+               "incomplete": true,
+               "incompleteReason": "Required but not found by IDC",
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "Supplier",
+           "page": 0,
+           "value": {
+               "text": "",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": true,
+               "incomplete": true,
+               "incompleteReason": "Required but not found by IDC",
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "SupplierAddress",
+           "page": 0,
+           "value": {
+               "text": "",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "SupplierId",
+           "page": 0,
+           "value": {
+               "text": "",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": true,
+               "incomplete": true,
+               "incompleteReason": "Required but not found by IDC",
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "CustomerAccountNumber",
+           "page": 1,
+           "value": {
+               "text": "",
+               "confidence": 0.979,
+               "boundingBox": [
+                   1.0714,
+                   2.6624,
+                   1.6186,
+                   2.6624,
+                   1.6186,
+                   2.7392,
+                   1.0714,
+                   2.7392
+               ],
+               "required": true,
+               "incomplete": true,
+               "incompleteReason": "Required but not found by IDC",
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "InvoiceDueDate",
+           "page": 1,
+           "value": {
+               "text": "31-JUL-2020",
+               "confidence": 0.99,
+               "boundingBox": [
+                   8.6692,
+                   1.474,
+                   9.2604,
+                   1.474,
+                   9.2604,
+                   1.5506,
+                   8.6692,
+                   1.5506
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "date",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "InvoiceNumber",
+           "page": 2,
+           "value": {
+               "text": "9879328517",
+               "confidence": 0.974,
+               "boundingBox": [
+                   8.6677,
+                   1.2238,
+                   9.2143,
+                   1.2238,
+                   9.2143,
+                   1.3015,
+                   8.6677,
+                   1.3015
+               ],
+               "required": true,
+               "incomplete": true,
+               "incompleteReason": "Required but not found by IDC",
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "InvoiceAmount",
+           "page": 2,
+           "value": {
+               "text": "328.19",
+               "confidence": 0.856,
+               "boundingBox": [
+                   8.7913,
+                   3.8216,
+                   10.5763,
+                   3.8216,
+                   10.5763,
+                   3.9222,
+                   8.7913,
+                   3.9222
+               ],
+               "required": true,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "number",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "PurchaseOrderIdentifier",
+           "page": 1,
+           "value": {
+               "text": "3/12/2019",
+               "confidence": 0.786,
+               "boundingBox": [
+                   4.7745,
+                   0.9047,
+                   5.2158,
+                   0.9047,
+                   5.2158,
+                   0.9822,
+                   4.7745,
+                   0.9822
+               ],
+               "required": false,
+               "incomplete": false,
+               "incompleteReason": null,
+               "type": "string",
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "InvoiceType",
+           "page": 0,
+           "value": {
+               "text": "",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": true,
+               "incomplete": true,
+               "incompleteReason": "Required but not found by IDC",
+               "type": null,
+               "verificationState": "NotRequired"
+           }
+       },
+       {
+           "label": "CurrentCharges",
+           "page": 0,
+           "value": {
+               "text": "",
+               "confidence": 0,
+               "boundingBox": [],
+               "required": true,
+               "incomplete": true,
+               "incompleteReason": "Required but not found by IDC",
+               "type": null,
+               "verificationState": "NotRequired"
+           }
+       }
+   ],
+   "escalations": [],
+   "activities": []
+}

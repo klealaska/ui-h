@@ -1,0 +1,21 @@
+.create-game {
+  display: flex;
+  flex-direction: column;
+
+  &__field {
+    display: inline-flex;
+  }
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
+
+.align-right {
+  float: right;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+}

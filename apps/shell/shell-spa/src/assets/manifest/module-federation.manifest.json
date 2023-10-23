@@ -1,0 +1,10 @@
+{
+  "demo-zombie-dice-spa": "http://localhost:4201",
+  "tenant-spa": "http://localhost:4202",
+  "bank-account-mgmt-spa": "http://localhost:4203",
+  "pay-transformation-spa": "http://localhost:4204",
+  "bus-hier-spa": "http://localhost:4206",
+  "usr-mgmt-spa": "http://localhost:4207",
+  "usr-roles-spa": "http://localhost:4208",
+  "vdr-mgmt-spa": "http://localhost:4209"
+}

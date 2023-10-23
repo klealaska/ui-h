@@ -1,0 +1,34 @@
+<div class="content">
+  <div class="toast-header">
+    <div class="row">
+      <ng-template [ngIf]="(successfulMessages$ | async).length > 0">
+        <span *ngIf="(successfulMessages$ | async).length === 1" class="b3 toast-header-title"
+          >{{(successfulMessages$ | async).length}} upload completed</span
+        >
+        <span *ngIf="(successfulMessages$ | async).length > 1" class="b3 toast-header-title"
+          >{{(successfulMessages$ | async).length}} uploads completed</span
+        >
+      </ng-template>
+      <ng-template [ngIf]="(failedMessages$ | async).length > 0">
+        <span *ngIf="(failedMessages$ | async).length === 1" class="b3 toast-header-title"
+          >{{(failedMessages$ | async).length}} upload failed</span
+        >
+        <span *ngIf="(failedMessages$ | async).length > 1" class="b3 toast-header-title"
+          >{{(failedMessages$ | async).length}} uploads failed</span
+        >
+      </ng-template>
+      <mat-icon class="icon-close" (click)="close()">close</mat-icon>
+    </div>
+  </div>
+
+  <div class="toast-body">
+    <div *ngFor="let message of (data.messages$ | async)" class="row row-spacer">
+      <div class="row">
+        <mat-icon class="icon-pdf mr-5">picture_as_pdf</mat-icon>
+        <span class="b4 toast-body-text">{{message.fileName}}</span>
+      </div>
+      <mat-icon *ngIf="message.successful" class="icon-check">check_circle</mat-icon>
+      <mat-icon *ngIf="!message.successful" class="icon-error">cancel</mat-icon>
+    </div>
+  </div>
+</div>

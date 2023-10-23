@@ -1,0 +1,40 @@
+variables:
+  CI: 'true'
+  NX_CLOUD_DISTRIBUTED_EXECUTION: 'true'
+  NX_CLOUD_DISTRIBUTED_EXECUTION_AGENT_COUNT: 10
+  ${{ if eq(variables['Build.Reason'], 'PullRequest') }}:
+    NX_BRANCH: $(System.PullRequest.PullRequestId)
+    TARGET_BRANCH: $[replace(variables['System.PullRequest.TargetBranch'],'refs/heads/','origin/')]
+    BASE_SHA: $(git merge-base $(TARGET_BRANCH) HEAD)
+  #   ${{ if ne(variables['Build.Reason'], 'PullRequest') }}:
+  #     NX_BRANCH: $(Build.SourceBranchName)
+  #     BASE_SHA: $(git rev-parse HEAD~1)
+  HEAD_SHA: $(git rev-parse HEAD)
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: User Interface Center of Excellence/templates
+      ref: refs/heads/master
+
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+    - container: cypress-base
+      image: demozombiedice.azurecr.io/cypress/base:16
+      endpoint: DemoZombieDice
+
+jobs:
+  - template: monorepo/distributed_task_execution.yml@templates
+    parameters:
+      poolName: 'linux-vmss-agent-pool'
+      workingDir: '$(Build.SourcesDirectory)'
+      testResultsDir: '.'
+      testResultsFiles: 'junit.xml'
+      enableCodeCoverage: true
+      codeCoverageTool: 'Cobertura'
+      codeCoverageDir: 'coverage'
+      codeCoverageSummaryFileLocation: '**/*coverage.xml'

@@ -1,0 +1,60 @@
+<ax-input-header
+  *ngIf="label || tooltip"
+  [readonly]="readonly"
+  [id]="id"
+  [label]="label"
+  [optional]="optional"
+  [tooltip]="tooltip"
+  [control]="datePickerForm"
+></ax-input-header>
+
+<mat-form-field class="ax-form-field">
+  <!-- Input -->
+  <mat-date-range-input
+    [formGroup]="datePickerForm"
+    [rangePicker]="datePickerRange"
+    data-test="ax-datepicker"
+    [disabled]="datePickerForm?.disabled"
+  >
+    <input
+      matStartDate
+      class="ax-datepicker-input"
+      [placeholder]="'Start date'"
+      formControlName="start"
+      (dateChange)="startDataChangeFunc($event)"
+      (dateInput)="startDateInputFunc($event)"
+    />
+    <input
+      matEndDate
+      class="ax-datepicker-input"
+      [placeholder]="'End date'"
+      formControlName="end"
+      (dateChange)="endDataChangeFunc($event)"
+      (dateInput)="endDateInputFunc($event)"
+    />
+  </mat-date-range-input>
+
+  <!-- Icon -->
+  <mat-datepicker-toggle matSuffix [for]="datePickerRange" class="ax-datepicker-toggle">
+    <mat-icon matDatepickerToggleIcon class="ax-datepicker-icon">calendar_today</mat-icon>
+  </mat-datepicker-toggle>
+
+  <!-- Panel -->
+  <mat-date-range-picker
+    [dateClass]="dateClass"
+    [panelClass]="'ax-datepicker-panel'"
+    #datePickerRange
+  ></mat-date-range-picker>
+
+  <mat-hint>
+    <ax-input-hint [message]="hintMessage"></ax-input-hint>
+  </mat-hint>
+
+  <mat-error
+    ><ax-input-error
+      [icon]="error?.icon"
+      [message]="error?.message"
+      [invalid]="startControl?.invalid || endControl?.invalid"
+    ></ax-input-error
+  ></mat-error>
+</mat-form-field>

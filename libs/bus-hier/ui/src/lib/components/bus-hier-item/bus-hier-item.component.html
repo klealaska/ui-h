@@ -1,0 +1,12 @@
+<div>
+  <div class="ml-[1.25rem] m-3" (click)="onClick()" [attr.data-cy]="id">
+    <div>{{ name }}</div>
+    <ax-tag
+      class="status"
+      [type]="status"
+      [style]="'filled'"
+      [size]="'md'"
+      [text]="statusText"
+    ></ax-tag>
+  </div>
+</div>

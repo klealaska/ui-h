@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-Uicoe-St-Tenant-Rg'
+  resourceGroupWest: 'Ax-Aw1-Uicoe-St-Tenant-Rg'
+  bffEndpoint: 'https://tenant-api-st.mangowave-e54e98f1.eastus.azurecontainerapps.io/api'
+  keyVaultNameEast: 'axae1uicoesttenantkv'
+  keyVaultNameWest: 'axaw1uicoesttenantkv'

@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-Uicoe-St-vdr-mgmt-Rg'
+  resourceGroupWest: 'Ax-Aw1-Uicoe-St-vdr-mgmt-Rg'
+  bffEndpoint: 'MUST BE ENTERED MANUALLY'
+  keyVaultNameEast: 'axae1uicoestvdrmgmtkv'
+  keyVaultNameWest: 'axaw1uicoestvdrmgmtkv'

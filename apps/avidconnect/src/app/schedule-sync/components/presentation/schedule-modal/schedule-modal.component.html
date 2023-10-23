@@ -1,0 +1,148 @@
+<form [formGroup]="scheduleForm">
+  <header>
+    <h2>Add Schedule</h2>
+
+    <mat-slide-toggle color="primary" labelPosition="before" formControlName="isActive">
+      {{scheduleForm.controls['isActive'].value ? 'Active' : 'Inactive'}}</mat-slide-toggle
+    >
+  </header>
+  <div class="separator"></div>
+
+  <div class="schedule-frequency">
+    <div class="frequency">
+      <h4>Frequency</h4>
+      <mat-radio-group class="frequency-radio-group" color="primary" formControlName="frequency">
+        <mat-radio-button class="frequency-radio-button" value="daily"> Daily </mat-radio-button>
+        <mat-radio-button class="frequency-radio-button" value="weekly"> Weekly </mat-radio-button>
+        <mat-radio-button class="frequency-radio-button" value="monthly">
+          Monthly
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="start-date">
+      <div class="date-options">
+        <mat-form-field appearance="outline" class="date-input">
+          <mat-label>Start Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            [min]="minDate"
+            (focus)="picker.open()"
+            formControlName="startDate"
+          />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-label>at</mat-label>
+
+        <mat-form-field appearance="outline" class="hour-input">
+          <mat-label>Sart Time</mat-label>
+          <mat-select formControlName="startTime">
+            <mat-option *ngFor="let hour of hours; let i = index" [value]="i"
+              >{{i < 10 ? '0' + i : i}}:00</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="time-zone-input">
+          <mat-label>Time zone</mat-label>
+          <mat-select formControlName="timeZone">
+            <mat-option *ngFor="let timeZone of timezones$ | async" [value]="timeZone.standardName"
+              >{{timeZone.displayName}}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="frequency-options">
+        <label *ngIf="scheduleForm.controls['frequency'].value === 'daily'"> Repeat daily </label>
+
+        <div *ngIf="scheduleForm.controls['frequency'].value === 'weekly'">
+          <label> Repeat every week on: </label>
+          <div class="days">
+            <mat-checkbox
+              color="primary"
+              class="schedule-check-box"
+              [checked]="daysSelected.includes(i+1)"
+              *ngFor="let day of daysOfTheWeek; let i = index"
+              (change)="dayCheckboxChange({checked:$event.checked, dayNumber: i+1})"
+            >
+              {{day}}
+            </mat-checkbox>
+          </div>
+        </div>
+
+        <label *ngIf="scheduleForm.controls['frequency'].value === 'monthly'">
+          Repeat monthly</label
+        >
+      </div>
+    </div>
+  </div>
+  <div class="separator"></div>
+
+  <div class="schedule-duration">
+    <div class="duration">
+      <h4>Duration</h4>
+      <mat-radio-group class="duration-radio-group" color="primary" formControlName="period">
+        <mat-radio-button class="duration-radio-button" value="once"> Run once </mat-radio-button>
+        <mat-radio-button class="duration-radio-button" value="every">
+          Run every:
+        </mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field
+        appearance="outline"
+        class="hours-select"
+        [style.visibility]="scheduleForm.controls['period'].value === 'every' ? 'visible' : 'hidden'"
+      >
+        <mat-label>Hours</mat-label>
+        <mat-select formControlName="periodTime">
+          <mat-option *ngFor="let hour of hours;" [value]="hour"
+            >{{ hour === 1 ? hour + ' hour' : hour + ' hours' }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="separator"></div>
+
+  <div class="schedule-data-types">
+    <div class="data-types">
+      <h4>Data types</h4>
+
+      <div class="operation-types-list">
+        <mat-checkbox
+          color="primary"
+          class="schedule-check-box"
+          *ngFor="let operationType of operationTypes$ | async"
+          [checked]="isOperationTypeChecked(operationType.id)"
+          (change)="operationTypeCheckboxChange({checked: $event.checked, operationType})"
+        >
+          {{operationType.name}}
+        </mat-checkbox>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons-content">
+    <button
+      mat-raised-button
+      type="button"
+      color="outline"
+      id="cancel-schedule-btn"
+      (click)="close()"
+    >
+      CANCEL
+    </button>
+    <button
+      mat-raised-button
+      type="button"
+      color="primary"
+      id="save-schedule-btn"
+      [disabled]="operationTypesSelected.length === 0 || 
+      (scheduleForm.controls['frequency'].value === 'weekly' && daysSelected.length === 0) "
+      (click)="saveSchedule(data.schedule?.id)"
+    >
+      SAVE
+    </button>
+  </div>
+</form>

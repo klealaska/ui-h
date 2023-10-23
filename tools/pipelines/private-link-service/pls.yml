@@ -1,0 +1,52 @@
+trigger: none
+
+#####################################
+# Use app specific variables template
+#####################################
+variables:
+  prodServiceConnection: User-Interface-Center-of-Excellence_AvidPay-Network-Experience_Pr_AzDOSC_SP
+  prodSubscriptionId: '3b710983-1d1a-4f27-8ebb-20161ee798ff'
+  serviceConnection: User-Interface-Center-of-Excellence_AvidPay-Network-Experience_Np_AzDOSC_SP
+
+#####################################
+#      DO NOT EDIT BELOW HERE       #
+#####################################
+# Location to reference a container, where the stages will be run
+resources:
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+    - container: cicd_ssdt
+      image: axglbhubacr.azurecr.io/cicd-ssdt-tools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--isolation hyperv'
+
+pool:
+  name: linux-vmss-agent-pool
+
+stages:
+  - stage: approve
+    displayName: Approve PLS
+    jobs:
+      - job:
+        displayName: Approve PLS Connections
+        container: cicd_devtools
+        pool: linux-vmss-agent-pool
+
+        steps:
+          - checkout: self
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '16.x'
+            displayName: 'Install Node.js'
+
+          - task: AzureCLI@2
+            displayName: Run PLS Script
+            inputs:
+              azureSubscription: $(prodServiceConnection)
+              scriptLocation: inlineScript
+              scriptType: 'pscore'
+              inlineScript: |
+                npm run frontdoor:pls-approve

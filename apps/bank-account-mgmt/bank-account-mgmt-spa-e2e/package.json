@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "cy:run:dev": "cypress run  --env ENV=dev",
+    "cy:run:qa": "cypress run  --env ENV=qa",
+    "cy:run:stage": "cypress run  --env ENV=staging",
+    "cy:run:prod": "cypress run  --env ENV=production",
+    "cy:open:dev": "cypress open  --env ENV=dev",
+    "cy:open:qa": "cypress open  --env ENV=qa",
+    "cy:open:stage": "cypress open  --env ENV=staging",
+    "cy:open:prod": "cypress open  --env ENV=production"
+  },
+  "dependencies": {
+    "cypress": "^12.2.0"
+  },
+  "devDependencies": {}
+}

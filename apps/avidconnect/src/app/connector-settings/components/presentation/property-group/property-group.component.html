@@ -1,0 +1,35 @@
+<div class="property-group">
+  <h2 class="underline">
+    {{ propertyGroup?.DisplayName || propertyGroup?.Name }}
+    <span v-if="group.Description">{{ propertyGroup?.Description }}</span>
+  </h2>
+  <ng-container *ngIf="propertyGroup?.Properties[0].Type !== 'agent'; else getTemplateRef()">
+    <form class="ax-form">
+      <avc-property-item
+        *ngFor="let property of propertyGroup?.Properties"
+        [groupName]="propertyGroup.Name"
+        [property]="property"
+        [value]="getPropertyValue(property.Name)"
+        [error]="getPropertyError(property.Name, property.ComplexType === 'complex')"
+        (valueChanged)="propertyValueChanged.emit({settings:$event, group: propertyGroup.Name })"
+        (complexPropertyChanged)="complexChanged($event)"
+        (clearComplexErrors)="clearComplexErrors.emit({group: propertyGroup.Name, property:property.Name})"
+      ></avc-property-item>
+    </form>
+  </ng-container>
+  <ng-template #ActivatedMachines>
+    <avc-agent-list
+      [agentList]="agentList"
+      (agentDeactivateClick)="agentDeactivationClick.emit($event)"
+      (activateMachineClick)="activateNewMachineClick.emit()"
+    ></avc-agent-list>
+  </ng-template>
+  <ng-template #AgentRegistration>
+    <avc-agent-registration
+      [agentList]="agentList"
+      [registration]="registration"
+      (agentSelected)="agentSelected.emit($event)"
+      (agentRegCancel)="agentRegCancel.emit($event)"
+    ></avc-agent-registration>
+  </ng-template>
+</div>

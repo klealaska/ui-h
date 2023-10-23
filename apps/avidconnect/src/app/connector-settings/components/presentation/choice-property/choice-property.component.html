@@ -1,0 +1,67 @@
+<mat-form-field
+  class="form-field"
+  appearance="outline"
+  *ngIf="(choice$ | async)?.Selection === 'single'"
+>
+  <mat-select
+    [value]="value"
+    [formControl]="propertyFormControl"
+    [errorStateMatcher]="matcher"
+    (selectionChange)="choiceChanged.emit($event.value)"
+  >
+    <mat-option [value]="option.Value" *ngFor="let option of (choice$ | async).Options"
+      >{{ option.Name }}</mat-option
+    >
+  </mat-select>
+  <mat-error class="error">{{error}}</mat-error>
+</mat-form-field>
+
+<mat-form-field
+  class="form-field"
+  appearance="outline"
+  *ngIf="(choice$ | async)?.Selection === 'multiple-ordered'"
+>
+  <mat-chip-grid #chipList>
+    <div *ngFor="let value of (choice$ | async).Options">
+      <mat-chip-row
+        *ngIf="multiSelectedValues.includes(value.Value)"
+        [removable]="true"
+        (removed)="remove(value.Value)"
+      >
+        {{value.Name}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    </div>
+    <input
+      placeholder="Select..."
+      #fruitInput
+      [matAutocomplete]="auto"
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="add($event)"
+    />
+  </mat-chip-grid>
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+    <mat-option *ngFor="let option of (choice$ | async).Options" [value]="option.Value">
+      {{option.Name}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+
+<div class="multiple-option" *ngIf="(choice$ | async)?.Selection === 'multiple'">
+  <span class="option-list-section">
+    <ul class="multiple-option-list">
+      <li *ngFor="let option of (choice$ | async).Options">
+        <mat-checkbox
+          [checked]="multiSelectedValues.includes(option.Value)"
+          (change)="checkBoxChanged($event.checked, option.Value)"
+        >
+          {{option.Name}}
+        </mat-checkbox>
+      </li>
+    </ul>
+  </span>
+  <mat-error class="error">{{error}}</mat-error>
+</div>

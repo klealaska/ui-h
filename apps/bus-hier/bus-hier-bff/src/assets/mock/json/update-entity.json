@@ -1,0 +1,14 @@
+{
+  "entity_id": "0ir8yvra65b7ktb4fd51",
+  "entity_name": "UpdatedEntityName",
+  "erp_id": "9ng7ljo918qvqunwworx",
+  "entity_code": "EntityCode123",
+  "parent_entity_id": null,
+  "business_level": 1,
+  "entity_addresses": [],
+  "is_active": true,
+  "created_timestamp": "2023-04-20T22:31:04Z",
+  "created_by_user_id": "00u12tymcg0y78rTz1d7",
+  "last_modified_timestamp": "2023-05-18T15:00:48Z",
+  "last_modified_by_user_id": "00u12tymcg0y78rTz1d7"
+}

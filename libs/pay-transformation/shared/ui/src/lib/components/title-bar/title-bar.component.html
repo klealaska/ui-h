@@ -1,0 +1,16 @@
+<div
+  class="title-Bar flex bg-secondary-200 w-full h-[94px] items-center gap-4 md:py-6 pr-0 px-4 md:px-6 lg:px-[60px] xl:px-[92px] 2xl:px-[332px]"
+>
+  <button
+    *ngIf="showBackButton"
+    id="title-Bar-Back-Button"
+    class="sm"
+    mat-icon-button
+    aria-label="Navigate back button"
+    (click)="buttonEvent.emit()"
+  >
+    <mat-icon class="sm">arrow_back</mat-icon>
+  </button>
+
+  <div class="font-interRegular text-4xl text-grey-800" id="title-Bar-Text">{{ title }}</div>
+</div>

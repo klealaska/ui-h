@@ -1,0 +1,10 @@
+:host {
+  display: inline-flex;
+  flex-direction: column;
+  border: solid 1px theme('colors.grey.50');
+  border-radius: 4px;
+
+  ::ng-deep.card--disabled > * {
+    color: theme('colors.grey.600') !important;
+  }
+}

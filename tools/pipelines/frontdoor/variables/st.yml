@@ -1,0 +1,4 @@
+variables:
+  resourceGroup: Ax-Ae1-Uicoe-St-Shared-Frontdoor-Rg
+  securityPolicy: fd-St-security-policy
+  fdProfileName: frontdoor-st

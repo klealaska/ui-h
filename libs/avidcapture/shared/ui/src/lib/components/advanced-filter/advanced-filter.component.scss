@@ -1,0 +1,52 @@
+.ax-form-field-wrapper {
+  display: block;
+
+  ::placeholder {
+    font-family: theme('fontFamily.interRegular');
+    font-style: italic;
+    color: theme('colors.grey.500');
+  }
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  &-search {
+    color: rgba(64, 64, 65, 0.7);
+    margin-right: 0.2em;
+  }
+}
+
+.ax-input__header {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin-bottom: 4px;
+
+  &-label {
+    color: theme('colors.grey.800');
+    font-family: theme('fontFamily.interSemibold');
+    font-size: 14px;
+    line-height: 16px;
+    height: 16px;
+  }
+}
+
+::ng-deep .mat-date-range-input-wrapper,
+.ax-datepicker-input {
+  padding: 15px 0 !important;
+}
+
+::ng-deep .side-sheet__content,
+::ng-deep .side-sheet__wrapper {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Chrome/Safari */
+  }
+}

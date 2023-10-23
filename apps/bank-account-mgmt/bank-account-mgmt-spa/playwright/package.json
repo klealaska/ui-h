@@ -1,0 +1,19 @@
+{
+  "name": "playwrightts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.36.0"
+  },
+  "dependencies": {
+    "@azure/identity": "^3.2.3",
+    "@azure/identity-vscode": "^1.0.0",
+    "@azure/keyvault-secrets": "^4.7.0",
+    "dotenv": "^16.3.1"
+  }
+}

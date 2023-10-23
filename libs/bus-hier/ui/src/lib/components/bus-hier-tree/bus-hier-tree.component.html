@@ -1,0 +1,19 @@
+<div *ngIf="!isLoading" [attr.data-cy]="'hier-tree'" class="pt-[3.25rem]">
+  <ng-container *ngFor="let node of tree">
+    <bus-hier-tree-node
+      [name]="node?.name"
+      [parentEntityId]="node?.parentEntityId"
+      [parentBusinessLevel]="node?.parentBusinessLevel"
+      [id]="node?.id"
+      [type]="node?.type"
+      [isActive]="node?.isActive"
+      [hasNext]="node?.hasNext"
+      [isEntitySelected]="node?.isEntitySelected"
+      [level]="node?.level"
+      [count]="node?.count"
+      [erpId]="node?.erpId"
+      [businessLevelId]="node?.businessLevelId"
+      (clicked)="onClick($event)"
+    ></bus-hier-tree-node>
+  </ng-container>
+</div>

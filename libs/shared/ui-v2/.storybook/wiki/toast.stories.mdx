@@ -1,0 +1,97 @@
+import { Meta } from '@storybook/addon-docs';
+import toastExample from '../assets/toast/toast-example.png';
+import toastInterface from '../assets/toast/toast-interface.png';
+import toastType from '../assets/toast/toast-type.png';
+
+<Meta title="Wiki/Toast" />
+
+# Toast
+
+Toast can be implemented by using the `ax-toast` component
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() data: Toast</td>
+    <td>Data object for Toast component.</td>
+  </tr>
+</table>
+
+## Interfaces
+
+<h3>Toast</h3>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Required</th>
+  </tr>
+  <tr>
+    <td>title: string</td>
+    <td>Title for toast component</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>message: string</td>
+    <td>Message for toast component.</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>icon: string</td>
+    <td>Icon in the upper left corner of toast component next to title.</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>action: ToastAction</td>
+    <td>Displays a URL link below the toast message that will open a new tab when clicked.</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>type: ToastType</td>
+    <td>
+      Changes toast style. Supports: <code>success</code>, <code>warning</code>,{' '}
+      <code>informational</code>, and
+      <code>critical</code>
+    </td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>close: boolean</td>
+    <td>Adds an X icon to the top-right corner of toast for manual close.</td>
+    <td>No</td>
+  </tr>
+</table>
+
+<h3>ToastAction</h3>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Required</th>
+  </tr>
+  <tr>
+    <td>text: string</td>
+    <td>Text that will be displayed for the URL link.</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>link: string</td>
+    <td>URL to be used.</td>
+    <td>Yes</td>
+  </tr>
+</table>
+
+## How to implement
+
+Import the following packages `import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';`.
+
+Define snackbarRef and set the MatSnackBarRef type to <code>ToastComponent</code>. Declare snackBar inside your constructor. Additionally, Type aliases for horizontalPosition and verticalPosition can be found [here](https://material.angular.io/components/snack-bar/api#MatSnackBarHorizontalPosition).
+
+## Example on how to launch toast component
+
+<img src={toastExample} alt="Toast Example" />

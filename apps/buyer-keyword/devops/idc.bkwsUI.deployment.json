@@ -1,0 +1,319 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "envAliasPascal": { // Required
+        "type": "string",
+        "allowedValues": [ "Ci", "Di", "Dm", "DM", "Dr", "Dv", "Fs", "Ft", "Nt", "Rc", "Q1", "Q2", "Q3", "St", "Ut", "Pr" ],
+        "metadata": {
+          "description": "Declare the Environment Alias in Pascal Format"
+        }
+      },
+      "macroEnvGroup": { // Required
+        "type": "string",
+        "allowedValues": [ "Dev", "Qa", "QA", "Prod", "Dr" ],
+        "metadata": {
+          "description": "Declare the Macro Environment Group name"
+        }
+      },
+      "regionCode": { // Required
+        "type": "string",
+        "allowedValues": [ "Glb", "Ae1", "Aw1" ],
+        "minLength": 3,
+        "maxLength": 3,
+        "metadata": {
+          "description": "3 Letter abbreviation identifying the deployment Azure Region"
+        }
+      },
+      "hostingPlatform": { // Optional
+        "type": "string",
+        "allowedValues": [ "windows", "linux" ],
+        "defaultValue": "windows",
+        "metadata": {
+          "description": "The OS Type of App Service Plan for the Azure App Services"
+        }
+      },
+      "aadClientId": { // Required
+        "type": "securestring",
+        "metadata": {
+          "description": "Declare the Azure Active Directory Client ID Used for Authentication"
+        }
+      },
+      "slotName": {
+        "type": "string",
+        "metadata": {
+          "description": "The name of the swap slot"
+        }
+      },
+      "releaseStartDateTime": {
+        "type": "string",
+        "metadata": {
+          "description": "The Date/Time that the current Release Pipeline execution began"
+        }
+      },
+      "isBetaDeploy": {
+        "type": "bool",
+        "allowedValues": [ true, false ],
+        "defaultValue": false,
+        "metadata": {
+          "description": "Deploy Instance with Beta Naming"
+        }
+      },
+      "certEnvAlias": {
+        "type": "string",
+        "metadata": {
+          "description": "Only specific environments have certificates, this is to override our envAliasPascal"
+        }   
+      },
+      "certKeyVaultName": {
+        "type": "string",
+        "metadata": {
+          "description": "KeyVault Name that we are accessing for the certificate info"
+        }   
+      },
+      "certKeyVaultId": {
+        "type": "string",
+        "metadata": {
+          "description": "KeyVaultId to the domain host certificates"
+        }   
+      },
+      "certKeyVaultSecretName": {
+        "type": "string",
+        "metadata": {
+          "description": "Certificate secret name"
+        }   
+      }
+    },
+  "variables": {
+    "tenantId": "[subscription().tenantId]", // Variable to dynamically gather the Azure AD Tenant ID
+    "issuerUrl": "[concat('https://sts.windows.net/', variables('tenantId'), '/')]", // Variable for Azure AD Tenant Issuer URL
+    "deploymentResourceGroupName": "[resourceGroup().name]", // Variable to dynamically gather deployment resource group name
+    "identifiers": { // Variables for Application/Solution alignment
+      "capabilityDomain": "InvoiceManagement",
+      "capability": "BuyerKeyword",
+      "capabilityAbbreviation": "IDC",
+      "appDomainAbbreviation": "BuyerKeyword01",
+      "appDomain": "BuyerKeyword",
+      "buyerKeywordServiceUI": "BuyerKeywordUI"
+    },
+    "resourceNames": { // Variables for Resource Names
+      "appInsights": "[concat('AvidX-', parameters('envAliasPascal'), '-', variables('identifiers').appDomainAbbreviation, '-INSIGHTS')]",
+      "ase": {
+        "dev": "AvidX-Dv-Internal01-ASE",
+        "qa": "AvidX-Qa-Internal-ASE",
+        "prod": "AvidX-Pr-Internal01-ASE"
+      },
+      "aspName": {
+        "windows": {
+          "dv": "AvidX-Dv-Internal01-ASP",
+          "ci": "AvidX-Ci-Windows01-Int-ASP",
+          "ft": "AvidX-Ft-Windows01-Int-ASP",
+          "nt": "AvidX-Nt-Windows01-Int-ASP",
+          "ut": "AvidX-Ut-Windows01-Int-ASP",
+          "st": "AvidX-St-Windows01-Int-ASP",
+          "pr": "AvidX-Pr-Internal01-ASP",
+          "dm": "AvidX-Dm-Internal01-ASP"
+        }
+      },
+      "webApps": {
+        "buyerKeywordServiceUI": "[concat('AvidX-', parameters('envAliasPascal'), '-', variables('identifiers').capabilityAbbreviation, '-', variables('identifiers').buyerKeywordServiceUI, '01-Web-UI')]",
+        "BetaBkwsUiName": "[concat('AvidX-', parameters('envAliasPascal'), '-', variables('identifiers').capabilityAbbreviation, '-', variables('identifiers').appDomainAbbreviation, '-', variables('identifiers').buyerKeywordServiceUI, '01-Beta-Web-UI')]"
+      }
+    },
+    "webAppDeployName": "[if(equals(parameters('isBetaDeploy'), bool('true')) , variables('resourceNames').webApps.BetaBkwsUiName, variables('resourceNames').webApps.buyerKeywordServiceUI)]",
+    "resourceGroupNames": { // Variables for Resource Group Names
+      "hostingPlatform": "[if(equals(ToLower(parameters('macroEnvGroup')), 'prod'), 'AvidX-Prod-Internal-ASE-RG', 'AvidX-DevQa-Internal-ASE-RG')]"
+    },
+    "appInsightsConfig": { // Variables for App Insights
+      "applicationType": "web",
+      "flowType": "Redfield",
+      "requestSource": "IbizaAIExtension"
+    },
+    "appServiceConfig": { // Variables for App Services
+      "defaultDocuments": [
+        "index.html"
+      ],
+      "clientAffinityEnabled": false,
+      "netFrameworkVersion": "v4.0",
+      "phpVersion": "5.6",
+      "processAs32bit": false,
+      "alwaysOn": true,
+      "minTlsVersion": "1.2",
+      "ftpsState": "Disabled",
+      "httpsOnly": true,
+      "webSocketsEnabled": true
+    },
+    "resourceTags": { // Variables for Resource Tags
+      "Domain": "Document Recognition",
+      "Environment": "[ToUpper(parameters('envAliasPascal'))]",
+      "DevTeam": "DreamWeavers",
+      "Department": "[if(equals(ToLower(parameters('macroEnvGroup')), 'prod'), 'Technology Services', 'Software Engineering')]",
+      "CapabilityDomain": "[variables('identifiers').capabilityDomain]",
+      "Capability": "[variables('identifiers').capability]",
+      "AppDomain": "[variables('identifiers').appDomain]",
+      "SupportTeam": "[if(equals(ToLower(parameters('macroEnvGroup')), 'prod'), 'SRE - Application', 'DreamWeavers')]",
+      "IsBeta": "[parameters('isBetaDeploy')]"
+    },
+    "resourceIDs": { // Variables for Resource IDs
+      "appServicePlan": "[resourceId(subscription().subscriptionId, variables('resourceGroupNames').hostingPlatform, 'Microsoft.Web/serverfarms', variables('resourceNames').aspName[ToLower(parameters('hostingPlatform'))][ToLower(parameters('envAliasPascal'))])]"
+    }
+  },
+  "resources": [
+    { // App Insights
+      "comments": "[concat('Deploy the ', variables('identifiers').capabilityAbbreviation, '-', variables('identifiers').appDomain, ' Application Insights')]",
+      "type": "Microsoft.Insights/components",
+      "name": "[variables('resourceNames').appInsights]",
+      "apiVersion": "2015-05-01",
+      "location": "[resourceGroup().location]",
+      "tags": "[variables('resourceTags')]",
+      "kind": "[variables('appInsightsConfig').applicationType]",
+      "properties": {
+        "Application_Type": "[variables('appInsightsConfig').applicationType]",
+        "Flow_Type": "[variables('appInsightsConfig').flowType]",
+        "Request_Source": "[variables('appInsightsConfig').requestSource]"
+      }
+    },
+    { // Azure Web Application - IDC BuyerKeywordServiceUI
+      "comments": "[concat('Deploy the ', variables('webAppDeployName'), ' API Application')]",
+      "type": "Microsoft.Web/sites",
+      "name": "[variables('webAppDeployName')]",
+      "apiVersion": "2018-11-01",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[variables('resourceNames').appInsights]"
+      ],
+      "tags": "[variables('resourceTags')]",
+      "kind": "api",
+      "properties": {
+        "name": "[variables('webAppDeployName')]",
+        "serverFarmId": "[variables('resourceIDs').appServicePlan]",
+        "hostingEnvironment": "[variables('resourceNames').ase[ToLower(parameters('macroEnvGroup'))]]",
+        "clientAffinityEnabled": "[variables('appServiceConfig').clientAffinityEnabled]",
+        "httpsOnly": "[variables('appServiceConfig').httpsOnly]"
+      },
+        "identity": {
+          "type": "SystemAssigned"
+        },
+        "resources": [
+          {
+            "type": "Microsoft.Web/certificates",
+            "apiVersion": "2019-08-01",
+            "name": "[concat(parameters('certKeyVaultName'), '-cert')]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+              "[resourceId('Microsoft.Web/sites', variables('webAppDeployName'))]"
+            ],
+            "properties": {
+                "keyVaultId": "[parameters('certKeyVaultId')]",
+                "keyVaultSecretName": "[parameters('certKeyVaultSecretName')]"
+            }
+        },
+          {
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "apiVersion": "2022-03-01",
+            "name": "[if(equals(ToLower(parameters('macroEnvGroup')), 'prod'), concat(variables('resourceNames').webApps.buyerKeywordServiceUI,  '/avidcaptureprofile.avidsuite.com'), concat(variables('resourceNames').webApps.buyerKeywordServiceUI, '/avidcaptureprofile.', ToLower(parameters('certEnvAlias')) ,'.avidsuite.com'))]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+              "[resourceId('Microsoft.Web/sites', variables('webAppDeployName'))]"
+            ],
+            "properties": {
+                "siteName": "[variables('resourceNames').webApps.buyerKeywordServiceUI]",
+                "hostNameType": "Verified",
+                "sslState": "SniEnabled",
+                "thumbprint": "[reference(resourceId('Microsoft.Web/certificates', concat(parameters('certKeyVaultName'), '-cert'))).Thumbprint]"
+            }
+          },    
+          { // Azure Web Application - IDC BuyerKeywordServiceUI - Site Config
+            "apiVersion": "2019-08-01",
+            "name": "[concat(variables('webAppDeployName'), '/web')]",
+            "type": "Microsoft.Web/sites/config",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+              "[resourceId('Microsoft.Web/sites', variables('webAppDeployName'))]"
+            ],
+            "properties": {
+              "netFrameworkVersion": "[variables('appServiceConfig').netFrameworkVersion]",
+              "phpVersion": "[variables('appServiceConfig').phpVersion]",
+              "use32BitWorkerProcess": "[variables('appServiceConfig').processAs32bit]",
+              "alwaysOn": "[variables('appServiceConfig').alwaysOn]",
+              "defaultDocuments": "[variables('appServiceConfig').defaultDocuments]",
+              "minTlsVersion": "[variables('appServiceConfig').minTlsVersion]",
+              "ftpsState": "[variables('appServiceConfig').ftpsState]"
+            }
+          },
+          { // Enable Slot Deployment - IDC BuyerKeywordServiceUI
+          "apiVersion": "2018-02-01",
+          "type": "Microsoft.Web/sites/slots",
+          "name": "[concat(variables('webAppDeployName'), '/', parameters('slotName'))]",
+          "kind": "api",
+          "location": "[resourceGroup().location]",
+          "comments": "[concat('Deploy ', parameters('slotName'), 'Slot to ', variables('webAppDeployName'), ' API Application')]",
+          "tags": "[variables('resourceTags')]",
+          "properties": {
+            "serverFarmId": "[variables('resourceIDs').appServicePlan]",
+            "hostingEnvironment": "[variables('resourceNames').ase[ToLower(parameters('macroEnvGroup'))]]",
+            "clientAffinityEnabled": "[variables('appServiceConfig').clientAffinityEnabled]",
+            "httpsOnly": "[variables('appServiceConfig').httpsOnly]"
+          },
+          "identity": {
+            "type": "SystemAssigned"
+          },
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', variables('webAppDeployName'))]"
+          ],
+          "resources": [ // API Application Configuration
+            { // Site Config
+              "apiVersion": "2018-02-01",
+              "name": "web",
+              "type": "config",
+              "location": "[resourceGroup().location]",
+              "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', variables('webAppDeployName'), parameters('slotName'))]"
+              ],
+              "properties": {
+                "netFrameworkVersion": "[variables('appServiceConfig').netFrameworkVersion]",
+                "phpVersion": "[variables('appServiceConfig').phpVersion]",
+                "use32BitWorkerProcess": "[variables('appServiceConfig').processAs32bit]",
+                "alwaysOn": "[variables('appServiceConfig').alwaysOn]",
+                "defaultDocuments": "[variables('appServiceConfig').defaultDocuments]",
+                "siteAuthEnabled": true,
+                "minTlsVersion": "[variables('appServiceConfig').minTlsVersion]",
+                "ftpsState": "[variables('appServiceConfig').ftpsState]"
+              }
+            },
+            { // Azure API Application - IDC BuyerKeywordServiceUI - API App Settings
+              "apiVersion": "2019-08-01",
+              "name": "[concat(variables('webAppDeployName'), '/appSettings')]",
+              "type": "Microsoft.Web/sites/config",
+              "location": "[resourceGroup().location]",
+              "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', variables('webAppDeployName'), parameters('slotName'))]"
+              ],
+              "properties": {
+                // Start - App Settings Section that Software Engineering CAN modify
+                "ReleaseStartDateTime": "[concat(parameters('releaseStartDateTime'))]",
+                // End - App Settings Section that Software Engineering CAN modify
+
+                // Start - App Settings Section that ONLY Platform Engineering can modify
+                "APPINSIGHTS_INSTRUMENTATIONKEY": "[reference(variables('resourceNames').appInsights).InstrumentationKey]",
+                "WEBSITE_NODE_DEFAULT_VERSION": "6.9.1",
+                "WEBSITE_RUN_FROM_PACKAGE": "0"
+                // End - App Settings Section that ONLY Platform Engineering can modify
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "appInsightsName": {
+      "type": "string",
+      "value": "[variables('resourceNames').appInsights]"
+    },
+    "appInsightsKey": {
+      "type": "string",
+      "value": "[reference(variables('resourceNames').appInsights).InstrumentationKey]"
+    }
+  }
+}

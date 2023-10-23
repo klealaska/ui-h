@@ -1,0 +1,43 @@
+{
+  "extends": ["../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": ["plugin:@nx/angular", "plugin:@angular-eslint/template/process-inline-templates"],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "avc",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "avc",
+            "style": "kebab-case"
+          }
+        ],
+        "@typescript-eslint/no-explicit-any": "off",
+        "max-len": [
+          1,
+          140,
+          2,
+          {
+            "ignorePattern": "^import\\s.+\\sfrom\\s.+;$",
+            "ignoreUrls": true
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@nx/angular-template"],
+      "rules": {}
+    }
+  ]
+}

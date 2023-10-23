@@ -1,0 +1,50 @@
+{
+  "title": "<span class='{{ fontFamilySemibold }}'>Customer</span><span class='{{ fontFamilyLight }}'> Site </span>",
+  "detailsTitle": "<span class='{{ fontFamilySemiBold }}'>Customer Site</span><span class='{{ fontFamilyLight }}'> Details </span>",
+  "manageDetailsTitle": "<span class='{{ fontFamilyBold }}'>{{ siteName }}</span><span class='{{ fontFamilyLight }}'> Details </span>",
+  "addButton": "Create Site",
+  "tenantList": {
+      "columnHeaders": {
+          "siteName": "Name",
+          "dateCreated": "Date Created",
+          "status": "Status"
+      },
+      "newBadge": "NEW"
+  },
+  "customerDetails": {
+     "sideMenu": {
+       "customerDetails": "Customer Details",
+       "entitlements": "Entitlements"
+     },
+     "toaster": {
+       "create": {
+          "title": {
+            "success": "New Site ID Created",
+            "error": "Site ID Creation Failed"
+          },
+          "body": {}
+       },
+       "update": {
+          "title": {
+            "success": "Customer Details Updated",
+            "error": "Customer Details Update Failed"
+          },
+          "body": {}
+       }
+     },
+     "customerDetailsCard": {
+       "title": "Customer Details",
+       "siteNameLabelText": "Site Name",
+       "customerNameLabelText": "Customer Name",
+       "accountIdLabelText": "Account ID",
+       "cmpLabelText": "CMP ID",
+       "siteIdLabelText": "Site ID",
+       "submitButtonText": "Submit",
+       "cmpIdHelperText": "20 case-sensitive characters"
+     },
+     "entitlementsCard":{
+      "title": "Entitlements",
+      "entitlementsHelperText": "Selected items are active once the site is created."
+     }
+  }
+}

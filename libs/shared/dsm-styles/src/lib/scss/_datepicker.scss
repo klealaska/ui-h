@@ -1,0 +1,50 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+.mat-datepicker-popup .mat-datepicker-content {
+  border-radius: 0.625rem;
+  box-shadow: 0px 8px 40px mat-color($dsm-fill, Shadow, 14%);
+}
+
+.mat-calendar-body .mat-calendar-body-in-range::before {
+  background: mat-color($dsm-primary, Light);
+}
+
+.mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  border: none;
+  color: mat-color($dsm-primary, Dark);
+  font-family: 'artegra-bold', sans-serif;
+}
+
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover
+  > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical),
+.cdk-keyboard-focused
+  .mat-calendar-body-active
+  > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical),
+.cdk-program-focused
+  .mat-calendar-body-active
+  > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  background-color: mat-color($dsm-primary, Light);
+}
+
+div.mat-calendar-controls .mat-icon-button:hover .mat-button-focus-overlay,
+div.mat-calendar-controls .mat-icon-button:active .mat-button-focus-overlay {
+  opacity: 0;
+}
+
+.mat-calendar-body {
+  font-size: 0.875rem;
+}
+
+.mat-calendar-table-header th {
+  font-size: 0.75rem;
+}
+
+.mat-calendar-body-label {
+  font-size: 0;
+}
+
+.mat-datepicker-content .mat-calendar-next-button:hover,
+.mat-datepicker-content .mat-calendar-previous-button:hover {
+  background-color: mat-color($dsm-fill, Hover);
+}

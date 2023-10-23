@@ -1,0 +1,27 @@
+<div class="hostname-settings">
+  <mat-label>Hostname</mat-label>
+
+  <div class="hostname-options">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-select placeholder="Default" [formControl]="hostname">
+        <mat-option>Default</mat-option>
+        <mat-option [value]="hostname" *ngFor="let hostname of hostnames"
+          >{{ hostname.name}} - {{hostname.value.description }} {{hostname.value.enabled ? '' :
+          '(Inactive)'}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <button type="button" mat-button color="primary" (click)="openHostnameSettingsModal()">
+    <mat-icon class="icon">add</mat-icon>Add Hostname
+  </button>
+  <button
+    type="button"
+    mat-button
+    color="primary"
+    (click)="openHostnameSettingsModal(true)"
+    *ngIf="hostname.value"
+  >
+    <mat-icon class="icon">edit</mat-icon>Edit Hostname
+  </button>
+</div>

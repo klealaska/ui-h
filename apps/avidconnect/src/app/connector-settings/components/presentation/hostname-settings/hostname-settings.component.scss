@@ -1,0 +1,19 @@
+.hostname-settings {
+  margin: 20px 0;
+
+  .hostname-options {
+    display: flex;
+    align-items: baseline;
+    .form-field {
+      display: block;
+      width: 320px;
+      margin-right: 20px;
+    }
+  }
+}
+
+.icon {
+  font-size: 14px;
+  padding-right: 3px;
+  padding-bottom: 2px;
+}

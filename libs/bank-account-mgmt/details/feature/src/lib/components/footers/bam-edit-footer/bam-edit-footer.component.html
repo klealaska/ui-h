@@ -1,0 +1,8 @@
+<section class="bam-edit__footer">
+  <ax-button class="bam-edit__cancel w-full mb-2" (click)="cancelClick.emit()" [type]="'secondary'"
+    >{{content?.cancelBtn}}</ax-button
+  >
+  <ax-button class="bam-edit__save w-full" (click)="saveClick.emit()" [disabled]="saveDisabled"
+    >{{content?.saveBtn}}</ax-button
+  >
+</section>

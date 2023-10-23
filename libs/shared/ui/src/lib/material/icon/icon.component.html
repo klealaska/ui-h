@@ -1,0 +1,16 @@
+<mat-icon [id]="id" *ngIf="icon">{{ icon }}</mat-icon>
+<mat-icon
+  [id]="id"
+  *ngIf="svgData"
+  svgIcon="ax-mat-icon-svg"
+  [ngStyle]="{
+    width: this.width,
+    height: this.height
+  }"
+  [matBadge]="matBadge"
+  [matBadgeColor]="matBadgeColor"
+  [matBadgeOverlap]="matBadgeOverlap"
+  [matBadgeSize]="matBadgeSize"
+  [matBadgePosition]="matBadgePosition"
+  [matBadgeHidden]="matBadgeHidden"
+></mat-icon>

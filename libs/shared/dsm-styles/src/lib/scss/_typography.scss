@@ -1,0 +1,46 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+body {
+  font-size: 16px;
+  font-family: 'artegra-medium', Arial, Helvetica, sans-serif;
+  color: mat-color($dsm-fill, Text);
+}
+
+a {
+  font-size: 1em;
+  color: mat-color($dsm-primary, Main);
+  white-space: nowrap;
+  outline: none;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+a:hover {
+  color: mat-color($dsm-primary, Dark);
+}
+
+a:active {
+  color: mat-color($dsm-primary, Dark);
+}
+
+code {
+  font-family: monospace;
+  font-size: 1.25em;
+}
+
+p {
+  margin: 0;
+}
+
+li {
+  padding: 4px 0;
+  &::marker {
+    font-family: 'artegra-bold', Arial, Helvetica, sans-serif;
+  }
+}
+
+app-knowledge-base iframe {
+  width: 100% !important;
+  height: 600px !important;
+}

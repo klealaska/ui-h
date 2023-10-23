@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="16px" viewBox="0 0 10 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-page-down</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-26.000000, -12.000000)">
+            <g id="icon-page-down" transform="translate(26.000000, 13.000000)">
+                <path d="M9.55002717,5.18002717 L9.55002717,5.18002717 C9.30530157,4.94121119 8.91475277,4.94121119 8.67002717,5.18002717 L4.87002717,9.00002717 L1.07002717,5.18002717 C0.821914491,4.93999094 0.428139858,4.93999094 0.180027175,5.18002717 C-0.0600090582,5.42813986 -0.0600090582,5.82191449 0.180027175,6.07002717 L4.43002717,10.3100272 C4.67475277,10.5488432 5.06530157,10.5488432 5.31002717,10.3100272 L5.31002717,10.3100272 L9.55002717,6.07002717 C9.67038735,5.95326112 9.73831547,5.79272 9.73831547,5.62502717 C9.73831547,5.45733435 9.67038735,5.29679323 9.55002717,5.18002717 L9.55002717,5.18002717 Z" id="Path" fill="#fff" fill-rule="nonzero"></path>
+                <line x1="4.9" y1="0" x2="4.9" y2="9" id="Line" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></line>
+            </g>
+        </g>
+    </g>
+</svg>

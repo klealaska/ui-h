@@ -1,0 +1,43 @@
+{
+  "name": "pay-transformation-shared-types",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/pay-transformation/shared/types/src",
+  "prefix": "ax",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/pay-transformation/shared/types"],
+      "options": {
+        "project": "libs/pay-transformation/shared/types/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/pay-transformation/shared/types/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/pay-transformation/shared/types/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["coverage/libs/pay-transformation/shared/types"],
+      "options": {
+        "jestConfig": "libs/pay-transformation/shared/types/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/pay-transformation/shared/types/**/*.ts",
+          "libs/pay-transformation/shared/types/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:types", "scope:shared", "scope:pay-transformation"]
+}

@@ -1,0 +1,45 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+.mat-mdc-option.mdc-list-item {
+  font-size: 16px;
+}
+
+.mat-mdc-nav-list {
+  font-size: 16px !important;
+}
+
+.mat-mdc-menu-content {
+  font-size: 14px !important;
+  color: mat-color($dsm-fill, Text);
+
+  .mat-mdc-checkbox {
+    font-size: 16px !important;
+    display: block;
+    &:hover {
+      background-color: mat-color($dsm-primary, Light);
+    }
+  }
+
+  .mat-mdc-checkbox-layout {
+    padding: 0 1rem;
+    height: 48px;
+    align-items: center;
+  }
+
+  .mat-mdc-checkbox-inner-container {
+    margin: 0 0.5rem 0 0;
+  }
+
+  .mat-mdc-menu-item:hover:not([disabled]) {
+    background-color: mat-color($dsm-primary, Light);
+  }
+}
+
+div .mat-elevation-z4 {
+  box-shadow: 0px 8px 44px mat-color($dsm-fill, Shadow, 14%);
+}
+
+div .mat-mdc-menu-panel {
+  border-radius: 0.625rem;
+}

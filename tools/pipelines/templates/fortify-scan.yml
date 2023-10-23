@@ -1,0 +1,116 @@
+# Template for invoking the fortify Scan
+# Make sure that this is being called after the steps that build your application
+
+parameters:
+  applicationName: ''
+  applicationRoot: ''
+  fortifyApplicationName: ''
+  microserviceName: ''
+  dotnetCoreVersion: ''
+  technologyStackId: 1
+  languageLevelId: 16
+
+stages:
+  - stage: Fortify
+    displayName: 'Run Fortify'
+    dependsOn: ${{ parameters.dependsOn }}
+    jobs:
+      - job: fortify
+        displayName: Run Fortify
+        container: cicd_devtools
+        pool:
+          name: linux-vmss-agent-pool
+
+        steps:
+          # - task: DownloadPipelineArtifact@2
+          #   displayName: 'Download artifact'
+          #   inputs:
+          #     source: 'specific'
+          #     project: 'User Interface Center of Excellence'
+          #     pipeline: ui-coe-ci-tagged
+          #     preferTriggeringPipeline: true
+          #     artifactName: AffectedApps
+          #     runVersion: 'latest'
+          #     runBranch: $(Build.SourceBranch)
+          #     tags: ${{ parameters.appTag }}
+          #     targetPath: '$(Build.SourcesDirectory)/dist'
+
+          - script: echo ${{ parameters.applicationRoot }}
+
+          - task: DownloadPackage@1
+            displayName: 'Download Package fortify.microservice.scan.prep'
+            inputs:
+              feed: '/8149219a-50bc-4f7e-a439-5d9047c0fcb3'
+              view: 'dd7ecf9f-d94a-4ce8-bed5-698007a2675b'
+              definition: 'e3136bf5-f709-4d10-84c7-62c142108e03'
+              version: '1.1.0'
+              downloadPath: '$(System.ArtifactsDirectory)/fortify-prep'
+
+          - task: CopyFiles@2
+            displayName: 'Stage Files for Fortify Scan'
+            inputs:
+              SourceFolder: '$(Build.SourcesDirectory)${{ parameters.applicationRoot }}'
+              Contents: |
+                **/*
+                !**/node_modules/**
+                !**/obj/**
+                !**/.git/**
+                !**/packages/**
+                !**/*Qa/**
+                !**/*Qa.sln
+                !**/.store/**
+                !**/*.Tests/**
+                !**/Tests/**
+                !**/*.Database/Docker/**
+                !**/.tf/**
+                !**/pipelines/**
+                !**/iac/**
+                !**/tools/**
+                !**/assets/**
+                !**/.stub.ts
+                !**/*.stub.ts
+                !**/.stub.ts
+                !**/**/*.stub.ts
+                !**/**/.stub.ts
+                !**/security-mock.ts
+                !**/**/security-mock.ts
+                !**/**/demo/**
+                !**/demo/**
+                !**/test-users.json
+                !**/**/test-users.json
+                !**/test-users.json
+                !**/**/**/test-users.json
+                !**/**/**/Dockerfile
+                !**/**/**/Dockerfile.*
+                !**/**/**/*.deployment.json
+                !**/**/**/**/*.deployment.json
+                !**/**/*-e2e/**
+                !**/**/*-e2e/**
+                !**/**/**/**/environments/**
+                !**/decorate-angular-cli.js
+              TargetFolder: '$(build.artifactstagingdirectory)/fortify'
+              CleanTargetFolder: true
+
+          - task: PowerShell@2
+            displayName: 'Run Fortify Scan Prep'
+            inputs:
+              targetType: filePath
+              filePath: '$(System.ArtifactsDirectory)/fortify-prep/fortify.microservice.scan.prep.ps1'
+              arguments: '-FortifyClientId "$(DevOps.Common.Fortify.APIKey)" -FortifyClientSecret "$(DevOps.Common.Fortify.APISecret)" -ApplicationName "${{ parameters.fortifyApplicationName }}" -MicroserviceName "${{ parameters.microserviceName }}" -TechnologyStackId "${{ parameters.technologyStackId }}" -LanguageLevelId "${{ parameters.languageLevelId }}" '
+
+          - task: FortifyOnDemandStatic@8
+            displayName: 'Run Fortify on Demand static assessment on $(fortifyRoot)'
+            inputs:
+              FortifyProjects: '$(build.artifactstagingdirectory)/fortify'
+              ReleaseOptions: 0
+              ReleaseId: $(FortifyReleaseId)
+              FodConnection: 'Avid Fortify'
+              EntitlementSelection: 1
+              EntitlementPreference: 1
+              PurchaseEntitlements: false
+              OverrideScanSettings: 2
+              InProgressScanActionType: 2
+              RemediationScanPreference: 2
+              BuildType: 'none'
+              PollingInterval: 0
+              PolicyFailAction: 0

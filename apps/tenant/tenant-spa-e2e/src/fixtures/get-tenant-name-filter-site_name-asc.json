@@ -1,0 +1,32 @@
+{
+  "itemsRequested": 4,
+  "itemsReturned": 4,
+  "itemsTotal": 4,
+  "offset": 0,
+  "items": [
+    {
+      "tenantId": "9fp1bqjpsfg0fiyehi2m",
+      "siteName": "Best Buy",
+      "createdDate": "2022-09-01T02:11:35Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "9fp1bqjpsfg0fiyehi2m",
+      "siteName": "Budweiser",
+      "createdDate": "2022-08-12T16:01:33Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "syn9jaqeyiu352243ckw",
+      "siteName": "Burger King",
+      "createdDate": "2022-11-02T14:43:11Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "7hp0nqlpvwg0dyyehi1m",
+      "siteName": "Burger King",
+      "createdDate": "2022-09-16T16:00:33Z",
+      "tenantStatus": "Active"
+    }
+  ]
+}

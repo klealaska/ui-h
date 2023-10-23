@@ -1,0 +1,16 @@
+<div class="row">
+  <ax-mat-chips-autocomplete
+    class="filter"
+    [data]=""
+    [selectedItems]=""
+    [labelText]="'Search by Name'"
+    [placeholder]="''"
+    [maxSelections]="10"
+    [minSearchLength]="1"
+    [debounceTime]="300"
+    [multiple]="true"
+    (optionSelected)="customerChangedEvent.emit($event)"
+    (removed)="customerChangedEvent.emit($event)"
+    (filterTextChange)="customerTextChangedEvent.emit($event)"
+  ></ax-mat-chips-autocomplete>
+</div>

@@ -1,0 +1,65 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import Uploader from '../assets/uploader.png';
+
+<Meta title="Wiki/Uploader" />
+
+# **Important Note:**
+
+# This component is currently implemented against a service
+
+only intended for use by the Procurement application. The underlying service is not currently intended
+for use by other applications. If you are interested in adding this component to your application please
+first have a conversation with Doug Brown about feature enhancements to this component.
+
+# **Overview**
+
+The uploader component is a custom component created specifically for AvidXchange use and is not a component in Angular Material's component library.
+
+<img src={Uploader} alt="Uploader" />
+
+# **Additional Specifications**
+
+# Location
+
+`libs/shared/ui/uploader`
+
+# Usage
+
+To use the Uploader library, you need to first import the `SharedUiUploaderModule` into one of your application modules.
+This will allow you to use the following selector in one of your components:
+
+`<ax-uploader></ax-uploader>`
+
+This selector requires 4 Inputs to function properly.
+
+`@Input() uploaderConfig: UploaderConfig`
+
+Here is an example of the UploaderConfig model:
+
+```
+{
+    acceptedFiles: '.pdf, .xls, .xlsx, .doc, .docx, .ppt, .pptx, .jpg, .jpeg, .png, .svg',   // list of accepted files
+    maxFiles: 5,  // maximum number of files that can be uploaded
+    maxSize: 20000000, // maximum file size in bytes
+    sourceSystem: 'Experience-QA',  // source system for api requests
+    baseUrl: 'https://ax-ae1-st-reqapi-svc-api.azurewebsites.net',  // api endpoint required for the uploader
+    attachmentUrl: 'https://ax-ae1-st-atmapi-svc-api.azurewebsites.net',  // api endpoint required for the uploader
+  };
+```
+
+`@Input() parentId: string;`
+A requisition ID is required for identifying the upload target.
+
+`@Input() isEditable = true;`
+This boolean will hide the uploader if set to false.
+
+`@Input() userId: string;`
+Unique identifier to determine who is uploading the files
+
+# **Additional Accessibility Requirements**
+
+None
+
+# **Angular Material**
+
+There is no documentation in Angular Material for the Breadcrumb component as it was explicitly created for AvidXchange use. All specifications and accessibility requirements are here in the User Interface Center of Excellence Wiki.

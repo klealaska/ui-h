@@ -1,0 +1,20 @@
+<div class="radio-wrapper">
+  <label
+    class="radio-control"
+    [ngClass]="{'disabled': disabled, 'label-left': labelPosition  === 'left', 'no-text': noText  }"
+    [class.flex-grow]="fixed === false"
+  >
+    <input
+      #input
+      type="radio"
+      [name]="name"
+      [value]="value"
+      [checked]="checked"
+      [disabled]="disabled"
+      (change)="onInputChange($event)"
+    />
+    <span class="text">{{label}}<ng-content></ng-content> </span>
+  </label>
+</div>
+
+<!-- [class.flex-grow]="fixed === true" -->

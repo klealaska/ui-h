@@ -1,0 +1,143 @@
+{
+  "name": "xdc-indexer",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/xdc-indexer/src",
+  "prefix": "xdc",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/xdc-indexer",
+        "index": "apps/xdc-indexer/src/index.html",
+        "main": "apps/xdc-indexer/src/main.ts",
+        "polyfills": "apps/xdc-indexer/src/polyfills.ts",
+        "tsConfig": "apps/xdc-indexer/tsconfig.app.json",
+        "assets": [
+          "apps/xdc-indexer/src/web.config",
+          "apps/xdc-indexer/src/favicon.ico",
+          "apps/xdc-indexer/src/assets",
+          "apps/xdc-indexer/src/health-probe.jpg",
+          {
+            "glob": "pdf.worker.*",
+            "input": "node_modules/pdfjs-dist/build/",
+            "output": ""
+          }
+        ],
+        "styles": [
+          "apps/xdc-indexer/src/styles/styles.scss",
+          "libs/shared/dsm-styles-v2/src/lib/scss/styles.scss"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            ".",
+            "apps/xdc-indexer/src/styles"
+          ]
+        },
+        "scripts": [],
+        "vendorChunk": true,
+        "extractLicenses": false,
+        "buildOptimizer": false,
+        "sourceMap": true,
+        "optimization": false,
+        "namedChunks": true
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/xdc-indexer/src/environments/environment.ts",
+              "with": "apps/xdc-indexer/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "buildOptimizer": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "10mb",
+              "maximumError": "10mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "80kb",
+              "maximumError": "200kb"
+            }
+          ]
+        },
+        "dev": {
+          "fileReplacements": [
+            {
+              "replace": "apps/xdc-indexer/src/environments/environment.ts",
+              "with": "apps/xdc-indexer/src/environments/environment.dev.ts"
+            }
+          ]
+        },
+        "ft": {
+          "fileReplacements": [
+            {
+              "replace": "apps/xdc-indexer/src/environments/environment.ts",
+              "with": "apps/xdc-indexer/src/environments/environment.ft.ts"
+            }
+          ]
+        },
+        "json": {
+          "fileReplacements": [
+            {
+              "replace": "apps/xdc-indexer/src/environments/environment.ts",
+              "with": "apps/xdc-indexer/src/environments/environment.json.ts"
+            }
+          ]
+        }
+      },
+      "defaultConfiguration": ""
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "xdc-indexer:build"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "xdc-indexer:build:production"
+        },
+        "dev": {
+          "browserTarget": "xdc-indexer:build:dev"
+        },
+        "ft": {
+          "browserTarget": "xdc-indexer:build:ft"
+        },
+        "json": {
+          "browserTarget": "xdc-indexer:build:json"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "xdc-indexer:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/xdc-indexer/src/**/*.ts", "apps/xdc-indexer/src/**/*.html"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/xdc-indexer"],
+      "options": {
+        "jestConfig": "apps/xdc-indexer/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:spa"]
+}

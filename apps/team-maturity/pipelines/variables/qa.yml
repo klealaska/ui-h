@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-UicoeNp-Qa-team-maturity-Rg'
+  resourceGroupWest: 'Ax-Aw1-UicoeNp-Qa-team-maturity-Rg'
+  bffEndpoint: 'MUST BE ENTERED MANUALLY'
+  keyVaultNameEast: 'axae1uicoenpqateammatkv'
+  keyVaultNameWest: 'axaw1uicoenpqateammatkv'

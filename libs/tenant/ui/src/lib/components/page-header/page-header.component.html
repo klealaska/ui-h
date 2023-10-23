@@ -1,0 +1,19 @@
+<div class="flex justify-between" [ngClass]="getClass()">
+  <div [ngClass]="{'pl-32': showBackBtn}" class="flex">
+    <button *ngIf="showBackBtn" [attr.data-cy]="backBtnId" (click)="backButtonClicked.emit($event)">
+      <mat-icon class="mt-2" fontIcon="arrow_back"></mat-icon>
+    </button>
+    <ui-coe-title data-cy="page-title" [title]="title" [smallTitle]="smallTitle"></ui-coe-title>
+  </div>
+</div>
+<div *ngIf="buttonText && buttonId && showBtn" class="mr-[1.5rem] mt-[2.3125rem]">
+  <button
+    [attr.data-cy]="buttonId"
+    mat-flat-button
+    color="primary"
+    class="lg btnStyle"
+    (click)="buttonClicked.emit()"
+  >
+    {{ buttonText }}
+  </button>
+</div>

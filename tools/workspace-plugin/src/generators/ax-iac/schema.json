@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "ax-iac",
+  "type": "object",
+  "properties": {
+    "domain": {
+      "type": "string",
+      "description": "Domain Name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Alerts notification email for observability."
+    },
+    "includeBff": {
+      "type": "boolean",
+      "description": "If selected, generator will scaffold a NestJS BFF",
+      "default": true
+    }
+  },
+  "required": ["domain", "email", "includeBff"]
+}

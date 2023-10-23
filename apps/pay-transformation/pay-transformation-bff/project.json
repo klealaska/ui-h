@@ -1,0 +1,72 @@
+{
+  "name": "pay-transformation-bff",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/pay-transformation/pay-transformation-bff/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/pay-transformation/pay-transformation-bff",
+        "main": "apps/pay-transformation/pay-transformation-bff/src/main.ts",
+        "tsConfig": "apps/pay-transformation/pay-transformation-bff/tsconfig.app.json",
+        "assets": ["apps/pay-transformation/pay-transformation-bff/src/assets"],
+        "generatePackageJson": true,
+        "compiler": "tsc",
+        "target": "node"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/pay-transformation/pay-transformation-bff/src/environments/environment.ts",
+              "with": "apps/pay-transformation/pay-transformation-bff/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "mock": {
+          "fileReplacements": [
+            {
+              "replace": "apps/pay-transformation/pay-transformation-bff/src/environments/environment.ts",
+              "with": "apps/pay-transformation/pay-transformation-bff/src/environments/environment.mock.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "pay-transformation-bff:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "pay-transformation-bff:build:production"
+        },
+        "mock": {
+          "buildTarget": "pay-transformation-bff:build:mock"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/pay-transformation/pay-transformation-bff/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["coverage/apps/pay-transformation/pay-transformation-bff"],
+      "options": {
+        "jestConfig": "apps/pay-transformation/pay-transformation-bff/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:bff", "scope:pay-transformation"]
+}

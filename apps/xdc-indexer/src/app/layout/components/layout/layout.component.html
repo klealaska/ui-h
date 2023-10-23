@@ -1,0 +1,206 @@
+<div
+  *ngIf="(userDisplayName$ | async) && (filteredBuyersCore$ | async).length > 0"
+  class="page-container"
+>
+  <xdc-header
+    [homePath]="'queue'"
+    [name]="userDisplayName$ | async"
+    [menuOptions]="menuOptions$ | async"
+    (logout)="onLogout()"
+    (selectedMenuItem)="onMenuItemClick($event)"
+  ></xdc-header>
+
+  <script src="../../../services/fullStory.js"></script>
+
+  <div class="main-body">
+    <div *ngIf="canViewNavBar$ | async" class="page-sidebar" [ngStyle]="{ 'z-index': 1 }">
+      <mat-nav-list class="page-sidebar-container">
+        <a
+          *ngIf="canViewDashboard$ | async"
+          class="page-sidebar-item"
+          mat-list-item
+          [routerLink]="'/dashboard'"
+          [routerLinkActive]="['is-active']"
+        >
+          <mat-icon matTooltipPosition="right" class="icon">home</mat-icon>
+          <div class="row row-queue">
+            <span class="page-sidebar-text ml-10"
+              >{{'xdc.layout.dashboard-label' | translate }}</span
+            >
+          </div>
+        </a>
+        <a
+          *ngIf="canViewPending$ | async"
+          class="page-sidebar-item"
+          mat-list-item
+          [routerLink]="'/queue'"
+          [routerLinkActive]="['is-active']"
+        >
+          <mat-icon matTooltipPosition="right" class="icon">description</mat-icon>
+          <div class="row row-queue">
+            <span class="page-sidebar-text ml-10">{{'xdc.layout.pending-label' | translate }}</span>
+            <span
+              class="invoice-count page-sidebar-text"
+              [matTooltip]="getTooltipMessage()"
+              [matTooltipClass]="'invoice-count-tooltip'"
+              >{{(pendingDocumentCount$ | async)}}</span
+            >
+          </div>
+        </a>
+        <a
+          *ngIf="canUpload$ | async"
+          class="page-sidebar-item"
+          mat-list-item
+          [routerLink]="'/my-uploads'"
+          [routerLinkActive]="['is-active']"
+        >
+          <mat-icon matTooltipPosition="right" class="icon">upload</mat-icon>
+          <div class="row row-queue">
+            <span class="page-sidebar-text ml-10"
+              >{{'xdc.layout.my-uploads-label' | translate }}</span
+            >
+            <span
+              class="invoice-count page-sidebar-text"
+              [matTooltip]="getTooltipMessage()"
+              [matTooltipClass]="'invoice-count-tooltip'"
+              >{{(myUploadsDocumentCount$ | async)}}</span
+            >
+          </div>
+        </a>
+        <a
+          *ngIf="canViewResearch$ | async"
+          class="page-sidebar-item"
+          mat-list-item
+          [routerLink]="'/research'"
+          [routerLinkActive]="['is-active']"
+        >
+          <mat-icon matTooltipPosition="right" class="icon">warning</mat-icon>
+          <div class="row row-queue">
+            <span class="page-sidebar-text ml-10"
+              >{{'xdc.layout.research-label' | translate }}</span
+            >
+            <span
+              class="invoice-count page-sidebar-text"
+              [matTooltip]="getTooltipMessage()"
+              [matTooltipClass]="'invoice-count-tooltip'"
+              >{{(researchDocumentCount$ | async)}}</span
+            >
+          </div>
+        </a>
+        <ng-template [ngIf]="(emailHubIsActive$ |async) === false" [ngIfElse]="archiveTemplate">
+          <a
+            *ngIf="canViewArchive$ |async"
+            class="page-sidebar-item"
+            mat-list-item
+            [routerLink]="'/archive'"
+            [routerLinkActive]="['is-active']"
+          >
+            <mat-icon matTooltipPosition="right" class="icon">archive</mat-icon>
+            <div class="row row-queue">
+              <span class="page-sidebar-text ml-10"
+                >{{'xdc.layout.archive-label' | translate }}</span
+              >
+            </div>
+          </a>
+        </ng-template>
+        <ng-template #archiveTemplate>
+          <div *ngIf="canViewArchive$ |async">
+            <a
+              mat-list-item
+              (click)="isArchiveExpanded = !isArchiveExpanded"
+              class="page-sidebar-item"
+            >
+              <mat-icon matTooltipPosition="right" class="icon">archive</mat-icon>
+              <div class="row row-queue">
+                <span class="page-sidebar-text ml-10"
+                  >{{'xdc.layout.archive-label' | translate }}</span
+                >
+
+                <span class="invoice-count page-sidebar-text"
+                  ><mat-icon [ngClass]="isArchiveExpanded?'menuitem-hide':'menuitem-visible'"
+                    >expand_more</mat-icon
+                  ></span
+                >
+              </div>
+            </a>
+
+            <a
+              *ngIf="isArchiveExpanded"
+              class="page-sidebar-item"
+              mat-list-item
+              [routerLink]="'/archive'"
+              [routerLinkActive]="['is-active']"
+            >
+              <div class="row row-queue">
+                <span class="page-sidebar-text page-sidebar-text-child ml-10"
+                  >{{'xdc.layout.archive-invoices' | translate }}</span
+                >
+              </div>
+            </a>
+            <a
+              *ngIf="isArchiveExpanded"
+              class="page-sidebar-item"
+              mat-list-item
+              [routerLink]="'/emailHub'"
+              [routerLinkActive]="['is-active']"
+            >
+              <span class="page-sidebar-text page-sidebar-text-child ml-10"
+                >{{'xdc.layout.archive-email' | translate }}</span
+              >
+            </a>
+          </div>
+        </ng-template>
+
+        <a
+          *ngIf="canViewRecycleBin$ | async"
+          class="page-sidebar-item"
+          mat-list-item
+          [routerLink]="'/recyclebin'"
+          [routerLinkActive]="['is-active']"
+        >
+          <mat-icon matTooltipPosition="right" class="icon">delete</mat-icon>
+          <div class="row row-queue">
+            <span class="page-sidebar-text ml-10"
+              >{{'xdc.layout.recycle-bin-label' | translate }}</span
+            >
+
+            <span
+              class="invoice-count page-sidebar-text"
+              [matTooltip]="getTooltipMessage()"
+              [matTooltipClass]="'invoice-count-tooltip'"
+              >{{(recycleBinDocumentCount$ | async)}}</span
+            >
+          </div>
+        </a>
+
+        <li *ngIf="(adminPageIsActive$ | async) && (canViewAdmin$ | async)">
+          <a class="page-sidebar-item" mat-list-item (click)="adminMenu = !adminMenu ">
+            <mat-icon matTooltipPosition="right" class="icon">settings</mat-icon>
+            <div class="row row-admin">
+              <span class="page-sidebar-text ml-10">{{'xdc.layout.admin-label' | translate }}</span>
+              <mat-icon *ngIf="!adminMenu" class="icon">expand_more</mat-icon>
+              <mat-icon *ngIf="adminMenu" class="icon">expand_less</mat-icon>
+            </div>
+          </a>
+          <ul *ngIf="adminMenu">
+            <li>
+              <a
+                class="page-sidebar-item"
+                mat-list-item
+                [routerLink]="'admin/users'"
+                [routerLinkActive]="['is-active']"
+              >
+                <span class="page-sidebar-text ml-li"
+                  >{{'xdc.layout.users-label' | translate }}</span
+                >
+              </a>
+            </li>
+          </ul>
+        </li>
+      </mat-nav-list>
+    </div>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

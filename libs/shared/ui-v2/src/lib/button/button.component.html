@@ -1,0 +1,10 @@
+<button
+  #content
+  [disabled]="disabled"
+  [type]="btnType ? btnType : 'button'"
+  class="ax-button type-{{ type }} size-{{size}}"
+  [ngClass]="[(!disabled ? 'color-' + color : 'disabled'), (fixed ? 'fixed-width' : '')]"
+  #ref
+>
+  <ng-content></ng-content>
+</button>

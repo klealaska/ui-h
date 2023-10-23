@@ -1,0 +1,56 @@
+<mat-card class="cursor-pointer" (click)="bankAccountSelected.emit(account.accountId)">
+  <mat-card-content [class.bg-grey-50]="bankAccountStatus === bankAccountStatusEnum.INACTIVE">
+    <div class="flex justify-between">
+      <div class="flex items-center max-w-[66%]">
+        <ng-container [ngSwitch]="bankAccountStatus">
+          <mat-icon
+            *ngSwitchCase="bankAccountStatusEnum.PENDING"
+            class="pendingStatus text-warning-600 mr-2"
+            >update</mat-icon
+          >
+          <mat-icon
+            *ngSwitchCase="bankAccountStatusEnum.LOCKED"
+            class="lockedStatus text-critical-600 mr-2"
+            >lock</mat-icon
+          >
+          <ng-container *ngSwitchDefault>
+            <div
+              *ngIf="account?.isNew"
+              class="newStatus h-3 w-6 bg-primary-800 rounded-sm text-[8px] text-white flex justify-center"
+            >
+              NEW
+            </div>
+          </ng-container>
+        </ng-container>
+        <p
+          #accountName
+          class="nickname mr-3 font-interRegular text-lg text-grey-800 truncate"
+          *ngIf="tooltip"
+          [axTooltip]="tooltip?.tooltipText"
+          [axTooltipStyle]=" tooltip?.tooltipStyle"
+          [axTooltipPosition]=" tooltip?.tooltipPosition"
+          [axTooltipPointerPosition]="tooltip?.pointerPosition"
+          [axDynamicOverflow]="tooltip?.dynamicOverflow"
+        >
+          {{ accountDisplayName }}
+        </p>
+      </div>
+      <ax-tag
+        *ngIf="isDefault"
+        class="status justify-end"
+        [type]="'informational'"
+        [style]="'filled'"
+        [size]="'sm'"
+        [text]="'Default'"
+      ></ax-tag>
+    </div>
+    <p class="columns-1 mt-3">
+      <span class="accountNumberLabel font-interLight text-xs text-primary-700 uppercase block">
+        {{content?.accountNumberLabel}}
+      </span>
+      <span class="accountNumber font-interRegular text-sm text-grey-800"
+        >x{{account?.accountNumber.slice(account?.accountNumber?.length - 4)}}</span
+      >
+    </p>
+  </mat-card-content>
+</mat-card>

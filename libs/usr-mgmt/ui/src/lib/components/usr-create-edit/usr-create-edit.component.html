@@ -1,0 +1,54 @@
+<ax-side-sheet-v2
+  [opened]="opened"
+  [boxShadow]="false"
+  [backdrop]="true"
+  (closeEvent)="closeSideSheetClick()"
+>
+  <div sideSheetHeader>
+    <p>{{ isEdit ? content?.editTitle : content?.createTitle }}</p>
+  </div>
+  <div sideSheetContent>
+    <form [formGroup]="userForm">
+      <ax-input
+        id="first-name-input"
+        [maxLength]="100"
+        class="w-full px-2 py-1"
+        [label]="content?.form?.firstName?.labelText"
+        [control]="userForm.controls['firstName']"
+        [inputType]="'text'"
+        [error]="buildErrorMessage('firstName')"
+        [optional]="false"
+        [fixed]="false"
+      ></ax-input>
+      <ax-input
+        id="last-name-input"
+        class="w-full px-2 py-1"
+        [label]="content?.form?.lastName?.labelText"
+        [control]="userForm.controls['lastName']"
+        [inputType]="'text'"
+        [error]="buildErrorMessage('lastName')"
+        [optional]="false"
+        [fixed]="false"
+      ></ax-input>
+      <ax-input
+        id="email-input"
+        class="w-full px-2 py-1"
+        [label]="content?.form?.email?.labelText"
+        [control]="userForm.controls['email']"
+        [inputType]="'text'"
+        [error]="buildErrorMessage('email')"
+        [optional]="false"
+        [fixed]="false"
+        [hintMessage]="content?.form?.email?.hintText"
+      ></ax-input>
+    </form>
+  </div>
+  <div sideSheetFooter class="grid gap-[0.72rem]">
+    <ax-button [type]="default" (click)="cancelButtonClicked()"
+      >{{ content?.cancelButtonText }}</ax-button
+    >
+    <ax-button [type]="primary" [disabled]="!userForm.valid" (click)="onSaveButtonClick()"
+      >{{ content?.saveButtonText }}</ax-button
+    >
+  </div>
+</ax-side-sheet-v2>

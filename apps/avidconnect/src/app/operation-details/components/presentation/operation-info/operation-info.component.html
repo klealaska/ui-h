@@ -1,0 +1,68 @@
+<section class="operation-info">
+  <div class="grid-header">
+    <avc-connector-header
+      [connector]="connector"
+      [platform]="platform?.name"
+    ></avc-connector-header>
+
+    <div class="header-btns">
+      <button
+        mat-raised-button
+        type="button"
+        color="outline"
+        id="download-artifact-btn"
+        (click)="downloadArtifactClicked.emit(operation.executionId)"
+        *ngIf="hasArtifact && isComplete(operation)"
+      >
+        DOWNLOAD ARTIFACT
+      </button>
+      <button
+        mat-raised-button
+        type="button"
+        color="outline"
+        id="download-report-btn"
+        (click)="downloadReportClicked.emit()"
+        *ngIf="hasDetails"
+      >
+        DOWNLOAD REPORT
+      </button>
+      <button
+        mat-raised-button
+        type="button"
+        color="outline"
+        id="download-log-btn"
+        *ngIf="hasLogs"
+        (click)="downloadLogClicked.emit(operation.executionId)"
+      >
+        DOWNLOAD LOG
+      </button>
+    </div>
+  </div>
+
+  <div class="grid-container" *ngIf="operation">
+    <div><b>Accounting System:</b></div>
+    <div>{{ operation.registrationDescription }}</div>
+    <div><b>Inserts:</b></div>
+    <div>{{ operation.inserts }}</div>
+    <div><b>Operation:</b></div>
+    <div>{{ operation.operationTypeName }}</div>
+    <div><b>Updates:</b></div>
+    <div>{{ operation.updates }}</div>
+    <div><b>Status:</b></div>
+    <div>
+      <span class="status-badge" [ngClass]="operation.operationStatusTypeName.toLowerCase()"
+        >{{ operation.operationStatusTypeName }}</span
+      >
+    </div>
+    <div><b>Deletes:</b></div>
+    <div>{{ operation.deletes }}</div>
+    <div><b>Started:</b></div>
+    <div><avc-date [date]="operation.startDate"></avc-date></div>
+    <div><b>Errors:</b></div>
+    <div>{{ operation.errors }}</div>
+    <div><b>Duration:</b></div>
+    <div>{{ getOperationDuration(operation.startDate, operation.endDate)}}</div>
+    <div><b>Unchanged:</b></div>
+    <div>{{ operation.noUpdates }}</div>
+  </div>
+</section>

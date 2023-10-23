@@ -1,0 +1,202 @@
+[
+  {
+    "id": "TRE7183659",
+    "amount": 2000,
+    "date": "2022-08-22T19:19:36.971Z",
+    "vendorName": "JR Plumbing LLC",
+    "status": "Status Example",
+    "batchId": "123",
+    "entityId": "123",
+    "fundingAccount": "1234567",
+    "vendorId": "123",
+    "remitAddress": "1 Canal St., New Orleans, LA 70131",
+    "lastUpdatedBy": "jdoe@example.com",
+    "lastUpdatedOn": "2022-08-22T19:19:36.971Z",
+    "distributions": [
+      {
+        "id": "1",
+        "amount": 5000,
+        "paymentMethod": "1234",
+        "paymentType": "vcc",
+        "date": "2022-08-22T19:19:36.971Z",
+        "status": "exampleStatus"
+      },
+      {
+        "id": "2",
+        "amount": 5000,
+        "paymentMethod": "5321",
+        "paymentType": "apd",
+        "date": "2022-08-22T19:19:36.971Z",
+        "status": "exampleStatus"
+      },
+      {
+        "id": "3",
+        "amount": 5000,
+        "paymentMethod": "1234",
+        "paymentType": "ach",
+        "date": "2022-08-22T19:19:36.971Z",
+        "status": "exampleStatus"
+      },
+      {
+        "id": "4",
+        "amount": 5000,
+        "paymentMethod": "0569410452",
+        "paymentType": "check",
+        "date": "2022-08-22T19:19:36.971Z",
+        "status": "exampleStatus"
+      },
+      {
+        "id": "5",
+        "amount": 5000,
+        "paymentMethod": "0569410452",
+        "paymentType": "check",
+        "date": "2022-08-22T19:19:36.971Z",
+        "status": "exampleStatus"
+      },
+      {
+        "id": "6",
+        "amount": 5000,
+        "paymentMethod": "0569410452",
+        "paymentType": "check",
+        "date": "2022-08-22T19:19:36.971Z",
+        "status": "exampleStatus"
+      },
+      {
+        "id": "7",
+        "amount": 5000,
+        "paymentMethod": "0569410452",
+        "paymentType": "check",
+        "date": "2022-08-22T19:19:36.971Z",
+        "status": "exampleStatus"
+      },
+      {
+        "id": "8",
+        "amount": 5000,
+        "paymentMethod": "0569410452",
+        "paymentType": "check",
+        "date": "2022-08-22T19:19:36.971Z",
+        "status": "exampleStatus"
+      }
+    ]
+  },
+  {
+    "id": "YRT5342499",
+    "amount": 14867.87,
+    "date": "2022-08-13T15:19:46.971Z",
+    "vendorName": "Coltier Associates",
+    "status": "Status Example",
+    "batchId": "123",
+    "entityId": "123",
+    "fundingAccount": "1234567",
+    "vendorId": "123",
+    "remitAddress": "1 Canal St., New Orleans, LA 70131",
+    "lastUpdatedBy": "jdoe@example.com",
+    "lastUpdatedOn": "2022-08-22T19:19:36.971Z",
+    "distributions": []
+  },
+  {
+    "id": "AHR8575636",
+    "amount": 8867.20,
+    "date": "2022-07-11T16:20:46.871Z",
+    "vendorName": "Smith HOA",
+    "status": "Status Example",
+    "batchId": "123",
+    "entityId": "123",
+    "fundingAccount": "1234567",
+    "vendorId": "123",
+    "remitAddress": "1 Canal St., New Orleans, LA 70131",
+    "lastUpdatedBy": "jdoe@example.com",
+    "lastUpdatedOn": "2022-08-22T19:19:36.971Z",
+    "distributions": []
+  },
+  {
+    "id": "PLT5636857",
+    "amount": 1867.20,
+    "date": "2022-08-08T12:13:26.861Z",
+    "vendorName": "Wellington Law LLC",
+    "status": "Status Example",
+    "batchId": "123",
+    "entityId": "123",
+    "fundingAccount": "1234567",
+    "vendorId": "123",
+    "remitAddress": "1 Canal St., New Orleans, LA 70131",
+    "lastUpdatedBy": "jdoe@example.com",
+    "lastUpdatedOn": "2022-08-22T19:19:36.971Z",
+    "distributions": []
+  },
+  {
+    "id": "JFK3656857",
+    "amount": 51867,
+    "date": "2022-05-23T11:17:26.771Z",
+    "vendorName": "JR Plumbing LLC",
+    "status": "Status Example",
+    "batchId": "123",
+    "entityId": "123",
+    "fundingAccount": "1234567",
+    "vendorId": "123",
+    "remitAddress": "1 Canal St., New Orleans, LA 70131",
+    "lastUpdatedBy": "jdoe@example.com",
+    "lastUpdatedOn": "2022-08-22T19:19:36.971Z",
+    "distributions": []
+  },
+  {
+    "id": "LPR5736381",
+    "amount": 212942.2,
+    "date": "2022-08-22T12:19:26.971Z",
+    "vendorName": "Smith HOA",
+    "status": "Status Example",
+    "batchId": "123",
+    "entityId": "123",
+    "fundingAccount": "1234567",
+    "vendorId": "123",
+    "remitAddress": "1 Canal St., New Orleans, LA 70131",
+    "lastUpdatedBy": "jdoe@example.com",
+    "lastUpdatedOn": "2022-08-22T19:19:36.971Z",
+    "distributions": []
+  },
+  {
+    "id": "XTE5438030",
+    "amount": 734.72,
+    "date": "2022-08-13T11:22:46.971Z",
+    "vendorName": "William LLC",
+    "status": "Status Example",
+    "batchId": "123",
+    "entityId": "123",
+    "fundingAccount": "1234567",
+    "vendorId": "123",
+    "remitAddress": "1 Canal St., New Orleans, LA 70131",
+    "lastUpdatedBy": "jdoe@example.com",
+    "lastUpdatedOn": "2022-08-22T19:19:36.971Z",
+    "distributions": []
+  },
+  {
+    "id": "GVS3671468",
+    "amount": 73000,
+    "date": "2022-08-13T15:19:46.971Z",
+    "vendorName": "Kessler Production",
+    "status": "Status Example",
+    "batchId": "123",
+    "entityId": "123",
+    "fundingAccount": "1234567",
+    "vendorId": "123",
+    "remitAddress": "1 Canal St., New Orleans, LA 70131",
+    "lastUpdatedBy": "jdoe@example.com",
+    "lastUpdatedOn": "2022-08-22T19:19:36.971Z",
+    "distributions": []
+  },
+  {
+    "id": "ZWE3671674",
+    "amount": 1119.43,
+    "date": "2022-08-27T08:19:36.971Z",
+    "vendorName": "Staples Inc.",
+    "status": "Status Example",
+    "batchId": "123",
+    "entityId": "123",
+    "fundingAccount": "1234567",
+    "vendorId": "123",
+    "remitAddress": "1 Canal St., New Orleans, LA 70131",
+    "lastUpdatedBy": "jdoe@example.com",
+    "lastUpdatedOn": "2022-08-22T19:19:36.971Z",
+    "distributions": []
+  }
+]

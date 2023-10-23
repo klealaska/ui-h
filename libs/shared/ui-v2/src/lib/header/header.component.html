@@ -1,0 +1,20 @@
+<div class="sidenav-toolbar">
+  <mat-toolbar class="toolbar-desktop md-medium-tall mar-left-auto">
+    <mat-toolbar-row>
+      <img class="logo-img" [src]="logoImgSrc" (click)="navigate()" />
+      <button
+        *ngIf="avatarInput"
+        class="avatar-button"
+        aria-label="User"
+        (click)="userClick.emit()"
+      >
+        <ax-avatar
+          class="flex"
+          [size]="'md'"
+          [img]="avatarInput?.img"
+          [name]="avatarInput?.name"
+        ></ax-avatar>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

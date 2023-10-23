@@ -1,0 +1,40 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/colors';
+
+.header {
+  @include flex-content();
+  background-color: $white;
+  padding: 8px 15px;
+  height: 60px;
+  border-bottom: 1px solid $gray;
+  box-sizing: border-box;
+
+  .header-title {
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-right: 20px;
+      span {
+        margin: 1px;
+      }
+
+      .mat-icon {
+        height: 24px;
+        width: 24px;
+      }
+    }
+
+    .chevron-navigation {
+      display: flex;
+      .chevron-item {
+        display: flex;
+        align-items: center;
+
+        .chevron-btn:disabled {
+          color: black;
+        }
+      }
+    }
+  }
+}

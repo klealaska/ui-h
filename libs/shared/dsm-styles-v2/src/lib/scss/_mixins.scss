@@ -1,0 +1,67 @@
+// Before
+@mixin button-toggle-before-large {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1px;
+  height: 38px;
+  width: 1px;
+  background: theme('colors.white');
+  z-index: 1;
+}
+
+@mixin button-toggle-before-medium {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1px;
+  height: 30px;
+  width: 1px;
+  background: theme('colors.white');
+  z-index: 1;
+}
+
+@mixin button-toggle-before-small {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1px;
+  height: 26px;
+  width: 1px;
+  background: theme('colors.white');
+  z-index: 1;
+}
+
+// After
+@mixin button-toggle-after-large {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -1px;
+  height: 38px;
+  width: 1px;
+  background: theme('colors.white');
+  z-index: 1;
+}
+
+@mixin button-toggle-after-medium {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -1px;
+  height: 30px;
+  width: 1px;
+  background: theme('colors.white');
+  z-index: 1;
+}
+
+@mixin button-toggle-after-small {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -1px;
+  height: 26px;
+  width: 1px;
+  background: theme('colors.white');
+  z-index: 1;
+}

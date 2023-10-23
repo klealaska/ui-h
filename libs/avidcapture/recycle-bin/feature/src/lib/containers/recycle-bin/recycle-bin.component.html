@@ -1,0 +1,48 @@
+<div class="recycle-bin-page">
+  <div *ngIf="canViewAllBuyers$ | async" class="row">
+    <h4>{{'xdc.recycle-bin.recycle-bin-label' | translate }}</h4>
+  </div>
+
+  <xdc-recycle-bin-filter
+    *ngIf=" {
+      canViewAllBuyers: canViewAllBuyers$ | async
+    } as data"
+    [buyers]="buyers$ | async"
+    [filteredBuyers]="filteredBuyers$ | async"
+    [advancedFilters]="advancedFilters$ | async"
+    [appliedFilters]="appliedFilters$ | async"
+    [filteredBuyersCore]="filteredBuyersCore$ | async"
+    [canRefreshPage]="canRefreshPage$ | async"
+    [minDateForFilter]="getMinDateForFilter()"
+    [canViewAllBuyers]="canViewAllBuyers$ | async"
+    [canUseAdvancedFilter]="canUseAdvancedFilter$ | async"
+    (buyerTextChangedEvent)="searchBuyers($event, data.canViewAllBuyers)"
+    (buyerAddedEvent)="filteredBuyerAdded($event, data.canViewAllBuyers)"
+    (buyerRemovedEvent)="filteredBuyerRemoved($event, data.canViewAllBuyers)"
+    (advanceSearchApplied)="advanceSearchApplied($event)"
+    (filterChipRemoved)="filterRemoved($event)"
+    (refreshPage)="refreshPage()"
+  >
+  </xdc-recycle-bin-filter>
+
+  <xdc-recycle-bin-grid
+    *ngIf="(recycleBinDocuments$ | async).length > 0"
+    data-cy="recyclebin-grid"
+    [documents]="recycleBinDocuments$ | async"
+    [currentUsername]="currentUsername$ | async"
+    [canViewAllBuyers]="canViewAllBuyers$ | async"
+    [batchSelectIsActive]="batchSelectIsActive$ | async"
+    [loadMoreHidden]="loadMoreHidden$ | async"
+    (openInvoiceEvent)="openInvoice($event)"
+    (columnSorted)="columnSorted($event)"
+    (loadNextPageEvent)="loadNextPage($event)"
+    (unlockDocumentEvent)=" unlockDocumentManually($event)"
+    [canUnlockDocumentManually]="canUnlockDocumentManually$|async"
+  ></xdc-recycle-bin-grid>
+
+  <div *ngIf="(recycleBinDocuments$ | async).length === 0" class="empty-queue">
+    <h4>No active recycle bin invoices.</h4>
+    <p class="b2 pt-10">Invoices that have been deleted will appear here.</p>
+  </div>
+</div>
+<xdc-loading-spinner-app *ngIf="isLoading$ | async"></xdc-loading-spinner-app>

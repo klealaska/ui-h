@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5em 1.5em;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+  }
+}
+
+.filter {
+  width: 50%;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: flex-end;
+  font-size: 1em;
+  height: 2.813em;
+  margin: 1.25em 0 0.5em;
+}

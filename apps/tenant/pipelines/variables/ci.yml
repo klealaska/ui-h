@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-UicoeNp-Ci-Tenant-Rg'
+  resourceGroupWest: 'Ax-Aw1-UicoeNp-Ci-Tenant-Rg'
+  bffEndpoint: 'https://tenant-api-ci-g0e7cmb7cjeee6ah.z01.azurefd.net/api'
+  keyVaultNameEast: 'axae1uicoenpcitenantkv'
+  keyVaultNameWest: 'axaw1uicoenpcitenantkv'

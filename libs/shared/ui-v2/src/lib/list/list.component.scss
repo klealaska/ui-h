@@ -1,0 +1,38 @@
+.text-styles {
+  font-family: theme('fontFamily.interRegular');
+  font-size: 14px;
+  color: theme('colors.grey.800');
+  cursor: pointer;
+}
+
+.disabled {
+  pointer-events: none;
+  color: theme('colors.grey.50');
+}
+
+.unordered {
+  @extend .text-styles;
+}
+
+.unordered::before {
+  content: none;
+}
+
+li {
+  @extend .text-styles;
+  counter-increment: item;
+  padding: 8px;
+}
+
+li::before {
+  content: counter(item) '.';
+  margin-right: 8px;
+}
+
+li:hover {
+  background-color: theme('colors.secondary.200');
+}
+
+li:active {
+  background-color: theme('colors.secondary.300');
+}

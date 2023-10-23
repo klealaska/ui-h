@@ -1,0 +1,38 @@
+.modal {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding-top: 1.25em;
+}
+
+.container {
+  &-icons {
+    padding-right: 1.125em;
+
+    span.key {
+      background: theme('colors.interactive.700');
+      color: #ffffff;
+      display: inline-block;
+      width: 2.25em;
+      height: 2.25em;
+      line-height: 2.25em;
+      text-align: center;
+      font-family: theme('fontFamily.interSemibold');
+    }
+
+    span.plus {
+      margin: 0 0.5em;
+    }
+  }
+}
+
+.icon {
+  cursor: pointer;
+}

@@ -1,0 +1,20 @@
+{
+ "organizations": [
+    {
+      "organizationId": "123",
+      "organizationName": "orgName",
+      "organizationCode": "code",
+      "isActive": true,
+      "erps": []
+    }
+  ],
+  "erps": [
+    {
+      "erpId": "233",
+      "organizationId": "123",
+      "erpCode": "codeerp",
+      "erpName": "erp name",
+      "isActive": true
+    }
+  ]
+}

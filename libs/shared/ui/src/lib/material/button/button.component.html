@@ -1,0 +1,145 @@
+<div [ngSwitch]="btnType">
+  <button
+    *ngSwitchCase="buttonTypes.basic"
+    mat-button
+    [color]="color"
+    [disableRipple]="disableRipple"
+    [disabled]="disabled"
+    [id]="id"
+    (click)="click.emit()"
+    [matBadge]="matBadge"
+    [matBadgeColor]="matBadgeColor"
+    [matBadgeOverlap]="matBadgeOverlap"
+    [matBadgeSize]="matBadgeSize"
+    [matBadgePosition]="matBadgePosition"
+    [matBadgeHidden]="matBadgeHidden"
+  >
+    {{ text }}
+  </button>
+
+  <button
+    *ngSwitchCase="buttonTypes.raised"
+    mat-raised-button
+    [color]="color"
+    [disableRipple]="disableRipple"
+    [disabled]="disabled"
+    [id]="id"
+    (click)="click.emit()"
+    [matBadge]="matBadge"
+    [matBadgeColor]="matBadgeColor"
+    [matBadgeOverlap]="matBadgeOverlap"
+    [matBadgeSize]="matBadgeSize"
+    [matBadgePosition]="matBadgePosition"
+    [matBadgeHidden]="matBadgeHidden"
+  >
+    {{ text }}
+  </button>
+
+  <button
+    *ngSwitchCase="buttonTypes.stroked"
+    mat-stroked-button
+    [color]="color"
+    [disableRipple]="disableRipple"
+    [disabled]="disabled"
+    [id]="id"
+    (click)="click.emit()"
+    [matBadge]="matBadge"
+    [matBadgeColor]="matBadgeColor"
+    [matBadgeOverlap]="matBadgeOverlap"
+    [matBadgeSize]="matBadgeSize"
+    [matBadgePosition]="matBadgePosition"
+    [matBadgeHidden]="matBadgeHidden"
+  >
+    {{ text }}
+  </button>
+
+  <button
+    *ngSwitchCase="buttonTypes.flat"
+    mat-flat-button
+    [color]="color"
+    [disableRipple]="disableRipple"
+    [disabled]="disabled"
+    [id]="id"
+    (click)="click.emit()"
+    [matBadge]="matBadge"
+    [matBadgeColor]="matBadgeColor"
+    [matBadgeOverlap]="matBadgeOverlap"
+    [matBadgeSize]="matBadgeSize"
+    [matBadgePosition]="matBadgePosition"
+    [matBadgeHidden]="matBadgeHidden"
+  >
+    {{ text }}
+  </button>
+
+  <button
+    *ngSwitchCase="buttonTypes.icon"
+    mat-icon-button
+    [color]="color"
+    [disableRipple]="disableRipple"
+    [disabled]="disabled"
+    [id]="id"
+    (click)="click.emit()"
+    [matBadge]="matBadge"
+    [matBadgeColor]="matBadgeColor"
+    [matBadgeOverlap]="matBadgeOverlap"
+    [matBadgeSize]="matBadgeSize"
+    [matBadgePosition]="matBadgePosition"
+    [matBadgeHidden]="matBadgeHidden"
+  >
+    <mat-icon>{{ icon }}</mat-icon>
+  </button>
+
+  <button
+    *ngSwitchCase="buttonTypes.fab"
+    mat-fab
+    [color]="color"
+    [disableRipple]="disableRipple"
+    [disabled]="disabled"
+    [id]="id"
+    (click)="click.emit()"
+    [matBadge]="matBadge"
+    [matBadgeColor]="matBadgeColor"
+    [matBadgeOverlap]="matBadgeOverlap"
+    [matBadgeSize]="matBadgeSize"
+    [matBadgePosition]="matBadgePosition"
+    [matBadgeHidden]="matBadgeHidden"
+  >
+    <mat-icon>{{ icon }}</mat-icon>
+  </button>
+
+  <button
+    *ngSwitchCase="buttonTypes.miniFab"
+    mat-mini-fab
+    [color]="color"
+    [disableRipple]="disableRipple"
+    [disabled]="disabled"
+    [id]="id"
+    (click)="click.emit()"
+    [matBadge]="matBadge"
+    [matBadgeColor]="matBadgeColor"
+    [matBadgeOverlap]="matBadgeOverlap"
+    [matBadgeSize]="matBadgeSize"
+    [matBadgePosition]="matBadgePosition"
+    [matBadgeHidden]="matBadgeHidden"
+  >
+    <mat-icon>{{ icon }}</mat-icon>
+  </button>
+
+  <button
+    *ngSwitchDefault
+    mat-button
+    [color]="color"
+    [disableRipple]="disableRipple"
+    [disabled]="disabled"
+    [id]="id"
+    (click)="click.emit()"
+    [matBadge]="matBadge"
+    [matBadgeColor]="matBadgeColor"
+    [matBadgeOverlap]="matBadgeOverlap"
+    [matBadgeSize]="matBadgeSize"
+    [matBadgePosition]="matBadgePosition"
+    [matBadgeHidden]="matBadgeHidden"
+  >
+    {{ text }}
+  </button>
+</div>

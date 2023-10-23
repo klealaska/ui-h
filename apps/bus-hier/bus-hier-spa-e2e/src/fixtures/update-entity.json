@@ -1,0 +1,34 @@
+{
+  "entityId": "cadlbfshs605o7i35wl3",
+  "entityName": "My new Entity Name",
+  "erpId": "9ng7ljo918qvqunwworx",
+  "entityCode": "123Code",
+  "parentEntityId": null,
+  "businessLevel": 1,
+  "isActive": true,
+  "entityAddresses": [
+    {
+      "addressId": "o2cdjj82ehir5j7duwcz",
+      "entityId": "76mldl9dq5ozxtnodces",
+      "addressCode": "Address Code",
+      "addressLine1": "Address Line 1",
+      "addressLine2": null,
+      "addressLine3": null,
+      "locality": "Locality",
+      "region": "Alabama",
+      "country": "USA",
+      "postalCode": "123456789",
+      "isPrimary": true,
+      "isActive": true,
+      "addressType": "ShipTo",
+      "createdTimestamp": "2023-07-25T08:01:46Z",
+      "createdByUserId": "bbhnnsw97z37im2fn11m",
+      "lastModifiedTimestamp": "2023-07-25T08:01:46Z",
+      "lastModifiedByUserId": "5lt72nsse0ofy0jlgzvo"
+    }
+  ],
+  "createdTimestamp": "2023-04-20T22:31:19Z",
+  "createdByUserId": "00u12tymcg0y78rTz1d7",
+  "lastModifiedTimestamp": "2023-04-20T22:31:19Z",
+  "lastModifiedByUserId": "00u12tymcg0y78rTz1d7"
+}

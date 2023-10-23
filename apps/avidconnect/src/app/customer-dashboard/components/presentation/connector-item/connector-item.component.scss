@@ -1,0 +1,31 @@
+.connector-item {
+  margin-top: 15px;
+
+  &:first-child {
+    margin: 0;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+
+    avc-logo {
+      margin: 10px;
+    }
+
+    h2 {
+      .sub {
+        font-size: 16px;
+        margin-left: 35px;
+      }
+    }
+  }
+
+  .accounting-system-list {
+    margin: 15px 0;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}

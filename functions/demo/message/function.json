@@ -1,0 +1,26 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "webPubSubConnection",
+      "name": "connection",
+      "hub": "zombie_dice",
+      "direction": "in"
+  }
+  ],
+  "scriptFile": "../dist/message/index.js"
+}

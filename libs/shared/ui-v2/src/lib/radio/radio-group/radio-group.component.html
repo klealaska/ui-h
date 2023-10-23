@@ -1,0 +1,8 @@
+<ng-container>
+  <div class="label-heading" [uiCoeMarkAsterisk]="showRequired" *ngIf="labelHeading">
+    {{ labelHeading }}
+  </div>
+  <div class="radio-group-wrapper" [ngClass]="layout === 'vertical' ? 'vertical' : 'horizontal'">
+    <ng-content select="ax-radio-button"></ng-content>
+  </div>
+</ng-container>

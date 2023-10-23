@@ -1,0 +1,68 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Badges" />
+
+## Badges
+
+**A working example of this badges implementation can be found @ \_libs/shared/ui-v2/.storybook/components/badges.stories.ts **
+
+Badges must always be applied to block-level elements.
+
+Badges can be implemented by passing the below properties into the component.
+
+**Badge position**
+
+By default, the badge will be placed `above after`. The direction can be changed by defining the attribute `matBadgePosition` follow by `above|below` and `before|after`.
+
+```
+ <ax-avatar
+      size="medium"
+      img="https://www.fillmurray.com/140/140"
+      matBadgeSize="meidam"
+      matBadge="1"
+      matBadgePosition="above after"
+      matBadgeOverlap="true"
+></ax-avatar>
+```
+
+**Badge sizing**
+
+The badge has 3 sizes: `small`, `medium` and `large`. By default, the badge is set to `medium`. You can change the size by adding matBadgeSize to the host element.
+
+```
+ <ax-avatar
+      [size]="avatarSize"
+      name="John Doe"
+      matBadgeSize="meidam"
+      matBadge="1"
+></ax-avatar>
+
+```
+
+**Badge color**
+
+The badge has 3 colors: `informational`, `dark` and `light`. By default, the badge is set to `informational`. You can change the color by adding matBadgeColor to the host element.
+
+```
+ <ax-avatar
+      [size]="avatarSize"
+      name="John Doe"
+      matBadgeSize="meidam"
+      matBadge="1"
+      matBadgeColor="informational"
+></ax-avatar>
+
+```
+
+** We need notifer function in app level to impletment the `+` symbol after hitting `999`. Notifier function example provided below.\***
+
+```
+
+ @Input() set badgeNumber(value: string | number) {
+    this._badgeCount = value > 999 ? '999+' : value;
+  }
+  get badgeNumber() {
+    return this._badgeCount;
+  }
+
+```

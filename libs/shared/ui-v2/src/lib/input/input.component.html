@@ -1,0 +1,80 @@
+<ax-input-header
+  *ngIf="label || tooltip"
+  [readonly]="readonly"
+  [id]="id"
+  [label]="label"
+  [optional]="optional"
+  [tooltip]="tooltip"
+  [control]="control"
+></ax-input-header>
+
+<mat-form-field class="ax-form-field">
+  <!-- Left Icon -->
+  <mat-icon
+    matPrefix
+    *ngIf="leftIcon && !leftIconButton"
+    class="ax-input-icon"
+    data-test="ax-input-icon-left"
+    >{{leftIcon}}</mat-icon
+  >
+
+  <!-- Left Icon Button -->
+  <button
+    matPrefix
+    *ngIf="leftIcon && leftIconButton"
+    (click)="leftIconButtonEvent.emit(leftIcon)"
+    [disabled]="control?.disabled"
+    class="ax-input-button"
+    data-test="ax-input-button-left"
+  >
+    <mat-icon>{{leftIcon}}</mat-icon>
+  </button>
+
+  <!-- Input -->
+  <input
+    matInput
+    [id]="id"
+    placeholder="{{placeholder}}"
+    [type]="inputType"
+    [formControl]="control"
+    (keyup)="applyFilter($event)"
+    class="ax-input"
+    data-test="ax-input"
+    [maxlength]="maxLength || 50"
+  />
+
+  <!-- Right Icon -->
+  <mat-icon
+    matSuffix
+    *ngIf="rightIcon && !rightIconButton"
+    class="ax-input-icon"
+    data-test="ax-input-icon-right"
+    >{{rightIcon}}</mat-icon
+  >
+
+  <!-- Right Icon Button -->
+  <button
+    matSuffix
+    *ngIf="rightIcon && rightIconButton"
+    (click)="rightIconButtonEvent.emit(rightIcon)"
+    [disabled]="control?.disabled"
+    class="ax-input-button"
+    data-test="ax-input-button-right"
+  >
+    <mat-icon>{{rightIcon}}</mat-icon>
+  </button>
+
+  <!-- Hint -->
+  <mat-hint>
+    <ax-input-hint [message]="hintMessage"></ax-input-hint>
+  </mat-hint>
+
+  <!-- Error -->
+  <mat-error
+    ><ax-input-error
+      [icon]="error?.icon"
+      [message]="error?.message"
+      [invalid]="control?.invalid"
+    ></ax-input-error
+  ></mat-error>
+</mat-form-field>

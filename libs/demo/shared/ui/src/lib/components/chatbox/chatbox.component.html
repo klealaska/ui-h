@@ -1,0 +1,54 @@
+<div class="container">
+  <div *ngIf="expanded" class="chatbox">
+    <div class="chatbox__header">
+      <h4 class="chatbox__header-title">Chat Room</h4>
+    </div>
+    <div class="chatbox__container">
+      <div class="chatbox__container-content">
+        <div
+          *ngFor="let chatMessage of (currentGame$ | async)?.chat"
+          [ngClass]="chatMessage?.playerId === (currentPlayer$ | async).id ? 'current__player__message' : ''"
+          class="message__container"
+        >
+          <p
+            *ngIf="chatMessage?.playerId !== (currentPlayer$ | async).id"
+            class="message__container--name"
+          >
+            {{chatMessage.nickname}}
+          </p>
+          <p
+            [ngClass]="chatMessage?.playerId === (currentPlayer$ | async).id ? 'current__player__message--content' : ''"
+            class="message__container--content"
+          >
+            {{chatMessage.message}}
+          </p>
+        </div>
+      </div>
+      <form [formGroup]="sendMessageForm" class="chatbox__form">
+        <ax-textarea
+          class="w-full"
+          [fixed]="true"
+          [id]="'textarea'"
+          [label]="'Send a message'"
+          [placeholder]="'Send a message'"
+          [control]="sendMessageForm?.controls['message']"
+        ></ax-textarea>
+
+        <div class="buttons-primary button-block">
+          <ax-button [type]="'primary'" [fixed]="true" (click)="sendChatMessageEvent.emit()"
+            >Chat</ax-button
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+  <ax-button
+    [type]="'secondary'"
+    [fixed]="true"
+    [ngClass]="expanded ? 'chatbox__header-collapse' : 'chatbox__header-expand'"
+    (click)="collapseChatEvent.emit()"
+    aria-label="Icon button with a left arrow to collapse chat"
+    ><mat-icon *ngIf="expanded">arrow_back</mat-icon>
+    <mat-icon *ngIf="!expanded">arrow_forward</mat-icon></ax-button
+  >
+</div>

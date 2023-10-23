@@ -1,0 +1,26 @@
+<div class="ax-input__header">
+  <mat-label
+    *ngIf="label"
+    class="ax-input__header-label"
+    [attr.for]="id"
+    [ngClass]="{
+    'ax-input__header-label-disabled': !readonly && control?.disabled,
+    'ax-input__header-label-readonly': readonly && control?.disabled,
+    'ax-input__header-label-asterisk': required
+    }"
+    >{{label}}<span *ngIf="optional" class="ax-input__header-optional">(optional)</span></mat-label
+  >
+
+  <!-- Tooltip -->
+  <button
+    *ngIf="tooltip && !control?.disabled"
+    class="ax-input__header-tooltip"
+    [axTooltip]="tooltip?.tooltipText"
+    [axTooltipImage]="tooltip?.tooltipImage"
+    [axTooltipStyle]=" tooltip?.tooltipStyle || 'primary'"
+    [axTooltipPosition]=" tooltip?.tooltipPosition || 'right'"
+    [axTooltipPointerPosition]="tooltip?.pointerPosition || 'start'"
+  >
+    <mat-icon class="ax-input__header-tooltip-icon">{{tooltip?.icon || 'error'}}</mat-icon>
+  </button>
+</div>

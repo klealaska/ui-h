@@ -1,0 +1,13 @@
+.mat-accordion .mat-expansion-panel,
+.mat-accordion .mat-expansion-panel,
+.mat-expansion-panel-header {
+  border-radius: 0.625rem !important;
+}
+
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
+  box-shadow: 0px 1px 1px -1px #305667, 0px 4px 4px #305667;
+}
+
+mat-expansion-panel.mat-expansion-panel {
+  margin-bottom: 1.5rem;
+}

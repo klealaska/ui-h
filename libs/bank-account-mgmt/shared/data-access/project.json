@@ -1,0 +1,43 @@
+{
+  "name": "bank-account-mgmt-shared-data-access",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/bank-account-mgmt/shared/data-access/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/bank-account-mgmt/shared/data-access"],
+      "options": {
+        "project": "libs/bank-account-mgmt/shared/data-access/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/bank-account-mgmt/shared/data-access/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/bank-account-mgmt/shared/data-access/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/bank-account-mgmt/shared/data-access"],
+      "options": {
+        "jestConfig": "libs/bank-account-mgmt/shared/data-access/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/bank-account-mgmt/shared/data-access/**/*.ts",
+          "libs/bank-account-mgmt/shared/data-access/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:shared", "scope:bank-account-mgmt"]
+}

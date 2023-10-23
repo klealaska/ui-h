@@ -1,0 +1,27 @@
+<avc-page-header [showBackBtn]="true"> </avc-page-header>
+
+<div class="page-content">
+  <avc-operation-info
+    [operation]="operation$ | async"
+    [connector]="connector$ | async"
+    [platform]="platform$ | async"
+    (downloadReportClicked)="downloadReportClicked()"
+    (downloadArtifactClicked)="downloadArtifactClicked($event)"
+    (downloadLogClicked)="downloadLogClicked($event)"
+    [hasArtifact]="!!(operation$ | async)?.artifactUrl"
+    [hasDetails]="!!(detailsColumns$ | async)?.length"
+    [hasLogs]="!!(executionEvents$ | async)?.length"
+  ></avc-operation-info>
+</div>
+
+<mat-tab-group mat-stretch-tabs="false" #tabGroup>
+  <mat-tab label="Operation Detail" *ngIf="(detailsColumns$ | async)?.length">
+    <avc-operation-data
+      [displayedColumns]="detailsColumns$ | async"
+      [data]="details$| async"
+    ></avc-operation-data>
+  </mat-tab>
+  <mat-tab label="Logs">
+    <avc-operation-logs [events]="executionEvents$ | async"></avc-operation-logs>
+  </mat-tab>
+</mat-tab-group>

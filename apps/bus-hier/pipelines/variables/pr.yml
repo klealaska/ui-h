@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-Uicoe-Pr-bus-hier-Rg'
+  resourceGroupWest: 'Ax-Aw1-Uicoe-Pr-bus-hier-Rg'
+  bffEndpoint: 'https://bus-hier-bff-pr.graypond-c7752629.eastus.azurecontainerapps.io/api'
+  keyVaultNameEast: 'axae1uicoeprbushierkv'
+  keyVaultNameWest: 'axaw1uicoeprbushierkv'

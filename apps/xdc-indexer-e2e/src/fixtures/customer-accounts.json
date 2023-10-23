@@ -1,0 +1,71 @@
+{
+    "count": 2,
+    "records": [
+        {
+            "vendorAccountId": 12033990,
+            "accountNo": "none",
+            "propertyId": 36423868,
+            "propertyName": "Pipe Test",
+            "termTypeId": 1,
+            "allowRetainage": true,
+            "isActive": true,
+            "propertyAddress": {
+                "propertyId": 36423868,
+                "propertyName": "Pipe Test",
+                "propertyAddressId": 545600,
+                "alias": "102",
+                "line1": "102 Franklin St",
+                "line2": "Apt B",
+                "city": "Charlotte",
+                "state": "NC",
+                "postalCode": "28214",
+                "propertyCode": "102F",
+                "accountingSystemID": 5947
+            }
+        },
+        {
+            "vendorAccountId": 12033990,
+            "accountNo": "Inactive",
+            "propertyId": 36423868,
+            "propertyName": "Pipe Test",
+            "termTypeId": 1,
+            "allowRetainage": true,
+            "isActive": false,
+            "propertyAddress": {
+                "propertyId": 36423868,
+                "propertyName": "Pipe Test",
+                "propertyAddressId": 545600,
+                "alias": "102",
+                "line1": "102 Franklin St",
+                "line2": "Apt B",
+                "city": "Charlotte",
+                "state": "NC",
+                "postalCode": "28214",
+                "propertyCode": "102F",
+                "accountingSystemID": 5947
+            }
+        },
+        {
+            "vendorAccountId": 19235505,
+            "accountNo": "sean test api",
+            "propertyId": -1,
+            "propertyName": "",
+            "termTypeId": 41,
+            "allowRetainage": true,
+            "isActive": true,
+            "propertyAddress": {
+                "propertyId": -1,
+                "propertyName": "",
+                "propertyAddressId": 545600,
+                "alias": "102",
+                "line1": "102 Franklin St",
+                "line2": "Apt B",
+                "city": "Charlotte",
+                "state": "NC",
+                "postalCode": "28214",
+                "propertyCode": "102F",
+                "accountingSystemID": 5947
+            }
+        }
+    ]
+}

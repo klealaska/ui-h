@@ -1,0 +1,42 @@
+<form>
+  <header>
+    <h2>
+      {{ data.property.DisplayName || data.property.Name }}
+      <span *ngIf="data.property.Description">{{ data.property.Description }}</span>
+    </h2>
+  </header>
+
+  <div class="property" *ngFor="let property of complexType?.Properties; let i = index">
+    <mat-label>
+      {{ property.Type === 'complex' ? property.Description : property.DisplayName || property.Name
+      }}
+    </mat-label>
+    <mat-icon
+      class="align-icon"
+      *ngIf="property.Description"
+      [matTooltip]="property.Description"
+      matTooltipPosition="right"
+      >help
+    </mat-icon>
+    <avc-property-type
+      [property]="property"
+      [value]="data.value[property.Name]"
+      [error]="data.error && data.error[property.Name]"
+      (valueChanged)="complexValueChanged($event, property, i)"
+    ></avc-property-type>
+    <span class="error" *ngIf="duplicatedError && i === 0">{{duplicatedError}}</span>
+  </div>
+  <div class="buttons-content">
+    <button
+      mat-raised-button
+      type="button"
+      color="outline"
+      (click)="dialogRef.close({isNew: data.isNew, saved:false})"
+    >
+      CANCEL
+    </button>
+    <button mat-raised-button type="submit" color="primary" (click)="saveComplexForm()">
+      SAVE
+    </button>
+  </div>
+</form>

@@ -1,0 +1,125 @@
+{
+  "name": "team-maturity-spa",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/team-maturity/team-maturity-spa/src",
+  "prefix": "ax",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/team-maturity/team-maturity-spa",
+        "index": "apps/team-maturity/team-maturity-spa/src/index.html",
+        "main": "apps/team-maturity/team-maturity-spa/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/team-maturity/team-maturity-spa/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/team-maturity/team-maturity-spa/src/favicon.ico",
+          "apps/team-maturity/team-maturity-spa/src/assets"
+        ],
+        "styles": [
+          "apps/team-maturity/team-maturity-spa/src/styles.scss",
+          "libs/shared/dsm-styles-v2/src/lib/scss/styles.scss"
+        ],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/team-maturity/team-maturity-spa/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "5mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "80kb",
+              "maximumError": "200kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/team-maturity/team-maturity-spa/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "team-maturity-spa:build:production"
+        },
+        "development": {
+          "browserTarget": "team-maturity-spa:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4201,
+        "publicHost": "http://localhost:4201"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "team-maturity-spa:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/team-maturity/team-maturity-spa/**/*.ts",
+          "apps/team-maturity/team-maturity-spa/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/team-maturity/team-maturity-spa/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "team-maturity-spa:build",
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "team-maturity-spa:build:development"
+        },
+        "production": {
+          "buildTarget": "team-maturity-spa:build:production"
+        }
+      }
+    }
+  },
+  "tags": ["type:spa", "scope:team-maturity"]
+}

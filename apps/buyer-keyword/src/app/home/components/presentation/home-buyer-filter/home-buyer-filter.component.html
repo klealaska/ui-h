@@ -1,0 +1,29 @@
+<form [formGroup]="filtersForm">
+  <mat-form-field class="filter" [appearance]="'outline'" [floatLabel]="'auto'">
+    <mat-label>{{'bkws.home.home-buyer-filter.buyer-search' | translate }}</mat-label>
+    <input
+      matInput
+      placeholder="Search..."
+      formControlName="searchBuyer"
+      [matAutocomplete]="auto"
+    />
+    <mat-icon class="icon-search" matPrefix>search</mat-icon>
+    <mat-icon
+      *ngIf='this.filtersForm.get("searchBuyer").value'
+      class="icon-clear"
+      matSuffix
+      (click)="clearFilter()"
+      >close</mat-icon
+    >
+
+    <mat-autocomplete
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+      (optionSelected)="buyerSelected.emit($event.option.value)"
+    >
+      <mat-option *ngFor="let buyer of filteredBuyers" [value]="buyer.buyerName">
+        {{buyer.buyerName}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

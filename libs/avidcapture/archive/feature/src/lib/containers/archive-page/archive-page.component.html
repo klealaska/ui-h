@@ -1,0 +1,42 @@
+<div class="archive-page" *ngIf="filteredBuyers$ | async as filteredBuyers">
+  <div *ngIf="canViewAllBuyers$ | async" class="row">
+    <h4>{{'xdc.archive.archive-label' | translate }}</h4>
+  </div>
+
+  <xdc-archive-filter
+    *ngIf=" {
+      canViewAllBuyers: canViewAllBuyers$ | async
+    } as data"
+    [buyers]="buyers$ | async"
+    [filteredBuyers]="filteredBuyers"
+    [advancedFilters]="advancedFilters$ | async"
+    [appliedFilters]="appliedFilters$ | async"
+    [filteredBuyersCore]="filteredBuyersCore$ | async"
+    [canRefreshPage]="canRefreshPage$ | async"
+    [canViewAllBuyers]="canViewAllBuyers$ | async"
+    [canUseAdvancedFilter]="canUseAdvancedFilter$ | async"
+    (buyerTextChangedEvent)="searchBuyers($event, data.canViewAllBuyers)"
+    (buyerAddedEvent)="filteredBuyerAdded($event, data.canViewAllBuyers)"
+    (buyerRemovedEvent)="filteredBuyerRemoved($event, data.canViewAllBuyers)"
+    (advanceSearchApplied)="advanceSearchApplied($event)"
+    (filterChipRemoved)="filterRemoved($event)"
+    (refreshPage)="refreshPage($event)"
+  ></xdc-archive-filter>
+
+  <xdc-archive-grid
+    *ngIf="(archivedInvoices$ | async).length > 0"
+    data-cy="archive-grid"
+    [documents]="archivedInvoices$ | async"
+    [canViewAllBuyers]="canViewAllBuyers$ | async"
+    [loadMoreHidden]="loadMoreHidden$ | async"
+    (openInvoiceEvent)="openInvoice($event)"
+    (columnSorted)="columnSorted($event)"
+    (loadNextPageEvent)="loadNextPage($event)"
+  ></xdc-archive-grid>
+
+  <div *ngIf="(archivedInvoices$ | async).length === 0" class="empty-queue">
+    <h4>No archived invoices.</h4>
+    <p class="b2 pt-10">Invoices that have been submitted will appear here.</p>
+  </div>
+</div>
+<xdc-loading-spinner-app *ngIf="isLoading$ | async"></xdc-loading-spinner-app>

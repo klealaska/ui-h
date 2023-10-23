@@ -1,0 +1,71 @@
+<avc-page-header [showBackBtn]="true"> </avc-page-header>
+
+<div
+  class="page-content"
+  *ngIf="{
+  isLoading: isLoading$ | async,
+  enablements: registrationEnablements$ | async,
+  uploadedFiles: uploadedFiles$ | async,
+  operations: operations$ | async } as data"
+>
+  <section class="tab-content">
+    <avc-loading-wrapper [isLoading]="data.isLoading" [loadingMessage]="'Loading Data'">
+      <h2>Accounting System Instance | {{ registration?.description }}</h2>
+
+      <div class="data-selection-content">
+        <h2>Sync Now</h2>
+
+        <p>
+          Select the data types and files that the system needs to import.
+          <br />
+          <br />
+          When importing data from a file, verify that the data format is correct for the associated
+          data type.
+        </p>
+      </div>
+
+      <div class="data-selection-list">
+        <table>
+          <thead>
+            <tr>
+              <th>Data Type</th>
+              <th>Data Source</th>
+            </tr>
+          </thead>
+          <tbody class="operation-types">
+            <avc-operation-item
+              *ngFor="let enablement of data.enablements"
+              [enablement]="enablement"
+              [selectedFile]="data.uploadedFiles[enablement.operationTypeName]"
+              (checkBoxChanged)="checkBoxChanged($event, enablement)"
+              (uploadClick)="openFileDialog(enablement)"
+            ></avc-operation-item>
+          </tbody>
+          <avc-no-content
+            *ngIf="data.enablements?.length === 0 && data.isLoading === false"
+            [message]="'No Operations found for this Accounting System.'"
+          ></avc-no-content>
+        </table>
+
+        <section class="preview-mode">
+          <mat-slide-toggle [(ngModel)]="isPreview" (click)="onIsPreviewClick($event)">
+            Run in Preview mode</mat-slide-toggle
+          >
+        </section>
+      </div>
+
+      <div class="buttons-content">
+        <button mat-raised-button type="button" color="outline" (click)="goBack()">CANCEL</button>
+        <button
+          mat-raised-button
+          type="button"
+          color="primary"
+          [disabled]="data.operations?.length === 0"
+          (click)="syncOperations()"
+        >
+          {{isPreview ? 'RUN PREVIEW' : 'SYNC NOW'}}
+        </button>
+      </div>
+    </avc-loading-wrapper>
+  </section>
+</div>

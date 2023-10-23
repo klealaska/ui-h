@@ -1,0 +1,117 @@
+@use 'color-theme' as *;
+@use 'dsm-theme-mixins' as *;
+
+@import '@angular/material/theming';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons';
+
+@font-face {
+  font-family: 'artegra-regular';
+  src: url('../assets/fonts/artegra/artegra-regular.otf');
+}
+
+@font-face {
+  font-family: 'artegra-medium';
+  src: url('../assets/fonts/artegra/artegra-medium.otf');
+}
+
+@font-face {
+  font-family: 'artegra-semi-bold';
+  src: url('../assets/fonts/artegra/artegra-semi-bold.otf');
+}
+
+@font-face {
+  font-family: 'artegra-bold';
+  src: url('../assets/fonts/artegra/artegra-bold.otf');
+}
+
+@font-face {
+  font-family: 'Avid-Material-Icons';
+  src: url('../assets/fonts/icons/AvidMaterialIcons.ttf');
+}
+
+.material-icons {
+  font-family: 'Avid-Material-Icons';
+}
+
+// Plus imports for other components in your app.
+
+$custom-typography: mat-typography-config(
+  $font-family: 'artegra-medium',
+  $display-4: mat-typography-level(24px, 36px, 500),
+  $display-3: mat-typography-level(16px, 56px, 500),
+  $display-2: mat-typography-level(45px, 48px, 400),
+  $display-1: mat-typography-level(34px, 40px, 400),
+  $headline: mat-typography-level(1.75em, 42px, 400, 'artegra-semi-bold'),
+  $title: mat-typography-level(1.5em, 36px, 400, 'artegra-semi-bold'),
+  $subheading-2: mat-typography-level(1.25em, 30px, 500, 'artegra-semi-bold'),
+  $subheading-1: mat-typography-level(1.125em, 27px, 500, 'artegra-semi-bold', 0.002em),
+  $body-2: mat-typography-level(16px, 21px, 400, 'artegra-bold', 0.002em),
+  $body-1: mat-typography-level(16px, 24px, 400, inherit, 0.005em),
+  $button: mat-typography-level(1em, 14px, 500, 'artegra-medium'),
+  $caption: mat-typography-level(0.875em, 21px, 400, inherit, 0.005em),
+  $input: mat-typography-level(inherit, 1.125, 400),
+);
+
+@include mat-core();
+
+// Foreground
+$mat-light-theme-foreground: (
+  base: black,
+  divider: mat-color($dsm-fill, MutedLight),
+  dividers: mat-color($dsm-fill, MutedLight),
+  disabled: $dark-disabled-text,
+  disabled-button: mat-color($dsm-disabled, DisabledText),
+  disabled-text: mat-color($dsm-disabled, DisabledText),
+  elevation: black,
+  hint-text: mat-color($dsm-disabled, DisabledText),
+  secondary-text: $dark-secondary-text,
+  icon: mat-color($dsm-fill, Muted),
+  icons: mat-color($dsm-fill, Muted),
+  text: mat-color($dsm-fill, Text),
+);
+
+// Background
+$mat-light-theme-background: (
+  background: mat-color($dsm-fill, White),
+  hover: mat-color($dsm-fill, Hover),
+  // TODO(kara): check style with Material Design UX
+  card: mat-color($dsm-fill, White),
+  dialog: mat-color($dsm-fill, White),
+  disabled-button: mat-color($dsm-disabled, Disabled),
+  raised-button: mat-color($dsm-fill, White),
+  focused-button: $dark-focused,
+  selected-button: map-get($mat-grey, 300),
+  selected-disabled-button: map-get($mat-grey, 400),
+  disabled-button-toggle: map-get($mat-grey, 200),
+  unselected-chip: map-get($mat-grey, 300),
+  disabled-list-option: map-get($mat-grey, 200),
+  tooltip: mat-color($dsm-fill, Muted),
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$dsm-app-primary: mat-palette($dsm-primary, Main, Light, Dark);
+$dsm-app-accent: mat-palette($dsm-accent, Main, Light, Dark);
+
+$dsm-app-warn: mat-palette($dsm-warn, Main, Dark, Light);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as `color` or `typography`.
+$dsm-app-theme: mat-light-theme(
+  (
+    color: (
+      primary: $dsm-app-primary,
+      accent: $dsm-app-accent,
+      warn: $dsm-app-warn,
+    ),
+    typography: $custom-typography,
+    density: -1,
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($dsm-app-theme);
+@include app-root-typography($custom-typography);

@@ -1,0 +1,64 @@
+$default-clr: theme('colors.primary.800');
+$success-clr: theme('colors.success.600');
+$error-clr: theme('colors.critical.600');
+$inprogress-clr: theme('colors.interactive.700');
+$text-clr: theme('colors.grey.800');
+$stroke-width: 4.5;
+$stroke-width-inner: 4;
+
+:host {
+  &.active {
+    .circular-chart {
+      stroke: $inprogress-clr;
+    }
+  }
+  &.completed {
+    .circular-chart {
+      stroke: $success-clr;
+    }
+  }
+  &.error {
+    .circular-chart {
+      stroke: $error-clr;
+    }
+  }
+
+  .circular-chart-wrapper {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .step-status {
+      position: absolute;
+      z-index: 1;
+      font-family: theme('fontFamily.interRegular');
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .circle-bg {
+      fill: none;
+      stroke: #eee;
+      stroke-width: $stroke-width;
+    }
+
+    .circular-chart {
+      display: block;
+    }
+
+    .circle {
+      fill: none;
+      stroke-width: $stroke-width-inner;
+      animation: progress 1s ease-out forwards;
+    }
+
+    @keyframes progress {
+      0% {
+        stroke-dasharray: 0 100;
+      }
+    }
+  }
+}

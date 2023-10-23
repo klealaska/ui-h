@@ -1,0 +1,55 @@
+<div class="research-page" *ngIf="filteredBuyers$ | async as filteredBuyers">
+  <div *ngIf="canViewAllBuyers$ | async" class="row">
+    <h4>{{'xdc.research.research-queue-label' | translate }}</h4>
+  </div>
+
+  <xdc-research-filter
+    *ngIf=" {
+      canViewAllBuyers: canViewAllBuyers$ | async
+    } as data"
+    [buyers]="buyers$ | async"
+    [filteredBuyers]="filteredBuyers"
+    [advancedFilters]="advancedFilters$ | async"
+    [appliedFilters]="appliedFilters$ | async"
+    [filteredBuyersCore]="filteredBuyersCore$ | async"
+    [canRefreshPage]="canRefreshPage$ | async"
+    [queuesNotAllowedList]="queuesNotAllowedList$ | async"
+    [canViewAllBuyers]="canViewAllBuyers$ | async"
+    [canUseAdvancedFilter]="canUseAdvancedFilter$ | async"
+    [exposedFilters]="exposedFilters$ | async"
+    [canSeeExposedFilters]="canSeeExposedFilters$ | async"
+    (buyerTextChangedEvent)="searchBuyers($event, data.canViewAllBuyers)"
+    (buyerAddedEvent)="filteredBuyerAdded($event, data.canViewAllBuyers)"
+    (buyerRemovedEvent)="filteredBuyerRemoved($event, data.canViewAllBuyers)"
+    (advanceSearchApplied)="advanceSearchApplied($event)"
+    (filterChipRemoved)="filterRemoved($event)"
+    (escalationChipRemoved)="escalationFilterRemoved($event)"
+    (refreshPage)="refreshPage($event)"
+    (exposedFilterSelected)="exposedFilterSelected($event)"
+  ></xdc-research-filter>
+
+  <xdc-research-grid
+    *ngIf=" {
+    filteredBuyers: filteredBuyers$ | async
+  } as data"
+    data-cy="research-queue-grid"
+    [documents]="researchInvoices$ | async"
+    [batchSelectIsActive]="batchSelectIsActive$ | async"
+    [canViewAllBuyers]="canViewAllBuyers$ | async"
+    [currentUsername]="currentUsername$ | async"
+    [loadMoreHidden]="loadMoreHidden$ | async"
+    [resetBatchSelection]="resetBatchSelection"
+    (columnSorted)="columnSorted($event)"
+    (openInvoiceEvent)="openInvoice($event)"
+    (loadNextPageEvent)="loadNextPage($event)"
+    (rowsSelected)="batchSelect($event)"
+    (unlockDocumentEvent)=" unlockDocumentManually($event)"
+    [canUnlockDocumentManually]="canUnlockDocumentManually$|async"
+  ></xdc-research-grid>
+
+  <div *ngIf="(researchInvoices$ | async).length === 0" class="empty-queue">
+    <h4>No active research invoices.</h4>
+    <p class="b2 pt-10">Invoices that have been marked for research will appear here.</p>
+  </div>
+</div>
+<xdc-loading-spinner-app *ngIf="isLoading$ | async"></xdc-loading-spinner-app>

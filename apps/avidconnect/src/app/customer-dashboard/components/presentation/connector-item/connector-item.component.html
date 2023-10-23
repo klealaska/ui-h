@@ -1,0 +1,15 @@
+<div class="connector-item">
+  <header class="underline">
+    <avc-logo *ngIf="connector.logoUrl" [connectorId]="connector.id"></avc-logo>
+    <h2>{{connector.displayName}} <span class="sub">{{ getConnectorInfo() }}</span></h2>
+  </header>
+  <div>
+    <h3>Accounting System Instances</h3>
+    <div class="accounting-system-list">
+      <avc-accounting-system
+        [registration]="registration"
+        *ngFor="let registration of connector.registrations"
+      ></avc-accounting-system>
+    </div>
+  </div>
+</div>

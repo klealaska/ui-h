@@ -1,0 +1,130 @@
+<avc-loading-wrapper [isLoading]="isLoadingForm">
+  <form
+    class="add-registration-form"
+    autocomplete="off"
+    [formGroup]="registrationForm"
+    (ngSubmit)="submitRegistrationForm()"
+  >
+    <header>
+      <h2>{{data?.customer ? 'Register a new Instance': 'Enroll A Customer'}}</h2>
+    </header>
+
+    <div class="customer-information" *ngIf="data?.customer">
+      <h3>{{data?.customer.name}}</h3>
+      <p>{{data?.customer.platformName}}</p>
+    </div>
+
+    <mat-form-field class="form-field" appearance="outline" *ngIf="!data?.customer">
+      <mat-label>Platform</mat-label>
+      <mat-select
+        name="platformName"
+        formControlName="platform"
+        ngDefaultControl
+        required
+        (selectionChange)="onPlatformSelected($event)"
+      >
+        <mat-option [value]="platform.id" *ngFor="let platform of platforms$ | async"
+          >{{ platform.name }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline" *ngIf="!data?.customer">
+      <mat-label>Customer</mat-label>
+      <input
+        type="text"
+        placeholder="Start typing to select a customer"
+        matInput
+        name="customer"
+        formControlName="customer"
+        [matAutocomplete]="autocompleteOrganization"
+        [readonly]="isOrganizationSelected"
+        required
+      />
+      <button
+        *ngIf="isOrganizationSelected"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clearCustomerInformation()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-autocomplete
+        autoActiveFirstOption
+        #autocompleteOrganization="matAutocomplete"
+        [displayWith]="displayAutocompleteFn"
+        (optionSelected)="onOrganizationSelected($event)"
+      >
+        <mat-option *ngFor="let option of organizationOptions$ | async" [value]="option">
+          {{option.displayName}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error>Organization is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Accounting System Instance</mat-label>
+      <mat-select name="accountingSystem" formControlName="registration" ngDefaultControl>
+        <mat-option *ngIf="(organizationAccountingSystems$ | async)?.length===0"
+          >No Accounting Systems Found</mat-option
+        >
+        <mat-option
+          [value]="accountingSystem"
+          *ngFor="let accountingSystem of organizationAccountingSystems$ | async"
+          >{{ accountingSystem.name }}</mat-option
+        >
+      </mat-select>
+      <mat-error>Accounting System is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>Connector</mat-label>
+      <input
+        type="text"
+        placeholder="Start typing to look for a connector"
+        matInput
+        name="connector"
+        formControlName="connector"
+        [matAutocomplete]="autocompleteConnector"
+        [readonly]="isConnectorSelected"
+        required
+      />
+      <button
+        *ngIf="isConnectorSelected"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="registrationForm.get('connector').reset(); isConnectorSelected = false"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-autocomplete
+        autoActiveFirstOption
+        #autocompleteConnector="matAutocomplete"
+        [displayWith]="displayConnectorAutocompleteFn"
+        (optionSelected)="isConnectorSelected=true"
+      >
+        <mat-option *ngFor="let option of connectorLookup$ | async" [value]="option">
+          {{option.displayName}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error>Connector is required</mat-error>
+    </mat-form-field>
+
+    <div class="buttons-content">
+      <button
+        mat-raised-button
+        type="button"
+        color="outline"
+        id="cancel-registration-btn"
+        (click)="close()"
+      >
+        CANCEL
+      </button>
+      <button mat-raised-button type="submit" color="primary" id="save-registration-btn">
+        SAVE
+      </button>
+    </div>
+  </form>
+</avc-loading-wrapper>

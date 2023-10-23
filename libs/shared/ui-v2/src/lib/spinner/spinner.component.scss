@@ -1,0 +1,69 @@
+@mixin color($color) {
+  background: conic-gradient(transparent, $color);
+  &:after {
+    background-color: $color;
+  }
+}
+
+@mixin size($size, $dotSize) {
+  height: $size;
+  width: $size;
+  &:after {
+    height: $dotSize;
+    width: $dotSize;
+  }
+}
+
+.spinner {
+  position: relative;
+  border-radius: 50%;
+  mask-image: radial-gradient(circle at center, transparent 59%, white 61%);
+  animation: rotate 1s linear infinite;
+
+  &:after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    height: 2px;
+    width: 2px;
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  // Colors
+  &__default {
+    @include color(theme('colors.interactive.700'));
+  }
+  &__destructive {
+    @include color(theme('colors.critical.600'));
+  }
+  &__neutral {
+    @include color(theme('colors.grey.700'));
+  }
+  &__washed {
+    @include color(white);
+  }
+
+  // Sizes
+  // If there's a major change in thickness. mask-image can be added under the size
+  &__lg {
+    @include size(24px, 2px);
+  }
+  &__md {
+    @include size(20px, 1.66px);
+  }
+  &__sm {
+    @include size(16px, 1.33px);
+  }
+}
+
+// Animation
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,108 @@
+$tag-size-sm: 20px;
+$tag-size-md: 24px;
+$tag-size-lg: 32px;
+$tag-font-size-sm: 12px;
+$tag-font-size-md: 12px;
+$tag-font-size-lg: 16px;
+$tag-icon-size-sm: 16px;
+$tag-icon-size-md: 20px;
+$tag-icon-size-lg: 24px;
+$tag-spacing-sm: 8px;
+$tag-spacing-md: 12px;
+$tag-spacing-lg: 16px;
+
+@mixin tag-size($size, $font-size, $icon-size, $spacing) {
+  height: $size;
+  padding: 0 $spacing;
+
+  .text {
+    font-size: $font-size;
+    text-transform: uppercase;
+  }
+  .icon {
+    font-size: $icon-size;
+    padding-left: 4px;
+    height: auto; // override default material icon style
+    width: auto; // override default material icon style
+  }
+}
+
+.ax-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: theme('fontFamily.interMedium');
+  border-radius: 4px;
+
+  &__filled {
+    &--default {
+      @extend .ax-tag;
+      color: theme('colors.grey.800');
+      background-color: theme('colors.grey.50');
+    }
+    &--success {
+      @extend .ax-tag;
+      color: theme('colors.white');
+      background-color: theme('colors.success.600');
+    }
+    &--warning {
+      @extend .ax-tag;
+      color: theme('colors.grey.800');
+      background-color: theme('colors.warning.600');
+    }
+    &--critical {
+      @extend .ax-tag;
+      color: theme('colors.white');
+      background-color: theme('colors.critical.600');
+    }
+    &--informational {
+      @extend .ax-tag;
+      color: theme('colors.white');
+      background-color: theme('colors.informational.600');
+    }
+  }
+
+  &__border {
+    &--default {
+      @extend .ax-tag;
+      color: theme('colors.grey.800');
+      background-color: theme('colors.surface.50');
+      border: 1px solid theme('colors.grey.600');
+    }
+    &--success {
+      @extend .ax-tag;
+      color: theme('colors.grey.800');
+      background-color: theme('colors.success.50');
+      border: 1px solid theme('colors.success.600');
+    }
+    &--warning {
+      @extend .ax-tag;
+      color: theme('colors.grey.800');
+      background-color: theme('colors.warning.50');
+      border: 1px solid theme('colors.warning.600');
+    }
+    &--critical {
+      @extend .ax-tag;
+      color: theme('colors.grey.800');
+      background-color: theme('colors.critical.50');
+      border: 1px solid theme('colors.critical.600');
+    }
+    &--informational {
+      @extend .ax-tag;
+      color: theme('colors.grey.800');
+      background-color: theme('colors.informational.50');
+      border: 1px solid theme('colors.informational.600');
+    }
+  }
+
+  &.sm {
+    @include tag-size($tag-size-sm, $tag-font-size-sm, $tag-icon-size-sm, $tag-spacing-sm);
+  }
+
+  &.md {
+    @include tag-size($tag-size-md, $tag-font-size-md, $tag-icon-size-md, $tag-spacing-md);
+  }
+
+  &.lg {
+    @include tag-size($tag-size-lg, $tag-font-size-lg, $tag-icon-size-lg, $tag-spacing-lg);
+  }
+}

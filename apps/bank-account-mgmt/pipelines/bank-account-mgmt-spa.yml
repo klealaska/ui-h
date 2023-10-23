@@ -1,0 +1,126 @@
+trigger: none
+
+#######################################################
+# Setting up reusable variables for the pipeline      #
+#              CHANGE ALL VARS HERE                   #
+#######################################################
+variables:
+  - template: './variables/common.yml'
+
+#######################################################
+#                 DONT CHANGE BELOW                   #
+#######################################################
+
+# Declaration of an Agent pool. The Linux-VMSS-agent-pool will be used if the pipeline is to run in a container
+pool: linux-vmss-agent-pool
+
+# Declartion of the container for the pipeline to run in
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: User Interface Center of Excellence/templates
+      ref: refs/heads/master
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+    - container: cypress-base
+      image: demozombiedice.azurecr.io/cypress/base:16
+      endpoint: DemoZombieDice
+  pipelines:
+    - pipeline: ui-coe-ci-tagged
+      source: ui-coe-ci-tagged
+      project: 'User Interface Center of Excellence'
+      trigger:
+        branches:
+          - master
+        tags:
+          - bank-account-mgmt-spa
+
+stages:
+  # All Deploy steps. Each Environment is called, similarly, with required parameters passed to the templates.
+  - template: '../../../tools/pipelines/templates/deploy-spa.yml'
+    parameters:
+      stages:
+        - stage:
+          environment: dv
+          varPath: bank-account-mgmt/pipelines/variables
+          gate: dv-bam
+          serviceConnection: $(nonProdServiceConnection)
+          dependsOn: ''
+          stageCondition: "and(succeeded(), and(ne(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'Manual')))"
+          applicationName: $(applicationName)
+          region1: $(region1)
+          region2: $(region2)
+          appPath: $(appPath)
+          appTag: $(appTag)
+
+        - stage:
+          environment: ci
+          varPath: bank-account-mgmt/pipelines/variables
+          gate: ci-bam
+          serviceConnection: $(nonProdServiceConnection)
+          dependsOn: ''
+          stageCondition: "eq(variables['Build.SourceBranch'], 'refs/heads/master')"
+          applicationName: $(applicationName)
+          region1: $(region1)
+          region2: $(region2)
+          appPath: $(appPath)
+          appTag: $(appTag)
+
+        - stage:
+          environment: qa
+          varPath: bank-account-mgmt/pipelines/variables
+          gate: qa-bam
+          serviceConnection: $(nonProdServiceConnection)
+          dependsOn: 'ci'
+          stageCondition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))"
+          applicationName: $(applicationName)
+          region1: $(region1)
+          region2: $(region2)
+          appPath: $(appPath)
+          appTag: $(appTag)
+
+        - stage:
+          environment: st
+          varPath: bank-account-mgmt/pipelines/variables
+          gate: st-bam
+          serviceConnection: $(prodServiceConnection)
+          dependsOn: 'e2e'
+          stageCondition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))"
+          applicationName: $(applicationName)
+          region1: $(region1)
+          region2: $(region2)
+          appPath: $(appPath)
+          appTag: $(appTag)
+
+        - stage:
+          environment: pr
+          varPath: bank-account-mgmt/pipelines/variables
+          gate: pr-bam
+          serviceConnection: $(prodServiceConnection)
+          dependsOn: 'st'
+          stageCondition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))"
+          applicationName: $(applicationName)
+          region1: $(region1)
+          region2: $(region2)
+          appPath: $(appPath)
+          appTag: $(appTag)
+
+  - template: monorepo/e2e.yml@templates
+    parameters:
+      dependsOn: 'ci'
+      e2eName: $(e2eName)
+      isMfe: true
+      playwrightEnabled: true
+
+  # Fortify scans.
+  - template: '../../../tools/pipelines/templates/fortify-scan.yml'
+    parameters:
+      appTag: $(appTag)
+      dependsOn: 'qa'
+      applicationRoot: '/apps/$(appPath)/src'
+      fortifyApplicationName: 'User Interface Center of Excellence'
+      microserviceName: 'ui-coe'

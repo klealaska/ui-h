@@ -1,0 +1,58 @@
+parameters:
+  azureServiceConnection: ''
+  domain: ''
+  capability: 'default'
+  tfDirectory: ''
+  stages: {}
+
+stages:
+  - ${{ each stage in parameters.stages }}:
+      # - ${{ if or(and(eq(stage.name, 'Dv'), not(eq(variables['Build.SourceBranchName'], 'master'))), and(ne(stage.name, 'Dv'), eq(variables['Build.SourceBranchName'],'master')))}}:
+      - stage: ${{ stage.name }}
+        # ${{ if ne(stage.name, 'Dv') }}:
+        #   condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
+        displayName: 'Deploy ${{ stage.name }} Infrastructure using Terraform'
+        dependsOn: ${{ stage.dependsOn }}
+        jobs:
+          - deployment: Deploy${{ stage.name }}
+            displayName: 'Deploy Infra To ${{ stage.name }}'
+            environment: ${{ stage.name }}
+            container: cicd_devtools
+            strategy:
+              runOnce:
+                deploy:
+                  steps:
+                    - checkout: self
+                    # - task: AzureCLI@2
+                    #   displayName: TF Destroy
+                    #   condition: eq(variables['runDestroy'], 'True')
+                    #   inputs:
+                    #     azureSubscription: ${{ stage.serviceConnection }}
+                    #     scriptType: pscore
+                    #     scriptPath: '$(System.DefaultWorkingDirectory)/tools/pipelines/scripts/Invoke-CICDTerraformModule-Destroy.ps1'
+                    #     arguments: -Domain ${{ parameters.domain }} `
+                    #       -Capability ${{ parameters.capability }} `
+                    #       -Environment ${{ stage.name }} `
+                    #       -SubscriptionId ${{ stage.subscriptionId }} `
+                    #       -VarFile ${{ stage.varFile }} `
+                    #       -WorkingDirectory ${{ parameters.tfDirectory }}
+                    #     addSpnToEnvironment: true
+                    #   env:
+                    #     ACCESS_TOKEN: $(System.AccessToken)
+
+                    - task: AzureCLI@2
+                      displayName: TF Apply
+                      # condition: ne(variables['skipApply'], 'True')
+                      inputs:
+                        azureSubscription: ${{ stage.serviceConnection }}
+                        scriptType: pscore
+                        scriptPath: '$(System.DefaultWorkingDirectory)/tools/pipelines/scripts/Invoke-CICDTerraformModule.ps1'
+                        arguments: -Domain ${{ parameters.domain }} `
+                          -Capability ${{ parameters.capability }} `
+                          -Environment ${{ stage.name }} `
+                          -SubscriptionId ${{ stage.subscriptionId }} `
+                          -VarFile ${{ stage.varFile }} `
+                          -WorkingDirectory ${{ parameters.tfDirectory }}
+                        addSpnToEnvironment: true
+                      env:
+                        ACCESS_TOKEN: $(System.AccessToken)

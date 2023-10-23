@@ -1,0 +1,148 @@
+/* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
+@use 'shared-components-variables' as *;
+
+.toast-container {
+  pointer-events: none;
+  position: fixed;
+  z-index: 999999;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  &.toast-top-right {
+    right: 12px;
+    top: 12px;
+  }
+
+  .ngx-toastr {
+    align-items: center;
+    background-color: #030303;
+    background-position: 16px center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    border-radius: 3px 3px 3px 3px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin: 0 0 6px;
+    pointer-events: auto;
+    position: relative;
+    overflow: hidden;
+    width: 510px;
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+
+  .toast-title {
+    border-right: thin solid $white;
+    font-weight: bold;
+    padding: 15px 15px 15px 80px;
+    width: 90%;
+  }
+
+  .toast-message {
+    border-right: thin solid $white;
+    font-size: 18px;
+    padding: 15px 15px 15px 52px;
+    width: 90%;
+    word-wrap: break-word;
+  }
+
+  .toast-message a,
+  .toast-message label {
+    color: #ffffff;
+  }
+
+  .toast-message a:hover {
+    color: #cccccc;
+    text-decoration: none;
+  }
+
+  .toast-close-button {
+    background-color: transparent;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAMAAACnUt2HAAAArlBMVEUAAACqqqqfn5+ZmZmVlZWSkpKfn5+cnJyZmZmXl5ebm5ujo6OhoaGioqKenp6hpKSjpqakp6epqauvsLKvsbKztLbCw8XFx8nFyMnGyMnGyMnHycrHycvJy8zKzM3Lzc7Lzc7Lzc7MztDMz9DO0NHO0NHO0NHP0dPP0tPR09TR09TS1NXS1NXT1dfV1tjV1tjW19nW19nl5+nq7O7s7vDt7/Ht7/Hz9ff7/f////9OW1MlAAAAN3RSTlMABggKDA4QEhQWFxkbLDpcYWWAoqaq1tzd3t/f4OPl5ebn5+jo6uvr7Ozt7e7w8PHx8vv9/f3+mHtP6wAAAAFiS0dEOdcAlUAAAACySURBVBjTVdDJWsJAFETh03ZCo1FxnkBARCWIGufz/k/mggidu/y/u6gqOD5PZBdODoFvV/3MrvwAZmYahroA+kt92W3tWt8rgLTRcPNva60ThNHWINVapzjJba2LmTZVnq6ca/cPYP9Hfw+6Fqeqy063ONZmpU+9rNtIm6qc5xqG+lZBea+P5bbb6x5AcacPZbtLa1BMdRyBC33erFRM9BL4ss6SxFs/gaOzXp5u53TAH5RvGNXXACZOAAAAAElFTkSuQmCC');
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    height: 20px;
+    margin-right: 15px;
+    outline: none;
+    width: 20px;
+
+    & span {
+      opacity: 0;
+    }
+  }
+
+  /* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/info-circle.svg */
+  .toast-info {
+    background-color: $cornflower-blue;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CiAgICA8cGF0aCBmaWxsPSJyZ2IoMjU1LDI1NSwyNTUpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yNTYgOEMxMTkuMDQzIDggOCAxMTkuMDgzIDggMjU2YzAgMTM2Ljk5NyAxMTEuMDQzIDI0OCAyNDggMjQ4czI0OC0xMTEuMDAzIDI0OC0yNDhDNTA0IDExOS4wODMgMzkyLjk1NyA4IDI1NiA4em0wIDExMGMyMy4xOTYgMCA0MiAxOC44MDQgNDIgNDJzLTE4LjgwNCA0Mi00MiA0Mi00Mi0xOC44MDQtNDItNDIgMTguODA0LTQyIDQyLTQyem01NiAyNTRjMCA2LjYyNy01LjM3MyAxMi0xMiAxMmgtODhjLTYuNjI3IDAtMTItNS4zNzMtMTItMTJ2LTI0YzAtNi42MjcgNS4zNzMtMTIgMTItMTJoMTJ2LTY0aC0xMmMtNi42MjcgMC0xMi01LjM3My0xMi0xMnYtMjRjMC02LjYyNyA1LjM3My0xMiAxMi0xMmg2NGM2LjYyNyAwIDEyIDUuMzczIDEyIDEydjEwMGgxMmM2LjYyNyAwIDEyIDUuMzczIDEyIDEydjI0eiIvPgo8L3N2Zz4K');
+    margin-left: 20px;
+  }
+
+  /* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/times-circle.svg */
+  .toast-error {
+    background-color: $red;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CiAgICA8cGF0aCBmaWxsPSJyZ2IoMjU1LDI1NSwyNTUpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yNTYgOEMxMTkgOCA4IDExOSA4IDI1NnMxMTEgMjQ4IDI0OCAyNDggMjQ4LTExMSAyNDgtMjQ4UzM5MyA4IDI1NiA4em0xMjEuNiAzMTMuMWM0LjcgNC43IDQuNyAxMi4zIDAgMTdMMzM4IDM3Ny42Yy00LjcgNC43LTEyLjMgNC43LTE3IDBMMjU2IDMxMmwtNjUuMSA2NS42Yy00LjcgNC43LTEyLjMgNC43LTE3IDBMMTM0LjQgMzM4Yy00LjctNC43LTQuNy0xMi4zIDAtMTdsNjUuNi02NS02NS42LTY1LjFjLTQuNy00LjctNC43LTEyLjMgMC0xN2wzOS42LTM5LjZjNC43LTQuNyAxMi4zLTQuNyAxNyAwbDY1IDY1LjcgNjUuMS02NS42YzQuNy00LjcgMTIuMy00LjcgMTcgMGwzOS42IDM5LjZjNC43IDQuNyA0LjcgMTIuMyAwIDE3TDMxMiAyNTZsNjUuNiA2NS4xeiIvPgo8L3N2Zz4K');
+    margin-left: 20px;
+  }
+
+  /* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/check.svg */
+  .toast-success {
+    background-color: $green;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CiAgICA8cGF0aCBmaWxsPSJyZ2IoMjU1LDI1NSwyNTUpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNzMuODk4IDQzOS40MDRsLTE2Ni40LTE2Ni40Yy05Ljk5Ny05Ljk5Ny05Ljk5Ny0yNi4yMDYgMC0zNi4yMDRsMzYuMjAzLTM2LjIwNGM5Ljk5Ny05Ljk5OCAyNi4yMDctOS45OTggMzYuMjA0IDBMMTkyIDMxMi42OSA0MzIuMDk1IDcyLjU5NmM5Ljk5Ny05Ljk5NyAyNi4yMDctOS45OTcgMzYuMjA0IDBsMzYuMjAzIDM2LjIwNGM5Ljk5NyA5Ljk5NyA5Ljk5NyAyNi4yMDYgMCAzNi4yMDRsLTI5NC40IDI5NC40MDFjLTkuOTk4IDkuOTk3LTI2LjIwNyA5Ljk5Ny0zNi4yMDQtLjAwMXoiLz4KPC9zdmc+Cg==');
+    margin-left: 20px;
+  }
+
+  /* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/exclamation-triangle.svg */
+  .toast-warning {
+    color: $gray-dark;
+    background-color: $yellow;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAWCAMAAAACYceEAAAA1VBMVEUAAAAAAAAAAIBAQEAzMzM5OTlGRkY7OztJSUk9PT1GRkZDQ0NAQEA+Pj5ERERAQEBERERCQkJDQ0M+Pj4+Pj5BQUFAQEBCQkJAQEBAQEBAQEA/P0NAQEBBQUFAQEBAQEBAQEBAQEBAQEI/P0FAQEJAQEI/P0FBQUFAQEA/P0E/P0FBQUFAQEFAQEE/P0FAQEFAQEBAQEFAQEBAQEFAQEFAQEFAQEI/P0FAQEFAQEFAQEFAQEFAQEE/P0E/P0FAQEFAQEE/P0FAQEFAQEE/P0FAQEH////lCWEDAAAARXRSTlMAAQIEBQkLDQ4VFhcYHR4gIiMmKTEzNDY8QERFSEtUV19gcHGAiImOj5GZmqywsbvCw8bIzNPW3eDj5ujv8fX2+Pn7/P1RE6bjAAAAAWJLR0RGF7r57QAAALdJREFUKM910OcagiAUBmBs712WDRu2y2zvYXXu/5YSFUSk7wecw8vDAyDkRZk2kDDyG0xZBNIWAHYhgfQApxuE+MWWayIgI3Ay5KH4csUscaJbi5vV2hp1Pyh4exnl8NRiIbxn5BBhZACMQN+D5M0n9wyVOfgEZgQqH06+NffDDPcpzq1xDMkW1W2hU22TUsUQPZGWngZwjlmikQ6ahTqtNYSyDxDlmad/zGeMpn9kgtLLoyiL1A9AVUzYdkHqawAAAABJRU5ErkJggg==');
+    margin-left: 20px;
+
+    & .toast-message {
+      border-right: thin solid $gray-dark;
+    }
+
+    & .toast-close-button {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAflBMVEUAAAA5OTk8PDw7Oz48PDw7Ozs6Oj07Ozs7Ozs6Ojo5OTw6Ojo7Ozs7Oz08PDw7Ozs7Ozs6Ojo7Oz08PDw8PDw7Ozs4ODo8PDw7Ozs6Ojw5OTs7Ozs7Oz08PDw8PD09PT49PT48PD0+Pj8/P0A/P0E+Pj8/P0A/P0BAQEH///8ZXUjmAAAAJ3RSTlMAWVpfYmRlZ2hqa21wcXN5enx9f4CBg4SHiI6Pk5TF29/h9Pz9/v4YG0vyAAAAAWJLR0QpyreFJAAAAKBJREFUGNNt0dlSAkEMRuHjxuoCg44rog4k5/2f0Iu2occiV8lXXam/0nC2vg99O179fAJ7s9HrMIA+zadqk9A3gE7zudg0dFvaddXZyY46b61ovxgbbNJMfR+nXem/d5R9NUOtZWqaXWvT0G2n+XiySegHrDQ31W5CXwEe1Ptil2G+/K0O8w7g4nA0WIR5CwzNkWAZDsDXfhRkPuzOf8YvoOUS2z16MVgAAAAASUVORK5CYII=');
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+/********** Additional toastr stylings ******************/
+/* Responsive Design */
+@media all and (max-width: 240px) {
+  .toast-container .ngx-toastr.div {
+    padding: 8px 8px 8px 50px;
+    width: 11em;
+  }
+  .toast-container .toast-close-button {
+    right: -0.2em;
+    top: -0.2em;
+  }
+}
+@media all and (min-width: 241px) and (max-width: 480px) {
+  .toast-container .ngx-toastr.div {
+    padding: 8px 8px 8px 50px;
+    width: 18em;
+  }
+  .toast-container .toast-close-button {
+    right: -0.2em;
+    top: -0.2em;
+  }
+}
+@media all and (min-width: 481px) and (max-width: 768px) {
+  .toast-container .ngx-toastr.div {
+    padding: 15px 15px 15px 50px;
+    width: 25em;
+  }
+}

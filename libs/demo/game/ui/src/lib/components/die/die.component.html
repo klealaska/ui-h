@@ -1,0 +1,6 @@
+<div class="container__diceValue">
+  <img class="icon" [src]="imageSrc" />
+  <span [ngClass]="dieRolled ? 'container__diceRolled__' + dieRolled?.die?.color: ''"
+    >{{ dieRolled?.diceValue }}</span
+  >
+</div>

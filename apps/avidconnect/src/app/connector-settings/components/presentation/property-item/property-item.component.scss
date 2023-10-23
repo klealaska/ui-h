@@ -1,0 +1,27 @@
+avc-property-type {
+  max-width: 500px;
+  display: block;
+}
+
+.property-array {
+  display: flex;
+  align-items: baseline;
+
+  avc-property-type {
+    width: 100%;
+    display: block;
+  }
+}
+
+.add-new-btn {
+  display: block;
+}
+
+.error-padding {
+  padding-bottom: 10px;
+}
+
+.align-icon {
+  vertical-align: bottom;
+  font-size: 22px !important;
+}

@@ -1,0 +1,77 @@
+.main-content {
+  display: flex;
+  background-color: theme('colors.primary.800');
+  height: 70px;
+  border-radius: 8px;
+  padding: 16px 30px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selected-text {
+  color: theme('colors.white');
+  font-family: theme('fontFamily.interMedium');
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.button {
+  &-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &-link {
+    color: theme('colors.white');
+    font-family: theme('fontFamily.interRegular');
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.ax-button {
+  font-family: theme('fontFamily.interMedium');
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  height: 40px;
+  padding: 0px 16px;
+  border-radius: 4px;
+  width: 150px;
+  background-color: theme('colors.primary.600');
+  color: theme('colors.white');
+
+  &:disabled {
+    color: theme('colors.grey.600');
+    background-color: theme('colors.grey.50');
+  }
+}
+
+.mr {
+  &-15 {
+    margin-right: 15px;
+  }
+  &-60 {
+    margin-right: 60px;
+  }
+}
+
+::ng-deep.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  color: none !important;
+  background: none !important;
+}
+
+::ng-deep.mdc-snackbar__label,
+::ng-deep.mdc-snackbar__surface {
+  padding: 0px;
+}

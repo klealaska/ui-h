@@ -1,0 +1,16 @@
+{
+  "tenant_id": "pckkszp90pyne181qk6t",
+  "site_name": "foobarbaz",
+  "storage_region": "eastus",
+  "tenant_type": "Buyer",
+  "tenant_status": "Provisioned",
+  "cmp_id": "75a7ik9vlw6z7107zbax",
+  "customer_name": "On The Rise L.L.C",
+  "partner_name": "MasterCard",
+  "source_system": "Swagger-UI",
+  "created_date": "2022-09-29T17:57:42Z",
+  "last_modified_date": "2022-09-29T17:57:42Z",
+  "created_by_user_id": "rga65bb6c00f3b1wmidn",
+  "last_modified_by_user_id": "rga65bb6c00f3b1wmidn"
+}
+  

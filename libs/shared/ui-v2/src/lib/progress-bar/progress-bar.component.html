@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="container__top">
+    <span *ngIf="label" class="container__label">{{ label }}</span>
+    <mat-icon
+      *ngIf="icon"
+      [ngClass]="{
+      'container__icon--error': error,
+      'container__icon--success': percentage === 100
+      }"
+      class="container__icon"
+      (click)="!error && percentage !== 100 ? iconEvent.emit(icon) : null"
+      >{{ error ? 'do_not_disturb_on' : percentage === 100 ? 'check_circle' : icon }}</mat-icon
+    >
+  </div>
+  <mat-progress-bar
+    [ngClass]="{
+      'default': !error && percentage !== 100,
+      'error': error,
+      'success': !error && percentage === 100
+    }"
+    class="container__progress-bar--{{size}}"
+    mode="determinate"
+    value="{{ error ? 100 : percentage | minmax:0:100:0 }}"
+  ></mat-progress-bar>
+  <div class="container__bottom">
+    <div>
+      <span
+        *ngIf="text || error "
+        [ngClass]="{ 'container__text--error': error }"
+        class="container__text"
+        >{{ error ? error : text }}</span
+      >
+    </div>
+    <span *ngIf="!error && percentage && showPercentage" class="container__percentage"
+      >{{ percentage | minmax:0:100:0 }}%</span
+    >
+  </div>
+</div>

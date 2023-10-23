@@ -1,0 +1,381 @@
+[
+  {
+    "fields": [
+      {
+        "key": "InvoiceType",
+        "fieldType": "default",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "dropdown",
+        "type": "text",
+        "required": true,
+        "regEx": "",
+        "labelDisplayName": "Invoice Type",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 0
+      },
+      {
+        "key": "CustomerAccountNumber",
+        "fieldType": "default",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textbox",
+        "type": "string",
+        "required": true,
+        "regEx": "",
+        "labelDisplayName": "Customer Account Number",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 1
+      },
+      {
+        "key": "Supplier",
+        "fieldType": "default",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textbox",
+        "type": "string",
+        "required": true,
+        "regEx": "",
+        "labelDisplayName": "Supplier Name",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 2
+      },
+      {
+        "key": "SupplierAddress",
+        "fieldType": "default",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textarea",
+        "type": "string",
+        "required": true,
+        "regEx": "",
+        "labelDisplayName": "Supplier Address",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 3
+      },
+      {
+        "key": "ShipToName",
+        "fieldType": "default",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textbox",
+        "type": "string",
+        "required": true,
+        "regEx": "",
+        "labelDisplayName": "Ship To Name",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 4
+      },
+      {
+        "key": "ShipToAddress",
+        "fieldType": "default",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textarea",
+        "type": "string",
+        "required": true,
+        "regEx": "",
+        "labelDisplayName": "Ship To Address",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 5
+      },
+      {
+        "key": "ServiceStartDate",
+        "fieldType": "Utility",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textbox",
+        "type": "date",
+        "required": false,
+        "regEx": "",
+        "labelDisplayName": "Service Start Date",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 6
+      },
+      {
+        "key": "ServiceEndDate",
+        "fieldType": "Utility",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textbox",
+        "type": "date",
+        "required": false,
+        "regEx": "",
+        "labelDisplayName": "Service End Date",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 7
+      },
+      {
+        "key": "PreviousBalance",
+        "fieldType": "Utility",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textbox",
+        "type": "currency",
+        "required": false,
+        "regEx": "",
+        "labelDisplayName": "Previous Unpaid Balance",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 8
+      },
+      {
+        "key": "InvoiceNumber",
+        "fieldType": "default",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textbox",
+        "type": "string",
+        "required": false,
+        "regEx": "",
+        "labelDisplayName": "Invoice Number",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 9
+      },
+      {
+        "key": "InvoiceDate",
+        "fieldType": "default",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textbox",
+        "type": "date",
+        "required": true,
+        "regEx": "",
+        "labelDisplayName": "Invoice Date",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 10
+      },
+      {
+        "key": "Total",
+        "fieldType": "default",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textbox",
+        "type": "currency",
+        "required": true,
+        "regEx": "",
+        "labelDisplayName": "Invoice Amount",
+        "headerBackgroundColor": "default",
+        "headerTextColor": "none",
+        "order": 11
+      },
+      {
+        "key": "InvoiceDueDate",
+        "fieldType": "default",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textbox",
+        "type": "date",
+        "required": false,
+        "regEx": "",
+        "labelDisplayName": "Invoice Due Date",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 12
+      },
+      {
+        "key": "PurchaseOrderIdentifier",
+        "fieldType": "default",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textbox",
+        "type": "string",
+        "required": false,
+        "regEx": "",
+        "labelDisplayName": "Purchase Order Number",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 13
+      },
+      {
+        "key": "WorkOrderNo",
+        "fieldType": "default",
+        "value": "",
+        "confidence": null,
+        "confidenceThreshold": {
+          "high": {
+            "min": 95
+          },
+          "medium": {
+            "min": 90
+          },
+          "low": {
+            "min": 0
+          }
+        },
+        "controlType": "textbox",
+        "type": "string",
+        "required": false,
+        "regEx": "",
+        "labelDisplayName": "Work Order Number",
+        "headerBackgroundColor": "none",
+        "headerTextColor": "default",
+        "order": 14
+      }
+    ]
+  }
+]

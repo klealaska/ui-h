@@ -1,0 +1,10 @@
+.loadmore {
+  &-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  &-text {
+    font-size: 20px;
+  }
+}

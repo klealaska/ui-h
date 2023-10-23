@@ -1,0 +1,25 @@
+<mat-chip-listbox
+  [multiple]="multiple"
+  [selectable]="selectable"
+  [compareWith]="compareWith"
+  (change)="chipListchange($event)"
+>
+  <ng-template ngFor let-chip [ngForOf]="chipList">
+    <mat-chip-option
+      [color]="color"
+      [removable]="removable"
+      [selectable]="selectable"
+      (removed)="handleCloseClick(chip)"
+      [disabled]="disabled"
+      [value]="chip.id"
+      [disableRipple]="disableRipple"
+      [selected]="chip.selected"
+      (selectionChange)="chipSelected(chip)"
+      (destroyed)="chipDestroyed($event)"
+      (click)="chip.selected = !chip.selected"
+    >
+      {{ chip.name }}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip-option>
+  </ng-template>
+</mat-chip-listbox>

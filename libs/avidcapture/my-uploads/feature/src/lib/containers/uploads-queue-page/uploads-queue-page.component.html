@@ -1,0 +1,53 @@
+<div
+  class="uploads-page"
+  *ngIf=" {
+    currentUsername: currentUsername$ | async
+  } as o"
+>
+  <xdc-uploads-drop-zone
+    [filteredBuyers]="filteredBuyersCore$ | async"
+    (filesDropped)="uploadInvoice($event)"
+    (uploadError)="uploadError($event)"
+  ></xdc-uploads-drop-zone>
+
+  <h4 class="mt-10">{{'xdc.my-uploads.my-uploads-label' | translate }}</h4>
+
+  <div class="row">
+    <ax-input
+      class="search"
+      [label]="'xdc.my-uploads.search-bar-label' | translate"
+      [placeholder]="'xdc.my-uploads.search-bar-placeholder-text' | translate"
+      [control]="searchControl"
+      [rightIcon]="'search'"
+      data-cy="uploads-queue-search-bar"
+    ></ax-input>
+    <ax-button
+      data-cy="uploads-queue-refresh-button"
+      [type]="'secondary'"
+      [disabled]="(canRefreshPage$ | async) === false"
+      (click)="refreshPage()"
+    >
+      <mat-icon>refresh</mat-icon>
+    </ax-button>
+  </div>
+
+  <xdc-uploads-queue-grid
+    *ngIf="(uploadedInvoices$ | async).length > 0"
+    data-cy="my-uploads-grid"
+    [documents]="uploadedInvoices$ | async"
+    [canViewAllBuyers]="canViewAllBuyers$ | async"
+    [loadMoreHidden]="loadMoreHidden$ | async"
+    [batchSelectIsActive]="batchSelectIsActive$ | async"
+    [resetBatchSelection]="resetBatchSelection"
+    (openInvoiceEvent)="openInvoice($event)"
+    (columnSorted)="columnSorted($event)"
+    (loadNextPageEvent)="loadNextPage($event)"
+    (rowsSelected)="batchSelect($event)"
+  ></xdc-uploads-queue-grid>
+
+  <div *ngIf="(uploadedInvoices$ | async).length === 0" class="empty-queue">
+    <h4>No active uploaded invoices.</h4>
+    <p class="b2 pt-10">Invoices that have been uploaded will appear here.</p>
+  </div>
+</div>
+<xdc-loading-spinner-app *ngIf="isLoading$ | async"></xdc-loading-spinner-app>

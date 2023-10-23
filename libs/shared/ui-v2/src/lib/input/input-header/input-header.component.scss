@@ -1,0 +1,49 @@
+.ax-input__header {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin-bottom: 4px;
+
+  &-label {
+    color: theme('colors.grey.800');
+    font-size: 14px;
+    line-height: 16px;
+    height: 16px;
+
+    &-asterisk:before {
+      content: '*';
+      color: theme('colors.critical.600');
+      display: inline-block;
+      width: 8px;
+    }
+
+    &-disabled {
+      color: theme('colors.grey.600') !important;
+    }
+
+    &-readonly {
+      color: theme('colors.primary.500') !important;
+    }
+  }
+
+  &-optional {
+    font-family: theme('fontFamily.interRegular');
+    margin-left: 4px;
+  }
+
+  &-tooltip {
+    display: flex;
+    margin-left: 4px;
+    cursor: default !important;
+    &:focus-visible {
+      outline: solid theme('colors.focused.500') 2px;
+      border-radius: 2px;
+    }
+
+    &-icon {
+      font-size: 16px;
+      height: 16px;
+      width: 16px;
+    }
+  }
+}

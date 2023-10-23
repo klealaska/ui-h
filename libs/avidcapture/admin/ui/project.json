@@ -1,0 +1,43 @@
+{
+  "name": "avidcapture-admin-ui",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/avidcapture/admin/ui/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/avidcapture/admin/ui"],
+      "options": {
+        "project": "libs/avidcapture/admin/ui/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/avidcapture/admin/ui/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/avidcapture/admin/ui/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/avidcapture/admin/ui"],
+      "options": {
+        "jestConfig": "libs/avidcapture/admin/ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/avidcapture/admin/ui/**/*.ts",
+          "libs/avidcapture/admin/ui/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:avidcapture"]
+}

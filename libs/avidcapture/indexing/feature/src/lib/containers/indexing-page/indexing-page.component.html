@@ -1,0 +1,106 @@
+<ng-template [ngIf]="compositeData$ | async" let-compositeData>
+  <div class="indexing-header">
+    <xdc-indexing-header
+      *ngIf="{
+        hasNewEscalations: hasNewEscalations$ | async,
+        userName: currentUsername$ | async
+      } as o"
+      [customerName]="buyerName$ | async"
+      [markAsChoices]="markAsChoices$ | async"
+      [formValid]="(formGroupInstance$ | async)?.valid"
+      [lookupFieldsValid]="lookupFieldsValid((formGroupInstance$ | async), o.hasNewEscalations)"
+      [hasNewEscalations]="o.hasNewEscalations"
+      [invoiceAge]="getAgeStamp(compositeData.indexed)"
+      [tooltipText]="tooltipText"
+      [hasActivities]="hasActivities$ | async"
+      [isLoading]="isLoading$ | async"
+      [isLookupLoading]="isLookupLoading$ | async"
+      [compositeData]="compositeData$ | async"
+      [canSwapImage]="canSwapImage$ | async"
+      [isSponsorUser]="canViewAllBuyers$ | async"
+      [fields]="fields$ | async"
+      [formFields]="formFields$ | async"
+      [utilityFields]="utilityFields$ | async"
+      [hasChangedLabels]="hasChangedLabels$ | async"
+      [saveInvoiceIsActive]="saveInvoiceIsActive$| async"
+      [moreActionsIsActive]="moreActionsIsActive$| async"
+      [canRecycleDocument]="canRecycleDocument$ | async"
+      [canRejectToSender]="canRejectToSender$ | async"
+      [canSubmit]="canSubmit$ | async"
+      [multipleDisplayThresholdsIsActive]="multipleDisplayThresholdsIsActive$ | async"
+      [supplierPredictionIsActive]="supplierPredictionIsActive$ | async"
+      (markAsSelected)="markAsSelectedChange($event)"
+      (submitClick)="submitInvoice(compositeData.indexed, o.hasNewEscalations)"
+      (swapDocument)="swapDocument(compositeData.indexed, o.userName)"
+      (saveDocument)="saveInvoice(compositeData.indexed, o.hasNewEscalations)"
+      (showOrHideActivityLog)="showOrHideActivityLog()"
+    >
+    </xdc-indexing-header>
+  </div>
+  <div class="indexing-body">
+    <div class="document-panel">
+      <xdc-document-command-bar
+        class="xdc-document-command-bar"
+        [currentPage]="viewer.currentPage"
+        [totalPages]="viewer.totalPages"
+        [showLabels]="viewer.showLabels"
+        [compositeData]="compositeData$ | async"
+        [canDownloadPdf]="canDownloadPdf$ | async"
+        [maxUnindexedPages]="maxUnindexedPages"
+        [isReadOnlyMode]="(isSwappedDocument$ | async) || (isReadOnly$ | async)"
+        [canViewGetNextDocument]="canViewGetNextDocument$ | async"
+        (showLabelsToggle)="viewer.toggleLabels()"
+        (zoomIn)="viewer.zoomPageIn()"
+        (zoomOut)="viewer.zoomPageOut()"
+        (goToFirstPage)="viewer.goToFirstPage()"
+        (goToPageEntered)="viewer.goToPageEntered($event)"
+        (rotateLeft)="viewer.rotatePageLeft()"
+        (rotateRight)="viewer.rotatePageRight()"
+        (reloadImage)="viewer.reloadImage()"
+        (downloadFile)="downloadFile($event)"
+        (getPreviousDocument)="skipToPreviousDocument()"
+        (getNextDocument)="skipToNextDocument()"
+        (updateFontFace)="updateFontFace($event)"
+        (disableHighlight)="disableHighlight($event)"
+        [highlightToggle]="disableHighlight$ | async"
+      >
+      </xdc-document-command-bar>
+      <xdc-document-viewer
+        #viewer
+        [fields]="fields$ | async"
+        [pdfFile]="pdfFile$ | async"
+        [compositeData]="compositeData"
+        [labelColors]="labelColors$ | async"
+        [boundingBoxToHighlight]="boundingBoxCoordinatesToHighlight"
+        [isReadOnlyMode]="(isSwappedDocument$ | async) || (isReadOnly$ | async)"
+        [maxUnindexedPages]="maxUnindexedPages"
+        [isSponsorUser]="canViewAllBuyers$ | async"
+        [swappedDocument]="swappedDocument$ | async"
+        (selectedItemsChanged)="selectedItemsUpdated($event)"
+        (highlightField)="highlightField($event)"
+        (openHotKeysModal)="openHotKeysModal($event)"
+        (refreshToken)="refreshToken($event)"
+        (passwordRequired)="openPasswordModal()"
+        [updateFontFace]="updateFontFace$ | async"
+        [disableHighlight]="disableHighlight$ | async"
+        [multipleDisplayThresholdsIsActive]="multipleDisplayThresholdsIsActive$ | async"
+      >
+      </xdc-document-viewer>
+    </div>
+
+    <div class="document-fields">
+      <xdc-document-fields
+        #fields
+        [compositeData]="compositeData"
+        [fieldToHighlight]="fieldToHighlight"
+        [canCreateAccount]="canCreateAccount$ | async"
+        (boundingBoxToHighlight)="boundingBoxToHighlight($event)"
+        [allowSpecialCharacters]="(canViewAllBuyers$ | async)=== true ? false:true"
+        [isSponsorUser]="canViewAllBuyers$ | async"
+        [canDisplayPredictedValues]="canDisplayPredictedValues(compositeData)"
+      >
+      </xdc-document-fields>
+    </div>
+  </div>
+</ng-template>
+<xdc-loading-spinner-app *ngIf="isLoading$ | async"></xdc-loading-spinner-app>

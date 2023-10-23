@@ -1,0 +1,106 @@
+<ng-template [ngIf]="archivedDocument$ | async" let-archivedDocument>
+  <div class="archive-header">
+    <xdc-archive-invoice-header
+      *ngIf="buyerName$ | async"
+      [archivedDocument]="archivedDocument"
+      [customerName]="buyerName$ | async"
+      [fields]="fields$ | async"
+      [submittedDate]="getSubmittedDate(archivedDocument)"
+      (showOrHideActivityLog)="showOrHideActivityLog()"
+      [isSponsorUser]="canViewAllBuyers$ | async"
+      [multipleDisplayThresholdsIsActive]="multipleDisplayThresholdsIsActive$ | async"
+      [supplierPredictionIsActive]="supplierPredictionIsActive$ | async"
+      [utilityFields]="utilityFields$ | async"
+      [formFields]="formFields$ | async"
+    ></xdc-archive-invoice-header>
+  </div>
+  <div class="archive-body">
+    <div class="document-panel">
+      <xdc-document-command-bar
+        class="xdc-document-command-bar"
+        [currentPage]="viewer.currentPage"
+        [totalPages]="viewer.totalPages"
+        [showLabels]="viewer.showLabels"
+        [compositeData]="archivedDocument"
+        [maxUnindexedPages]="maxUnindexedPages"
+        [canDownloadPdf]="canDownloadPdf$ | async"
+        [pdfFile]="pdfFile$ | async"
+        (showLabelsToggle)="viewer.toggleLabels()"
+        (zoomIn)="viewer.zoomPageIn()"
+        (zoomOut)="viewer.zoomPageOut()"
+        (goToFirstPage)="viewer.goToFirstPage()"
+        (goToPageEntered)="viewer.goToPageEntered($event)"
+        (rotateLeft)="viewer.rotatePageLeft()"
+        (rotateRight)="viewer.rotatePageRight()"
+        (downloadFile)="downloadFile($event)"
+        (updateFontFace)="updateFontFace($event,archivedDocument.indexed.documentId)"
+        [isArchivePage]="true"
+        (getPreviousDocument)="skipToPreviousDocument()"
+        (getNextDocument)="skipToNextDocument()"
+        [canViewGetNextDocument]="canViewGetNextDocument$ | async"
+      >
+      </xdc-document-command-bar>
+      <xdc-document-viewer
+        #viewer
+        [fields]="fields$ | async"
+        [pdfFile]="pdfFile$ | async"
+        [compositeData]="archivedDocument"
+        [isSponsorUser]="canViewAllBuyers$ | async"
+        [labelColors]="labelColors$ | async"
+        [boundingBoxToHighlight]="boundingBoxCoordinatesToHighlight"
+        [isArchive]="true"
+        (selectedItemsChanged)="selectedItemsUpdated($event)"
+        (highlightField)="highlightField($event)"
+        [updateFontFace]="updateFontFace$ | async"
+      >
+      </xdc-document-viewer>
+    </div>
+
+    <div class="document-fields" *ngIf="(fields$ | async).length > 0">
+      <div class="fields-wrapper">
+        <ng-container *ngFor="let field of (fields$ | async)">
+          <ng-template
+            [ngIf]="field.key === documentLabelKeys.nonLookupLabels.InvoiceType"
+            [ngIfElse]="notInvoiceType"
+          >
+            <div class="ax-form-field-wrapper full-width">
+              <div class="ax-input__header">
+                <mat-label class="ax-input__header-label"
+                  >{{'xdc.archive.invoice-type' | translate}}</mat-label
+                >
+              </div>
+              <mat-form-field class="fields-dynamic-child-full ax-form-field">
+                <input
+                  class="ax-input"
+                  matInput
+                  value="{{getInvoiceType(archivedDocument.indexed.labels)}}"
+                  [readonly]="true"
+                />
+              </mat-form-field>
+            </div>
+          </ng-template>
+          <ng-template #notInvoiceType>
+            <xdc-archive-fields
+              [ngClass]="{
+              'fields-dynamic-child': field.key !== documentLabelKeys.lookupLabels.Supplier || field.key !== documentLabelKeys.lookupLabels.ShipToName || field.key !== documentLabelKeys.lookupLabels.CustomerAccountNumber,
+              'fields-dynamic-child-full': field.key === documentLabelKeys.lookupLabels.Supplier || field.key === documentLabelKeys.lookupLabels.ShipToName || field.key === documentLabelKeys.lookupLabels.CustomerAccountNumber
+            }"
+              #fields
+              [field]="field"
+              [fieldToHighlight]="fieldToHighlight"
+              [invoiceType]="getInvoiceType(archivedDocument.indexed.labels)"
+              [canDisplayPredictedValues]="getPredictedValue(archivedDocument.indexed.labels)"
+              [isSponsorUser]="canViewAllBuyers$ | async"
+              [supplierAddressField]="supplierAddressField$ | async"
+              [shipToAddressField]="shipToAddressField$ | async"
+              [isUtilityField]="getIsUtilityField(field,utilityFields$ | async)"
+              (labelHoverEvent)="boundingBoxToHighlight($event)"
+            >
+            </xdc-archive-fields>
+          </ng-template>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<xdc-loading-spinner-app *ngIf="isLoading$ | async"></xdc-loading-spinner-app>

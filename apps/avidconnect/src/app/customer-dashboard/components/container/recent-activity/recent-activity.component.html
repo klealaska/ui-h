@@ -1,0 +1,23 @@
+<section class="activity tab-content">
+  <avc-loading-wrapper
+    [isLoading]="isLoadingOperations$ | async"
+    [loadingMessage]="'Loading Operations'"
+  >
+    <div class="buttons-content">
+      <button
+        mat-raised-button
+        type="button"
+        color="outline"
+        id="refresh-operations-btn"
+        (click)="syncOperations()"
+      >
+        <mat-icon class="sync-icon">sync</mat-icon>
+      </button>
+    </div>
+    <avc-operations-list
+      [operations]=" operations$ | async"
+      (operationSelected)="operationSelected($event)"
+      *ngIf="(isLoadingOperations$ | async) === false"
+    ></avc-operations-list>
+  </avc-loading-wrapper>
+</section>

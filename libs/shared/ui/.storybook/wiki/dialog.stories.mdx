@@ -1,0 +1,60 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import Dialog from '../assets/dialog.png';
+import DialogCTATrue from '../assets/dialog-cta-true.png';
+import DialogCTAFalse from '../assets/dialog-cta-false.png';
+
+<Meta title="Wiki/Dialog" />
+
+# **Overview**
+
+The Document Dialog component allows for styling of a dialog with or without a call to action (CTA).
+
+<img src={Dialog} alt="Dialog" />
+
+# **Additional Specifications**
+
+## Building the Document Dialog
+
+```
+export interface DialogData {
+
+  title?: string;
+
+  message: string;
+
+  icon?: string;
+
+  cta: boolean;
+
+  initAction: string;
+
+}
+```
+
+_The_ `title` _and_ `icon` _are optional_.
+
+## Call to Action
+
+The CTA uses Boolean strategy that enables dynamic buttons based on whether you pass `true` or `false`. If the CTA is true, pass the information you want inside the button. If the CTA is false, a **Dismiss** button will display.
+
+`cta:true`
+
+<img src={DialogCTATrue} alt="DialogCTATrue" />
+
+`cta-false`
+
+<img src={DialogCTAFalse} alt="DialogCTAFalse" />
+
+# **Additional Accessibility Requirements**
+
+This component currently uses material icons. If the icons change in the future, the associated code will need to be modified to support that change.
+
+# **Angular Material**
+
+Review Angular Material for current documentation on how to implement the Document Stepper component.
+
+https://material.angular.io/components/dialog/overview
+
+## Google Material Icons
+
+https://fonts.google.com/icons

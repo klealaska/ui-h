@@ -1,0 +1,139 @@
+<ng-container *ngIf="filteredBuyersCore$ | async as filteredBuyers">
+  <div class="dashboard-page" *ngIf="filteredBuyers?.length > 0">
+    <h4>{{'xdc.dashboard.dashboard-label' | translate }}</h4>
+    <xdc-dashboard-filter
+      [orgNames]="filteredBuyers"
+      [averageTimeToIndex]="averageTimeToIndex$ | async"
+      [averageTimeToSubmission]="averageTimeToSubmission$ | async"
+      [submissionTimeInterval]="submissionTimeInterval"
+      [canViewAllBuyers]="canViewAllBuyers$ | async"
+      (orgIdSelectedEvent)="orgSelected($event)"
+      (newDatesSelected)="newDatesSelected($event)"
+      (submissionTimeIntervalChanged)="submissionTimeIntervalChanged($event)"
+    >
+    </xdc-dashboard-filter>
+
+    <div class="charts">
+      <mat-card appearance="outlined" class="card card-odd">
+        <div class="card-header">
+          <mat-card-header>
+            <mat-card-title
+              >{{'xdc.dashboard.avidCapture-transaction-count-label' | translate }}</mat-card-title
+            >
+          </mat-card-header>
+          <button
+            *ngIf="(dataTransactionCountVolume$ | async)?.length > 0"
+            mat-icon-button
+            class="pb-5"
+            (click)="generateTransactionCountReport(filteredBuyers)"
+          >
+            <mat-icon>{{'xdc.dashboard.download-label' | translate }}</mat-icon>
+          </button>
+        </div>
+
+        <div class="card-body">
+          <mat-card-content>
+            <xdc-line-chart
+              #transactionCountChart
+              [dataReport]="dataTransactionCountVolume$ | async"
+              [chartSize]="sizeChartTransactionCountVolume"
+              [chartSetUp]="setUpChartTransactionCountVolume"
+            ></xdc-line-chart>
+          </mat-card-content>
+        </div>
+      </mat-card>
+
+      <mat-card appearance="outlined" class="card">
+        <div class="card-header">
+          <mat-card-header>
+            <mat-card-title>{{'xdc.dashboard.exception-volume-label' | translate }}</mat-card-title>
+          </mat-card-header>
+          <button
+            *ngIf="(dataExceptionVolume$ | async)?.length > 0"
+            mat-icon-button
+            class="pb-5"
+            (click)="exceptionChart.getReport()"
+          >
+            <mat-icon>{{'xdc.dashboard.download-label' | translate }}</mat-icon>
+          </button>
+        </div>
+
+        <div class="card-body">
+          <mat-card-content>
+            <xdc-pie-chart
+              #exceptionChart
+              [dataReport]="dataExceptionVolume$ | async"
+              [chartSetUp]="setUpChartExceptionVolume"
+              [chartSize]="sizeChartExceptionVolume"
+            >
+            </xdc-pie-chart>
+          </mat-card-content>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="charts">
+      <mat-card appearance="outlined" class="card card-odd">
+        <div class="card-header">
+          <mat-card-header>
+            <mat-card-title
+              >{{'xdc.dashboard.research-queue-aging-label' | translate }}
+            </mat-card-title>
+          </mat-card-header>
+          <button (click)="exceptionQueue.getReport()" mat-icon-button class="pb-5">
+            <mat-icon>{{'xdc.dashboard.download-label' | translate }}</mat-icon>
+          </button>
+        </div>
+
+        <div class="card-body">
+          <mat-card-content>
+            <xdc-bar-chart
+              #exceptionQueue
+              [dataReport]="dataQueueAging$ | async"
+              [chartSetUp]="setUpChartExceptionQueueAging"
+              [chartSize]="sizeChartQueueAging"
+            >
+            </xdc-bar-chart>
+          </mat-card-content>
+        </div>
+      </mat-card>
+
+      <mat-card appearance="outlined" class="card">
+        <div class="card-header">
+          <mat-card-header>
+            <mat-card-title
+              >{{'xdc.dashboard.electronic-invoice-adoption-label' | translate }}</mat-card-title
+            >
+          </mat-card-header>
+          <button mat-icon-button class="pb-5" (click)="topPaperSuppliersQueue.getReport()">
+            <mat-icon>{{'xdc.dashboard.download-label' | translate }}</mat-icon>
+          </button>
+        </div>
+
+        <div class="card-body">
+          <mat-card-content>
+            <div class="col">
+              <xdc-half-pie-chart
+                [mainValue]="percentageElectronicDelivery$ | async"
+                [dataReport]="setUpDataHalfPie"
+                [chartSetUp]="setUpDeliveryMethod"
+                [chartSize]="sizeUpDeliveryMethod"
+              >
+              </xdc-half-pie-chart>
+
+              <h5>{{'xdc.dashboard.top-paper-suppliers-label' | translate }}</h5>
+              <xdc-horizontal-bar-chart
+                #topPaperSuppliersQueue
+                [dataReport]="dataTopPaperSuppliers$ | async"
+                [chartSetup]="setupChartTopPaperSuppliers"
+                [chartSize]="sizeChartTopPaperSuppliers"
+              ></xdc-horizontal-bar-chart>
+            </div>
+          </mat-card-content>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</ng-container>
+
+<xdc-loading-spinner-app *ngIf="isLoading$ | async"></xdc-loading-spinner-app>

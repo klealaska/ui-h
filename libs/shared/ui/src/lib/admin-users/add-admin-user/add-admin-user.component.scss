@@ -1,0 +1,11 @@
+.form-field {
+  display: block;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 10%;
+  width: 90%;
+}

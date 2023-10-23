@@ -1,0 +1,19 @@
+{
+  "items_requested": 5,
+  "items_returned": 5,
+  "items_total": 5,
+  "offset": 0,
+  "items": [
+    {
+      "organization_id": "jdohqtuu0w33fsvc6hvf",
+      "organization_name": "Stark Industries",
+      "organization_code": "SI",
+      "is_active": true,
+      "created_timestamp": "2023-05-01T06:05:44Z",
+      "created_by_user_id": "jha8k13l3gd90mls3o01",
+      "last_modified_timestamp": "2023-05-01T06:05:44Z",
+      "last_modified_by_user_id": "rwdg9d3g0kmb0va28t9j"
+    }
+  ]
+}
+

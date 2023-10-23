@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Accordion" />
+
+## Accordion
+
+Accordion can me implemented by using the `mat-accordion` component and injecting `ax-expansion-panel` components inside.
+`ax-expansion-panel` you can take in any component
+
+## ExpansionPanel Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() type: ExpansionPanelType</td>
+    <td>Changes expansion panel style. Set to primary || secondary</td>
+  </tr>
+  <tr>
+    <td>@Input() title: string</td>
+    <td>Sets title of expansion panel</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Whether the ExpansionPanel is disabled</td>
+  </tr>
+  <tr>
+    <td>@Input() expanded: boolean</td>
+    <td>Whether the ExpansionPanel is expanded</td>
+  </tr>
+
+  <tr>
+    <td>@Output() afterCollapse = new EventEmitter()</td>
+    <td>Emits 'afterCollapse' after ExpansionPanel is collapsed</td>
+  </tr>
+    <tr>
+    <td>@Output() afterExpand = new EventEmitter()</td>
+    <td>Emits 'afterExpand' after ExpansionPanel is expanded</td>
+  </tr>
+  <tr>
+    <td>@Output() closed = new EventEmitter()</td>
+    <td>Emits 'closed' when ExpansionPanel is closed</td>
+  </tr>
+  <tr>
+    <td>@Output() destroyed = new EventEmitter()</td>
+    <td>Emits 'destoryed' when ExpansionPanel is destoryed</td>
+  </tr>
+    <tr>
+    <td>@Output() opened = new EventEmitter()</td>
+    <td>Emits 'opened' when ExpansionPanel is opened</td>
+  </tr>
+</table>

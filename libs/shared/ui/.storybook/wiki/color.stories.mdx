@@ -1,0 +1,57 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+import primarySecondary from '../assets/colors/color-primary-secondary.png';
+import onSurfaceSurface from '../assets/colors/color-onSurface-surface.png';
+import greyInteractive from '../assets/colors/color-grey-interactive.png';
+import informationalSuccess from '../assets/colors/color-informational-success.png';
+import warningCritical from '../assets/colors/color-warning-critical.png';
+import focusedWhite from '../assets/colors/color-focused-white.png';
+
+<Meta title="Wiki/Colors" />
+
+# **Overview**
+
+To add colors to elements, follow Tailwinds documenation by using the colors `property` and number `value`.
+Below is an example of how to use our color palette in `html` and `css`
+
+Html - `<div class="bg-primary-800"></div>`
+
+Css - `background theme('colors.primary.800')`
+
+<img src={primarySecondary} alt="primary and secondary colors" />
+<br></br>
+<img src={onSurfaceSurface} alt="onSurface and surface colors" />
+<br></br>
+<img src={greyInteractive} alt="grey and interactive colors" />
+<br></br>
+<img src={informationalSuccess} alt="informational and success colors" />
+<br></br>
+<img src={warningCritical} alt="warning and critical colors" />
+<br></br>
+<img src={focusedWhite} alt="focused and white colors" />
+<br></br>
+
+# **Additional Specifications**
+
+## Accessing the Colors
+
+To access the color palette you will need to have Tailwind enabled in your app.
+
+If you generate a new app, Tailwind will be added automatically. If you're an existing app without Tailwind, use the generator `@nx/angular:setup-tailwind` and replace the config with the code below.
+
+```
+const { createGlobPatternsForDependencies } = require('@nx/angular/tailwind');
+const { join } = require('path');
+const sharedTailwindConfig = require('../../tailwind.config');
+
+module.exports = {
+  presets: [sharedTailwindConfig],
+
+  content: [
+    join(__dirname, 'src/**/!(*.stories|*.spec).{ts,html}'),
+
+    ...createGlobPatternsForDependencies(__dirname),
+  ],
+};
+
+```

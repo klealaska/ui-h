@@ -1,0 +1,17 @@
+{
+    "/assets/form-config": "/fields",
+    "/api/unindexed/summary/counts": "/counts",
+    "/api/unindexed/buyer/page/0?includeEscalations=false&getPageRange=false": "/documents",
+    "/api/unindexed/buyer/page/0?includeEscalations=true&getPageRange=false": "/documents",
+    "/api/search": "/newDocuments",
+    "/api/unindexed/escalations/page/0": "/escalations",
+    "/api/unindexed/invoice/*/user/*": "/composite",
+    "/api/unindexed/invoice/readonly/*": "/composite",
+    "/api/buyer/lookahead/*": "/buyers",
+    "/api/avidbill/getvendors*": "/suppliers",
+    "/api/avidbill/getproperties*": "/properties",
+    "/api/avidbill/getvendoraccounts*": "/customeraccounts",
+    "/api/archive/page/0?getPageRange=false": "/archivedDocuments",
+    "/api/archive/*/user/*": "/composite",
+    "/api/admin/users":"/adminUsers"
+}

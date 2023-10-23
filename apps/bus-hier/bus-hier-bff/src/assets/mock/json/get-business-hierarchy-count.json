@@ -1,0 +1,19 @@
+{
+  "number_of_organizations": 1,
+  "number_of_erps": 1,
+  "maximum_depth_of_business_levels": 3,
+  "number_of_entities_by_business_level": [
+    {
+      "business_level": 1,
+      "number_of_entities": 1
+    },
+    {
+      "business_level": 2,
+      "number_of_entities": 5
+    },
+    {
+      "business_level": 3,
+      "number_of_entities": 1
+    }
+  ]
+}

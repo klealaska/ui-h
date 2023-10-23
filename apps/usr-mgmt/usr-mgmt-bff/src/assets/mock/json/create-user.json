@@ -1,0 +1,14 @@
+{
+  "user_id": "u1yatai9lgtqxd128q40",
+  "first_name": "John",
+  "last_name": "Doe",
+  "full_name": "John Doe",
+  "email": "john.doe@abc.com",
+  "user_name": "john.doe@abc.com",
+  "user_type": "External",
+  "status": "Not Invited",
+  "created_timestamp": "2021-10-03T12:22:13Z",
+  "created_by_actor_id": "v1df1c37h7tp8u5dhzvn",
+  "last_modified_timestamp": "2021-10-06T12:22:13Z",
+  "last_modified_by_actor_id": "qntg26kgs81ey5gtd04n"
+}

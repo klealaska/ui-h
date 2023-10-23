@@ -1,0 +1,15 @@
+variables:
+  capability: demozombiedice
+  agentPool: linux-vmss-agent-pool
+  nonProdServiceConnection: User-Interface-Center-of-Excellence_AvidPay-Network-Experience_Np_AzDOSC_SP
+  nonProdSubscriptionId: '8f9290f9-f4dc-4be5-83e2-3c831b8d66ee'
+  prodServiceConnection: User-Interface-Center-of-Excellence_AvidPay-Network-Experience_Pr_AzDOSC_SP
+  prodSubscriptionId: '3b710983-1d1a-4f27-8ebb-20161ee798ff'
+  domain: uicoe
+  appPath: demo/zombie-dice-api
+  appTag: demo-zombie-dice-api
+  imageName: axglbhubacr.azurecr.io/demo-zombie-dice-api
+  containerRegistry: DefaultDockerRegistry
+  registryRepoName: demo-zombie-dice-api
+  functionAppName: 'demo-zombie-dice-websockets'
+  functionAppPath: 'demo'

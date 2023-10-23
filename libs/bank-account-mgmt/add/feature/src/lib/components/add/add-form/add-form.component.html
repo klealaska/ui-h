@@ -1,0 +1,40 @@
+<ng-container *ngIf="content">
+  <section class="h-full">
+    <form class="flex flex-col w-full" [formGroup]="addAccountFormGroup">
+      <ax-input
+        class="pb-4"
+        label="{{content?.nicknameLabel}}"
+        id="nickname"
+        inputType="text"
+        placeholder="{{content?.nicknamePlaceholder}}"
+        [control]="addAccountFormGroup?.controls['nickName']"
+      ></ax-input>
+      <ax-input
+        class="full pb-4"
+        label="{{content?.routingNumberLabel}}"
+        id="routingNumber"
+        inputType="text"
+        placeholder="{{content?.routingNumberPlaceholder}}"
+        [control]="addAccountFormGroup?.controls['routingNumber']"
+        [tooltip]="tooltipConfig?.routingNumberTooltip"
+      ></ax-input>
+      <ax-input
+        class="full pb-4"
+        label="{{content?.accountNumberLabel}}"
+        id="accountNumber"
+        inputType="text"
+        placeholder="{{content?.accountNumberPlaceholder}}"
+        [control]="addAccountFormGroup?.controls['accountNumber']"
+        [tooltip]="tooltipConfig?.accountNumberTooltip"
+      ></ax-input>
+      <ax-dropdown
+        class="full"
+        label="{{content?.accountTypeLabel}}"
+        id="accountType"
+        placeholder="{{content?.accountTypePlaceholder}}"
+        [options]="accountTypeOptions"
+        [control]="addAccountFormGroup?.controls['accountType']"
+      ></ax-dropdown>
+    </form>
+  </section>
+</ng-container>

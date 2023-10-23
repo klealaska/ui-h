@@ -1,0 +1,269 @@
+$table-cell-padding: 16px;
+$table-border-width: 1px;
+$table-header-bg: theme('colors.surface.200');
+$table-row-bg: theme('colors.white');
+$border-radius: 4px;
+$border-color: theme('colors.onSurface.50');
+$gap: 8px;
+$text-clr: theme('colors.grey.800');
+$font-regular: theme('fontFamily.interRegular');
+$row-selected-clr: theme('colors.interactive.600');
+$row-hover-bg-clr: theme('colors.surface.100');
+$header-hover-bg: theme('colors.surface.300');
+$header-font: theme('fontFamily.interSemibold');
+
+@mixin table-variant($padding-x, $padding-y) {
+  thead th,
+  tbody td {
+    padding-left: $padding-x;
+    padding-right: $padding-x;
+    padding-top: $padding-y;
+    padding-bottom: $padding-y;
+  }
+}
+
+::ng-deep {
+  .ax-table,
+  .mat-mdc-table.ax-table {
+    background: transparent;
+    width: 100%;
+    border-spacing: 0 8px;
+    border-collapse: separate;
+    text-align: left;
+    white-space: nowrap;
+
+    @include table-variant(16px, 15px);
+
+    &.condensed {
+      @include table-variant(12px, 11px);
+    }
+    &.fixed-columns {
+      table-layout: fixed;
+    }
+
+    &.sticky-table-header {
+      thead tr {
+        position: sticky !important;
+        z-index: 1;
+      }
+    }
+
+    thead > tr,
+    tbody tr {
+      height: auto;
+    }
+
+    thead th {
+      background-color: $table-header-bg;
+      font-size: 16px;
+      color: $text-clr;
+      cursor: pointer;
+      font-family: $header-font;
+
+      &.table-header-cell,
+      .table-header-cell {
+        display: flex;
+        width: 100%;
+      }
+
+      ::ng-deep {
+        .mat-sort-header-container {
+          justify-content: space-between;
+        }
+      }
+
+      .sort-icon {
+        display: inline-flex;
+        align-items: center;
+        .mat-icon {
+          height: 16px;
+          width: 16px;
+          font-size: 16px;
+        }
+      }
+
+      &:hover {
+        background-color: $header-hover-bg;
+      }
+    }
+    tbody td {
+      background-color: $table-row-bg;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: $font-regular;
+      color: $text-clr;
+    }
+
+    td,
+    th {
+      border-top: 1px solid $border-color;
+      border-bottom: 1px solid $border-color;
+    }
+
+    tr th,
+    tr td {
+      &:first-child {
+        border-left: 1px solid $border-color;
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+      }
+      &:last-child {
+        border-right: 1px solid $border-color;
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+      }
+    }
+
+    /**
+      * Override for Datagrid form of table
+      */
+    &.datagrid {
+      border-spacing: 0;
+      border-collapse: collapse;
+
+      tr th,
+      tr td {
+        border-top: 0;
+        border-bottom: 0;
+        &:first-child {
+          border-left: 0;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+        &:last-child {
+          border-right: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+
+      tr {
+        border-bottom: 1px solid $border-color;
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+
+        &.row-selected {
+          border-left: 2px solid $row-selected-clr;
+          border-right: 2px solid $row-selected-clr;
+          border-bottom: 2px solid $row-selected-clr;
+
+          > td {
+            border-top: 2px solid $row-selected-clr;
+          }
+        }
+      }
+    }
+
+    /**
+    * When any row is selected
+    * works with Custom approach too
+    */
+    &:not(.datagrid) {
+      tr.row-selected {
+        box-shadow: 0px 0px 0px 1px $row-selected-clr;
+        border-radius: 4px;
+
+        > td {
+          border-top: 1px solid $row-selected-clr;
+          border-bottom: 1px solid $row-selected-clr;
+          &:first-child {
+            border-left-color: $row-selected-clr;
+            border-left-width: 1px;
+          }
+          &:last-child {
+            border-right-color: $row-selected-clr;
+            border-right-width: 1px;
+          }
+        }
+      }
+    }
+
+    tr:active,
+    tr:hover {
+      td {
+        background-color: $row-hover-bg-clr;
+      }
+    }
+
+    &.border-less {
+      td,
+      th {
+        border: 0;
+        &:first-child,
+        &:last-child {
+          border: 0;
+        }
+      }
+      thead th {
+        background: none;
+        border-bottom: 1px solid #dddfe1 !important;
+        border-radius: 0 !important;
+      }
+    }
+
+    /**
+    * Overrding Icons as per design requirement
+    */
+    ::ng-deep .mat-sort-header-arrow[style] {
+      height: auto;
+      // Hide default arrow stem
+      .mat-sort-header-stem {
+        display: none;
+      }
+      .mat-sort-header-indicator {
+        opacity: 1;
+        color: $text-clr;
+
+        // Hide default arrow as its composed of left, right and middle
+        .mat-sort-header-pointer-left,
+        .mat-sort-header-pointer-right,
+        .mat-sort-header-pointer-middle {
+          display: none;
+        }
+      }
+    }
+
+    // My custom ascending arrow
+    [aria-sort='ascending'] {
+      ::ng-deep .mat-sort-header-arrow {
+        .mat-sort-header-indicator {
+          font-family: 'Material Icons';
+          transform: translateY(0px) !important;
+          &::before {
+            content: '\f1e0';
+          }
+        }
+      }
+    }
+
+    // My custom descending arrow
+    [aria-sort='descending'] {
+      ::ng-deep .mat-sort-header-arrow {
+        .mat-sort-header-indicator {
+          font-family: 'Material Icons';
+          transform: translateY(0px) !important;
+          &::before {
+            content: '\f1e3';
+          }
+        }
+      }
+    }
+
+    ax-checkbox {
+      .checkbox-control.no-text {
+        padding: 0;
+      }
+    }
+
+    a {
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .mdc-data-table__row:last-child > .mdc-data-table__cell {
+      border-bottom: 1px solid $border-color;
+    }
+  }
+}

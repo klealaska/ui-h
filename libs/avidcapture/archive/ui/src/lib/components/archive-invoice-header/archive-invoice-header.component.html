@@ -1,0 +1,39 @@
+<mat-accordion>
+  <mat-expansion-panel hideToggle [disabled]="true">
+    <mat-expansion-panel-header
+      class="header"
+      [collapsedHeight]="'5.5em'"
+      [expandedHeight]="'5.5em'"
+    >
+      <div class="header-container">
+        <div class="chevron">
+          <div>
+            <h5 class="text">{{customerName}}</h5>
+          </div>
+          <div class="row">
+            <ng-template [ngIf]="submittedDate !==''">
+              <span class="b4 text">{{submittedDate}}</span>
+            </ng-template>
+
+            <span *ngIf="archivedDocument.indexed.activities.length > 0" class="ml-10"
+              ><span class="link b2" (click)="activityLogClick()"
+                >{{'xdc.indexing.activity-log-label' | translate }}</span
+              ></span
+            >
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel-header>
+    <xdc-activity-log
+      *ngIf="fields?.length > 0"
+      [compositeData]="archivedDocument"
+      [fields]="fields"
+      [isSponsorUser]=" isSponsorUser"
+      [utilityFields]="utilityFields"
+      [formFields]="formFields"
+      [documentType]="documentType"
+      [multipleDisplayThresholdsIsActive]="multipleDisplayThresholdsIsActive"
+      [supplierPredictionIsActive]="supplierPredictionIsActive"
+    ></xdc-activity-log>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,49 @@
+<div cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle class="modal-body">
+  <div class="modal-header">
+    <h5>{{ title }}</h5>
+    <mat-icon [id]="'escalation-selection-close'" class="icon" (click)="close()">close</mat-icon>
+  </div>
+
+  <form class="ax-form-field-wrapper" [formGroup]="markAsEscalationForm">
+    <ng-template [ngIf]="dropdownOptions.length > 0">
+      <div class="ax-input__header">
+        <mat-label class="ax-input__header-label ax-input__header-label-asterisk"
+          >{{'xdc.indexing.select-issue-type-label' | translate}}</mat-label
+        >
+      </div>
+      <mat-form-field class="full-width ax-form-field mb-10">
+        <mat-select
+          class="ax-select"
+          panelClass="ax-panel"
+          formControlName="selectedValue"
+          [attr.ariaLabel]="'escalation selection'"
+          [multiple]="false"
+        >
+          <mat-option *ngFor="let option of dropdownOptions" [value]="option.value">
+            {{ option.text }}
+          </mat-option>
+        </mat-select>
+        <mat-icon class="ax-input-icon" matSuffix>expand_more</mat-icon>
+      </mat-form-field>
+    </ng-template>
+
+    <ax-textarea
+      [id]="'selection-comment'"
+      [control]="markAsEscalationForm.get('comment')"
+      [placeholder]="'Comment'"
+    ></ax-textarea>
+  </form>
+
+  <div class="button-container">
+    <ax-button [id]="'button-cancel'" [type]="'secondary'" (click)="close()" class="mr-10">
+      {{'xdc.indexing.cancel-label' | translate }}
+    </ax-button>
+    <ax-button
+      [id]="'button-confirm'"
+      [disabled]="dropdownOptions.length > 0 && !markAsEscalationForm.valid"
+      (click)="confirm()"
+    >
+      {{'xdc.indexing.done-label' | translate }}
+    </ax-button>
+  </div>
+</div>

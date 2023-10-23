@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import Forms from '../assets/form-field.png';
+
+<Meta title="Wiki/Forms" />
+
+# **Overview**
+
+`<mat-form-field>` is a component used to wrap several Angular Material components and apply common Text field styles such as the underline, floating label, and hint messages.
+
+"Form field" refers to the wrapper component `<mat-form-field>` and "form field control" refers to the component that the `<mat-form-field>` is wrapping (e.g. the input, textarea, select, etc.)
+
+The following Angular Material components are designed to work inside a `<mat-form-field>`:
+
+`<input matNativeControl>` and `<textarea matNativeControl>`
+`<select matNativeControl>`
+`<mat-select>`
+`<mat-chip-list>`
+
+# **Styles**
+
+<img src={Forms} alt="Forms" />
+
+# **Additional Specifications**
+
+- Use the outline appearance variant wherever possible.
+- Default to a field height that is smaller than than out-of-the-box.
+- Increase the font size of the floating label and **bottom-align** it with the top of the field rather than center-aligning it.
+- Must add `appearance="outline"` to the `mat-form-field` element.
+
+# **Additional Accessibility Requirements**
+
+None
+
+# **Angular Material**
+
+Review Angular Material for current documentation on how to implement the Form field component.
+
+https://material.angular.io/components/form-field/overview

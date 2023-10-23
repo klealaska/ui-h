@@ -1,0 +1,49 @@
+<ax-ag-grid-wrapper
+  *ngIf="rowData?.length > 0"
+  [rowData]="rowData"
+  [columnDefs]="columnData"
+  [pageSize]="pageSize"
+  [customPagination]="true"
+  [clientSidePaging]="clientSidePaging"
+  [loadMoreSize]="loadMoreSize"
+  [loadMoreSubject]="loadMoreData"
+  [applyFilterSubject]="applyFilterSubject"
+  (hideLoadMore)="hideLoadMore($event)"
+  (loadNextPageEvent)="loadNextPageEvent.emit()"
+  [doesExternalFilterPass]="doesExternalFilterPass"
+  [isExternalFilterPresent]="isExternalFilterPresent"
+  [setNewDataSubject]="setNewDataSubject"
+  [resizeColumnsSubject]="resizeColumnsSubject"
+  (columnSorted)="columnSorted.emit($event)"
+>
+</ax-ag-grid-wrapper>
+<div *ngIf="rowData?.length < 1 && emptyStateImgSrc" class="ax-grid-empty-state">
+  <ax-image [image]="emptyStateImgSrc"></ax-image>
+</div>
+<div class="ax-grid-footer">
+  <div [hidden]="loadMoreHidden">
+    <button
+      mat-raised-button
+      *ngIf="pageable"
+      [id]="'load-more-button'"
+      [color]="'primary'"
+      [disabled]="isLoading"
+      (click)="loadMoreClick()"
+    >
+      Load More
+    </button>
+  </div>
+  <button
+    mat-raised-button
+    *ngIf="customButton"
+    [id]="customButtonId"
+    [color]="'primary'"
+    (click)="customButtonClick($event)"
+  >
+    {{ customButtonText }}
+  </button>
+
+  <div [hidden]="!loadMoreHidden">
+    <ax-label *ngIf="pageable || rowData?.length < 1" [text]="noMoreDataMessage"></ax-label>
+  </div>
+</div>

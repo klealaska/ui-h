@@ -1,0 +1,44 @@
+{
+  "items_requested": 10,
+  "items_returned": 3,
+  "items_total": 3,
+  "offset": 0,
+  "items": [
+      {
+          "business_level_id": "jlnnp9e0r1chj3459uae",
+          "erp_id": "9ng7ljo918qvqunwworx",
+          "business_level_name_singular": "Company",
+          "business_level_name_plural": "Companies",
+          "level": 1,
+          "is_active": true,
+          "created_timestamp": "2023-04-20T22:29:05Z",
+          "created_by_user_id": "00u12tymcg0y78rTz1d7",
+          "last_modified_timestamp": "2023-04-20T22:29:05Z",
+          "last_modified_by_user_id": "00u12tymcg0y78rTz1d7"
+      },
+      {
+          "business_level_id": "dssnw9tt6f3ou0xqjezy",
+          "erp_id": "9ng7ljo918qvqunwworx",
+          "business_level_name_singular": "Entity",
+          "business_level_name_plural": "Entities",
+          "level": 2,
+          "is_active": true,
+          "created_timestamp": "2023-04-20T22:29:05Z",
+          "created_by_user_id": "00u12tymcg0y78rTz1d7",
+          "last_modified_timestamp": "2023-04-20T22:29:05Z",
+          "last_modified_by_user_id": "00u12tymcg0y78rTz1d7"
+      },
+      {
+          "business_level_id": "yzejqx0uo3f6tt9wnssd",
+          "erp_id": "9ng7ljo918qvqunwworx",
+          "business_level_name_singular": "Region",
+          "business_level_name_plural": "Regions",
+          "level": 3,
+          "is_active": true,
+          "created_timestamp": "2023-04-20T22:29:05Z",
+          "created_by_user_id": "00u12tymcg0y78rTz1d7",
+          "last_modified_timestamp": "2023-04-20T22:29:05Z",
+          "last_modified_by_user_id": "00u12tymcg0y78rTz1d7"
+      }
+  ]
+}

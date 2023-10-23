@@ -1,0 +1,83 @@
+<div *ngIf="!(winner$ | async)?.id" class="container">
+  <h1 data-cy="game-title">{{ (currentGame$ | async)?.gameName }}</h1>
+
+  <div>
+    <div class="container__players-title">Players</div>
+    <div *ngFor="let player of (currentGame$ | async)?.players">
+      <div class="container__player">
+        <span *ngIf="(playerTurn$ | async)?.id === player?.id">&#42; &nbsp;</span>
+        <span>{{player?.nickname}}</span>
+        <span>&nbsp; - &nbsp;</span>
+        <span *ngIf="(playerTurn$ | async)?.id !== player?.id"> {{ player?.score }} brains</span>
+        <span *ngIf="(playerTurn$ | async)?.id === player?.id">
+          {{ (playerTurn$ | async)?.score }} brains</span
+        >
+        <span *ngIf="(playerTurn$ | async)?.id === player?.id">
+          (+{{ (playerTurn$ | async)?.brainsRolled }} will make {{ (playerTurn$ | async)?.score +
+          (playerTurn$ | async)?.brainsRolled}})
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container__current-player">
+    Currently Rolling - {{(playerTurn$ | async)?.nickname}}
+  </div>
+
+  <div class="container__score">
+    <div class="score">
+      <span class="score__title">Brains</span>
+      <span data-cy="brains">{{ (playerTurn$ | async)?.brainsRolled }}</span>
+    </div>
+    <div class="score">
+      <span class="score__title">Shotguns</span>
+      <span data-cy="shotguns">{{ (playerTurn$ | async)?.shotgunsRolled }}</span>
+    </div>
+  </div>
+
+  <div class="container__diceRolled">
+    <demo-die
+      [dieRolled]="(playerTurn$ | async)?.diceRolled?.firstDie"
+      [imageSrc]="getImg((playerTurn$ | async)?.diceRolled?.firstDie?.diceValue, (playerTurn$ | async)?.diceRolled?.firstDie?.die?.color)"
+    ></demo-die>
+
+    <demo-die
+      [dieRolled]="(playerTurn$ | async)?.diceRolled?.secondDie"
+      [imageSrc]="getImg((playerTurn$ | async)?.diceRolled?.secondDie?.diceValue, (playerTurn$ | async)?.diceRolled?.secondDie?.die?.color)"
+    ></demo-die>
+
+    <demo-die
+      [dieRolled]="(playerTurn$ | async)?.diceRolled?.thirdDie"
+      [imageSrc]="getImg((playerTurn$ | async)?.diceRolled?.thirdDie?.diceValue, (playerTurn$ | async)?.diceRolled?.thirdDie?.die?.color)"
+    ></demo-die>
+  </div>
+
+  <div
+    *ngIf="(playerTurn$ | async)?.id === (currentPlayer$ | async)?.id"
+    class="container__actions"
+  >
+    <div class="button buttons-primary button-block">
+      <ax-button data-cy="pass-btn" [type]="'primary'" [fixed]="true" (click)="endTurn()"
+        >Pass</ax-button
+      >
+    </div>
+    <div class="button buttons-primary button-block">
+      <ax-button data-cy="roll-btn" [type]="'primary'" [fixed]="true" (click)="rollDice()"
+        >Roll</ax-button
+      >
+    </div>
+  </div>
+</div>
+
+<demo-chatbox
+  [expanded]="chatExpanded"
+  [currentPlayer$]="currentPlayer$"
+  [currentGame$]="currentGame$"
+  [sendMessageForm]="sendMessageForm"
+  (collapseChatEvent)="chatExpanded = !chatExpanded"
+  (sendChatMessageEvent)="sendChatMessage()"
+></demo-chatbox>
+
+<div *ngIf="(winner$ | async)?.id">
+  <demo-winner-screen [winner]="winner$ | async" (buttonEvent)="exitGame()"></demo-winner-screen>
+</div>

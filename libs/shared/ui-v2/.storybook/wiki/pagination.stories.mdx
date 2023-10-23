@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Pagination" />
+
+## Pagination
+
+Component - `import { Pagination } from '@ui-coe/shared/ui-v2';`
+
+## Description
+
+Pagination can be implemented by using the `ax-pagination` component.
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() currentPage: number</td>
+    <td>Sets the Pagination current page number, default is `1`</td>
+  </tr>
+  <tr>
+    <td>@Input() totalItems: number</td>
+    <td>Total number of data items.</td>
+  </tr>
+  <tr>
+    <td>@Input() showSizeChanger: boolean</td>
+    <td>Determine whether `PageSizeOptions` can be changed.</td>
+  </tr>
+  <tr>
+    <td>@Input() showQuickJumper: boolean</td>
+    <td>Determine whether you can jump to pages directly.</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Disable pagination</td>
+  </tr>
+  <tr>
+    <td>@Input() pageSizeOptions: number[]</td>
+    <td> Set the number of data items per page.</td>
+  </tr>
+</table>

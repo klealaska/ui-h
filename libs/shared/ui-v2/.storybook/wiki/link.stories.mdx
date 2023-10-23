@@ -1,0 +1,59 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Link" />
+
+# Link Component
+
+## Dependencies
+
+Component - `import { LinkComponent } from '@ui-coe/shared/ui-v2';`
+
+Types - `import { ComponentSizes, LinkSize } from '@ui-coe/shared/types';`
+
+## Description
+
+Link can be implemented by using the `ax-link` component. It uses content projection so that you have access to the `a` tag at the app level allowing you to determine the href and routerlink usage that best works for your app. Default size is 'sm'.
+
+## Implementation
+
+Link without Icon
+
+```
+import { LinkComponent } from '@ui-coe/shared/ui-v2';
+```
+
+```
+<ax-link [size]="sm" [disabled]="false">
+    <a href="www.google.com">Learn more</a>
+</ax-link>
+```
+
+Link with Icon
+
+```
+import { LinkComponent } from '@ui-coe/shared/ui-v2';
+```
+
+```
+<ax-link [size]="sm" [disabled]="false">
+    <a href="www.google.com">Learn more</a>
+    <mat-icon>open_in_new</mat-icon>
+</ax-link>
+```
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() size = LinkSize</td>
+    <td>Changes the font + icon size of `ax-link`. Arguments are - 'sm', 'md', or 'lg'</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled = boolean</td>
+    <td>Greys out the link text + icon and prevents the link from navigating or being pressed.</td>
+  </tr>
+</table>

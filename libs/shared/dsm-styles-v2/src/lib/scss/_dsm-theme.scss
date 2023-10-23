@@ -1,0 +1,37 @@
+@use '@angular/material' as mat;
+@use 'color-palette' as *;
+@use 'font-mixins' as *;
+@import 'https://fonts.googleapis.com/css?family=Material+Icons';
+
+@include mat.core();
+
+$dsm-primary: mat.define-palette($interactive);
+$dsm-accent: mat.define-palette($primary);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $dsm-primary,
+      accent: $dsm-accent,
+    ),
+  )
+);
+
+@include mat.all-component-themes($my-theme);
+
+$datepicker-typography: mat.define-typography-level(
+  $font-family: 'inter-regular',
+  $font-size: 16px,
+);
+
+@include mat.datepicker-typography($datepicker-typography);
+
+// Leaving this here so we can try to style individule components this way if need
+
+// // Emit theme-dependent styles for common features used across multiple components.
+// @include mat.core-theme($my-theme);
+
+// // Emit styles for MatButton based on `$my-theme`. Because the configuration
+// // passed to `define-light-theme` omits typography, `button-theme` will not
+// // emit any typography styles.
+// @include mat.button-theme($my-theme);

@@ -1,0 +1,24 @@
+{
+  "generators": {
+    "ax-app": {
+      "implementation": "./src/generators/ax-app",
+      "schema": "./src/generators/ax-app/schema.json",
+      "description": "Generator ax-app"
+    },
+    "ax-iac": {
+      "implementation": "./src/generators/ax-iac",
+      "schema": "./src/generators/ax-iac/schema.json",
+      "description": "Generator ax-iac"
+    },
+    "ax-lib": {
+      "implementation": "./src/generators/ax-lib",
+      "schema": "./src/generators/ax-lib/schema.json",
+      "description": "Generator ax-lib"
+    },
+    "ax-service": {
+      "implementation": "./src/generators/ax-service",
+      "schema": "./src/generators/ax-service/schema.json",
+      "description": "Generator ax-service"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+    "common": {
+      "buttons": {
+        "save": "Save",
+        "delete": "Delete",
+        "cancel": "Cancel",
+        "submit": "Submit"
+      }
+    },
+    "batchUploadFeature": {
+      "title": "Upload Batches",
+      "tabs": {
+        "singleErp": "Single ERP",
+        "multipleErps": "Multiple ERPs"
+      },
+      "submitView": {
+        "label": "Submit",
+        "description": "By selecting Submit, you are authorizing AvidXchange to process these payments."
+      }
+    },
+    "batchListFeature": {
+      "title": "Manage Payments",
+      "table": {
+        "batchId": "Batch ID",
+        "amount": "Amount",
+        "totalPayments": "Total Payments",
+        "dateSubmitted": "Date Submitted",
+        "submittedBy": "Submitted By",
+        "status": "Status"
+      }
+    },
+    "paymentListFeature": {
+      "title": "Payments",
+      "searchLabel": "Filter by vendor",
+      "table": {
+        "id": "Payment ID",
+        "amount": "Amount",
+        "date": "Payment Date",
+        "vendorName": "Vendor",
+        "status": "Status",
+        "emptyHeaderMain": "Sorry, we didnt find a match.",
+        "emptyHeaderSub": "Double-check your entry and try again."
+      }
+    },
+    "paymentDetailFeature": {
+      "title": "Payment Details",
+      "searchLabel": "Filter by vendor",
+      "paymentDetailsCard": {
+        "paymentId": "Payment ID",
+        "batchId": "Batch ID",
+        "fundingAccount": "Funding Account",
+        "entityId": "Entity ID"
+      },
+      "vendorDetailsCard": {
+        "vendorId": "Vendor ID",
+        "remitAddress": "Remittance Address"
+      },
+      "paymentDistribution": {
+        "distributionsHeader": "Payment Distributions",
+        "paymentMethod": "Payment Method",
+        "paymentDate": "Payment Date",
+        "remitAdviceButton": "Remittance Advice",
+        "stopPaymentButton": "Stop Payment",
+        "stopPaymentSuccess": "Stop payment request submitted.",
+        "stopPayment": {
+          "title": "Stop Payment Request",
+          "description": "AvidXchange and the financial institution will attempt to stop the payment. Such attempt may not be successful. When you submit a stop payment request, you agree to be responsible for any charges, costs, fees or liability that may apply.",
+          "refund": "Refund",
+          "reissue": "Reissue",
+          "submitButton": "Submit",
+          "backButton": "Back"
+        },
+        "paymentStatusEnum": {
+          "exampleStatus": "Some Status",
+          "stopRequested": "Stop Requested"
+        }
+      },
+      "cancelPayment": {
+        "title": "Need to cancel this payment?",
+        "cancelPaymentMessage": "You have until 3PM EST to cancel. You may also need to reconcile this payment in your accounting system.",
+        "cancelPaymentButton": "Cancel Payment"
+      },
+
+      "cancelPaymentConfirmation": {
+        "title": "Confirm cancellation",
+        "cancelConfirmationMessage": "We will not process payment TRE7183659. You cannot undo this action.",
+        "cancelConfirmationButton": "Cancel Payment",
+        "closeCancelPaymentButton": "Close"
+      },
+      "cancelPaymentAlert": {
+        "cancelPaymentAlertMessage": "Payment cancelled. You may also need to reconcile this payment in your accounting system."
+      }
+    }
+  }

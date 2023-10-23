@@ -1,0 +1,56 @@
+<ng-container *ngIf="(loading$ | async) === false; else skeleton">
+  <section class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-4 mx-8">
+    <ax-input id="list__search" [rightIcon]="'search'" class="col-span-1"></ax-input>
+    <div class="md:col-span-1 lg:col-span-2">
+      <ax-button-toggle
+        id="list__active-toggle"
+        class="w-full md:w-auto"
+        [content]="buttonToggleContent"
+        [size]="'md'"
+      ></ax-button-toggle>
+      <ax-button
+        id="list__add-btn"
+        class="hidden md:flex float-right"
+        [size]="'md'"
+        (click)="handleAddAccount()"
+        >{{(content$ | async).addAccountBtn}}</ax-button
+      >
+    </div>
+  </section>
+
+  <!--LIST-->
+  <section class="px-8 mt-4">
+    <ng-container *ngIf="(accounts$|async).length > 0; else emptyState">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <ax-bank-account-card
+          class="w-full"
+          *ngFor="let account of (accounts$ | async)"
+          [account]="account"
+          [content]="(content$ | async)"
+          (bankAccountSelected)="handleAccountSelection($event)"
+        ></ax-bank-account-card>
+      </div>
+    </ng-container>
+  </section>
+
+  <ax-button
+    class="sm:visible md:hidden sticky bottom-0 w-full px-8 py-4 bg-surface-50"
+    (click)="handleAddAccount()"
+    >{{(content$ | async).addAccountBtn}}</ax-button
+  >
+</ng-container>
+
+<!--**TEMPLATE REF**  EMPTY STATE-->
+<ng-template #emptyState>
+  <ng-container *ngIf="content$ | async as content">
+    <ax-bank-account-empty-state
+      [message]="content?.addAccountDesc"
+      [btnLabel]="content?.addAccountBtn"
+      (btnClick)="handleAddAccount()"
+    ></ax-bank-account-empty-state>
+  </ng-container>
+</ng-template>
+
+<ng-template #skeleton>
+  <ax-bank-account-list-skeleton></ax-bank-account-list-skeleton>
+</ng-template>

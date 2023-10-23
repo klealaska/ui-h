@@ -1,0 +1,32 @@
+<div class="header-toolbar">
+  <mat-toolbar class="toolbar-desktop md-medium-tall mar-left-auto">
+    <mat-toolbar-row>
+      <img class="logo-img" [src]="logoImgSrc" (click)="navigate()" />
+      <div class="row">
+        <ax-avatar class="mr-10" [size]="'md'" [img]="''" [name]="avatarName"></ax-avatar>
+        <span class="b1">{{name}}</span>
+        <button
+          cy-data="menu-user"
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          aria-label="menu for multiple options"
+        >
+          <mat-icon>expand_more</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <ng-container *ngFor="let option of menuOptions">
+            <mat-divider *ngIf="option.text === 'Logout'"></mat-divider>
+            <button
+              mat-menu-item
+              [disableRipple]="option.selectable"
+              [ngClass]="menuItemClass"
+              (click)="menuOptionSelected(option)"
+            >
+              <span *ngIf="!option.icon" class="menu-item-text">{{ option.text }}</span>
+            </button>
+          </ng-container>
+        </mat-menu>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

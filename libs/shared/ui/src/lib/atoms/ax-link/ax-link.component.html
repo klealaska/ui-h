@@ -1,0 +1,11 @@
+<a
+  [id]="id"
+  class="ax-link"
+  (click)="onLinkClick()"
+  [class.ax-link-bold]="bold"
+  [class.ax-link-uppercase]="uppercase"
+  [class.ax-link-disabled]="isLocked"
+  [ngClass]="['ax-link-' + size]"
+>
+  {{ text }}
+</a>

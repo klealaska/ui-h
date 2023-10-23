@@ -1,0 +1,6 @@
+variables:
+  resourceGroupEast: 'Ax-Ae1-Uicoe-Pr-Demozombiedice-Rg'
+  resourceGroupWest: 'Ax-Aw1-Uicoe-Pr-Demozombiedice-Rg'
+  bffEndpoint: ''
+  keyVaultNameEast: 'axae1uicoeprdemokv'
+  keyVaultNameWest: 'axaw1uicoeprdemokv'

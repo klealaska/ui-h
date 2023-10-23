@@ -1,0 +1,103 @@
+@use '../../../../dsm-styles/src/lib/scss/dsm-theme' as *;
+@use '../../../../dsm-styles/src/lib/scss/color-theme' as *;
+
+::ng-deep.mat-mdc-snack-bar-label,
+::ng-deep.mdc-snackbar__surface {
+  border-radius: 0.938rem !important;
+  padding: 0 !important;
+}
+
+.snackbar-container {
+  background: mat-color($dsm-fill, Hover);
+  padding: 1.5rem 1.813rem;
+}
+
+.mat-standard {
+  background: mat-color($dsm-fill, Hover);
+  .snackbar-icon {
+    color: mat-color($dsm-primary, Main);
+  }
+}
+
+.mat-success {
+  background: mat-color($dsm-accent, Light);
+  .snackbar-icon {
+    color: mat-color($dsm-accent, Dark);
+  }
+}
+
+.mat-warning {
+  background: mat-color($dsm-orange, Light);
+  .snackbar-icon {
+    color: mat-color($dsm-orange, Main);
+  }
+}
+
+.mat-error {
+  background: mat-color($dsm-warn, Light);
+  .snackbar-icon {
+    color: mat-color($dsm-warn, Dark);
+  }
+}
+
+.mat-product-update {
+  background: mat-color($dsm-primary, Light);
+  .snackbar-icon {
+    color: mat-color($dsm-primary, Main);
+  }
+}
+
+.mat-finance-notification {
+  background: mat-color($dsm-fill, Hover);
+  .snackbar-icon {
+    color: mat-color($dsm-fill, Text);
+  }
+}
+
+.snackbar-container {
+  display: flex;
+  color: mat-color($dsm-fill, Text);
+  border-radius: 0.938rem;
+}
+
+.snackbar-content {
+  vertical-align: middle;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 2rem 0 1.25rem;
+  h3 {
+    margin-bottom: 0.813rem;
+    font-weight: 600;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.snackbar-link {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.snackbar-icon {
+  align-self: center;
+  height: 2.5rem;
+  mat-icon {
+    font-size: 2.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}
+
+.snackbar-close .mat-mdc-icon-button {
+  position: absolute;
+  top: 0.875rem;
+  right: 0.875rem;
+}
+
+.snackbar-link a {
+  color: mat-color($dsm-primary, Main);
+  background-color: transparent;
+}

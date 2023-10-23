@@ -1,0 +1,38 @@
+<header>
+  <h2>Are you sure you want to save changes on {{ data.connector?.displayName }}?</h2>
+  <div class="separator"></div>
+</header>
+
+<section class="settings-changes">
+  <p>These are the changes on {{ data.connector?.displayName }} settings:</p>
+
+  <div class="property-group" *ngFor="let groupSettings of data.changedSettings">
+    <h3>{{getPropertyGroupName(groupSettings.name) |async}}</h3>
+    <div class="property" *ngFor="let property of groupSettings.properties">
+      <span class="title">{{property.name}}: </span>
+      <span class="value" *ngIf="!isArray(property.value); else arrayProperty">
+        {{property.value}}</span
+      >
+
+      <ng-template #arrayProperty>
+        <span class="value" *ngFor="let value of property.value"> {{value}}</span>
+      </ng-template>
+    </div>
+    <div class="separator"></div>
+  </div>
+</section>
+
+<div class="buttons-content">
+  <button mat-raised-button type="button" color="outline" id="cancel-changes-btn" (click)="close()">
+    CANCEL
+  </button>
+  <button
+    mat-raised-button
+    type="submit"
+    color="primary"
+    id="save-settings-btn"
+    (click)="settingsUpdated.emit()"
+  >
+    UPDATE
+  </button>
+</div>

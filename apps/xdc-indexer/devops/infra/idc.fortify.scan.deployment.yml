@@ -1,0 +1,82 @@
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: avidxchange/templates
+
+trigger:
+ branches:
+   include:
+     - master
+ paths:
+   include:
+     - apps/xdc-indexer
+     - libs/avidcapture
+
+variables:
+ - group: DevOps.Common
+
+stages:
+- stage: scan
+  displayName: fortify scan
+  pool: 'eastUS-buildAgentPool-container'
+  jobs:
+    - job: 'Fortifyscan'
+      displayName: 'fortify_scan'
+      steps:
+        - task: DownloadPackage@1
+          displayName: 'Download Package fortify.microservice.scan.prep'
+          inputs:
+            feed: '/8149219a-50bc-4f7e-a439-5d9047c0fcb3'
+            view: 'dd7ecf9f-d94a-4ce8-bed5-698007a2675b'
+            definition: 'e3136bf5-f709-4d10-84c7-62c142108e03'
+            version: '1.1.0'
+            downloadPath: '$(System.ArtifactsDirectory)/fortify-prep'
+
+        - task: CopyFiles@2
+          displayName: 'Stage files for Fortify Scan'
+          inputs:
+            SourceFolder: '.'
+            Contents: |
+              **/apps/xdc-indexer/**/*
+              **/libs/avidcapture/**/*
+              !**/node_modules/**
+              !**/obj/**
+              !**/.git/**
+              !**/packages/**
+              !**/*Qa/**
+              !**/*Qa.sln
+              !**/.store/**
+              !**/*.Tests/**
+              !**/Tests/**
+              !**/tools/**
+              !**/assets/**
+              !**/.stub.ts
+              !**/*.stub.ts
+              !**/.stub.ts
+              !**/**/*.stub.ts
+              !**/**/.stub.ts
+              !**/**/*-e2e/**
+              !**/**/**/**/environments/**
+              !**/decorate-angular-cli.js
+            TargetFolder: '$(build.artifactstagingdirectory)/fortify'
+            CleanTargetFolder: true
+
+        - task: PowerShell@2
+          displayName: 'Run Fortify Scan Prep'
+          inputs:
+            targetType: filePath
+            filePath: '$(System.ArtifactsDirectory)/fortify-prep/fortify.microservice.scan.prep.ps1'
+            arguments: '-FortifyClientId "$(DevOps.Common.Fortify.APIKey)" -FortifyClientSecret "$(DevOps.Common.Fortify.APISecret)" -ApplicationName "IDC-2" -MicroserviceName "ManualIndexingInterface" -TechnologyStackId "1" -LanguageLevelId "16"'
+
+        - task: fortifyvsts.hpe-security-fortify-vsts.build-task-fortify-on-demand-static.FortifyOnDemandStatic@6
+          displayName: 'Run Fortify on Demand static assessment on $(build.artifactstagingdirectory)/fortify'
+          inputs:
+            FortifyProjects: '$(build.artifactstagingdirectory)/fortify'
+            ReleaseId: $(FortifyReleaseId)
+            FodConnection: 'Avid Fortify'
+            EntitlementPreference: 1
+            InProgressScanActionType: 2
+            RemediationScanPreference: 2
+            PollingInterval: 0
+            PolicyFailAction: 0

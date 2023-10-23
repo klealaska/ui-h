@@ -1,0 +1,114 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1.5em 0;
+  width: 100%;
+
+  @media screen and (max-width: 1450px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.filter {
+  width: 35%;
+
+  @media screen and (max-width: 1450px) {
+    width: 100%;
+  }
+
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 1.25em;
+    width: 100%;
+  }
+}
+
+.card {
+  &-wrapper {
+    display: flex;
+    width: 100%;
+  }
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+  }
+  &-width {
+    width: 100%;
+
+    @media screen and (max-width: 1450px) {
+      width: 50%;
+    }
+  }
+}
+
+.button {
+  &-icon {
+    padding: 0;
+    margin: -6px -10px;
+  }
+  &-active {
+    background-color: theme('colors.interactive.50');
+
+    &:hover {
+      background-color: theme('colors.interactive.50');
+    }
+  }
+}
+
+.option {
+  &-button {
+    text-align: center;
+  }
+  &-text {
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+.avg {
+  &-text {
+    font-size: 40px;
+    text-align: center;
+  }
+  &-subtext {
+    font-size: 16px;
+  }
+}
+
+.push {
+  &-left {
+    margin-left: auto;
+  }
+  &-right {
+    margin-right: auto;
+  }
+}
+
+.mat-mdc-card-header {
+  width: max-content;
+}
+
+.ax-input__header {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin-bottom: 4px;
+
+  &-label {
+    color: theme('colors.grey.800');
+    font-family: theme('fontFamily.interSemibold');
+    font-size: 14px;
+    line-height: 16px;
+    height: 16px;
+  }
+}
+
+::ng-deep .mat-date-range-input-wrapper,
+.ax-datepicker-input {
+  padding: 15px 0 !important;
+}

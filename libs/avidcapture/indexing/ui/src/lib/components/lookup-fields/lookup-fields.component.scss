@@ -1,0 +1,185 @@
+// @use 'colors' as *;
+
+$cornflower-blue: #0574b0;
+$light-gray: #cdcdcd;
+$red: #c32727;
+
+.label {
+  position: absolute;
+  padding-top: 0.313em;
+}
+
+.edit {
+  width: 20px;
+  height: 19px;
+  cursor: pointer;
+}
+
+.edit-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-div-no-value {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.field {
+  margin-top: -0.25em;
+  width: 100%;
+}
+
+.errorValidationMessage {
+  padding: 0;
+  margin: 0;
+  color: $red;
+  margin-left: 0.25em;
+  font-family: theme('fontFamily.interRegular');
+}
+
+.error {
+  margin-top: -1em;
+}
+
+::ng-deep.mat-mdc-optgroup-label .mdc-list-item__primary-text {
+  color: #0000008a;
+  font-size: 16px !important;
+}
+
+::ng-deep.mat-mdc-form-field-error {
+  font-size: 16px !important;
+}
+
+.mat-mdc-option {
+  margin: 1em 0;
+  overflow: visible;
+  line-height: initial;
+  height: auto;
+  min-height: 20px;
+}
+
+.xdc-field-value {
+  margin-left: 0.25em;
+  word-break: break-all;
+
+  p {
+    color: #404041;
+    size: 16px;
+    font-family: theme('fontFamily.interRegular');
+  }
+}
+
+.input {
+  height: 3.4375em;
+
+  &-fake {
+    display: flex;
+    align-items: center;
+    border: 1px solid #2f3941;
+    border-radius: 4px;
+    min-height: 2.5em;
+    cursor: pointer;
+
+    &-disabled {
+      border: 1px solid #2f3941;
+      border-radius: 4px;
+      padding: 1em 0 1em 0;
+      min-height: 2.5em;
+      background-color: #e0e1e1;
+      cursor: default;
+    }
+
+    &-readonly {
+      border: none;
+      min-height: 2.5em;
+    }
+  }
+}
+
+.account {
+  color: theme('colors.interactive.700');
+  border-top: 1px solid $light-gray;
+  margin: 0 0 0 0;
+  height: 45px;
+
+  &:hover {
+    background: none;
+    background-color: none;
+  }
+
+  .link {
+    cursor: pointer;
+    font-weight: bold;
+    vertical-align: middle;
+  }
+}
+
+.turnOnHighlight {
+  box-shadow: 0.188em 0.313em 0.313em rgba(0, 0, 0, 0.3);
+  transition: box-shadow 100ms;
+}
+
+p {
+  margin: 0;
+}
+
+.lookup-field-input {
+  box-sizing: border-box;
+  padding-right: 50px;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+
+  &-no-value {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+  }
+}
+
+.no-word-break {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.alias-text {
+  &-sm {
+    font-size: 14px;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  &-clear {
+    font-size: 28px;
+    margin-right: 9px;
+    margin-bottom: 3px;
+    cursor: pointer;
+  }
+}
+
+.mat-icon-text-field {
+  height: 44px;
+  width: 30px;
+  font-size: 26px;
+}
+
+.result-count {
+  font-size: 16px;
+}
+
+.edit-icon {
+  color: #e0e1e1;
+}
+
+.edit-button {
+  margin-top: -0.3em;
+}

@@ -1,0 +1,52 @@
+<div class="btn-container">
+  <!-- ax-button -->
+  <ax-button
+    class="btn-container__left"
+    [ngClass]="[opened ? color + '-' + type + '-active' : '']"
+    id="main-button"
+    [fixed]="fixed"
+    [type]="type"
+    [color]="color"
+    [disabled]="disabled"
+    [size]="size"
+  >
+    <ng-content></ng-content>
+  </ax-button>
+  <!-- ax-button w/ icon-->
+  <ax-button
+    class="btn-container__right{{ type === 'primary' ? '--spacing' : ''}}"
+    [ngClass]="[opened ? color + '-' + type + '-active' : '']"
+    id="menu-button"
+    [type]="type"
+    [color]="color"
+    [disabled]="disabled"
+    [size]="size"
+    [matMenuTriggerFor]="menu"
+    aria-label="icon button with a menu"
+    (click)="opened = !opened"
+  >
+    <mat-icon [@openClose]="opened ? 'open' : 'close'">{{ "expand_more" }}</mat-icon>
+  </ax-button>
+  <!-- dropdown menu -->
+  <mat-menu
+    #menu="matMenu"
+    xPosition="before"
+    [yPosition]="yPosition"
+    (closed)="opened = !opened"
+    [ngClass]="size"
+    class="{{ size }}-mat-menu-panel-access ax-menu"
+  >
+    <button
+      mat-menu-item
+      [ngStyle]="{'width.px': width}"
+      [ngClass]="size"
+      *ngFor="let action of dropdown"
+      id="{{action}}-dropdown-action"
+      (click)="buttonEvent.emit(action)"
+    >
+      <div [ngClass]="!action ? 'panel-item-container' : 'panel-item-container__icon'">
+        <span>{{ action }}</span>
+      </div>
+    </button>
+  </mat-menu>
+</div>

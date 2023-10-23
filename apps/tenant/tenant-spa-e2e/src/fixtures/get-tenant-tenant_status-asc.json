@@ -1,0 +1,128 @@
+{
+  "itemsRequested": 20,
+  "itemsReturned": 20,
+  "itemsTotal": 20,
+  "offset": 0,
+  "items": [
+    {
+      "tenantId": "syn9jaqeyiu352243ckw",
+      "siteName": "Burger King",
+      "createdDate": "2022-11-02T14:43:11Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "9dw26171hy1921lpjs0g",
+      "siteName": "Blue Band",
+      "createdDate": "2022-09-22T14:43:11Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "r3iqca4rjgxtumluhz6s",
+      "siteName": "Fritos",
+      "createdDate": "2022-09-22T14:43:11Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "5iry21uhnge4f557gnzc",
+      "siteName": "Charmin",
+      "createdDate": "2022-09-22T14:43:11Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "jjb3u42urxetd98cvhee",
+      "siteName": "Bounty",
+      "createdDate": "2022-09-22T14:43:11Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "y69hhg2t0jixshl0qetg",
+      "siteName": "Longhorn",
+      "createdDate": "2022-09-22T14:43:11Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "0brmneapju2h7db4eh1t",
+      "siteName": "Olive Garden",
+      "createdDate": "2022-09-22T14:43:11Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "qf5rs4mszt3lb58o6o2d",
+      "siteName": "Doritos",
+      "createdDate": "2022-09-22T14:43:11Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "v0c1kbzgkvcrewxmr8ea",
+      "siteName": "Lipton",
+      "createdDate": "2022-09-22T14:43:11Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "hvcaswroe9lw2zwznytj",
+      "siteName": "Dasani",
+      "createdDate": "2022-09-22T14:43:11Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "7hp0nqlpvwg0dyyehi1m",
+      "siteName": "Burger King",
+      "createdDate": "2022-09-16T16:00:33Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "6hu2bhjpsgg0ffyghi3m",
+      "siteName": "Big Lots",
+      "createdDate": "2022-09-12T16:01:33Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "9fp1bqjpsfg0fiyehi2m",
+      "siteName": "Zipcar",
+      "createdDate": "2022-09-11T04:01:33Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "9fp1bqjpsfg0fiyehi2m",
+      "siteName": "Best Buy",
+      "createdDate": "2022-09-01T02:11:35Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "9fp1bqjpsfg0fiyehi2m",
+      "siteName": "PlayStation",
+      "createdDate": "2022-08-20T16:01:33Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "9fp1bqjpsfg0fiyehi2m",
+      "siteName": "Budweiser",
+      "createdDate": "2022-08-12T16:01:33Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "9fp1bqjpsfg0fiyehi2m",
+      "siteName": "Taco Bell",
+      "createdDate": "2022-08-11T15:01:23Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "1fd3bfspffgffyfehi4n",
+      "siteName": "Shake Shake",
+      "createdDate": "2022-08-01T13:03:13Z",
+      "tenantStatus": "Active"
+    },
+    {
+      "tenantId": "myb6900t7bx0bp5hlvpm",
+      "siteName": "Metal store",
+      "createdDate": "2022-09-20T20:31:31Z",
+      "tenantStatus": "Provisioned"
+    },
+    {
+      "tenantId": "9fp1bqjpsfg0fiyehi2m",
+      "siteName": "ComCast",
+      "createdDate": "2022-09-03T16:01:33Z",
+      "tenantStatus": "Provisioned"
+    }
+  ]
+}

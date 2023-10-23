@@ -1,0 +1,7 @@
+<div
+  class="link--{{size}}"
+  (click)="visitedLink()"
+  [ngClass]="{'disabled': disabled, 'visited': visited}"
+>
+  <ng-content></ng-content>
+</div>

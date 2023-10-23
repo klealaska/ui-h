@@ -1,0 +1,124 @@
+{
+  "data": [
+    {
+      "id": 2,
+      "attributes": {
+        "title": "Tenant",
+        "description": "# This is the description for the tenant applications in the H1 font",
+        "route": "tenant-spa",
+        "displayName": "Tenant",
+        "iconName": "tenant",
+        "createdAt": "2023-01-22T15:36:16.456Z",
+        "updatedAt": "2023-04-18T15:27:17.523Z",
+        "publishedAt": "2023-01-22T15:37:00.665Z",
+        "locale": "en",
+        "productID": "product-tenant",
+        "data": {
+          "title": "<b class='font-[600] {{ fontFamily }}'>Customer</b><span class='font-[300] {{ fontFamily }}'> Sites - Data from Strapi </span>",
+          "addButton": "Add Site",
+          "tenantList": {
+            "newBadge": "NEW",
+            "columnHeaders": {
+              "status": "Status",
+              "siteName": "Name",
+              "dateCreated": "Date Created"
+            }
+          },
+          "detailsTitle": "<b class='font-[600] {{ fontFamily }}'>Customer Site</b><span class='font-[300] {{ fontFamily }}'> Details </span>",
+          "customerDetails": {
+            "toaster": {
+              "create": {
+                "body": {},
+                "title": {
+                  "error": "Site ID Creation Failed",
+                  "success": "New Site ID Created"
+                }
+              },
+              "update": {
+                "body": {},
+                "title": {
+                  "error": "Customer Details Update Failed",
+                  "success": "Customer Details Updated"
+                }
+              }
+            },
+            "sideMenu": {
+              "customerDetails": "Customer Details"
+            },
+            "customerDetailsCard": {
+              "title": "Customer Details",
+              "cmpLabelText": "CMP ID",
+              "cmpIdHelperText": "20 case-sensitive characters",
+              "siteIdLabelText": "Site ID",
+              "submitButtonText": "Submit",
+              "siteNameLabelText": "Site Name",
+              "accountIdLabelText": "Account ID",
+              "customerNameLabelText": "Customer Name"
+            }
+          },
+          "manageDetailsTitle": "<b class='font-[600] {{ fontFamily }}'>{{ siteName }}</b><span class='font-[300] {{ fontFamily }}'> Details </span>"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "attributes": {
+        "title": "BAM",
+        "description": "###### Description for BAM",
+        "route": "bank-account-mgmt-spa",
+        "displayName": "BAM",
+        "iconName": null,
+        "createdAt": "2023-01-25T21:04:51.644Z",
+        "updatedAt": "2023-01-26T01:00:17.455Z",
+        "publishedAt": "2023-01-25T21:04:54.455Z",
+        "locale": "en",
+        "productID": "product-bam",
+        "data": {
+          "test": {
+            "testInfo": "This is how the data would be passed"
+          }
+        }
+      }
+    },
+    {
+      "id": 5,
+      "attributes": {
+        "title": "Pay Transformation",
+        "description": "###### Pay Tranformation Description",
+        "route": "pay-transformation-spa",
+        "displayName": "Pay Transformation",
+        "iconName": null,
+        "createdAt": "2023-02-28T21:47:27.915Z",
+        "updatedAt": "2023-02-28T21:48:19.433Z",
+        "publishedAt": "2023-02-28T21:48:19.426Z",
+        "locale": "en",
+        "productID": "product-pay",
+        "data": null
+      }
+    },
+    {
+      "id": 7,
+      "attributes": {
+        "title": "Business Hierarchy",
+        "description": "# This is the description for the Business Hierarchy app",
+        "route": "bus-hier-spa",
+        "displayName": "Business Hierarchy",
+        "iconName": "bus-hier",
+        "createdAt": "2023-04-18T15:34:15.136Z",
+        "updatedAt": "2023-04-18T15:34:52.665Z",
+        "publishedAt": "2023-04-18T15:34:52.657Z",
+        "locale": "en",
+        "productID": "product-bus-hier",
+        "data": null
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 6
+    }
+  }
+}

@@ -1,0 +1,112 @@
+@use '../../stylings/shared-components-variables' as *;
+
+$navigation-options-background-color: #fbfdff;
+$navigation-options-shadow-color: #dadada;
+
+.ax-user {
+  position: relative;
+
+  &.light {
+    label,
+    mat-icon {
+      color: $gray-dark;
+    }
+    button {
+      &:hover {
+        background-color: $white;
+      }
+    }
+
+    .user-info {
+      .icon-image {
+        color: $gray-dark;
+      }
+    }
+  }
+
+  .user-info {
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    .user-image {
+      img {
+        width: 2.5em;
+        height: 2.5em;
+        object-fit: contain;
+        margin: 0.7em;
+        border-radius: 50%;
+      }
+
+      div {
+        margin: 1.25em;
+      }
+    }
+
+    .icon {
+      &-image {
+        font-size: 2.5em;
+        color: $white;
+        margin: 0.25em 0.3em;
+        padding: 0 15px 15px;
+      }
+    }
+
+    label {
+      margin: 1.3em 0;
+      min-width: 80px;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      display: inline-block;
+    }
+
+    ax-button {
+      height: 2em;
+      width: 2em;
+      margin: 1.5em 0.5em 2em 0em;
+    }
+    ax-mat-menu button {
+      height: 100%;
+    }
+  }
+
+  .ax-button-dropdown-options {
+    display: none;
+    list-style: none;
+    margin: 0;
+    position: absolute;
+    left: 60px;
+    top: 45px;
+    background: $navigation-options-background-color;
+    box-shadow: 1px 1px 3px 1px $navigation-options-shadow-color;
+    padding: 5px 0;
+    z-index: 100;
+
+    &.open {
+      display: block;
+    }
+
+    li.ax-dropdown-option {
+      padding: 7px 15px;
+      margin: 3px 0;
+      cursor: pointer;
+      color: $cornflower-blue;
+      font-weight: bold;
+
+      &:hover,
+      &.selected {
+        background-color: $cornflower-blue;
+        color: $white;
+      }
+    }
+
+    div.separator {
+      width: 100%;
+      height: 1px;
+      background: $gray-light;
+    }
+  }
+}

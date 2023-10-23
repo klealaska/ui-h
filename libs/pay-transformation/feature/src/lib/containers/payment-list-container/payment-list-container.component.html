@@ -1,0 +1,22 @@
+<ng-container *ngIf="view$ | async as view">
+  <!-- payments list header bar -->
+  <ui-coe-titlebar [title]="view.title" [showBackButton]="false"></ui-coe-titlebar>
+  <!-- payments list body-->
+  <ui-coe-page-body>
+    <!-- filter input and upload btn-->
+    <ax-input
+      [fixed]="true"
+      [label]="view.searchLabel"
+      [control]="formControl"
+      (inputValueEvent)="onSearchEvent($event)"
+    ></ax-input>
+    <!-- payments list -->
+    <ng-container *ngIf="payments$ | async as payments">
+      <ui-coe-payment-list
+        [view]="view.table"
+        [payments]="payments"
+        (viewPaymentDetails)="onViewPaymentDetails($event)"
+      ></ui-coe-payment-list>
+    </ng-container>
+  </ui-coe-page-body>
+</ng-container>

@@ -1,0 +1,13 @@
+variables:
+  capability: <%= domain %>
+  agentPool: linux-vmss-agent-pool
+  nonProdServiceConnection: User-Interface-Center-of-Excellence_AvidPay-Network-Experience_Np_AzDOSC_SP
+  nonProdSubscriptionId: '8f9290f9-f4dc-4be5-83e2-3c831b8d66ee'
+  prodServiceConnection: User-Interface-Center-of-Excellence_AvidPay-Network-Experience_Pr_AzDOSC_SP
+  prodSubscriptionId: '3b710983-1d1a-4f27-8ebb-20161ee798ff'
+  domain: uicoe
+  appPath: '<%= domain %>/<%= domain %>-bff'
+  appTag: <%= domain %>-bff
+  imageName: axglbhubacr.azurecr.io/<%= domain %>-bff
+  containerRegistry: DefaultDockerRegistry
+  registryRepoName: <%= domain %>-bff

@@ -1,0 +1,3228 @@
+{
+  "fields": [
+      {
+          "key": "InvoiceType",
+          "fieldType": "default",
+          "value": "",
+          "confidence": null,
+          "confidenceThreshold": {
+              "high": {
+                  "min": 95
+              },
+              "medium": {
+                  "min": 90
+              },
+              "low": {
+                  "min": 0
+              }
+          },
+          "controlType": "dropdown",
+          "type": "text",
+          "required": true,
+          "regEx": "",
+          "labelDisplayName": "Invoice Type",
+          "headerBackgroundColor": "none",
+          "headerTextColor": "default",
+          "order": 0
+      },
+      {
+          "key": "CustomerAccountNumber",
+          "fieldType": "default",
+          "value": "",
+          "confidence": null,
+          "confidenceThreshold": {
+              "high": {
+                  "min": 95
+              },
+              "medium": {
+                  "min": 90
+              },
+              "low": {
+                  "min": 0
+              }
+          },
+          "controlType": "textbox",
+          "type": "string",
+          "required": true,
+          "regEx": "",
+          "labelDisplayName": "Customer Account Number",
+          "headerBackgroundColor": "none",
+          "headerTextColor": "default",
+          "order": 1
+      }
+  ],
+  "counts": {
+      "buyerCount": 2,
+      "documentCount": 5,
+      "escalationCount": 2
+  },
+  "documents": [
+      {
+          "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+          "buyerId": "2215789",
+          "buyerName": "Finance of America Holdings",
+          "fileId": "4494554",
+          "dateReceived": "2020-09-01T18:48:52.037Z",
+          "escalationCategory": "",
+          "ingestionType": "email",
+          "lockedBy": null
+      },
+      {
+          "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+          "buyerId": "2215789",
+          "buyerName": "Finance of America Holdings",
+          "fileId": "4494554",
+          "dateReceived": "2020-09-01T19:48:52.037Z",
+          "escalationCategory": "",
+          "ingestionType": "email",
+          "lockedBy": null
+      },
+      {
+          "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+          "buyerId": "2215789",
+          "buyerName": "Finance of America Holdings",
+          "fileId": "4494554",
+          "dateReceived": "2020-09-01T21:48:52.037Z",
+          "escalationCategory": "",
+          "ingestionType": "email",
+          "lockedBy": null
+      },
+      {
+          "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+          "buyerId": "2215789",
+          "buyerName": "Finance of America Holdings",
+          "fileId": "4494554",
+          "dateReceived": "2020-09-01T23:28:52.037Z",
+          "escalationCategory": "",
+          "ingestionType": "email",
+          "lockedBy": null
+      },
+      {
+          "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+          "buyerId": "2215789",
+          "buyerName": "Finance of America Holdings",
+          "fileId": "4494554",
+          "dateReceived": "2020-09-02T11:48:52.037Z",
+          "escalationCategory": "",
+          "ingestionType": "email",
+          "lockedBy": null
+      }
+  ],
+  "newDocuments": [
+    {
+      "documentId": "fc87b20a-21c4-4519-bcd4-28aba43f7ccc",
+      "documentIndexedId": "60e80444-44ab-47e5-942f-1f043f81bebb",
+      "documentUnindexedId": "08ed96dc-a433-4359-8c59-be7f89d1ffdb",
+      "buyerId": "25",
+      "buyerName": "Avidxchange, Inc",
+      "fileId": "239881079",
+      "dateReceived": "1638296495",
+      "correlationId": "78a34925-72aa-40ea-8c10-96f8e74a16c1",
+      "fileName": "Parking Deck Elect 7.15-8.12.21.pdf",
+      "id": "00000000-0000-0000-0000-000000000000",
+      "ingestionType": "email",
+      "invoiceSourceId": "AvidSuite",
+      "sourceEmail": "CRomeis@avidxchange.com",
+      "sourceSystem": "AvidSuite",
+      "buyerKeyword": "avidxchange",
+      "amountDue": "$33.08",
+      "billingAddress": "1210 AvidXchange Lane Charlotte, NC 28206",
+      "billingAddressRecipient": "AvidXchange",
+      "customerAddressRecipient": "FIBER MILLS LLC",
+      "customerName": "FIBER MILLS LLC",
+      "invoiceDate": "Aug 16, 2021",
+      "serviceAddress": "909 HAMILTON ST CHARLOTTE NC 28206",
+      "serviceEndDate": "Aug 12",
+      "serviceStartDate": "Jul 15",
+      "totalTax": "66.10",
+      "vendorAddress": "19401 Old Jetton Road Suite 101 NC 28031",
+      "vendorAddressRecipient": "Hamilton Street Properties, LLC",
+      "vendorName": "DUKE ENERGY",
+      "searchScore": "273.52792",
+      "registrationCode": "NPHFC1SL3",
+      "propertyCode": "47",
+      "shipToName": "Facility (13002)",
+      "shipToAddress": "1210 Avidxchange Lane Charlotte NC 28206",
+      "shipToId": "261829",
+      "supplier": "Hamilton Street Properties LLC",
+      "supplierAddress": "19401 Old Jetton Rd, Suite 101 Cornelius NC 28031",
+      "supplierId": "6611788",
+      "customerAccountNumber": "910030695170",
+      "invoiceDueDate": "Sep 10",
+      "invoiceNumber": "00007952",
+      "invoiceAmount": "505.17",
+      "invoiceType": "Standard",
+      "currentCharges": "",
+      "escalationCategoryIssue": "none",
+      "escalationCategoryReason": null,
+      "lockedBy": "none"
+    },
+    {
+      "documentId": "fc87b20a-21c4-4519-bcd4-28aba43f7ccc",
+      "documentIndexedId": "60e80444-44ab-47e5-942f-1f043f81bebb",
+      "documentUnindexedId": "08ed96dc-a433-4359-8c59-be7f89d1ffdb",
+      "buyerId": "25",
+      "buyerName": "Avidxchange, Inc",
+      "fileId": "239881079",
+      "dateReceived": "1638296495",
+      "correlationId": "78a34925-72aa-40ea-8c10-96f8e74a16c1",
+      "fileName": "Parking Deck Elect 7.15-8.12.21.pdf",
+      "id": "00000000-0000-0000-0000-000000000000",
+      "ingestionType": "email",
+      "invoiceSourceId": "AvidSuite",
+      "sourceEmail": "CRomeis@avidxchange.com",
+      "sourceSystem": "AvidSuite",
+      "buyerKeyword": "avidxchange",
+      "amountDue": "$33.08",
+      "billingAddress": "1210 AvidXchange Lane Charlotte, NC 28206",
+      "billingAddressRecipient": "AvidXchange",
+      "customerAddressRecipient": "FIBER MILLS LLC",
+      "customerName": "FIBER MILLS LLC",
+      "invoiceDate": "Aug 16, 2021",
+      "serviceAddress": "909 HAMILTON ST CHARLOTTE NC 28206",
+      "serviceEndDate": "Aug 12",
+      "serviceStartDate": "Jul 15",
+      "totalTax": "66.10",
+      "vendorAddress": "19401 Old Jetton Road Suite 101 NC 28031",
+      "vendorAddressRecipient": "Hamilton Street Properties, LLC",
+      "vendorName": "DUKE ENERGY",
+      "searchScore": "273.52792",
+      "registrationCode": "NPHFC1SL3",
+      "propertyCode": "47",
+      "shipToName": "Facility (13002)",
+      "shipToAddress": "1210 Avidxchange Lane Charlotte NC 28206",
+      "shipToId": "261829",
+      "supplier": "Hamilton Street Properties LLC",
+      "supplierAddress": "19401 Old Jetton Rd, Suite 101 Cornelius NC 28031",
+      "supplierId": "6611788",
+      "customerAccountNumber": "910030695170",
+      "invoiceDueDate": "Sep 10",
+      "invoiceNumber": "00007952",
+      "invoiceAmount": "505.17",
+      "invoiceType": "Standard",
+      "currentCharges": "",
+      "escalationCategoryIssue": "Recycle Bin",
+      "escalationCategoryReason": null,
+      "lockedBy": "none"
+    },
+    {
+      "documentId": "fc87b20a-21c4-4519-bcd4-28aba43f7ccc",
+      "documentIndexedId": "60e80444-44ab-47e5-942f-1f043f81bebb",
+      "documentUnindexedId": "08ed96dc-a433-4359-8c59-be7f89d1ffdb",
+      "buyerId": "25",
+      "buyerName": "Avidxchange, Inc",
+      "fileId": "239881079",
+      "dateReceived": "1638296495",
+      "correlationId": "78a34925-72aa-40ea-8c10-96f8e74a16c1",
+      "fileName": "Parking Deck Elect 7.15-8.12.21.pdf",
+      "id": "00000000-0000-0000-0000-000000000000",
+      "ingestionType": "email",
+      "invoiceSourceId": "AvidSuite",
+      "sourceEmail": "CRomeis@avidxchange.com",
+      "sourceSystem": "AvidSuite",
+      "buyerKeyword": "avidxchange",
+      "amountDue": "$33.08",
+      "billingAddress": "1210 AvidXchange Lane Charlotte, NC 28206",
+      "billingAddressRecipient": "AvidXchange",
+      "customerAddressRecipient": "FIBER MILLS LLC",
+      "customerName": "FIBER MILLS LLC",
+      "invoiceDate": "Aug 16, 2021",
+      "serviceAddress": "909 HAMILTON ST CHARLOTTE NC 28206",
+      "serviceEndDate": "Aug 12",
+      "serviceStartDate": "Jul 15",
+      "totalTax": "66.10",
+      "vendorAddress": "19401 Old Jetton Road Suite 101 NC 28031",
+      "vendorAddressRecipient": "Hamilton Street Properties, LLC",
+      "vendorName": "DUKE ENERGY",
+      "searchScore": "273.52792",
+      "registrationCode": "NPHFC1SL3",
+      "propertyCode": "47",
+      "shipToName": "Facility (13002)",
+      "shipToAddress": "1210 Avidxchange Lane Charlotte NC 28206",
+      "shipToId": "261829",
+      "supplier": "Hamilton Street Properties LLC",
+      "supplierAddress": "19401 Old Jetton Rd, Suite 101 Cornelius NC 28031",
+      "supplierId": "6611788",
+      "customerAccountNumber": "910030695170",
+      "invoiceDueDate": "Sep 10",
+      "invoiceNumber": "00007952",
+      "invoiceAmount": "505.17",
+      "invoiceType": "Standard",
+      "currentCharges": "",
+      "escalationCategoryIssue": "Recycle Bin",
+      "escalationCategoryReason": null,
+      "lockedBy": "none"
+    },
+    {
+      "documentId": "fc87b20a-21c4-4519-bcd4-28aba43f7ccc",
+      "documentIndexedId": "60e80444-44ab-47e5-942f-1f043f81bebb",
+      "documentUnindexedId": "08ed96dc-a433-4359-8c59-be7f89d1ffdb",
+      "buyerId": "25",
+      "buyerName": "Avidxchange, Inc",
+      "fileId": "239881079",
+      "dateReceived": "1638296495",
+      "correlationId": "78a34925-72aa-40ea-8c10-96f8e74a16c1",
+      "fileName": "Parking Deck Elect 7.15-8.12.21.pdf",
+      "id": "00000000-0000-0000-0000-000000000000",
+      "ingestionType": "email",
+      "invoiceSourceId": "AvidSuite",
+      "sourceEmail": "CRomeis@avidxchange.com",
+      "sourceSystem": "AvidSuite",
+      "buyerKeyword": "avidxchange",
+      "amountDue": "$33.08",
+      "billingAddress": "1210 AvidXchange Lane Charlotte, NC 28206",
+      "billingAddressRecipient": "AvidXchange",
+      "customerAddressRecipient": "FIBER MILLS LLC",
+      "customerName": "FIBER MILLS LLC",
+      "invoiceDate": "Aug 16, 2021",
+      "serviceAddress": "909 HAMILTON ST CHARLOTTE NC 28206",
+      "serviceEndDate": "Aug 12",
+      "serviceStartDate": "Jul 15",
+      "totalTax": "66.10",
+      "vendorAddress": "19401 Old Jetton Road Suite 101 NC 28031",
+      "vendorAddressRecipient": "Hamilton Street Properties, LLC",
+      "vendorName": "DUKE ENERGY",
+      "searchScore": "273.52792",
+      "registrationCode": "NPHFC1SL3",
+      "propertyCode": "47",
+      "shipToName": "Facility (13002)",
+      "shipToAddress": "1210 Avidxchange Lane Charlotte NC 28206",
+      "shipToId": "261829",
+      "supplier": "Hamilton Street Properties LLC",
+      "supplierAddress": "19401 Old Jetton Rd, Suite 101 Cornelius NC 28031",
+      "supplierId": "6611788",
+      "customerAccountNumber": "910030695170",
+      "invoiceDueDate": "Sep 10",
+      "invoiceNumber": "00007952",
+      "invoiceAmount": "505.17",
+      "invoiceType": "Standard",
+      "currentCharges": "",
+      "escalationCategoryIssue": "none",
+      "escalationCategoryReason": null,
+      "lockedBy": "none"
+    }
+
+  ],
+  "escalations": [
+      {
+          "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+          "buyerId": "2215789",
+          "buyerName": "Finance of America Holdings",
+          "fileId": "4494554",
+          "dateReceived": "2020-09-01T11:48:52.037Z",
+          "escalationCategory": "Internal QA",
+          "ingestionType": "email",
+          "lockedBy": "test"
+      },
+      {
+          "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+          "buyerId": "2215789",
+          "buyerName": "Finance of America Holdings",
+          "fileId": "4494554",
+          "dateReceived": "2020-09-01T12:48:52.037Z",
+          "escalationCategory": "Internal QA",
+          "ingestionType": "email",
+          "lockedBy": null
+      }
+  ],
+  "buyers": [
+      {
+          "id": "2215789",
+          "name": "Finance of America Holdings"
+      }
+  ],
+  "suppliers": {
+    "count": 17,
+    "records": [
+      {
+          "vendorID": 7678846,
+          "vendorName": "Earth, Wind, & Tire Automotive",
+          "vendorExternalSystemID": "V00101",
+          "line1": "1531 Johnny Lane",
+          "line2": "123 Happy Jane Lane",
+          "city": "Milwaukee",
+          "state": "WI",
+          "postalCode": "53202",
+          "accountingSystemID": 4811,
+          "allowRetainage": false,
+          "aliases": "alias excellent aliaslongname sho name alias excellent aliaslongname sho name alias excellent aliaslongname sho name"
+      },
+      {
+          "vendorID": 10871116,
+          "vendorName": "Endless Pastabilities Italian Eatery",
+          "vendorExternalSystemID": "V00045",
+          "line1": "4567 Shakeout Point",
+          "line2": "",
+          "city": "Benderton",
+          "state": "IA",
+          "postalCode": "56792",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 7678838,
+          "vendorName": "Happily Ever Actor Casting Agency",
+          "vendorExternalSystemID": "V00011",
+          "line1": "1941 Hinkle Deegan Lake Road",
+          "line2": "Address Line 2",
+          "city": "Bingamton",
+          "state": "NY",
+          "postalCode": "13901",
+          "accountingSystemID": 4811,
+          "allowRetainage": true
+      },
+      {
+          "vendorID": 7678849,
+          "vendorName": "Hiding Goose Salon",
+          "vendorExternalSystemID": "V00005",
+          "line1": "4506 Woodside Circle",
+          "line2": null,
+          "city": "Tallahassee",
+          "state": "FL",
+          "postalCode": "32301",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 14119236,
+          "vendorName": "Holy Guacamole Avocado Toastery",
+          "vendorExternalSystemID": "V000025",
+          "line1": "4613 Millenial Way",
+          "line2": "",
+          "city": "Charlotte",
+          "state": "NC",
+          "postalCode": "28216",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 14326411,
+          "vendorName": "IO Test Supplier",
+          "vendorExternalSystemID": "AX2021",
+          "line1": "123 AvidXchange Ln",
+          "line2": "",
+          "city": "Charlotte",
+          "state": "NC",
+          "postalCode": "28206",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 12423974,
+          "vendorName": "N&B Test Vendor",
+          "vendorExternalSystemID": "TestApersand",
+          "line1": "Test Address 123",
+          "line2": "",
+          "city": "Charlotte",
+          "state": "NC",
+          "postalCode": "28209",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 7678841,
+          "vendorName": "Nothin But Notaries",
+          "vendorExternalSystemID": "v00012",
+          "line1": "2228 Green Hill Road",
+          "line2": null,
+          "city": "Fort Smith",
+          "state": "AR",
+          "postalCode": "72901",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 7678844,
+          "vendorName": "Quilty as Charged Quilt Supplies",
+          "vendorExternalSystemID": "V00009",
+          "line1": "586 Ford Street",
+          "line2": null,
+          "city": "Santa Clara",
+          "state": "CA",
+          "postalCode": "95054",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 7678839,
+          "vendorName": "Resisting a Rest Sleep Therapy",
+          "vendorExternalSystemID": "V00001",
+          "line1": "3506 Roosevelt Wilson Lane",
+          "line2": null,
+          "city": "Rosswood",
+          "state": "CA",
+          "postalCode": "91762",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 7908664,
+          "vendorName": "Test Vendor",
+          "vendorExternalSystemID": "123498",
+          "line1": "123 Main St",
+          "line2": "",
+          "city": "Charlotte",
+          "state": "NC",
+          "postalCode": "28209",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 7678840,
+          "vendorName": "Thanks a Latte",
+          "vendorExternalSystemID": "V00007",
+          "line1": "1248 Mill Street",
+          "line2": null,
+          "city": "Auburndale",
+          "state": "FL",
+          "postalCode": "33823",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 7678845,
+          "vendorName": "The Amazing Hog",
+          "vendorExternalSystemID": "V00002",
+          "line1": "1437 Ashwood Drive",
+          "line2": null,
+          "city": "Council Bluffs",
+          "state": "IA",
+          "postalCode": "51501",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 7678847,
+          "vendorName": "The Rainy Cloak",
+          "vendorExternalSystemID": "V00003",
+          "line1": "3845 Clair Street",
+          "line2": null,
+          "city": "Waco",
+          "state": "TX",
+          "postalCode": "76706",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 7678842,
+          "vendorName": "The Tired Tooth Candy Store",
+          "vendorExternalSystemID": "V00004",
+          "line1": "3457 Perine Street",
+          "line2": null,
+          "city": "Centerville",
+          "state": "VA",
+          "postalCode": "22020",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 7678843,
+          "vendorName": "Wolf in Cheap Clothing Pet Apparel",
+          "vendorExternalSystemID": "V00008",
+          "line1": "1251 Dog Hill Lane",
+          "line2": null,
+          "city": "Lawrence",
+          "state": "KS",
+          "postalCode": "66044",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      },
+      {
+          "vendorID": 7722342,
+          "vendorName": "Youre Missing the Poinsettia Flower Shop",
+          "vendorExternalSystemID": "V00013",
+          "line1": "4934 Wildwood Street",
+          "line2": "",
+          "city": "Akron",
+          "state": "OH",
+          "postalCode": "44303",
+          "accountingSystemID": 4811,
+          "allowRetainage": false
+      }
+    ]
+  },
+  "properties": {
+    "count": 54,
+    "records": [
+      {
+          "propertyAddressID": 545600,
+          "propertyId": 50834279,
+          "propertyName": "102 Franklin",
+          "alias": "102",
+          "line1": "102 Franklin St",
+          "line2": "Apt B",
+          "city": "Charlotte",
+          "state": "NC",
+          "postalCode": "28214",
+          "propertyCode": "102F",
+          "accountingSystemID": 5947
+      },
+      {
+          "propertyAddressID": 445277,
+          "propertyId": 50834279,
+          "propertyName": "102 Franklin",
+          "alias": "102F",
+          "line1": "No Address Provided",
+          "line2": "",
+          "city": "City",
+          "state": "SA",
+          "postalCode": "12345",
+          "propertyCode": "102F",
+          "accountingSystemID": 5947
+      },
+      {
+          "propertyAddressID": 260765,
+          "propertyId": 53155952,
+          "propertyName": "Angelcairn (abc123!@#$%^&*)",
+          "alias": "006;null;",
+          "line1": "2511 Pretty View Ln.",
+          "line2": "",
+          "city": "Oakland",
+          "state": "CA",
+          "postalCode": "94612",
+          "propertyCode": "006",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 400120,
+          "propertyId": 52404153,
+          "propertyName": "Berrybriar (098 BBR)",
+          "alias": "098",
+          "line1": "8741 Clannahan Drive",
+          "line2": "",
+          "city": "Cliverton",
+          "state": "VA",
+          "postalCode": "24098",
+          "propertyCode": "098 BBR",
+          "accountingSystemID": 9251
+      },
+      {
+          "propertyAddressID": 260767,
+          "propertyId": 34065103,
+          "propertyName": "Boneholde (008)",
+          "alias": "008",
+          "line1": "3691 Haven Ln. (008)",
+          "line2": "",
+          "city": "BUFFALO",
+          "state": "TX",
+          "postalCode": "75831",
+          "propertyCode": "008",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260746,
+          "propertyId": 34065110,
+          "propertyName": "Castlecall (015)",
+          "alias": "015; Castlecall; Castle Call; Castlecall Williams",
+          "line1": "1182 Williams Ln",
+          "line2": "",
+          "city": "Wichita",
+          "state": "KS",
+          "postalCode": "67218",
+          "propertyCode": "015",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 353142,
+          "propertyId": 34065093,
+          "propertyName": "Diamond Bar (002)",
+          "alias": "002",
+          "line1": "2241 Eagle Lane",
+          "line2": "",
+          "city": "ROUND ROCK",
+          "state": "TX",
+          "postalCode": "78681",
+          "propertyCode": "002",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260761,
+          "propertyId": 34065093,
+          "propertyName": "Diamond Bar (002)",
+          "alias": "002",
+          "line1": "3114 Randolph St.",
+          "line2": "",
+          "city": "Freetown",
+          "state": "MA",
+          "postalCode": "02702",
+          "propertyCode": "002",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260758,
+          "propertyId": 34065107,
+          "propertyName": "Direbell (012)",
+          "alias": "012",
+          "line1": "4841 Duffy St.",
+          "line2": "",
+          "city": "Wheeler",
+          "state": "IN",
+          "postalCode": "46383",
+          "propertyCode": "012",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260752,
+          "propertyId": 34065105,
+          "propertyName": "Duskstar (010)",
+          "alias": "010",
+          "line1": "2156 Mulberry Ln.",
+          "line2": "",
+          "city": "Fort Lauderdale",
+          "state": "FL",
+          "postalCode": "33301",
+          "propertyCode": "010",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260751,
+          "propertyId": 34065117,
+          "propertyName": "Edgecastle (021)",
+          "alias": "021",
+          "line1": "2080 Horseshoe Ln",
+          "line2": "",
+          "city": "Norristown",
+          "state": "PA",
+          "postalCode": "19403",
+          "propertyCode": "021",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260753,
+          "propertyId": 34065106,
+          "propertyName": "Edgecliff (011)",
+          "alias": "011",
+          "line1": "918 Heavner Ct.",
+          "line2": "",
+          "city": "New York",
+          "state": "NY",
+          "postalCode": "10011",
+          "propertyCode": "011",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260750,
+          "propertyId": 34065114,
+          "propertyName": "Elderwatch (018)",
+          "alias": "018",
+          "line1": "1278 Black Stallion Rd",
+          "line2": "",
+          "city": "Winchester",
+          "state": "KY",
+          "postalCode": "40391",
+          "propertyCode": "018",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260757,
+          "propertyId": 34065116,
+          "propertyName": "Embercrest (020)",
+          "alias": "020",
+          "line1": "1730 Flynn St",
+          "line2": "",
+          "city": "Ashtabula",
+          "state": "OH",
+          "postalCode": "44004",
+          "propertyCode": "020",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 303090,
+          "propertyId": 34065116,
+          "propertyName": "Embercrest (020)",
+          "alias": "020",
+          "line1": "4264 Grant View Dr.",
+          "line2": "",
+          "city": "New Berlin",
+          "state": "WI",
+          "postalCode": "53151",
+          "propertyCode": "020",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 373786,
+          "propertyId": 34065092,
+          "propertyName": "Garden Grove (001)",
+          "alias": "",
+          "line1": "Garden Grove Test",
+          "line2": "",
+          "city": "Charlotte",
+          "state": "NC",
+          "postalCode": "28209",
+          "propertyCode": "001",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260747,
+          "propertyId": 34065111,
+          "propertyName": "Icehelm (016)",
+          "alias": "016",
+          "line1": "3261 Bird Spring Ln",
+          "line2": "",
+          "city": "Porter",
+          "state": "TX",
+          "postalCode": "77365",
+          "propertyCode": "016",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 279410,
+          "propertyId": 34065109,
+          "propertyName": "Kilstar (014)",
+          "alias": "014",
+          "line1": "482 Archwood Ave.",
+          "line2": "",
+          "city": "Mountain View",
+          "state": "WY",
+          "postalCode": "82939",
+          "propertyCode": "014",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260755,
+          "propertyId": 34065104,
+          "propertyName": "Magehost (009)",
+          "alias": "009",
+          "line1": "943 Arlington Ave.",
+          "line2": "",
+          "city": "Maryville",
+          "state": "TN",
+          "postalCode": "37801",
+          "propertyCode": "009",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260762,
+          "propertyId": 34065094,
+          "propertyName": "Olivehurst (003)",
+          "alias": "003",
+          "line1": "113 Werninger St.",
+          "line2": "",
+          "city": "Houston",
+          "state": "TX",
+          "postalCode": "77032",
+          "propertyCode": "003",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260754,
+          "propertyId": 34065112,
+          "propertyName": "Redkeep (017)",
+          "alias": "017",
+          "line1": "2617 Patton Lane",
+          "line2": "Building 10",
+          "city": "Raleigh",
+          "state": "NC",
+          "postalCode": "27609",
+          "propertyCode": "017",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260763,
+          "propertyId": 34065095,
+          "propertyName": "Shadyside (004)",
+          "alias": "004",
+          "line1": "1104 Quarry Dr.",
+          "line2": "",
+          "city": "Dothan",
+          "state": "AL",
+          "postalCode": "36801",
+          "propertyCode": "004",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260766,
+          "propertyId": 34065102,
+          "propertyName": "Shimmerborne (007)",
+          "alias": "007",
+          "line1": "1651 Roosevelt Rd",
+          "line2": "",
+          "city": "Moundbridge",
+          "state": "KS",
+          "postalCode": "67107",
+          "propertyCode": "007",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260748,
+          "propertyId": 34065120,
+          "propertyName": "Snowloch (023)",
+          "alias": "023; Snowloch; Snow loch; Snow lock; Snowloch Chestnut",
+          "line1": "854 Chestnut St.",
+          "line2": "",
+          "city": "Clearwater",
+          "state": "FL",
+          "postalCode": "34623",
+          "propertyCode": "023",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 367247,
+          "propertyId": 40281373,
+          "propertyName": "Snowloch (1000vusc)",
+          "alias": "23",
+          "line1": "854 Chestnut St. (Second Database)",
+          "line2": "",
+          "city": "Clearwater",
+          "state": "FL",
+          "postalCode": "34623",
+          "propertyCode": "1000vusc",
+          "accountingSystemID": 9251
+      },
+      {
+          "propertyAddressID": 354569,
+          "propertyId": 34107852,
+          "propertyName": "Stokeworth (024)",
+          "alias": "024",
+          "line1": "607 Coulwood Dr.",
+          "line2": "",
+          "city": "Casterly",
+          "state": "NV",
+          "postalCode": "89005",
+          "propertyCode": "024",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260764,
+          "propertyId": 34065098,
+          "propertyName": "Swanbreach (005)",
+          "alias": "005",
+          "line1": "3004 McKinley Ave.",
+          "line2": "",
+          "city": "Denver",
+          "state": "CO",
+          "postalCode": "80218",
+          "propertyCode": "005",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 461444,
+          "propertyId": 37755242,
+          "propertyName": "Test Entity",
+          "alias": "",
+          "line1": "No Address Associated",
+          "line2": "",
+          "city": "City",
+          "state": "ST",
+          "postalCode": "12345",
+          "propertyCode": "TES",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 488334,
+          "propertyId": 53246050,
+          "propertyName": "Testing Entity",
+          "alias": "",
+          "line1": "123 Main",
+          "line2": "",
+          "city": "City",
+          "state": "SA",
+          "postalCode": "12345",
+          "propertyCode": "TEST123",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260756,
+          "propertyId": 34065118,
+          "propertyName": "Vertwyn (022)",
+          "alias": "022",
+          "line1": "3635 Lyon Ave",
+          "line2": "",
+          "city": "Cambridge",
+          "state": "MA",
+          "postalCode": "02141",
+          "propertyCode": "022",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 260749,
+          "propertyId": 34065108,
+          "propertyName": "Wildebrook (013)",
+          "alias": "013",
+          "line1": "3554 Five Points",
+          "line2": "",
+          "city": "Baltimore",
+          "state": "MD",
+          "postalCode": "21201",
+          "propertyCode": "013",
+          "accountingSystemID": 4811
+      },
+      {
+          "propertyAddressID": 526388,
+          "propertyId": 55499861,
+          "propertyName": "Zoey's Beach House",
+          "alias": "Beach",
+          "line1": "456 Galaxia Dr",
+          "line2": "",
+          "city": "Charlotte",
+          "state": "NC",
+          "postalCode": "28214",
+          "propertyCode": "Beach",
+          "accountingSystemID": 13504
+      },
+      {
+          "propertyAddressID": 526386,
+          "propertyId": 55499858,
+          "propertyName": "Zoey's House",
+          "alias": "Zoey",
+          "line1": "123 Silver Millenium Dr",
+          "line2": "",
+          "city": "Charlotte",
+          "state": "NC",
+          "postalCode": "28214",
+          "propertyCode": "Zoey",
+          "accountingSystemID": 13504
+      },
+      {
+          "propertyAddressID": 526387,
+          "propertyId": 55499858,
+          "propertyName": "Zoey's House",
+          "alias": "Zoey",
+          "line1": "456 Galaxia Dr",
+          "line2": "",
+          "city": "Charlotte",
+          "state": "NC",
+          "postalCode": "28214",
+          "propertyCode": "Zoey",
+          "accountingSystemID": 13504
+      }
+   ]
+  },
+  "customeraccounts": {
+    "count": 2,
+    "records": [
+      {
+          "vendorAccountId": 12033990,
+          "accountNo": "none",
+          "propertyId": 36423868,
+          "propertyName": "Pipe Test",
+          "termTypeId": 1,
+          "allowRetainage": true,
+          "isActive": true,
+          "propertyAddress": {
+              "propertyId": 36423868,
+              "propertyName": "Pipe Test",
+              "propertyAddressID": 545600,
+              "alias": "102",
+              "line1": "102 Franklin St",
+              "line2": "Apt B",
+              "city": "Charlotte",
+              "state": "NC",
+              "postalCode": "28214",
+              "propertyCode": "102F",
+              "accountingSystemID": 5947
+          }
+      },
+      {
+          "vendorAccountId": 19235505,
+          "accountNo": "sean test api",
+          "propertyId": -1,
+          "propertyName": "",
+          "termTypeId": 41,
+          "allowRetainage": true,
+          "isActive": true,
+          "propertyAddress": {
+              "propertyId": -1,
+              "propertyName": "",
+              "propertyAddressID": 545600,
+              "alias": "102",
+              "line1": "102 Franklin St",
+              "line2": "Apt B",
+              "city": "Charlotte",
+              "state": "NC",
+              "postalCode": "28214",
+              "propertyCode": "102F",
+              "accountingSystemID": 5947
+          }
+      }
+    ]
+  },
+  "composite": {
+      "indexed": {
+          "indexer": "IDC",
+          "lastModified": "2021-02-12T17:38:19.0958208Z",
+          "labels": [
+              {
+                  "label": "ServiceBusMessage",
+                  "page": 0,
+                  "value": {
+                      "text": "{\"BuyerId\":\"98952\",\"FileId\":\"200763400\",\"FileName\":\"1792 Payroll Invoicing_2.5.21.pdf\",\"CorrelationId\":\"9a1c53f3-888e-4b9f-8404-0d7c1b2f65f9\",\"InvoiceSourceId\":\"AvidSuite\",\"IngestionType\":\"email\",\"SourceEmail\":\"ofelia.hinrichs@avisonyoung.com\",\"id\":\"00000000-0000-0000-0000-000000000000\"}",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "IdcServiceBusMessage",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "BuyerName",
+                  "page": 0,
+                  "value": {
+                      "text": "Avison Young - Washington, D.C. LLC",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "BuyerId",
+                  "page": 0,
+                  "value": {
+                      "text": "98952",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "SourceSystem",
+                  "page": 0,
+                  "value": {
+                      "text": "AvidSuite",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "IngestionType",
+                  "page": 0,
+                  "value": {
+                      "text": "email",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "BuyerKeyword",
+                  "page": 0,
+                  "value": {
+                      "text": "avisonyoungmd",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "CustomerAddress",
+                  "page": 1,
+                  "value": {
+                      "text": "1792 Columbia Road",
+                      "confidence": 0.28,
+                      "boundingBox": [
+                          0.7781,
+                          2.7545,
+                          1.683,
+                          2.7545,
+                          1.683,
+                          2.825,
+                          0.7781,
+                          2.825
+                      ],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "InvoiceDate",
+                  "page": 1,
+                  "value": {
+                      "text": "2/5/2021",
+                      "confidence": 0.984,
+                      "boundingBox": [
+                          8.689,
+                          2.7545,
+                          9.0335,
+                          2.7545,
+                          9.0335,
+                          2.825,
+                          8.689,
+                          2.825
+                      ],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": "date",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "InvoiceTotal",
+                  "page": 1,
+                  "value": {
+                      "text": "481.67",
+                      "confidence": 0.922,
+                      "boundingBox": [
+                          8.9239,
+                          4.1037,
+                          9.2039,
+                          4.1037,
+                          9.2039,
+                          4.1717,
+                          8.9239,
+                          4.1717
+                      ],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "number",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "ServiceEndDate",
+                  "page": 1,
+                  "value": {
+                      "text": "January 29, 2021",
+                      "confidence": 0.927,
+                      "boundingBox": [
+                          2.8927,
+                          3.093,
+                          3.6187,
+                          3.093,
+                          3.6187,
+                          3.1799,
+                          2.8927,
+                          3.1799
+                      ],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "date",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "ServiceStartDate",
+                  "page": 1,
+                  "value": {
+                      "text": "January 16, 2021",
+                      "confidence": 0.928,
+                      "boundingBox": [
+                          1.743,
+                          3.093,
+                          2.469,
+                          3.093,
+                          2.469,
+                          3.1799,
+                          1.743,
+                          3.1799
+                      ],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "date",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "VendorName",
+                  "page": 1,
+                  "value": {
+                      "text": "AVISON YOUNG",
+                      "confidence": 0.993,
+                      "boundingBox": [
+                          0.7882,
+                          1.4469,
+                          2.1823,
+                          1.4493,
+                          2.1815,
+                          1.9388,
+                          0.7873,
+                          1.9364
+                      ],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "SearchScore",
+                  "page": 0,
+                  "value": {
+                      "text": "105.718254",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "ShipToName",
+                  "page": 0,
+                  "value": {
+                      "text": "Spirit Investment Group LLC (1792)",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "ShipToAddress",
+                  "page": 0,
+                  "value": {
+                      "text": "1792 Columbia Rd (MRI-BMS 1792)  Washington DC 20009",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "ShipToID",
+                  "page": 0,
+                  "value": {
+                      "text": "508658",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "Supplier",
+                  "page": 0,
+                  "value": {
+                      "text": "Avison Young - Washington, DC, LLC(MRI-BMS)",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "SupplierAddress",
+                  "page": 0,
+                  "value": {
+                      "text": "2001 K Street, NW 2001 K Street, NW   Washington DC 20006",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "SupplierId",
+                  "page": 0,
+                  "value": {
+                      "text": "12044429",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "Total",
+                  "page": 1,
+                  "value": {
+                      "text": "481.67",
+                      "confidence": 0.922,
+                      "boundingBox": [
+                          8.9239,
+                          4.1037,
+                          9.2039,
+                          4.1037,
+                          9.2039,
+                          4.1717,
+                          8.9239,
+                          4.1717
+                      ],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": "number",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "Id",
+                  "page": 0,
+                  "value": {
+                      "text": "493d742a-908c-48bc-bb46-63504ff00c4b",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "DocumentId",
+                  "page": 0,
+                  "value": {
+                      "text": "348d1c38-8661-4f79-87df-d5a14014a56d",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "DocumentType",
+                  "page": 0,
+                  "value": {
+                      "text": "Indexed",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "FileId",
+                  "page": 0,
+                  "value": {
+                      "text": "4499016",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "DateReceived",
+                  "page": 0,
+                  "value": {
+                      "text": "02/09/2021 21:01:50",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "DateTime",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "Indexer",
+                  "page": 0,
+                  "value": {
+                      "text": "IDC",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "LastModified",
+                  "page": 0,
+                  "value": {
+                      "text": "02/09/2021 21:02:28",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "DateTime",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "InvoiceType",
+                  "page": 0,
+                  "value": {
+                      "text": "Standard",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": null,
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "CustomerAccountNumber",
+                  "page": 0,
+                  "value": {
+                      "text": "",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": null,
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "InvoiceNumber",
+                  "page": 0,
+                  "value": {
+                      "text": "",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": null,
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "CurrentCharges",
+                  "page": 0,
+                  "value": {
+                      "text": "",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": null,
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "ServiceDetail\\ServiceStartDate",
+                  "page": 0,
+                  "value": {
+                      "text": "03/02/2021",
+                      "confidence": 0.95,
+                      "boundingBox": [],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": null,
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "ServiceDetail\\ServiceEndDate",
+                  "page": 0,
+                  "value": {
+                      "text": "",
+                      "confidence": 0.95,
+                      "boundingBox": [],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": null,
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "ServiceDetail\\PreviousBalance",
+                  "page": 0,
+                  "value": {
+                      "text": "4000.00",
+                      "confidence": 0.6,
+                      "boundingBox": [],
+                      "required": true,
+                      "incomplete": true,
+                      "incompleteReason": "Required but not found by IDC",
+                      "type": null,
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "Page",
+                  "page": 0,
+                  "value": {
+                      "text": "1",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "number",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "StepNumber",
+                  "page": 0,
+                  "value": {
+                      "text": "6",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "LastStep",
+                  "page": 0,
+                  "value": {
+                      "text": "Manual Intervention Post-Processing",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "string",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "ConfidenceLevels",
+                  "page": 0,
+                  "value": {
+                      "text": "",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "",
+                      "verificationState": "NotRequired"
+                  }
+              },
+              {
+                  "label": "Escalations",
+                  "page": 0,
+                  "value": {
+                      "text": "",
+                      "confidence": 0,
+                      "boundingBox": [],
+                      "required": false,
+                      "incomplete": false,
+                      "incompleteReason": null,
+                      "type": "",
+                      "verificationState": "NotRequired"
+                  }
+              }
+          ],
+          "escalations": [],
+          "activities": [
+            {
+              "ordinal": 1,
+              "startDate": "2021-02-09T21:01:50.4054293+00:00",
+              "endDate": "2021-02-09T21:02:50.4054293+00:00",
+              "indexer": "ssmith@avidxchange.com",
+              "activity": "Save",
+              "description": "",
+              "labels": [
+                {
+                  "label": "Supplier",
+                  "page": 0,
+                  "value": {
+                    "text": "Wangji Supplier",
+                    "confidence": 1,
+                    "boundingBox": [],
+                    "required": false,
+                    "incomplete": false,
+                    "incompleteReason": null,
+                    "type": "string",
+                    "verificationState": "NotRequired"
+                  }
+                }
+              ]
+            }
+          ],
+          "id": "109b18e8-5918-4c05-8966-aafaca90cb08",
+          "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+          "fileId": "4499016",
+          "dateReceived": "2021-02-09T21:01:50.4054293+00:00",
+          "documentType": "Indexed"
+      },
+      "unindexed": {
+          "pages": [
+              {
+                  "number": 1,
+                  "lines": [
+                      {
+                          "number": 0,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.7973,
+                                      1.4469,
+                                      2.1628,
+                                      1.4517,
+                                      2.1675,
+                                      1.6761,
+                                      0.7878,
+                                      1.6761
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "AVISON",
+                                  "confidence": 0.981
+                              }
+                          ]
+                      },
+                      {
+                          "number": 1,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.826,
+                                      1.7048,
+                                      2.1819,
+                                      1.7,
+                                      2.1723,
+                                      1.9388,
+                                      0.8403,
+                                      1.934
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "YOUNG",
+                                  "confidence": 0.981
+                              }
+                          ]
+                      },
+                      {
+                          "number": 2,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.7781,
+                                      2.7571,
+                                      0.9743,
+                                      2.7571,
+                                      0.9743,
+                                      2.825,
+                                      0.7781,
+                                      2.825
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "1792",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.009,
+                                      2.7545,
+                                      1.4275,
+                                      2.7545,
+                                      1.4275,
+                                      2.825,
+                                      1.009,
+                                      2.825
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Columbia",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.4637,
+                                      2.7563,
+                                      1.683,
+                                      2.7563,
+                                      1.683,
+                                      2.8245,
+                                      1.4637,
+                                      2.8245
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Road",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 3,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      8.689,
+                                      2.7545,
+                                      9.0335,
+                                      2.7545,
+                                      9.0335,
+                                      2.825,
+                                      8.689,
+                                      2.825
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "2/5/2021",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 4,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.7788,
+                                      2.9247,
+                                      1.0745,
+                                      2.9247,
+                                      1.0745,
+                                      3.0115,
+                                      0.7788,
+                                      3.0115
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Payroll",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.1143,
+                                      2.924,
+                                      1.4276,
+                                      2.924,
+                                      1.4276,
+                                      2.9929,
+                                      1.1143,
+                                      2.9929
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Invoice",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 5,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.7783,
+                                      3.093,
+                                      1.0658,
+                                      3.093,
+                                      1.0658,
+                                      3.1799,
+                                      0.7783,
+                                      3.1799
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Hourly",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.0993,
+                                      3.093,
+                                      1.3953,
+                                      3.093,
+                                      1.3953,
+                                      3.1799,
+                                      1.0993,
+                                      3.1799
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Payroll",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.4349,
+                                      3.0923,
+                                      1.7089,
+                                      3.0923,
+                                      1.7089,
+                                      3.1792,
+                                      1.4349,
+                                      3.1792
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "period",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.743,
+                                      3.093,
+                                      2.096,
+                                      3.093,
+                                      2.096,
+                                      3.1799,
+                                      1.743,
+                                      3.1799
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "January",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      2.1289,
+                                      3.0937,
+                                      2.2456,
+                                      3.0937,
+                                      2.2456,
+                                      3.1756,
+                                      2.1289,
+                                      3.1756
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "16,",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      2.2814,
+                                      3.0937,
+                                      2.469,
+                                      3.0937,
+                                      2.469,
+                                      3.1617,
+                                      2.2814,
+                                      3.1617
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "2021",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      2.513,
+                                      3.093,
+                                      2.8581,
+                                      3.093,
+                                      2.8581,
+                                      3.1802,
+                                      2.513,
+                                      3.1802
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "through",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      2.8927,
+                                      3.093,
+                                      3.2457,
+                                      3.093,
+                                      3.2457,
+                                      3.1799,
+                                      2.8927,
+                                      3.1799
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "January",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      3.2746,
+                                      3.0937,
+                                      3.3953,
+                                      3.0937,
+                                      3.3953,
+                                      3.1756,
+                                      3.2746,
+                                      3.1756
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "29,",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      3.4311,
+                                      3.0937,
+                                      3.6187,
+                                      3.0937,
+                                      3.6187,
+                                      3.1617,
+                                      3.4311,
+                                      3.1617
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "2021",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 6,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.7753,
+                                      3.2596,
+                                      1.1298,
+                                      3.2596,
+                                      1.1298,
+                                      3.33,
+                                      0.7753,
+                                      3.33
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Salaried",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.169,
+                                      3.2613,
+                                      1.4649,
+                                      3.2613,
+                                      1.4649,
+                                      3.3482,
+                                      1.169,
+                                      3.3482
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Payroll",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.5046,
+                                      3.2607,
+                                      1.7786,
+                                      3.2607,
+                                      1.7786,
+                                      3.3476,
+                                      1.5046,
+                                      3.3476
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "period",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.8126,
+                                      3.2613,
+                                      2.1657,
+                                      3.2613,
+                                      2.1657,
+                                      3.3482,
+                                      1.8126,
+                                      3.3482
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "January",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      2.1945,
+                                      3.2621,
+                                      2.3153,
+                                      3.2621,
+                                      2.3153,
+                                      3.3439,
+                                      2.1945,
+                                      3.3439
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "23,",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      2.3511,
+                                      3.2621,
+                                      2.5387,
+                                      3.2621,
+                                      2.5387,
+                                      3.33,
+                                      2.3511,
+                                      3.33
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "2021",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      2.5826,
+                                      3.2613,
+                                      2.9278,
+                                      3.2613,
+                                      2.9278,
+                                      3.3485,
+                                      2.5826,
+                                      3.3485
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "through",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      2.9674,
+                                      3.2613,
+                                      3.3572,
+                                      3.2613,
+                                      3.3572,
+                                      3.3482,
+                                      2.9674,
+                                      3.3482
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "February",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      3.3861,
+                                      3.2613,
+                                      3.4552,
+                                      3.2613,
+                                      3.4552,
+                                      3.3439,
+                                      3.3861,
+                                      3.3439
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "5,",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      3.491,
+                                      3.2621,
+                                      3.6786,
+                                      3.2621,
+                                      3.6786,
+                                      3.33,
+                                      3.491,
+                                      3.33
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "2021",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 7,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.7788,
+                                      3.598,
+                                      1.2078,
+                                      3.598,
+                                      1.2078,
+                                      3.6849,
+                                      0.7788,
+                                      3.6849
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Employee",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 8,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      2.8823,
+                                      3.598,
+                                      3.0744,
+                                      3.598,
+                                      3.0744,
+                                      3.6662,
+                                      2.8823,
+                                      3.6662
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Rate",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 9,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      3.2488,
+                                      3.5962,
+                                      3.3628,
+                                      3.5962,
+                                      3.3628,
+                                      3.6667,
+                                      3.2488,
+                                      3.6667
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "ST",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      3.3987,
+                                      3.598,
+                                      3.6572,
+                                      3.598,
+                                      3.6572,
+                                      3.6662,
+                                      3.3987,
+                                      3.6662
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Hours",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 10,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      3.8841,
+                                      3.5962,
+                                      4.2309,
+                                      3.5962,
+                                      4.2309,
+                                      3.6852,
+                                      3.8841,
+                                      3.6852
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Straight",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      4.2618,
+                                      3.5973,
+                                      4.478,
+                                      3.5973,
+                                      4.478,
+                                      3.6662,
+                                      4.2618,
+                                      3.6662
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Time",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 11,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      4.6629,
+                                      3.598,
+                                      4.7879,
+                                      3.598,
+                                      4.7879,
+                                      3.6667,
+                                      4.6629,
+                                      3.6667
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "OT",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      4.8238,
+                                      3.598,
+                                      5.0823,
+                                      3.598,
+                                      5.0823,
+                                      3.6662,
+                                      4.8238,
+                                      3.6662
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Hours",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 12,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      5.7096,
+                                      3.5973,
+                                      6.1096,
+                                      3.5973,
+                                      6.1096,
+                                      3.6667,
+                                      5.7096,
+                                      3.6667
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Overtime",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 13,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      6.6745,
+                                      3.598,
+                                      6.894,
+                                      3.598,
+                                      6.894,
+                                      3.6667,
+                                      6.6745,
+                                      3.6667
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "401K",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 14,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      7.4388,
+                                      3.598,
+                                      7.6722,
+                                      3.598,
+                                      7.6722,
+                                      3.6662,
+                                      7.4388,
+                                      3.6662
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Retro",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 15,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      8.0954,
+                                      3.5972,
+                                      8.4532,
+                                      3.5972,
+                                      8.4532,
+                                      3.6662,
+                                      8.0954,
+                                      3.6662
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Benefits",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 16,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      9.0144,
+                                      3.598,
+                                      9.2309,
+                                      3.598,
+                                      9.2309,
+                                      3.6662,
+                                      9.0144,
+                                      3.6662
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Total",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 17,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.7761,
+                                      3.7646,
+                                      1.0693,
+                                      3.7646,
+                                      1.0693,
+                                      3.847,
+                                      0.7761,
+                                      3.847
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Gadea,",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.113,
+                                      3.7663,
+                                      1.4537,
+                                      3.7663,
+                                      1.4537,
+                                      3.8346,
+                                      1.113,
+                                      3.8346
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Eduardo",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.485,
+                                      3.7663,
+                                      1.5234,
+                                      3.7663,
+                                      1.5234,
+                                      3.835,
+                                      1.485,
+                                      3.835
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "J",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 18,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      2.815,
+                                      3.7677,
+                                      3.0417,
+                                      3.7677,
+                                      3.0417,
+                                      3.835,
+                                      2.815,
+                                      3.835
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "32.80",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 19,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      3.4502,
+                                      3.7677,
+                                      3.625,
+                                      3.7677,
+                                      3.625,
+                                      3.835,
+                                      3.4502,
+                                      3.835
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "7.50",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 20,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      4.1657,
+                                      3.7677,
+                                      4.4449,
+                                      3.7677,
+                                      4.4449,
+                                      3.835,
+                                      4.1657,
+                                      3.835
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "246.00",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 21,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      4.874,
+                                      3.7677,
+                                      5.0497,
+                                      3.7677,
+                                      5.0497,
+                                      3.835,
+                                      4.874,
+                                      3.835
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "2.88",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 22,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      5.8042,
+                                      3.7677,
+                                      6.0615,
+                                      3.7677,
+                                      6.0615,
+                                      3.8333,
+                                      5.8042,
+                                      3.8333
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "127.21",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 23,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      7.4649,
+                                      3.7677,
+                                      7.6396,
+                                      3.7677,
+                                      7.6396,
+                                      3.835,
+                                      7.4649,
+                                      3.835
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "0.00",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 24,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      8.149,
+                                      3.7677,
+                                      8.4212,
+                                      3.7677,
+                                      8.4212,
+                                      3.835,
+                                      8.149,
+                                      3.835
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "108.46",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 25,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      8.9243,
+                                      3.7677,
+                                      9.2041,
+                                      3.7677,
+                                      9.2041,
+                                      3.835,
+                                      8.9243,
+                                      3.835
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "481.67",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 26,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.773,
+                                      4.103,
+                                      0.9895,
+                                      4.103,
+                                      0.9895,
+                                      4.1712,
+                                      0.773,
+                                      4.1712
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Total",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 27,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      4.1657,
+                                      4.1037,
+                                      4.4455,
+                                      4.1037,
+                                      4.4455,
+                                      4.1717,
+                                      4.1657,
+                                      4.1717
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "246.00",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 28,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      5.8013,
+                                      4.1037,
+                                      6.0634,
+                                      4.1037,
+                                      6.0634,
+                                      4.17,
+                                      5.8013,
+                                      4.17
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "127.21",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 29,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      6.6828,
+                                      4.1037,
+                                      6.8587,
+                                      4.1037,
+                                      6.8587,
+                                      4.1717,
+                                      6.6828,
+                                      4.1717
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "0.00",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 30,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      7.4644,
+                                      4.1037,
+                                      7.6403,
+                                      4.1037,
+                                      7.6403,
+                                      4.1717,
+                                      7.4644,
+                                      4.1717
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "0.00",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 31,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      8.1462,
+                                      4.1037,
+                                      8.4215,
+                                      4.1037,
+                                      8.4215,
+                                      4.1717,
+                                      8.1462,
+                                      4.1717
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "108.46",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 32,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      8.9239,
+                                      4.1037,
+                                      9.2039,
+                                      4.1037,
+                                      9.2039,
+                                      4.1717,
+                                      8.9239,
+                                      4.1717
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "481.67",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 33,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      9.5429,
+                                      4.2721,
+                                      9.7188,
+                                      4.2721,
+                                      9.7188,
+                                      4.34,
+                                      9.5429,
+                                      4.34
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "0.00",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 34,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.7735,
+                                      4.439,
+                                      1.2159,
+                                      4.439,
+                                      1.2159,
+                                      4.5079,
+                                      0.7735,
+                                      4.5079
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Allocation",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.2542,
+                                      4.4557,
+                                      1.3915,
+                                      4.4557,
+                                      1.3915,
+                                      4.5259,
+                                      1.2542,
+                                      4.5259
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "per",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.4265,
+                                      4.4397,
+                                      1.9872,
+                                      4.4397,
+                                      1.9872,
+                                      4.5268,
+                                      1.4265,
+                                      4.5268
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Management",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      2.0186,
+                                      4.4397,
+                                      2.4987,
+                                      4.4397,
+                                      2.4987,
+                                      4.5268,
+                                      2.0186,
+                                      4.5268
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Agreement",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 35,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.7758,
+                                      4.7746,
+                                      1.0615,
+                                      4.7746,
+                                      1.0615,
+                                      4.8638,
+                                      0.7758,
+                                      4.8638
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Coding",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 36,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.7785,
+                                      4.9447,
+                                      0.9989,
+                                      4.9447,
+                                      0.9989,
+                                      5.013,
+                                      0.7785,
+                                      5.013
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Maint",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.0363,
+                                      4.9447,
+                                      1.303,
+                                      4.9447,
+                                      1.303,
+                                      5.0316,
+                                      1.0363,
+                                      5.0316
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Payroll",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 37,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      2.8215,
+                                      4.9461,
+                                      3.0733,
+                                      4.9461,
+                                      3.0733,
+                                      5.0134,
+                                      2.8215,
+                                      5.0134
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "53020",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 38,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      4.1658,
+                                      4.9461,
+                                      4.4448,
+                                      4.9461,
+                                      4.4448,
+                                      5.0134,
+                                      4.1658,
+                                      5.0134
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "246.00",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 39,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.7785,
+                                      5.113,
+                                      0.9989,
+                                      5.113,
+                                      0.9989,
+                                      5.1813,
+                                      0.7785,
+                                      5.1813
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Maint",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.0352,
+                                      5.1121,
+                                      1.3635,
+                                      5.1121,
+                                      1.3635,
+                                      5.1813,
+                                      1.0352,
+                                      5.1813
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Benefits",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 40,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      2.8215,
+                                      5.1144,
+                                      3.0585,
+                                      5.1144,
+                                      3.0585,
+                                      5.1817,
+                                      2.8215,
+                                      5.1817
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "53021",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 41,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      4.1728,
+                                      5.1144,
+                                      4.4449,
+                                      5.1144,
+                                      4.4449,
+                                      5.1817,
+                                      4.1728,
+                                      5.1817
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "108.46",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 42,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      0.7785,
+                                      5.2813,
+                                      0.9989,
+                                      5.2813,
+                                      0.9989,
+                                      5.3497,
+                                      0.7785,
+                                      5.3497
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Maint",
+                                  "confidence": 1
+                              },
+                              {
+                                  "boundingBox": [
+                                      1.0319,
+                                      5.2796,
+                                      1.4081,
+                                      5.2796,
+                                      1.4081,
+                                      5.35,
+                                      1.0319,
+                                      5.35
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "Overtime",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 43,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      2.8213,
+                                      5.2827,
+                                      3.0722,
+                                      5.2827,
+                                      3.0722,
+                                      5.35,
+                                      2.8213,
+                                      5.35
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "53022",
+                                  "confidence": 1
+                              }
+                          ]
+                      },
+                      {
+                          "number": 44,
+                          "words": [
+                              {
+                                  "boundingBox": [
+                                      4.1726,
+                                      5.2827,
+                                      4.43,
+                                      5.2827,
+                                      4.43,
+                                      5.3483,
+                                      4.1726,
+                                      5.3483
+                                  ],
+                                  "label": "ocr text",
+                                  "value": "127.21",
+                                  "confidence": 1
+                              }
+                          ]
+                      }
+                  ]
+              }
+          ],
+          "id": "92285179-ac2c-4e90-a0fb-666bb0152db9",
+          "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+          "fileId": "4499016",
+          "dateReceived": "0001-01-01T00:00:00",
+          "documentType": "UnIndexed"
+      },
+      "userLock": {
+          "id": null,
+          "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+          "indexer": "abartshe@avidxchange.com",
+          "startTime": "2021-03-01T18:28:43.2527502Z"
+      }
+  },
+"archivedDocuments": [
+  {
+    "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+    "buyerId": "2215789",
+    "buyerName": "Finance of America Holdings",
+    "fileId": "4494554",
+    "fileName": "Invoice_1234.pdf",
+    "dateSubmitted": "2020-09-01T18:48:52.037Z",
+    "ingestionType": "email"
+  },
+  {
+    "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+    "buyerId": "2215789",
+    "buyerName": "Finance of America Holdings",
+    "fileId": "4494554",
+    "fileName": "Invoice_1234.pdf",
+    "dateSubmitted": "2020-09-01T19:48:52.037Z",
+    "ingestionType": "email"
+  },
+  {
+    "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+    "buyerId": "2215789",
+    "buyerName": "Finance of America Holdings",
+    "fileId": "4494554",
+    "fileName": "Invoice_1234.pdf",
+    "dateSubmitted": "2020-09-01T21:48:52.037Z",
+    "ingestionType": "email"
+  },
+  {
+    "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+    "buyerId": "2215789",
+    "buyerName": "Finance of America Holdings",
+    "fileId": "4494554",
+    "fileName": "Invoice_1234.pdf",
+    "dateSubmitted": "2020-09-01T23:28:52.037Z",
+    "ingestionType": "email"
+  },
+  {
+    "documentId": "348d1c38-8661-4f79-87df-d5a14014a56d",
+    "buyerId": "2215789",
+    "buyerName": "Finance of America Holdings",
+    "fileId": "4494554",
+    "fileName": "Invoice_1234.pdf",
+    "dateSubmitted": "2020-09-02T11:48:52.037Z",
+    "ingestionType": "email"
+  }
+],
+"adminUsers":[
+  {
+    "id": 1,
+    "firstName": "Jane",
+    "lastName": "Cooper",
+    "image": "",
+    "email": "Jane.Cooper@email.com",
+    "role": "xdc.roles.Admin",
+    "status": "Active"
+  },
+  {
+    "id": 2,
+    "firstName": "Jacob",
+    "lastName": "Jones",
+    "image": "",
+    "email": "Jacob.Jones@email.com",
+    "role": "xdc.roles.Devs",
+    "status": "Initiated"
+  },
+  {
+    "id": 3,
+    "firstName": "Jenny",
+    "lastName": "Wilson",
+    "image": "",
+    "email": "Jenny.Wilson@email.com",
+    "role": "xdc.roles.User",
+    "status": "Active"
+  },
+  {
+    "id": 4,
+    "firstName": "Dianne",
+    "lastName": "Russell",
+    "image": "",
+    "email": "Dianne.Russell@email.com",
+    "role": "xdc.roles.Customer",
+    "status": "Initiated"
+  },
+  {
+    "id": 5,
+    "firstName": "Jerome",
+    "lastName": " Bell",
+    "image": "",
+    "email": "Jerome.Bell@email.com",
+    "role": "xdc.roles.Devs",
+    "status": "Initiated"
+  },
+  {
+    "id": 6,
+    "firstName": "Henry",
+    "lastName": "Lane",
+    "image": "",
+    "email": "Henry.Lane@email.com",
+    "role": "xdc.roles.Admin",
+    "status": "Active"
+  },
+  {
+    "id": 7,
+    "firstName": "Charlie",
+    "lastName": "Smith",
+    "image": "",
+    "email": "Charlie.Smith@email.com",
+    "role": "xdc.roles.Customer",
+    "status": "Active"
+  },
+  {
+    "id": 8,
+    "firstName": "Max",
+    "lastName": "Flow",
+    "image": "",
+    "email": "Max.Flow@email.com",
+    "role": "xdc.roles.User",
+    "status": "Active"
+  },
+  {
+    "id": 9,
+    "firstName": "Fluorine",
+    "lastName": "Zan",
+    "image": "",
+    "email": "Fluorine.Zan@email.com",
+    "role": "xdc.roles.Customer",
+    "status": "Active"
+  },
+  {
+    "id": 10,
+    "firstName": "Neon",
+    "lastName": "Blue",
+    "image": "",
+    "email": "Neon.Blue@email.com",
+    "role": "xdc.roles.User",
+    "status": "Active"
+  }
+]
+}

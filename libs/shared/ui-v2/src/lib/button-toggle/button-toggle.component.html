@@ -1,0 +1,25 @@
+<mat-button-toggle-group
+  class="ax-button-toggle__group"
+  name="multi"
+  aria-label="Font Style"
+  [disabled]="disabled ? disabled : 'false'"
+  [multiple]="multiSelect ? multiSelect : 'false'"
+  [ngClass]="size ? size : 'sm'"
+>
+  <mat-button-toggle
+    *ngFor="let content of content"
+    disableRipple="true"
+    value="{{content.text}}"
+    (click)="selectedEvent.emit(content)"
+    class="ax-button-toggle"
+    [ngClass]="fixedWidth ? 'mat-button-toggle-fixed' : ''"
+  >
+    <div id="content-container" *ngIf="!content.icon">
+      <span>{{ content.text }}</span>
+    </div>
+    <div id="content-container" *ngIf="content.icon" [ngClass]="iconPosition + '-icon'">
+      <span [ngClass]="iconPosition + '-text'">{{ content.text }}</span>
+      <mat-icon *ngIf="content.icon" class="icon">{{ content.icon }}</mat-icon>
+    </div>
+  </mat-button-toggle>
+</mat-button-toggle-group>

@@ -1,0 +1,75 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Dropdown" />
+
+## Dropdown
+
+Dropdown can me implemented by using the `ax-dropdown` component
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() fixed: boolean</td>
+    <td>Sets a fixed width. Default is false</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Sets the disabled state</td>
+  </tr>
+  <tr>
+    <td>@Input() readOnly: boolean</td>
+    <td>Sets the readOnly state</td>
+  </tr>
+  <tr>
+    <td>@Input() id: string</td>
+    <td>Sets the inputs id. Used for accessible (required if using a label)</td>
+  </tr>
+  <tr>
+    <td>@Input() label: string</td>
+    <td>Title for a dropdown</td>
+  </tr>
+  <tr>
+    <td> @Input() tooltip: InputTooltip</td>
+    <td>
+      Adds a tooltip beside label. Only need to pass in tooltipText. Other properties can be over
+      written
+    </td>
+  </tr>
+  <tr>
+    <td>@Input() multiple: boolean</td>
+    <td>Changes between single select or multiselect. Default is false</td>
+  </tr>
+  <tr>
+    <td>@Input() placeholder: string</td>
+    <td>Placeholder text</td>
+  </tr>
+  <tr>
+    <td>@Input() control: UntypedFormControl</td>
+    <td>Adds a formControl to a dropdown</td>
+  </tr>
+  <tr>
+    <td>@Input() errorStateMatcher: ErrorStateMatcher</td>
+    <td>Object used to control when error messages are shown</td>
+  </tr>
+  <tr>
+    <td>@Input() options: SelectOptions</td>
+    <td>Array of objects that contain text, value, and (optional) disabled to add options</td>
+  </tr>
+  <tr>
+    <td>@Input() hintMessage: string</td>
+    <td>Hint text</td>
+  </tr>
+  <tr>
+    <td>@Input() error: FormFieldError</td>
+    <td>Object that takes in message and optional icon to populate an error message</td>
+  </tr>
+  <tr>
+    <td>@Output() selectEvent = new EventEmitter()</td>
+    <td>Emits the item selected</td>
+  </tr>
+</table>

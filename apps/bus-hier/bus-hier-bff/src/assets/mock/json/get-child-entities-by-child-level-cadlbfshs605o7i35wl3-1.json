@@ -1,0 +1,73 @@
+{
+  "items_requested": 10,
+  "items_returned": 5,
+  "items_total": 5,
+  "offset": 0,
+  "items": [
+    {
+      "entity_id": "wts5ajodrmmahld08x14",
+      "entity_name": "Entity C1",
+      "erp_id": "9ng7ljo918qvqunwworx",
+      "entity_code": "EntityC1",
+      "parent_entity_id": "cadlbfshs605o7i35wl3",
+      "business_level": 2,
+      "is_active": true,
+      "created_timestamp": "2023-04-20T22:38:45Z",
+      "created_by_user_id": "00u12tymcg0y78rTz1d7",
+      "last_modified_timestamp": "2023-04-20T22:38:45Z",
+      "last_modified_by_user_id": "00u12tymcg0y78rTz1d7"
+    },
+    {
+      "entity_id": "dpui08b4r02xh6875a47",
+      "entity_name": "Entity C2",
+      "erp_id": "9ng7ljo918qvqunwworx",
+      "entity_code": "EntityC2",
+      "parent_entity_id": "cadlbfshs605o7i35wl3",
+      "business_level": 2,
+      "is_active": true,
+      "created_timestamp": "2023-04-20T22:38:57Z",
+      "created_by_user_id": "00u12tymcg0y78rTz1d7",
+      "last_modified_timestamp": "2023-04-20T22:38:57Z",
+      "last_modified_by_user_id": "00u12tymcg0y78rTz1d7"
+    },
+    {
+      "entity_id": "2u4mcpycpc5m1sko4nfw",
+      "entity_name": "Entity C3",
+      "erp_id": "9ng7ljo918qvqunwworx",
+      "entity_code": "EntityC3",
+      "parent_entity_id": "cadlbfshs605o7i35wl3",
+      "business_level": 2,
+      "is_active": true,
+      "created_timestamp": "2023-04-20T22:39:09Z",
+      "created_by_user_id": "00u12tymcg0y78rTz1d7",
+      "last_modified_timestamp": "2023-04-20T22:39:09Z",
+      "last_modified_by_user_id": "00u12tymcg0y78rTz1d7"
+    },
+    {
+      "entity_id": "mt6lwlwgu67nkx0cd22b",
+      "entity_name": "Entity C4",
+      "erp_id": "9ng7ljo918qvqunwworx",
+      "entity_code": "EntityC4",
+      "parent_entity_id": "cadlbfshs605o7i35wl3",
+      "business_level": 2,
+      "is_active": true,
+      "created_timestamp": "2023-04-20T22:39:19Z",
+      "created_by_user_id": "00u12tymcg0y78rTz1d7",
+      "last_modified_timestamp": "2023-04-20T22:39:19Z",
+      "last_modified_by_user_id": "00u12tymcg0y78rTz1d7"
+    },
+    {
+      "entity_id": "t0hp5ex2ijqpgm3usqu3",
+      "entity_name": "Entity C5",
+      "erp_id": "9ng7ljo918qvqunwworx",
+      "entity_code": "EntityC5",
+      "parent_entity_id": "cadlbfshs605o7i35wl3",
+      "business_level": 2,
+      "is_active": true,
+      "created_timestamp": "2023-04-20T22:40:34Z",
+      "created_by_user_id": "00u12tymcg0y78rTz1d7",
+      "last_modified_timestamp": "2023-04-20T22:40:34Z",
+      "last_modified_by_user_id": "00u12tymcg0y78rTz1d7"
+    }
+  ]
+}

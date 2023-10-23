@@ -1,0 +1,38 @@
+<div class="snackbar-container mat-typography mat-{{data.type}}">
+  <div class="snackbar-icon" [ngSwitch]="data.type">
+    <mat-icon *ngSwitchCase="'standard'" aria-hidden="false" aria-label="Check circle icon"
+      >{{data.icon}}</mat-icon
+    >
+    <mat-icon *ngSwitchCase="'success'" aria-hidden="false" aria-label="Check circle icon"
+      >check_circle</mat-icon
+    >
+    <mat-icon *ngSwitchCase="'warning'" aria-hidden="false" aria-label="Offline bolt icon"
+      >error</mat-icon
+    >
+    <mat-icon *ngSwitchCase="'error'" aria-hidden="false" aria-label="Error icon">error</mat-icon>
+
+    <mat-icon *ngSwitchCase="'product-update'" aria-hidden="false" aria-label="Check circle icon"
+      >offline_bolt</mat-icon
+    >
+    <mat-icon
+      *ngSwitchCase="'finance-notification'"
+      aria-hidden="false"
+      aria-label="Check circle icon"
+      >offline_bolt</mat-icon
+    >
+  </div>
+  <div class="snackbar-content">
+    <div>
+      <h3 *ngIf="data.title">{{data.title}}</h3>
+      <p>{{data.message}}</p>
+    </div>
+    <div class="snackbar-link" *ngIf="data.url">
+      <a href="{{data.url}}" target="_blank" rel="noopener noreferrer">View Link</a>
+    </div>
+  </div>
+  <div class="snackbar-close">
+    <button mat-icon-button (click)="snackBarRef.dismissWithAction()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>

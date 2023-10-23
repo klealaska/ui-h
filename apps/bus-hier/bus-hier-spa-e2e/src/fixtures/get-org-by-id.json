@@ -1,0 +1,50 @@
+{
+  "organizationId": "1234",
+  "organizationName": "ACME Insurance",
+  "organizationCode": "AI-123",
+  "organizationAddresses": [
+      {
+          "addressId": "ggsgegsewfy042a4sn24",
+          "organizationId": "hl0azeorqasc81qqckwi",
+          "addressCode": "1-HQ-MVK",
+          "addressLine1": "1210 AvidXchange Lane",
+          "addressLine2": null,
+          "addressLine3": null,
+          "locality": "Charlotte",
+          "region": "NC",
+          "country": "US",
+          "postalCode": "28206",
+          "isPrimary": true,
+          "addressType": "ShipTo",
+          "isActive": true,
+          "createdTimestamp": "2023-04-20T17:00:21Z",
+          "createdByUserId": "00u12tymcg0y78rTz1d7",
+          "lastModifiedTimestamp": "2023-04-20T17:00:21Z",
+          "lastModifiedByUserId": "00u12tymcg0y78rTz1d7"
+      },
+      {
+        "addressId": "ggsgegsewfy042a4sn25",
+        "organizationId": "hl0azeorqasc81qqckwi",
+        "addressCode": "1-HQ-MVK",
+        "addressLine1": "1210 AvidXchange Lane",
+        "addressLine2": null,
+        "addressLine3": null,
+        "locality": "Charlotte",
+        "region": "NC",
+        "country": "US",
+        "postalCode": "28206",
+        "isPrimary": false,
+        "addressType": "BillTo",
+        "isActive": false,
+        "createdTimestamp": "2023-04-20T17:00:21Z",
+        "createdByUserId": "00u12tymcg0y78rTz1d7",
+        "lastModifiedTimestamp": "2023-04-20T17:00:21Z",
+        "lastModifiedByUserId": "00u12tymcg0y78rTz1d7"
+    }
+  ],
+  "isActive": true,
+  "createdTimestamp": "2023-04-20T16:54:33Z",
+  "createdByUserId": "00u12tymcg0y78rTz1d7",
+  "lastModifiedTimestamp": "2023-04-20T16:54:33Z",
+  "lastModifiedByUserId": "00u12tymcg0y78rTz1d7"
+}

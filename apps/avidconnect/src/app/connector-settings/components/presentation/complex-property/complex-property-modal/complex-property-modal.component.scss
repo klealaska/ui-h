@@ -1,0 +1,30 @@
+form {
+  width: 620px;
+
+  header {
+    border-bottom: 1px solid #c3c3c3;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+
+    h2 span {
+      display: block;
+      font-weight: 100;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+  }
+
+  .property {
+    padding: 2px 20px;
+  }
+
+  .error {
+    color: #a30000;
+    font-size: 12px;
+  }
+}
+
+.align-icon {
+  vertical-align: bottom;
+  font-size: 22px !important;
+}

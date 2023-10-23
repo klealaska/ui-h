@@ -1,0 +1,50 @@
+{
+  "name": "shared-data-access-event-hub",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/data-access/event-hub/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/shared/data-access/event-hub/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/data-access/event-hub/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/shared/data-access/event-hub/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/shared/data-access/event-hub/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/data-access/event-hub/**/*.ts",
+          "libs/shared/data-access/event-hub/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:shared", "scope:event-hub", "type:data-access"]
+}

@@ -1,0 +1,115 @@
+parameters:
+  functionAppEnabled: false
+  functionAppPath: ''
+
+stages:
+  - stage: ${{ parameters.environment }}
+    displayName: Deploy to ${{ parameters.environment }}
+    condition: ${{ parameters.stageCondition }}
+    dependsOn: ${{ parameters.dependsOn }}
+    jobs:
+      - deployment: Deploy_API
+        environment: ${{ parameters.gate }}
+        # container: cicd_devtools
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: none
+                - checkout: self
+
+                - task: DownloadPipelineArtifact@2
+                  name: DownloadArtifact
+                  inputs:
+                    buildType: 'specific'
+                    project: 'User Interface Center of Excellence'
+                    pipeline: ui-coe-ci-tagged
+                    preferTriggeringPipeline: true
+                    artifactName: AffectedApps
+                    buildVersionToDownload: 'latestFromBranch'
+                    branchName: $(Build.SourceBranch)
+                    tags: ${{ parameters.appTag }}
+                    patterns: AffectedApps/apps/${{ parameters.appPath }}/**/*
+                    targetPath: '$(Pipeline.Workspace)'
+
+                - script: echo $(DownloadArtifact.BuildNumber)
+
+                - script: cp $(System.DefaultWorkingDirectory)/apps/${{ parameters.appPath }}/.env.${{ parameters.environment}} $(Pipeline.Workspace)/apps/${{ parameters.appPath }}/.env
+                  displayName: Copy ENV File
+
+                - task: Docker@2
+                  displayName: buildAndPush
+                  inputs:
+                    containerRegistry: ${{ parameters.containerRegistry }}
+                    repository: ${{ parameters.registryRepoName }}
+                    Dockerfile: '$(System.DefaultWorkingDirectory)/apps/${{ parameters.appPath }}/Dockerfile'
+                    buildContext: '$(Pipeline.Workspace)'
+                    tags: ${{ parameters.environment }}-$(DownloadArtifact.BuildNumber)
+
+                - task: AzureCLI@1
+                  displayName: 'Azure CLI '
+                  continueOnError: true
+                  inputs:
+                    azureSubscription: ${{ parameters.serviceConnection }}
+                    scriptLocation: inlineScript
+                    inlineScript: |
+                      az extension add -n containerapp
+                      az containerapp update \
+                      --name ${{ parameters.appTag }}-${{ parameters.environment }} \
+                      --resource-group ${{ parameters.resource_group }} \
+                      --image ${{ parameters.imageName }}:${{ parameters.environment }}-$(DownloadArtifact.BuildNumber)
+
+      - job: Publish_Functions
+        condition: eq(${{ parameters.functionAppEnabled }}, 'true')
+        pool:
+          name: windows-vmss-agent-pool
+
+        steps:
+          - task: FuncToolsInstaller@0
+            inputs:
+              version: 'latest'
+
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '16.x'
+
+          - task: Npm@1
+            displayName: 'npm install'
+            inputs:
+              workingDir: '$(System.DefaultWorkingDirectory)/functions/${{ parameters.functionAppPath }}'
+              verbose: false
+
+          - task: Npm@1
+            displayName: 'npm build'
+            inputs:
+              command: custom
+              workingDir: '$(System.DefaultWorkingDirectory)/functions/${{ parameters.functionAppPath }}'
+              verbose: false
+              customCommand: 'run build'
+
+          - task: Docker@2
+            inputs:
+              containerRegistry: ${{ parameters.containerRegistry }}
+              command: 'login'
+
+          - task: AzureCLI@1
+            displayName: 'Azure CLI '
+            inputs:
+              azureSubscription: 'AzureRM-ServiceConnection'
+              scriptLocation: inlineScript
+              inlineScript: 'func azure functionapp publish ${{ parameters.functionAppName }}-${{ parameters.environment }} --typescript'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/functions/${{ parameters.functionAppPath }}'
+              continueOnError: true
+
+          # - task: AzureCLI@1
+          #   displayName: 'Azure CLI '
+          #   inputs:
+          #     azureSubscription: 'AzureRM-ServiceConnection'
+          #     scriptLocation: inlineScript
+          #     inlineScript: |
+          #       az webpubsub hub create \
+          #       --name ${{ parameters.pubsub }} \
+          #       --hub-name ${{ parameters.pubsub_hub_name }}
+          #       --resource_group ${{ parameters.resource_group }}
+          #       --allow-anonymous true
+          #       --event-handler url-template="https://${{ parameters.function_app }}.azurewebsites.net/runtime/webhooks/webpubsub?code=1l9aVjYKSFz113QCX0FCMAwTSISd8kO4k1BIQF3MBR5QAzFuj0MXPg=="

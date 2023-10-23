@@ -1,0 +1,61 @@
+@use '../../stylings/shared-components-variables' as *;
+
+.ax-label-default {
+  color: $default-text-color;
+}
+
+.ax-label-white {
+  color: $white-text-color;
+}
+
+.ax-label-green {
+  color: $green-text-color;
+}
+
+.ax-label-yellow {
+  color: $yellow-text-color;
+}
+
+.ax-label-red {
+  color: $red-text-color;
+}
+
+.ax-label-xxs {
+  font-size: $text-size-xxs;
+}
+
+.ax-label-xs {
+  font-size: $text-size-xs;
+}
+
+.ax-label-sm {
+  font-size: $text-size-sm;
+}
+
+.ax-label-md {
+  font-size: $text-size-md;
+}
+
+.ax-label-lg {
+  font-size: $text-size-lg;
+}
+
+.ax-label-xl {
+  font-size: $text-size-xl;
+}
+
+.ax-label-xxl {
+  font-size: $text-size-xxl;
+}
+
+.ax-label-bold {
+  font-weight: bold;
+}
+
+.ax-label-uppercase {
+  text-transform: uppercase;
+}
+
+.ax-label-italics {
+  font-style: italic;
+}

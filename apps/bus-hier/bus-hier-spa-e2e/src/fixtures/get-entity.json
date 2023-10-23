@@ -1,0 +1,34 @@
+{
+    "itemsRequested": 10,
+    "itemsReturned": 2,
+    "itemsTotal": 2,
+    "offset": 0,
+    "items": [
+      {
+        "entityId": "cadlbfshs605o7i35wl3",
+        "entityName": "Company C",
+        "erpId": "233",
+        "entityCode": "COMPC",
+        "parentEntityId": null,
+        "businessLevel": 2,
+        "isActive": true,
+        "createdTimestamp": "2023-04-20T22:31:19Z",
+        "createdByUserId": "00u12tymcg0y78rTz1d7",
+        "lastModifiedTimestamp": "2023-04-20T22:31:19Z",
+        "lastModifiedByUserId": "00u12tymcg0y78rTz1d7"
+      },
+      {
+        "entityId": "jlnnp9e0r1chj3459uae",
+        "entityName": "Entity C0",
+        "erpId": "233",
+        "entityCode": "EntityC1",
+        "parentEntityId": null,
+        "businessLevel": 2,
+        "isActive": true,
+        "createdTimestamp": "2023-04-20T22:38:45Z",
+        "createdByUserId": "00u12tymcg0y78rTz1d7",
+        "lastModifiedTimestamp": "2023-04-20T22:38:45Z",
+        "lastModifiedByUserId": "00u12tymcg0y78rTz1d7"
+      }
+    ]
+  }

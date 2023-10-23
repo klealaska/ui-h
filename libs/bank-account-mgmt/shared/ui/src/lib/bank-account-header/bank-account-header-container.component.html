@@ -1,0 +1,10 @@
+<header class="header__container bg-secondary-200 w-full px-8 py-5">
+  <div class="flex justify-between items-center grid grid-cols-3">
+    <div class="flex justify-start -sm:justify-between w-full col-span-3 sm:col-span-2">
+      <ng-content select="[left-content]"></ng-content>
+    </div>
+    <div class="w-full flex-row justify-end hidden sm:flex">
+      <ng-content select="[button-container]"></ng-content>
+    </div>
+  </div>
+</header>

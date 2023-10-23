@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Dropzone" />
+
+## Dropzone
+
+Dropzone can be implemented by using the `ax-dropzone` component
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() content: DropzoneContent</td>
+    <td>Sets the content for dropzone.</td>
+  </tr>
+  <tr>
+    <td>@Input() supportedFileTypes: string</td>
+    <td>Displays the supported file types for dropzone.</td>
+  </tr>
+  <tr>
+    <td>@Input() maxFileSize: number</td>
+    <td>Displays the max file size that is supported.</td>
+  </tr>
+  <tr>
+    <td>@Input() error: boolean</td>
+    <td>Triggers dropzone error state/styling.</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Disables dropzone.</td>
+  </tr>
+  <tr>
+    <td>@Output() fileEvent: EventEmitter</td>
+    <td>Emits the file(s) uploaded to dropzone.</td>
+  </tr>
+</table>

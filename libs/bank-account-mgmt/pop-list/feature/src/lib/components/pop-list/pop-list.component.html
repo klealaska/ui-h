@@ -1,0 +1,33 @@
+<ax-table
+  [displayedColumns]="displayedColumns"
+  [dataSource]="(dataSource$ | async)"
+  [stickyHeader]="true"
+  [customTemplate]="true"
+  (rowClicked)="accountClicked($event)"
+>
+  <ng-container matColumnDef="accountNumber">
+    <th mat-header-cell *matHeaderCellDef>{{content?.accountNumberCol}}</th>
+    <td mat-cell *matCellDef="let row">
+      <a>{{ row.accountNumber }}</a>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="routingNumber">
+    <th mat-header-cell *matHeaderCellDef>{{content?.routingNumberCol}}</th>
+    <td mat-cell *matCellDef="let row">{{ row.routingNumber }}</td>
+  </ng-container>
+  <ng-container matColumnDef="bankName">
+    <th mat-header-cell *matHeaderCellDef>{{content?.bankCol}}</th>
+    <td mat-cell *matCellDef="let row">{{ row.bankName }}</td>
+  </ng-container>
+  <ng-container matColumnDef="bankAccountStatus">
+    <th mat-header-cell *matHeaderCellDef>{{content?.statusCol}}</th>
+    <td mat-cell *matCellDef="let row; let i = dataIndex">
+      <ax-tag
+        [size]="'md'"
+        [type]="row.statusTagType"
+        [style]="'border'"
+        [text]="row.bankAccountStatus"
+      ></ax-tag>
+    </td>
+  </ng-container>
+</ax-table>

@@ -1,0 +1,16 @@
+.row {
+  display: flex;
+  padding: 1.25em 0;
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-warning {
+  width: 1.375em;
+  height: 1.063em;
+  font-size: 32px;
+}

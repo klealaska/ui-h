@@ -1,0 +1,105 @@
+trigger: none
+
+variables:
+  - template: 'variables/bff.yml'
+
+resources:
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+  pipelines:
+    - pipeline: ui-coe-ci-tagged
+      source: ui-coe-ci-tagged
+      project: User Interface Center of Excellence
+      trigger:
+        branches:
+          - master
+        tags:
+          - demo-zombie-dice-api
+
+pool:
+  name: linux-vmss-agent-pool
+
+stages:
+  - template: '../../../tools/pipelines/templates/deploy-bff.yml'
+    parameters:
+      environment: dv
+      varPath: demo/pipelines/variables
+      gate: dv-demo
+      serviceConnection: $(nonProdServiceConnection)
+      stageCondition: "and(succeeded(), and(ne(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'Manual')))"
+      dependsOn: ''
+      appPath: $(appPath)
+      appTag: $(appTag)
+      containerRegistry: $(containerRegistry)
+      registryRepoName: $(registryRepoName)
+      imageName: $(imageName)
+      functionAppEnabled: true
+      functionAppName: $(functionAppName)
+      functionAppPath: $(functionAppPath)
+
+  - template: '../../../tools/pipelines/templates/deploy-bff.yml'
+    parameters:
+      environment: ci
+      varPath: demo/pipelines/variables
+      gate: ci-demo
+      serviceConnection: $(nonProdServiceConnection)
+      stageCondition: "eq(variables['Build.SourceBranch'], 'refs/heads/master')"
+      dependsOn: ''
+      appPath: $(appPath)
+      appTag: $(appTag)
+      containerRegistry: $(containerRegistry)
+      registryRepoName: $(registryRepoName)
+      imageName: $(imageName)
+      functionAppEnabled: true
+      functionAppName: $(functionAppName)
+      functionAppPath: $(functionAppPath)
+
+  - template: '../../../tools/pipelines/templates/deploy-bff.yml'
+    parameters:
+      environment: qa
+      varPath: demo/pipelines/variables
+      gate: qa-demo
+      serviceConnection: $(nonProdServiceConnection)
+      stageCondition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))"
+      dependsOn: 'ci'
+      appPath: $(appPath)
+      appTag: $(appTag)
+      containerRegistry: $(containerRegistry)
+      registryRepoName: $(registryRepoName)
+      imageName: $(imageName)
+      functionAppEnabled: true
+      functionAppName: $(functionAppName)
+      functionAppPath: $(functionAppPath)
+
+  - template: '../../../tools/pipelines/templates/deploy-bff.yml'
+    parameters:
+      environment: st
+      varPath: demo/pipelines/variables
+      gate: st-demo
+      serviceConnection: $(prodServiceConnection)
+      stageCondition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))"
+      dependsOn: 'qa'
+      appPath: $(appPath)
+      appTag: $(appTag)
+      containerRegistry: $(containerRegistry)
+      registryRepoName: $(registryRepoName)
+      imageName: $(imageName)
+      functionAppEnabled: false
+
+  - template: '../../../tools/pipelines/templates/deploy-bff.yml'
+    parameters:
+      environment: pr
+      varPath: demo/pipelines/variables
+      gate: pr-demo
+      serviceConnection: $(prodServiceConnection)
+      stageCondition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))"
+      dependsOn: 'st'
+      appPath: $(appPath)
+      appTag: $(appTag)
+      containerRegistry: $(containerRegistry)
+      registryRepoName: $(registryRepoName)
+      imageName: $(imageName)
+      functionAppEnabled: false

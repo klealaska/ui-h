@@ -1,0 +1,65 @@
+<ng-container *ngIf="displayedColumns">
+  <ax-table
+    [displayedColumns]="displayedColumns"
+    [dataSource]="dataSource"
+    [size]="size"
+    [stickyHeader]="true"
+    [allowSort]="true"
+    [customTemplate]="true"
+    [virtualScroll]="true"
+    [fixedColumns]="true"
+    (matSortChange)="onSortChange($event)"
+    (rowClicked)="onRowClick($event)"
+    [gridHeight]="gridHeight"
+    matSort
+    data-cy="tenant-list-table"
+  >
+    <ng-container matColumnDef="Name">
+      <th
+        class="w-[40%]"
+        mat-header-cell
+        *matHeaderCellDef
+        [mat-sort-header]="sortLabels.SITE_NAME"
+        data-cy="site-name-header"
+      >
+        {{ siteNameHeader }}
+      </th>
+      <td mat-cell *matCellDef="let row" data-cy="site-name-data">{{ row.siteName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Date Created">
+      <th
+        class="w-[40%]"
+        mat-header-cell
+        *matHeaderCellDef
+        [mat-sort-header]="sortLabels.DATE_CREATED"
+        data-cy="date-created-header"
+      >
+        {{ dateCreatedHeader }}
+      </th>
+
+      <td mat-cell *matCellDef="let row" data-cy="date-created-data">
+        {{ row.createdDate | localizedDate | date }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Status">
+      <th
+        class="w-[20%]"
+        mat-header-cell
+        *matHeaderCellDef
+        [mat-sort-header]="sortLabels.TENANT_STATUS"
+        data-cy="tenant-status-header"
+      >
+        {{ statusHeader }}
+      </th>
+
+      <td mat-cell *matCellDef="let row" data-cy="tenant-status-data">
+        <ax-tag
+          [size]="'sm'"
+          [type]="getStatusType(row.tenantStatus)"
+          [style]="'border'"
+          [text]="row.tenantStatus | uppercase"
+        ></ax-tag>
+      </td>
+    </ng-container>
+  </ax-table>
+</ng-container>

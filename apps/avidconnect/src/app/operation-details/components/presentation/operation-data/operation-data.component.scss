@@ -1,0 +1,5 @@
+@use '../../../../../styles/colors' as *;
+
+.error-status {
+  color: $error-color;
+}

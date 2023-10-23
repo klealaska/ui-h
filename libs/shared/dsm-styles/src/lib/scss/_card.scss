@@ -1,0 +1,13 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+.mat-mdc-card {
+  padding: 16px;
+  border-radius: 0.625rem;
+}
+
+.mat-mdc-card:not([class*='mat-elevation-z']) {
+  box-shadow: 0 0.125rem 0.063rem -0.063rem mat-color($dsm-fill, Shadow, 14%),
+    0 0.063rem 0.063rem mat-color($dsm-fill, Shadow, 14%),
+    0 0.125rem 0.5rem mat-color($dsm-fill, Shadow, 14%);
+}

@@ -1,0 +1,29 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+.mat-button-toggle-appearance-standard,
+.mat-button-toggle-group-appearance-standard .mat-button-toggle + .mat-button-toggle {
+  color: mat-color($dsm-primary, Main);
+  font-family: 'artegra-semi-bold', sans-serif;
+}
+.mat-button-toggle-group-appearance-standard .mat-button-toggle + .mat-button-toggle {
+  border-left: solid 1px mat-color($dsm-primary, Main);
+}
+
+.mat-button-toggle-group-appearance-standard .mat-button-toggle + .mat-button-toggle:hover {
+  color: mat-color($dsm-primary, Dark);
+}
+
+.mat-button-toggle-standalone.mat-button-toggle-appearance-standard,
+.mat-button-toggle-group.mat-button-toggle-group-appearance-standard {
+  border-radius: 10px;
+  border: solid 1px mat-color($dsm-primary, Main);
+}
+
+.mat-button-toggle-checked.mat-button-toggle-appearance-standard {
+  background-color: mat-color($dsm-primary, Main);
+}
+
+.mat-button-toggle-checked .mat-button-toggle-label-content {
+  color: mat-color($dsm-fill, White);
+}

@@ -1,0 +1,6 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+.mdc-linear-progress__buffer-bar {
+  background-color: mat-color($dsm-fill, MutedLight) !important;
+}

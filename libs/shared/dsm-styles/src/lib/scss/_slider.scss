@@ -1,0 +1,6 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+.mdc-slider__track--inactive {
+  background-color: mat-color($dsm-fill, MutedLight) !important;
+}

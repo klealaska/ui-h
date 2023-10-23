@@ -1,0 +1,35 @@
+@use 'mixins' as *;
+@use 'colors' as *;
+
+.accounting-system {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  border: 1px solid $gray;
+  padding: 10px;
+  border-radius: 3px;
+  word-break: break-all;
+  box-shadow: 1px 0px 4px -1px $darker-gray;
+  width: 300px;
+  padding-bottom: 2px;
+
+  .title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: $alt-color;
+  }
+
+  .modified-info {
+    margin: 5px 0;
+    font-size: 12px;
+    p {
+      font-size: 14px;
+      margin: 0;
+    }
+  }
+  .menu-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+}

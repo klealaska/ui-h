@@ -1,0 +1,32 @@
+@use '../../stylings/shared-components-variables' as *;
+
+.ax-header {
+  color: $default-header-color;
+  margin: 0;
+
+  &.ax-header-uppercase {
+    text-transform: uppercase;
+  }
+
+  &.ax-header-h1 {
+    color: $default-text-color;
+    font-size: $text-size-xxl;
+  }
+
+  &.ax-header-h2 {
+    font-size: $text-size-xl;
+    font-weight: normal;
+  }
+
+  &.ax-header-h3 {
+    font-size: $text-size-lg;
+  }
+
+  &.ax-header-h4 {
+    font-size: $text-size-md;
+  }
+
+  &.ax-header-h5 {
+    font-size: $text-size-sm;
+  }
+}

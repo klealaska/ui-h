@@ -1,0 +1,43 @@
+{
+  "name": "avidcapture-archive-ui",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/avidcapture/archive/ui/src",
+  "prefix": "xdc",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/avidcapture/archive/ui"],
+      "options": {
+        "project": "libs/avidcapture/archive/ui/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/avidcapture/archive/ui/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/avidcapture/archive/ui/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/avidcapture/archive/ui"],
+      "options": {
+        "jestConfig": "libs/avidcapture/archive/ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/avidcapture/archive/ui/**/*.ts",
+          "libs/avidcapture/archive/ui/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:avidcapture"]
+}

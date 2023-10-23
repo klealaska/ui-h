@@ -1,0 +1,49 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Slide-toggle" />
+
+## Slide-Toggle
+
+**A working example of this Slide-toggle implementation can be found @ \_libs/shared/ui-v2/src/lib/slide-toggle/slide-toggle.component.stories.ts **
+
+Slide-toggle can be implemented by using the `ax-slide-toggle` component.
+
+## Properties for `ax-slide-toggle`
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() label: string</td>
+    <td>Sets the label. </td>
+  </tr>
+  <tr>
+    <td>@Input() subLabelConfig: ConfigStatus</td>
+    <td>Sets the subLabelConfig. </td>
+  </tr>
+  <tr>
+    <td>@Input() labelPosition: 'left' | 'right'</td>
+    <td>
+      Whether the sublabelconfig should appear left or right of the slide-toggle. Defaults to
+      'left'.{' '}
+    </td>
+  </tr>
+  <tr>
+    <td>@Input() checked: boolean</td>
+    <td>Whether the slide-toggle element is checked or not.</td>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Whether the component is disabled.</td>
+  </tr>
+  <tr>
+    <td>@Input() readonly: boolean</td>
+    <td>Whether the component is readonly.</td>
+  </tr>
+  <tr>
+    <td>@Output() checkedChange= new EventEmitter</td>
+    <td>Output when checked state is changed by a user.</td>
+  </tr>
+</table>

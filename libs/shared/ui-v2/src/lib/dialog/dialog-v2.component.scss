@@ -1,0 +1,82 @@
+::ng-deep.ax-dialog {
+  font-family: 'inter-semibold';
+  font-weight: 400;
+  position: relative !important;
+  max-width: 408px !important;
+
+  ax-dialog-v2 {
+    display: inline-block;
+  }
+
+  &__container {
+    border: 1px solid theme('colors.onSurface.50');
+    border-radius: 4px;
+    padding: 16px;
+  }
+
+  .cdk-dialog-container {
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    padding: 0;
+    .mdc-dialog__surface {
+      box-shadow: none;
+    }
+  }
+
+  &__close {
+    color: theme('colors.grey.700');
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+
+  &__overline {
+    cursor: auto;
+    color: theme('colors.grey.800');
+    display: flex;
+    margin-bottom: 16px;
+    &--icon {
+      color: theme('colors.critical.600');
+      margin-right: 16px;
+    }
+  }
+
+  &__title {
+    cursor: auto;
+    color: theme('colors.grey.800');
+    font-size: 20px;
+    font-family: 'inter-semibold';
+    margin-bottom: 16px;
+  }
+
+  &__message {
+    cursor: auto;
+    color: theme('colors.grey.800');
+    font-family: 'inter-regular';
+    margin-bottom: 16px;
+  }
+
+  &__ngContent {
+    cursor: auto;
+    color: theme('colors.grey.800');
+    font-family: 'inter-regular';
+    margin-bottom: 16px;
+  }
+
+  &__action-container {
+    ax-button:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  // Alert
+  .alert {
+    background-color: theme('colors.critical.50');
+    border-color: theme('colors.critical.600');
+  }
+}
+
+::ng-deep.non-modal-dialog {
+  cursor: all-scroll;
+}

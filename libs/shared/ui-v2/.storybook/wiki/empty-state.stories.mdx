@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Empty state" />
+
+## Empty state
+
+Empty state can be implemented by using the `ax-empty-state` component
+
+## Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() icon?: string</td>
+    <td>Sets the icon for empty state.</td>
+  </tr>
+  <tr>
+    <td>@Input() title?: string</td>
+    <td>Sets the title for empty state</td>
+  </tr>
+  <tr>
+    <td>@Input() text: string</td>
+    <td>Sets the text for empty state</td>
+  </tr>
+  <tr>
+    <td>@Input() size: EmptyStateSize</td>
+    <td>
+      Changes button size. Supports: <code>sm</code>, <code>md</code>, and <code>lg</code> Default
+      is <code>lg</code>
+    </td>
+  </tr>
+  <tr>
+    <td>@Input() background: boolean</td>
+    <td>Sets whether empty state component has a bordered + white background or not.</td>
+  </tr>
+</table>

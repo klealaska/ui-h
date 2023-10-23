@@ -1,0 +1,135 @@
+{
+  "name": "pay-transformation-spa",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/pay-transformation/pay-transformation-spa/src",
+  "prefix": "ax",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/pay-transformation/pay-transformation-spa",
+        "index": "apps/pay-transformation/pay-transformation-spa/src/index.html",
+        "main": "apps/pay-transformation/pay-transformation-spa/src/main.ts",
+        "polyfills": "apps/pay-transformation/pay-transformation-spa/src/polyfills.ts",
+        "tsConfig": "apps/pay-transformation/pay-transformation-spa/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/pay-transformation/pay-transformation-spa/src/favicon.ico",
+          "apps/pay-transformation/pay-transformation-spa/src/assets"
+        ],
+        "styles": [
+          "apps/pay-transformation/pay-transformation-spa/src/styles.scss",
+          "libs/shared/dsm-styles-v2/src/lib/scss/styles.scss"
+        ],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/pay-transformation/pay-transformation-spa/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "5mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "80kb",
+              "maximumError": "200kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/pay-transformation/pay-transformation-spa/src/environments/environment.ts",
+              "with": "apps/pay-transformation/pay-transformation-spa/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/pay-transformation/pay-transformation-spa/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        },
+        "mock": {
+          "fileReplacements": [
+            {
+              "replace": "apps/pay-transformation/pay-transformation-spa/src/environments/environment.ts",
+              "with": "apps/pay-transformation/pay-transformation-spa/src/environments/environment.mock.ts"
+            }
+          ]
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "pay-transformation-spa:build:production"
+        },
+        "development": {
+          "browserTarget": "pay-transformation-spa:build:development"
+        },
+        "mock": {
+          "browserTarget": "pay-transformation-spa:build:mock"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4204,
+        "publicHost": "http://localhost:4204"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "pay-transformation-spa:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/pay-transformation/pay-transformation-spa/**/*.ts",
+          "apps/pay-transformation/pay-transformation-spa/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["coverage/apps/pay-transformation/pay-transformation-spa"],
+      "options": {
+        "jestConfig": "apps/pay-transformation/pay-transformation-spa/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "pay-transformation-spa:build",
+        "port": 4204
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "pay-transformation-spa:build:development"
+        },
+        "production": {
+          "buildTarget": "pay-transformation-spa:build:production"
+        }
+      }
+    }
+  },
+  "tags": ["type:spa", "scope:pay-transformation"]
+}

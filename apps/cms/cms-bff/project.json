@@ -1,0 +1,61 @@
+{
+  "name": "cms-bff",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/cms/cms-bff/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/cms/cms-bff",
+        "main": "apps/cms/cms-bff/src/main.ts",
+        "tsConfig": "apps/cms/cms-bff/tsconfig.app.json",
+        "assets": ["apps/cms/cms-bff/src/assets"],
+        "generatePackageJson": true,
+        "target": "node",
+        "compiler": "tsc"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/cms/cms-bff/src/environments/environment.ts",
+              "with": "apps/cms/cms-bff/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "cms-bff:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "cms-bff:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/cms/cms-bff/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/cms/cms-bff"],
+      "options": {
+        "jestConfig": "apps/cms/cms-bff/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:bff", "scope:cms"]
+}

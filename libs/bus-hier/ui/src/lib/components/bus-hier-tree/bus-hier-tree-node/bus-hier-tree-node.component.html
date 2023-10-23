@@ -1,0 +1,13 @@
+<ax-button
+  [type]="isActive ? primary : secondary"
+  matBadgeSize="medium"
+  [matBadge]="count"
+  matBadgePosition="above after"
+  matBadgeOverlap="true"
+  (click)="onClick()"
+  class="w-[15.6rem]"
+  data-cy="tree-node"
+>
+  {{ getName(name) }}</ax-button
+>
+<div *ngIf="hasNext" class="vert-sep"></div>

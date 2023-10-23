@@ -1,0 +1,27 @@
+<ax-text-box
+  *ngIf="isDateFormat"
+  type="string"
+  [width]="width"
+  [disabled]="disabled"
+  [required]="required"
+  [hasFocus]="hasFocus"
+  [pattern]="pattern"
+  [value]="inputValue"
+  (onBlur)="updateDate($event)"
+  (onFocus)="handleMaskInputFocus($event)"
+>
+</ax-text-box>
+
+<ax-text-box
+  *ngIf="isCurrencyFormat"
+  type="string"
+  [width]="width"
+  [disabled]="disabled"
+  [required]="required"
+  [hasFocus]="hasFocus"
+  [pattern]="pattern"
+  [value]="getCurrencytrimValue(inputValue) | currency: 'USD'"
+  (onBlur)="updateCurrency($event)"
+  (onFocus)="handleMaskInputFocus($event)"
+>
+</ax-text-box>

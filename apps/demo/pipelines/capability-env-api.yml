@@ -1,0 +1,56 @@
+trigger: none
+
+#####################################
+# Use app specific variables template
+#####################################
+variables:
+  - template: './variables/functions.yml'
+
+#####################################
+#      DO NOT EDIT BELOW HERE       #
+#####################################
+# Location to reference a container, where the stages will be run
+resources:
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+
+pool:
+  name: linux-vmss-agent-pool
+
+# Calling the env-stage-template.yml file, and passing it variables established above, for each individual environment
+stages:
+  - template: '../../../tools/pipelines/templates/env-stage-template.yml'
+    parameters:
+      capability: $(capability)
+      domain: $(domain)
+      tfDirectory: $(System.DefaultWorkingDirectory)/apps/demo/iac/capability-env-api #TODO Change to Current Apps Path
+      stages:
+        # - stage:
+        #   name: Dv
+        #   dependsOn: ''
+        #   varFile: '../variables/demo-zombie-dice-api/vars-dv.tfvars'
+        #   serviceConnection: $(nonProdServiceConnection)
+        #   subscriptionId: $(nonProdSubscriptionId)
+        - stage:
+          name: Ci
+          varFile: '../variables/demo-zombie-dice-api/vars-ci.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          subscriptionId: $(nonProdSubscriptionId)
+        # - stage:
+        #   name: Qa
+        #   varFile: '../variables/demo-zombie-dice-api/vars-qa.tfvars'
+        #   serviceConnection: $(nonProdServiceConnection)
+        #   subscriptionId: $(nonProdSubscriptionId)
+        # - stage:
+        #   name: St
+        #   varFile: '../variables/demo-zombie-dice-api/vars-st.tfvars'
+        #   serviceConnection: $(prodServiceConnection)
+        #   subscriptionId: $(prodSubscriptionId)
+        # - stage:
+        #   name: Pr
+        #   varFile: '../variables/demo-zombie-dice-api/vars-pr.tfvars'
+        #   serviceConnection: $(prodServiceConnection)
+        #   subscriptionId: $(prodSubscriptionId)

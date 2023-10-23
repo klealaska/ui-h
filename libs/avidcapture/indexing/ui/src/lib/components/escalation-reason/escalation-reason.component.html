@@ -1,0 +1,17 @@
+<div
+  *ngIf="activity.escalation && activity.escalation.description !== activityTypes.CreateNewAccount"
+  class="row"
+>
+  <mat-icon class="icon-warning">warning</mat-icon>
+  <div class="col">
+    <label class="b2">{{escalationLabel}}</label>
+
+    <label
+      *ngIf="activity.escalation.description && (activity.escalation.category.issue !== escalationCategoryTypes.DuplicateResearch || activity.escalation.category.issue === escalationCategoryTypes.DuplicateResearch && !activity.escalation.category.reason)"
+      class="b4"
+      >{{activity.escalation.description}}</label
+    >
+
+    <label class="b4">Escalated by {{activity.indexer}}</label>
+  </div>
+</div>

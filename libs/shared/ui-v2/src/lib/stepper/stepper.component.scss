@@ -1,0 +1,213 @@
+$default-clr: theme('colors.primary.800');
+$success-clr: theme('colors.success.600');
+$disabled-clr: theme('colors.grey.50');
+$error-clr: theme('colors.critical.600');
+$inprogress-clr: theme('colors.interactive.700');
+$text-clr: theme('colors.grey.800');
+
+:host {
+  margin-bottom: 20px;
+}
+
+::ng-deep {
+  .ax-stepper-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .ax-stepper-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1;
+
+      .ax-step-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 1;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        border: 4px solid $default-clr;
+        background: $default-clr;
+        width: calc(100% - 40px);
+        top: 8px;
+        left: 32px;
+        z-index: 2;
+        border-radius: 4px;
+      }
+
+      .ax-step-counter {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: $default-clr;
+        color: #fff;
+        margin-bottom: 16px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 15px;
+
+        .step-icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      /**
+      * CSS override when step is in progress
+      */
+      &.active {
+        // font-weight: bold;
+        .ax-step-counter {
+          background: $inprogress-clr;
+        }
+        &::after {
+          border-color: $inprogress-clr;
+          background: $inprogress-clr;
+        }
+        .ax-step-label-wrapper .label-status {
+          color: $inprogress-clr;
+        }
+      }
+
+      /**
+      * CSS override when step is completed
+      */
+      &.completed {
+        &::after {
+          border-color: $success-clr;
+          background: $success-clr;
+          z-index: 3;
+        }
+        .ax-step-counter {
+          background-color: $success-clr;
+        }
+        .ax-step-label-wrapper .label-status {
+          color: $success-clr;
+        }
+      }
+
+      /**
+      * CSS override when step has error
+      */
+      &.error {
+        &::after {
+          border-color: $error-clr;
+          background: $error-clr;
+        }
+        .ax-step-counter {
+          background-color: $error-clr;
+        }
+        .ax-step-label-wrapper .label-status {
+          color: $error-clr;
+        }
+      }
+
+      &:first-child::before {
+        content: none;
+      }
+      &:last-child::after {
+        content: none;
+      }
+    }
+
+    /**
+    * Vertical Orientation of Stepper
+    */
+    &.vertical {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      white-space: nowrap;
+      display: flex;
+
+      .ax-step-header {
+        flex-direction: row !important;
+      }
+
+      .ax-step-counter {
+        margin-bottom: 8px !important;
+        margin-right: 16px;
+      }
+
+      .ax-stepper-item {
+        &::after {
+          width: 8px !important;
+          height: calc(100% - 40px) !important;
+          top: 32px;
+          left: 8px;
+          background: $inprogress-clr;
+        }
+
+        .ax-stepper-desc {
+          margin-left: 40px;
+        }
+      }
+    }
+  }
+
+  .ax-stepper-desc {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    color: $text-clr;
+    margin-bottom: 8px;
+    min-height: 60px;
+
+    ::ng-deep {
+      button + button {
+        margin-left: 12px;
+      }
+    }
+
+    p {
+      margin-bottom: 16px;
+      word-wrap: break-word;
+      white-space: break-spaces;
+    }
+  }
+
+  .ax-step-label-wrapper {
+    color: $text-clr;
+    font-family: theme('fontFamily.interRegular');
+    font-weight: 500;
+
+    .label-title {
+      font-size: 16px;
+      line-height: 18px;
+      margin-bottom: 8px;
+    }
+    .label-text {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 15px;
+      margin-bottom: 8px;
+    }
+    .label-status {
+      font-size: 10px;
+      line-height: 11px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .ax-mobile-stepper {
+    display: flex;
+    gap: 16px;
+
+    .ax-step-label-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

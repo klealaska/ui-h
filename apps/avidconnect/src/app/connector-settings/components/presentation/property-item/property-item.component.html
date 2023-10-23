@@ -1,0 +1,71 @@
+<div class="property-item" [ngClass]="error ? 'error-padding' : ''">
+  <div>
+    <mat-label>
+      {{ property.Type === 'complex' ? property.Description : property.DisplayName || property.Name
+      }}
+    </mat-label>
+    <mat-icon
+      class="align-icon"
+      *ngIf="property.Type !== 'complex' && property.Description"
+      [matTooltip]="property.Description"
+      matTooltipPosition="right"
+      >help</mat-icon
+    >
+  </div>
+
+  <avc-property-type
+    [groupName]="groupName"
+    [property]="property"
+    [value]="value"
+    [error]="error"
+    (valueChanged)="valueChanged.emit({value: $event, name: property.Name, property})"
+    (complexModalClosed)="complexModalClosed($event)"
+    (complexPropertyChanged)="complexPropertyChanged.emit($event)"
+    *ngIf="!property.IsArray; else arrayTemplate"
+  ></avc-property-type>
+
+  <ng-template #arrayTemplate>
+    <div class="property-array" *ngFor="let prop of propertiesArray; let i = index;">
+      <avc-property-type
+        [groupName]="groupName"
+        [property]="property"
+        [value]="prop.value"
+        [error]="error"
+        [isNew]="prop.isNew"
+        [complexValues]="complexValues"
+        (complexModalClosed)="complexModalClosed($event, prop)"
+        (complexPropertyChanged)="complexPropertyChanged.emit($event)"
+        (valueChanged)="propertyArrayChanged({value: $event, index:i})"
+      ></avc-property-type>
+      <button
+        type="button"
+        matSuffix
+        mat-icon-button
+        (click)="removeProperty(prop)"
+        *ngIf="i > 0 || propertiesArray.length > 1 || property.Type === 'complex'"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+      <button
+        color="primary"
+        type="button"
+        matSuffix
+        mat-icon-button
+        (click)="addProperty()"
+        *ngIf="i === 0 && propertiesArray.length === 1  && property.Type !== 'complex'"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <button
+      type="button"
+      class="add-new-btn"
+      mat-button
+      color="primary"
+      (click)="addProperty()"
+      *ngIf="propertiesArray.length > 1 || property.Type === 'complex'"
+    >
+      Add new value
+    </button>
+  </ng-template>
+</div>

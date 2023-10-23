@@ -1,0 +1,8 @@
+<div
+  class="{{getClass()}}"
+  [ngClass]="!isActive ? '!border-primary-50' : '!border-[#0747A6] !border-[3px]'"
+  [ngClass]="{'bg-grey-50': isDisabled}"
+  role="button"
+>
+  <ng-content></ng-content>
+</div>

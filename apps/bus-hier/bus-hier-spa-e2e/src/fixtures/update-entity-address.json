@@ -1,0 +1,20 @@
+{
+    "addressId": "o2cdjj82ehir5j7duwcz",
+    "entityId": "cadlbfshs605o7i35wl3",
+    "addressCode": "Headquarters",
+    "addressLine1": "Address Line 2",
+    "addressLine2": null,
+    "addressLine3": null,
+    "addressLine4": null,
+    "locality": "New Orleans",
+    "region": "LA",
+    "country": "US",
+    "postalCode": "70544",
+    "isPrimary": true,
+    "addressType": "ShipTo",
+    "isActive": true,
+    "createdTimestamp": "2023-07-03T15:50:58Z",
+    "createdByUserId": "43c7gse0n12q2viuxrqu",
+    "lastModifiedTimestamp": "2023-07-03T15:50:58Z",
+    "lastModifiedByUserId": "l1ptq8btj2e9dqdel7ib"
+}

@@ -1,0 +1,16 @@
+parameters:
+  azureTarget: domain
+
+steps:
+  - pwsh: |
+      $azureTarget = "${{ parameters.azureTarget }}"
+      if($azureTarget -eq "hub") {
+        Write-Host "Setting subscription to $(azureHubSubscriptionName)"
+        Write-Host "##vso[task.setendpoint id=$(azureServiceConnectionId);field=dataParameter;key=subscriptionId]$(azureHubSubscriptionId)"
+        Write-Host "##vso[task.setendpoint id=$(azureServiceConnectionId);field=dataParameter;key=subscriptionName]$(azureHubSubscriptionName)"
+      } else {
+        Write-Host "Setting subscription to $(azureSubscriptionName)"
+        Write-Host "##vso[task.setendpoint id=$(azureServiceConnectionId);field=dataParameter;key=subscriptionId]$(azureSubscriptionId)"
+        Write-Host "##vso[task.setendpoint id=$(azureServiceConnectionId);field=dataParameter;key=subscriptionName]$(azureSubscriptionName)"
+      }
+    displayName: Set SubscriptionId

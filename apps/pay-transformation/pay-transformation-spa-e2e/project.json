@@ -1,0 +1,30 @@
+{
+  "name": "pay-transformation-spa-e2e",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/pay-transformation/pay-transformation-spa-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/pay-transformation/pay-transformation-spa-e2e/cypress.config.ts",
+        "devServerTarget": "pay-transformation-spa:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "pay-transformation-spa:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/pay-transformation/pay-transformation-spa-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["pay-transformation-spa"]
+}

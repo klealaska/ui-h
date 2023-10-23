@@ -1,0 +1,13 @@
+<mat-card>
+  <div class="row">
+    <div *ngFor="let card of documentCards; let i=index;">
+      <div class="column" [ngClass]="{'mr-40': i + 1 !== documentCards.length}">
+        <div class="row">
+          <mat-icon>{{card.icon}}</mat-icon>
+          <h4>{{card.count}}</h4>
+        </div>
+        <p class="c2">{{card.text}}</p>
+      </div>
+    </div>
+  </div>
+</mat-card>

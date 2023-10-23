@@ -1,0 +1,43 @@
+parameters:
+  azureServiceConnection: ''
+  domain: ''
+  capability: 'default'
+  apimTfDirectory: ''
+  stages: {}
+
+stages:
+  - ${{ each stage in parameters.stages }}:
+      - stage: ${{ stage.name }}
+        displayName: 'Display APIM ${{ stage.name }}'
+        dependsOn: ${{ stage.dependsOn }}
+        jobs:
+          - deployment: APIM${{ stage.name }}
+            displayName: 'Deploy Publish APIM ${{ stage.name }}'
+            environment: ${{ stage.name }}
+            container: cicd_devtools
+            strategy:
+              runOnce:
+                deploy:
+                  steps:
+                    - checkout: self
+                    - task: CopyFiles@2
+                      displayName: 'Drop Open Api Spec File'
+                      inputs:
+                        SourceFolder: '$(System.DefaultWorkingDirectory)/${{ parameters.bffPath }}'
+                        Contents: '*-swagger.json'
+                        TargetFolder: '$(System.DefaultWorkingDirectory)/tools/iac/apim/'
+                        OverWrite: true
+                    - task: AzureCLI@2
+                      inputs:
+                        azureSubscription: ${{ stage.serviceConnection }}
+                        scriptType: pscore
+                        scriptPath: '$(System.DefaultWorkingDirectory)/tools/pipelines/scripts/Invoke-CICDTerraformModule.ps1'
+                        arguments: -Domain ${{ parameters.domain }} `
+                          -Capability ${{ parameters.capability_apim }} `
+                          -Environment ${{ stage.name }} `
+                          -SubscriptionId ${{ stage.apimSubscriptionId }} `
+                          -VarFile ${{ stage.varFile }} `
+                          -WorkingDirectory ${{ parameters.apimTfDirectory }}
+                        addSpnToEnvironment: true
+                      env:
+                        ACCESS_TOKEN: $(System.AccessToken)

@@ -1,0 +1,26 @@
+<ax-side-sheet-v2
+  *ngIf="{account: account$ | async, content: content$ | async} as data"
+  [opened]="true"
+  [backdrop]="true"
+  (closeEvent)="handleSidePanelClose()"
+>
+  <ax-bam-detail-header
+    [account]="data.account"
+    class="overflow-auto"
+    sideSheetHeader
+  ></ax-bam-detail-header>
+  <ax-bank-account-detail
+    [account]="data.account"
+    [content]="data.content"
+    [unmaskedAccountNumber]="unmaskedAccountNumber$ | async"
+    (maskClick)="handleMaskClick($event)"
+    sideSheetContent
+  ></ax-bank-account-detail>
+  <ax-bam-detail-footer
+    [content]="data.content"
+    [account]="data.account"
+    (editClick)="handleEditClick()"
+    (detailButtonClick)="handleDetailButtonClick($event)"
+    sideSheetFooter
+  ></ax-bam-detail-footer>
+</ax-side-sheet-v2>

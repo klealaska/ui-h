@@ -1,0 +1,19 @@
+@use '../../stylings/shared-components-variables' as *;
+
+.top-header {
+  height: 60px;
+  background-color: $default-dark-background-color;
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 13px 0 8px;
+
+  &.light {
+    background-color: $white;
+  }
+
+  .header-options {
+    display: flex;
+  }
+}

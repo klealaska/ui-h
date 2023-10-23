@@ -1,0 +1,39 @@
+<ax-input-header
+  *ngIf="label || tooltip"
+  [readonly]="readonly"
+  [id]="id"
+  [label]="label"
+  [optional]="optional"
+  [tooltip]="tooltip"
+  [control]="control"
+></ax-input-header>
+
+<mat-form-field class="ax-form-field">
+  <mat-select
+    class="ax-select"
+    panelClass="ax-panel"
+    [multiple]="multiple"
+    [formControl]="control"
+    [errorStateMatcher]="errorStateMatcher"
+    [placeholder]="placeholder"
+    (selectionChange)="selectEvent.emit($event)"
+  >
+    <mat-option *ngFor="let option of options" [value]="option.value" [disabled]="option?.disabled"
+      >{{option?.text}}</mat-option
+    >
+  </mat-select>
+
+  <mat-icon class="ax-input-icon" matSuffix>expand_more</mat-icon>
+
+  <mat-hint>
+    <ax-input-hint [message]="hintMessage"></ax-input-hint>
+  </mat-hint>
+
+  <mat-error
+    ><ax-input-error
+      [icon]="error?.icon"
+      [message]="error?.message"
+      [invalid]="control?.invalid"
+    ></ax-input-error
+  ></mat-error>
+</mat-form-field>

@@ -1,0 +1,20 @@
+{
+  "address_id": "4alpic6qm717p2y345zd",
+  "entity_id": "1yf18b79lnmnds0971tr",
+  "address_code": "Headquarters",
+  "address_line1": "1 AvidXChange Ln",
+  "address_line2": null,
+  "address_line3": null,
+  "address_line4": null,
+  "locality": "Charlotte",
+  "region": "NC",
+  "country": "US",
+  "postal_code": "28206",
+  "is_primary": true,
+  "address_type": "ShipTo",
+  "is_active": true,
+  "created_timestamp": "2023-07-03T15:50:58Z",
+  "created_by_user_id": "43c7gse0n12q2viuxrqu",
+  "last_modified_timestamp": "2023-07-03T15:50:58Z",
+  "last_modified_by_user_id": "l1ptq8btj2e9dqdel7ib"
+}

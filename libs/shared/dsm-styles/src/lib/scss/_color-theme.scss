@@ -1,0 +1,67 @@
+$dsm-primary: (
+  Main: #0574b0,
+  Light: #edf5fa,
+  Dark: #045d8d,
+  contrast: (
+    Main: #fff,
+    Light: #000,
+    Dark: #fff,
+  ),
+);
+
+$dsm-accent: (
+  Main: #0a8f6a,
+  Light: #d8f9f0,
+  Dark: #086b4f,
+  contrast: (
+    Main: #fff,
+    Light: #000,
+    Dark: #fff,
+  ),
+);
+
+$dsm-warn: (
+  Main: #a30000,
+  Light: #ffeded,
+  Dark: #840e0e,
+  contrast: (
+    Main: #fff,
+    Light: #000,
+    Dark: #fff,
+  ),
+);
+
+$dsm-orange: (
+  Main: #e46f09,
+  Light: #fff1e2,
+  contrast: (
+    Main: #fff,
+    Light: #000,
+  ),
+);
+
+$dsm-fill: (
+  Text: #212121,
+  Muted: #686e78,
+  MutedLight: #d0d3d7,
+  Hover: #f4f4f5,
+  White: #ffffff,
+  Shadow: #305667,
+  contrast: (
+    Text: #fff,
+    Muted: #fff,
+    MutedLight: #000,
+    Hover: #000,
+    White: #000,
+    Shadow: #fff,
+  ),
+);
+
+$dsm-disabled: (
+  DisabledText: #6c6c6c,
+  Disabled: #e2e4e6,
+  contrast: (
+    DisabledText: #000,
+    Disabled: #000,
+  ),
+);

@@ -1,0 +1,7 @@
+<section class="w-full bg-[#EEF1F4] flex flex-col items-center py-8">
+  <div class="p-6 mb-2 bg-surface-50"><mat-icon>account_balance</mat-icon></div>
+  <p id="emptyStateMessage" class="mb-4 font-graphikRegular text-base text-center text-grey-600">
+    {{message}}
+  </p>
+  <ax-button id="emptyStateAddBtn" (click)="btnClick.emit()">{{btnLabel}}</ax-button>
+</section>

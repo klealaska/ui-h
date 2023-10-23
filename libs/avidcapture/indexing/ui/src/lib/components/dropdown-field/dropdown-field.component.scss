@@ -1,0 +1,12 @@
+$red: #c32727;
+
+.confidence-text {
+  margin-top: -1em;
+}
+
+.errorValidationMessage {
+  padding-top: 0;
+  margin: 0;
+  color: $red;
+  margin-left: 0.313em;
+}

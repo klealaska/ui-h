@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "ax-lib",
+  "type": "object",
+  "properties": {
+    "directory": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "description": "Library name",
+      "enum": ["feature", "ui", "util", "data-access", "types"],
+      "default": "feature"
+    }
+  },
+  "required": ["directory", "type"]
+}

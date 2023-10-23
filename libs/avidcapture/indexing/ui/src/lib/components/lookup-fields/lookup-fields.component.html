@@ -1,0 +1,349 @@
+<div
+  class="xdc-header"
+  [ngClass]="{'turnOnHighlight': turnOnHighlight}"
+  [ngStyle]="{
+    cursor: !editMode && hasPointer ? 'pointer' : '',
+    'background-color': !meetsReadonlyThreshold ? field?.headerBackgroundColor : '#E0E1E1',
+    'box-shadow': meetsReadonlyThreshold ? 'none' : ''
+  }"
+  (click)="(!meetsReadonlyThreshold || (canEditPredictedValues && meetsReadonlyThreshold))? handleSingleClick() : null"
+  (dblclick)="(!meetsReadonlyThreshold || (canEditPredictedValues && meetsReadonlyThreshold))? handleDblClick() : null"
+  (mouseover)="!meetsReadonlyThreshold && labelHoverEvent.emit(field.key)"
+  (mouseout)="!meetsReadonlyThreshold && labelHoverEvent.emit('')"
+>
+  <xdc-document-field-label
+    class="pl-5 label"
+    [text]="!isValid? '*' + field.labelDisplayName : field.labelDisplayName"
+    [bold]="true"
+    [size]="'xxs'"
+    [textColor]="!meetsReadonlyThreshold ? field.headerTextColor : '#333333'"
+    [uppercase]="false"
+    [hasPointer]="hasPointer"
+    (mouseover)="!meetsReadonlyThreshold && labelHoverEvent.emit(field.key)"
+    (mouseout)="!meetsReadonlyThreshold &&  labelHoverEvent.emit(field.key)"
+  ></xdc-document-field-label>
+</div>
+
+<div #form_autocomplete>
+  <div
+    [id]="'edit-' + field?.htmlId"
+    [ngClass]="{
+      'input-fake-disabled': !fieldEnabled,
+      'edit-div': !isValid || field.value,
+      'edit-div-no-value': isValid && !field.value,
+      'loading-spinner': isLookupLoading && value,
+      'loading-spinner-no-value': isLookupLoading && !value,
+      'input-fake': !meetsReadonlyThreshold,
+      'input-readonly': meetsReadonlyThreshold
+    }"
+    *ngIf="!editMode"
+    (click)="(!meetsReadonlyThreshold || (canEditPredictedValues && meetsReadonlyThreshold))?handleInputClick() : null"
+  >
+    <div
+      [ngSwitch]="field.key"
+      *ngIf="value && meetsDisplayThreshold"
+      [id]="'label-value-' + field?.htmlId"
+      [ngClass]="'xdc-field-value'"
+    >
+      <div *ngSwitchCase="documentLabelKeys.lookupLabels.CustomerAccountNumber">
+        <p
+          class="no-word-break"
+          [ngStyle]="{
+            'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor
+        }"
+        >
+          {{value}}
+        </p>
+      </div>
+      <div *ngSwitchCase="documentLabelKeys.lookupLabels.Supplier">
+        <ng-template [ngIf]="supplierFieldValue">
+          <p
+            class="no-word-break"
+            [ngStyle]="{
+              'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor
+            }"
+          >
+            {{value.vendorName}}
+            <span *ngIf="value.vendorExternalSystemID">({{value.vendorExternalSystemID}})</span>
+          </p>
+          <p
+            class="no-word-break"
+            [ngStyle]="{
+              'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor
+            }"
+          >
+            {{value.line1}}
+          </p>
+          <p
+            *ngIf="value.line2"
+            class="no-word-break"
+            [ngStyle]="{
+              'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor
+            }"
+          >
+            {{value.line2}}
+          </p>
+          <p
+            *ngIf="value.city || value.state || value.postalCode"
+            class="no-word-break"
+            [ngStyle]="{
+              'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor
+            }"
+          >
+            {{value.city}}, {{value.state}} {{value.postalCode}}
+          </p>
+          <p
+            *ngIf="value.aliases"
+            class="no-word-break"
+            [ngStyle]="{
+              'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor,
+              'font-size': value.aliases.length > 100 ? '14px' : '16px'
+            }"
+          >
+            Alias: {{value.aliases}}
+          </p>
+        </ng-template>
+        <ng-template [ngIf]="!supplierFieldValue">
+          <p
+            class="no-word-break"
+            [ngStyle]="{
+              'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor
+            }"
+          >
+            {{value}}
+          </p>
+        </ng-template>
+      </div>
+      <div *ngSwitchCase="documentLabelKeys.lookupLabels.ShipToName">
+        <ng-template [ngIf]="shipToFieldValue">
+          <p
+            class="no-word-break"
+            [ngStyle]="{
+              'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor
+            }"
+          >
+            {{value.propertyName}}
+            <span *ngIf="value.propertyCode">({{value.propertyCode}})</span>
+          </p>
+          <p
+            class="no-word-break"
+            [ngStyle]="{
+              'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor
+            }"
+          >
+            {{value.line1}}
+          </p>
+          <p
+            *ngIf="value.line2"
+            class="no-word-break"
+            [ngStyle]="{
+              'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor
+            }"
+          >
+            {{value.line2}}
+          </p>
+          <p
+            class="no-word-break"
+            [ngStyle]="{
+              'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor
+            }"
+          >
+            {{value.city}}, {{value.state}} {{value.postalCode}}
+          </p>
+          <p
+            *ngIf="value.alias"
+            class="no-word-break"
+            [ngStyle]="{
+              'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor,
+              'font-size': value.alias.length > 100 ? '14px' : '16px'
+            }"
+          >
+            Alias: {{value.alias}}
+          </p>
+        </ng-template>
+        <ng-template [ngIf]="!shipToFieldValue">
+          <p
+            class="no-word-break"
+            [ngStyle]="{
+              'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor
+            }"
+          >
+            {{value}}
+          </p>
+        </ng-template>
+      </div>
+      <div *ngSwitchCase="documentLabelKeys.lookupLabels.OrderedBy">
+        <ng-template [ngIf]="orderedByFieldValue">
+          <p
+            class="no-word-break"
+            [ngStyle]="{
+            'color': !meetsReadonlyThreshold ? labelTextColor : readOnlyColor
+          }"
+          >
+            {{value.firstName}} {{value.lastName}}
+          </p>
+        </ng-template>
+        <ng-template [ngIf]="!orderedByFieldValue">
+          <p class="no-word-break">{{value}}</p>
+        </ng-template>
+      </div>
+      <div *ngSwitchCase="documentLabelKeys.lookupLabels.Workflow">
+        <ng-template [ngIf]="workflowFieldValue">
+          <p>{{value.name}}</p>
+        </ng-template>
+        <ng-template [ngIf]="!workflowFieldValue">
+          <p class="no-word-break">{{value}}</p>
+        </ng-template>
+      </div>
+    </div>
+
+    <button
+      *ngIf="meetsReadonlyThreshold"
+      class="edit-button pt-4"
+      mat-icon-button
+      [id]="'edit-' + field?.htmlId"
+      [disableRipple]="true"
+      (click)="!meetsReadonlyThreshold? edit() : null"
+      [color]="'primary'"
+    ></button>
+    <xdc-loading-spinner *ngIf="isLookupLoading"></xdc-loading-spinner>
+  </div>
+  <p *ngIf="!isValid && !editMode" [class.errorValidationMessage]="!isValid">Required</p>
+
+  <div *ngIf="editMode" [formGroup]="formGroupInstance">
+    <mat-form-field class="field" [appearance]="'outline'">
+      <div class="row">
+        <input
+          class="input lookup-field-input"
+          type="text"
+          matInput
+          #input
+          [id]="'input-' + field.htmlId"
+          [formControlName]="field.key"
+          [matAutocomplete]="auto"
+          [attr.maxlength]="fieldCharacterLimit"
+          (focusout)="focusOut()"
+          (keyup.arrowdown)="loadLookup(field.key)"
+          (keyup.enter)="optionSelected($event.option.value)"
+        />
+        <xdc-loading-spinner *ngIf="isLookupLoading"></xdc-loading-spinner>
+        <mat-icon *ngIf="!isLookupLoading" class="icon-clear" matSuffix (click)="clearFormValue()"
+          >{{'xdc.indexing.close-label' | translate }}</mat-icon
+        >
+      </div>
+      <mat-autocomplete
+        [panelWidth]="'27.580em'"
+        class="{{field.key === documentLabelKeys.lookupLabels.CustomerAccountNumber ? 'customer-account-numbers-list': ''}}"
+        [displayWith]="displayValue"
+        (opened)="autocompleteOpened()"
+        (closed)="autocompleteClosed()"
+        (optionSelected)="optionSelected($event.option.value)"
+        #auto="matAutocomplete"
+      >
+        <ng-template [ngIf]="field.key === documentLabelKeys.lookupLabels.CustomerAccountNumber">
+          <mat-option disabled *ngIf="customerAccounts?.length === 0">
+            {{noResultsText}}
+          </mat-option>
+          <mat-optgroup>
+            <span class="result-count">{{getResultsCountLabel(customerAccounts?.length)}}</span>
+            <mat-option
+              *ngFor="let option of customerAccounts"
+              [value]="option"
+              [disabled]="!option.isActive"
+            >
+              <p class="no-word-break">
+                {{option.accountNo}}
+
+                <span *ngIf="option.propertyName && option.propertyId > 0"
+                  >({{option.propertyName}})</span
+                >
+              </p>
+            </mat-option>
+          </mat-optgroup>
+          <mat-option *ngIf="canCreateAccount" class="account" (click)="openCreateAccountModal()">
+            <mat-icon>add</mat-icon>
+            <span class="link" [id]="'create-new-account'"
+              >{{'xdc.indexing.create-new-account-label' | translate }}</span
+            >
+          </mat-option>
+        </ng-template>
+        <ng-template
+          [ngIf]="field.key === documentLabelKeys.lookupLabels.Supplier || field.key === documentLabelKeys.lookupLabels.SupplierAddress"
+        >
+          <mat-optgroup>
+            <span class="result-count">{{getResultsCountLabel(suppliers?.length)}}</span>
+            <mat-option disabled *ngIf="suppliers?.length === 0"> {{noResultsText}} </mat-option>
+            <mat-option *ngFor="let option of suppliers" [value]="option" multiline>
+              <p class="no-word-break">
+                {{option.vendorName}}
+                <span *ngIf="option.vendorExternalSystemID"
+                  >({{option.vendorExternalSystemID}})</span
+                >
+              </p>
+              <p class="no-word-break">{{option.line1}}</p>
+              <p *ngIf="option.line2" class="no-word-break">{{option.line2}}</p>
+              <p class="no-word-break">{{option.city}}, {{option.state}} {{option.postalCode}}</p>
+              <p *ngIf="option.aliases" class="no-word-break">Alias: {{option.aliases}}</p>
+            </mat-option>
+          </mat-optgroup>
+        </ng-template>
+
+        <ng-template
+          [ngIf]="field.key === documentLabelKeys.lookupLabels.ShipToName || field.key === documentLabelKeys.lookupLabels.ShipToAddress"
+        >
+          <mat-optgroup>
+            <span class="result-count">{{getResultsCountLabel(properties?.length)}}</span>
+            <mat-option disabled *ngIf="properties?.length === 0"> {{noResultsText}} </mat-option>
+            <mat-option *ngFor="let option of properties" [value]="option">
+              <p class="no-word-break">
+                {{option.propertyName}}
+                <span *ngIf="option.propertyCode">({{option.propertyCode}})</span>
+              </p>
+              <p class="no-word-break">{{option.line1}}</p>
+              <p *ngIf="option.line2" class="no-word-break">{{option.line2}}</p>
+              <p class="no-word-break">{{option.city}}, {{option.state}} {{option.postalCode}}</p>
+              <p *ngIf="option.alias" class="no-word-break">Alias: {{option.alias}}</p>
+            </mat-option>
+          </mat-optgroup>
+        </ng-template>
+
+        <ng-template [ngIf]="field.key === documentLabelKeys.lookupLabels.OrderedBy">
+          <mat-optgroup>
+            <span class="result-count">{{getResultsCountLabel(orderedBy?.length)}}</span>
+            <mat-option disabled *ngIf="orderedBy?.length === 0"> {{noResultsText}} </mat-option>
+            <mat-option *ngFor="let option of orderedBy" [value]="option" multiline>
+              <p class="no-word-break">{{option.firstName}} {{option.lastName}}</p>
+              <p class="no-word-break">{{option.email}}</p>
+            </mat-option>
+          </mat-optgroup>
+        </ng-template>
+
+        <ng-template [ngIf]="field.key === documentLabelKeys.lookupLabels.Workflow">
+          <mat-optgroup>
+            <span class="result-count">{{getResultsCountLabel(workflow?.length)}}</span>
+            <mat-option disabled *ngIf="workflow?.length === 0"> {{noResultsText}} </mat-option>
+            <mat-option *ngFor="let option of workflow" [value]="option" multiline>
+              <p class="no-word-break">{{option.name}}</p>
+            </mat-option>
+          </mat-optgroup>
+        </ng-template>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-error
+      *ngIf="!isValid && (field?.value === '' || field?.value === undefined)"
+      [class.error]="!isValid"
+    >
+      {{'xdc.indexing.required-label' | translate }}
+    </mat-error>
+  </div>
+</div>
+
+<!-- <div class="xdc-field-value pt-7" *ngIf="!editMode && meetsDisplayThreshold">
+  <xdc-document-field-label
+    [bold]="true"
+    [text]="'Confidence: ' + confidence + '%'"
+    [textColor]="confidenceColor"
+    [size]="'xxs'"
+    [italics]="true"
+  ></xdc-document-field-label>
+</div> -->

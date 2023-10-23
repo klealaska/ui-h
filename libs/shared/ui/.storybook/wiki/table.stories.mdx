@@ -1,0 +1,214 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import Table from '../assets/table.png';
+
+<Meta title="Wiki/Table" />
+
+# **Overview**
+
+Tables are used to structure and display content logically so users can clearly see relationships between data. Using tables also helps users quickly scan content and determine relevant data with ease. The Table component provides a dynamic data-table that can be used to display rows of data.
+
+## Example Table
+
+<img src={Table} alt="Table" />
+
+# **Specifications**
+
+Read through the below sections to create and implement a dynamic table component.
+
+## Usage
+
+The `<ax-dynamic-table></ax-dynamic-table>` component takes `dataSource` and `columnDefs`
+
+1. Create two properties in the ts file to pass into the dynamic table.
+
+```
+dataSource: MatTableDataSource<TableDataType>;
+
+TableDef: TableColumnDef[];
+```
+
+2. In the constructor, add your table service.
+
+`constructor(private tableSvc: TableService) {}`
+
+3. In the `ngOnInit` function, change the value of the `dataSource` and `TableDef` properties to the data you’re getting from the service.
+
+```
+ngOnInit() {
+
+    this.TableDef = this.tableSvc.buildTableColumDef();
+
+    this.dataSource = new MatTableDataSource(this.tableSvc.returnTableData());
+
+  }
+```
+
+Follow this path in the monorepo to find a working example: `dsm-theme/src/app/components/dsm-table`
+
+## Configuration
+
+### Table Data
+
+1. Create a function that will return all of the table's data.
+
+```
+returnTableData(): TableDataType[] {
+
+    return []
+
+  }
+```
+
+2. In the `return` array, inject all the data into separate objects.  
+   Properties specific to the table are: `isExpandable`, `isExpanded`, `mobileView`, and `component`
+
+   - `isExpandable` is a Boolean that, if set to true, will allow the row to expand on the desktop view
+
+   - `isExpanded` is a Boolean that, if set to true, will by default set that row's expanded data to be open
+
+   - `mobileView` has a boolean `doubleColumnTop` property and, if set to true on the mobile display, the double row element will be set on top of the single row element.
+
+   - `component` has `type: ‘component’` and `value`. `value` has two properties: `type` and `inputs`. The `type` is set to the component you want to put in the expandable area. Inputs allows you to get all the data from the parent object and pass it into this component.
+
+```
+{
+
+        position: 1,
+
+        name: 'Hydrogen',
+
+        weight: 1.0079,
+
+        symbol: 'H',
+
+        href: 'https://www.google.com/',
+
+        isExpandable: true,
+
+        isExpanded: true,
+
+        mobileView: {
+
+          doubleColumnTop: true,
+
+        },
+
+        component: {
+
+          type: 'component',
+
+          value: {
+
+            type: DynamicComponent,
+
+            inputs: (element: TableDataType) => {
+
+              return { element };
+
+            },
+
+          },
+
+        },
+
+      },
+```
+
+##Column Definitions
+To set up column definitions, first create a function to build the table:
+
+`buildTableColumnDef(): TableColumnDef[] {}`
+
+This function should hold three variables:
+
+**The first variable** to add is `columnDef`, which will hold all the column definitions to associate them with the correct data in the table.
+
+- To use the multi select or single select functionality on the table you will need to add either `‘multiSelect’` or `‘singleSelect’`
+
+- To use expandable rows, you will need to add `‘action’`
+
+```
+columnDef: string[] = [
+‘multiSelect’,
+‘position’,
+‘action’]
+```
+
+**The second variable** to add is `headerCellDef`, which will display the column header text in your table.
+
+- If using `‘multiSelect’`, `‘singleSelect’`, or `‘action’` , leave the corresponding position of the `columnDef` as an empty string.
+
+```
+headerCellDef: string[] = [
+‘’,
+‘No.’,
+
+‘’]
+```
+
+**The third variable** to add is `cellDef`, which will populate all the data in the table columns. The `cellDef` must correspond to the correct position of the `columnDef`. To do this, create an array of objects. In those objects are: `type`, `value`, and `mobileView`
+
+- `type` is set to what type of content you're populating it with.
+
+- `value` is a function that gets the correct value of the element.
+
+- `mobileView` is set to `1`, `2`, `3`, or `4` and determines the position of that column on the mobile view. If you have more than `4` columns, the mobile card will populate them in a dropdown.
+
+- If using `‘multiSelect’`, `‘singleSelect’`, or `‘action’`, leave the `type: ‘text’` and `value: ‘’`
+
+```
+cellDef: CellDef[] = [
+{ type: ‘text’, value: ‘’},
+{ type: ‘text’, value: (element: TableDataType) => element.position },
+{ type: ‘text’, value: ‘’}
+]
+```
+
+If you want to add a dynamic component to the column, set the `type: ‘component’` and create the value as an object with two properties: `type` and `inputs`
+
+- `type` will be set to the component you want to inject into the table
+- `inputs` is set to a generic function that returns the 'element' (object of data for that row)
+
+```
+{
+
+        type: 'component',
+
+        value: {
+
+          type: ColumnButtonComponent,
+
+          inputs: (element: TableDataType) => {
+
+            return { element };
+
+          },
+
+        },
+```
+
+Lastly, map the `columnDef` and `return` and object with: `columnDef`, `headerCellDef`, and `cellDef`
+
+```
+return columnDef.map((columnDef, index) => {
+
+      return {
+
+        columnDef: columnDef,
+
+        headerCellDef: headerCellDef[index],
+
+        cellDef: cellDef[index],
+
+      };
+
+    });
+```
+
+# **Additional Accessibility Requirements**
+
+These requirements will be added in a later update.
+
+# **Angular Material**
+
+There is no documentation in Angular Material for the dynamic Table component, as it was explicitly created for AvidXchange use. All specifications and accessibility requirements are in this section of the User Interface Center of Excellence Wiki.

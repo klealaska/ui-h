@@ -1,0 +1,95 @@
+<ng-template [ngIf]="multiLineText.length > 0">
+  <div class="row">
+    <ax-image
+      *ngIf="image && params?.colDef.colId === 'lockedBy'"
+      class="cell-image"
+      [ngClass]="{
+        hide: !showLockImage
+      }"
+      [image]="image"
+      [matTooltip]="tooltipText"
+      matTooltipPosition="above"
+      matTooltipClass="ax-tooltip"
+      #tooltip="matTooltip"
+      (click)="tooltip.toggle()"
+    >
+    </ax-image>
+    <ax-image
+      *ngIf="image && params?.colDef.colId !== 'lockedBy'"
+      ngClass="cell-image"
+      [image]="image"
+      [matTooltip]="tooltipText"
+      matTooltipPosition="above"
+      matTooltipClass="ax-tooltip"
+      #tooltip="matTooltip"
+      (click)="tooltip.toggle()"
+    >
+    </ax-image>
+    <div class="col">
+      <ng-template ngFor let-textCell [ngForOf]="multiLineText">
+        <ax-label
+          *ngIf="textCell.valueGetter(params)"
+          [bold]="textCell.bold"
+          [size]="textCell.size"
+          [text]="textCell.valueGetter(params)"
+          [textColor]="textCell.color"
+          [uppercase]="false"
+        >
+        </ax-label>
+      </ng-template>
+    </div>
+  </div>
+</ng-template>
+<ng-template [ngIf]="multiLineText.length === 0">
+  <ax-image
+    *ngIf="image && params?.colDef.colId === 'lockedBy'"
+    class="cell-image"
+    [ngClass]="{
+      hide: !showLockImage
+    }"
+    [image]="image"
+    [matTooltip]="tooltipText"
+    matTooltipPosition="above"
+    matTooltipClass="ax-tooltip"
+    #tooltip="matTooltip"
+    (click)="tooltip.toggle()"
+  >
+  </ax-image>
+  <ax-image
+    *ngIf="image && params?.colDef.colId !== 'lockedBy'"
+    ngClass="cell-image"
+    [image]="image"
+    [matTooltip]="tooltipText"
+    matTooltipPosition="above"
+    matTooltipClass="ax-tooltip"
+    #tooltip="matTooltip"
+    (click)="tooltip.toggle()"
+  >
+  </ax-image>
+
+  <ax-label
+    ngClass="cell-text"
+    *ngIf="image && text"
+    [bold]="textBold"
+    [size]="textSize"
+    [text]="text"
+    [textColor]="textColor"
+    [uppercase]="false"
+  >
+  </ax-label>
+
+  <ax-link
+    *ngIf="linkText"
+    [text]="linkText"
+    [bold]="linkBold"
+    [size]="linkSize"
+    [isLocked]="linkIsLocked"
+    (linkClick)="onClickLink()"
+    [matTooltip]="tooltipText"
+    matTooltipPosition="above"
+    matTooltipClass="ax-tooltip"
+    #tooltip="matTooltip"
+    (click)="tooltip.toggle()"
+  >
+  </ax-link>
+</ng-template>

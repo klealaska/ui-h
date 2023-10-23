@@ -1,0 +1,18 @@
+{
+    "bindings": [
+        {
+            "type": "webPubSubTrigger",
+            "direction": "in",
+            "name": "data",
+            "hub": "payui_payment_validation",
+            "eventName": "message",
+            "eventType": "user"
+        },
+        {
+            "type": "webPubSub",
+            "name": "actions",
+            "hub": "payui_payment_validation",
+            "direction": "out"
+        }
+    ]
+}

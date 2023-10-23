@@ -1,0 +1,35 @@
+@use 'dsm-theme' as *;
+@use 'color-theme' as *;
+
+.mat-paginator-page-size-label,
+.mat-paginator-range-label {
+  color: mat-color($dsm-fill, Text);
+}
+
+mat-paginator {
+  background: transparent !important;
+}
+
+mat-paginator .mat-mdc-paginator-page-size-select {
+  margin: 0 0.25rem;
+}
+
+mat-paginator .mat-form-field-infix {
+  border: none;
+  padding: 0;
+  width: auto;
+}
+
+mat-paginator .mat-mdc-select-value {
+  max-width: none;
+}
+
+mat-paginator .mat-mdc-paginator-navigation-previous:hover,
+mat-paginator .mat-mdc-paginator-navigation-next:hover {
+  background-color: mat-color($dsm-fill, Hover);
+}
+
+mat-paginator .mat-mdc-paginator-navigation-previous.mat-unthemed:hover,
+mat-paginator .mat-mdc-paginator-navigation-next.mat-unthemed:hover {
+  background-color: transparent;
+}

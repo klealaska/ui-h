@@ -1,0 +1,208 @@
+@use '../../scss/color-variables' as *;
+
+@mixin icon-size($fontSize) {
+  font-size: $fontSize;
+  height: $fontSize;
+  width: $fontSize;
+}
+
+:host {
+  display: inline-block;
+  .fixed-width {
+    width: 156px;
+  }
+}
+
+.ax-button {
+  font-family: theme('fontFamily.interMedium');
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  height: 40px;
+  padding: 0px 16px;
+  border-radius: 4px;
+  width: 100%;
+  &.size-md {
+    height: 32px;
+    font-size: 14px;
+    padding: 0px 16px;
+  }
+  &.size-sm {
+    height: 28px;
+    font-size: 12px;
+    padding: 0px 16px;
+  }
+
+  &:focus-visible {
+    outline-offset: 2px;
+    outline: solid $focused500 2px;
+  }
+}
+
+// Icon Button
+.ax-button.icon-button {
+  padding: 0 !important;
+  width: 40px;
+  &.size-md {
+    width: 32px;
+  }
+  &.size-sm {
+    width: 28px;
+  }
+}
+
+// Left Icon
+::ng-deep.left-icon-button .mat-icon {
+  margin-right: 8px;
+}
+
+// Right Icon
+::ng-deep.right-icon-button .mat-icon {
+  margin-left: 8px;
+}
+
+// Icon Size
+::ng-deep.ax-button {
+  .material-icons {
+    @include icon-size(24px);
+  }
+
+  &.size-md {
+    .material-icons {
+      @include icon-size(20px);
+    }
+  }
+  &.size-sm {
+    .material-icons {
+      @include icon-size(16px);
+    }
+  }
+}
+
+@mixin type-primary-color($default, $hover, $active) {
+  background-color: $default;
+  &:hover {
+    background-color: $hover;
+  }
+  &:active {
+    background-color: $active;
+  }
+}
+
+@mixin type-secondary-color($default, $default-bg, $hover, $hover-bg, $active, $active-bg) {
+  color: $default;
+  background: $default-bg;
+  border: solid 1px $default;
+  &:hover {
+    color: $hover;
+    background-color: $hover-bg;
+    border: solid 1px $hover;
+  }
+  &:active {
+    color: $active;
+    background-color: $active-bg;
+    border: solid 1px $active;
+  }
+}
+
+@mixin type-tertiary-color($default, $hover, $hover-bg, $active, $active-bg) {
+  background: transparent;
+  color: $default;
+  &:hover {
+    color: $hover;
+    background-color: $hover-bg;
+  }
+  &:active {
+    color: $active;
+    background-color: $active-bg;
+  }
+}
+
+.type-primary {
+  color: $white;
+
+  &.color-default {
+    @include type-primary-color($interactive700, $interactive800, $interactive900);
+  }
+  &.color-critical {
+    @include type-primary-color($critical600, $critical700, $critical800);
+  }
+  &.color-neutral {
+    @include type-primary-color($grey700, $grey800, $grey900);
+  }
+}
+
+.type-secondary {
+  padding: 0px 15px;
+  background-color: $white;
+
+  &.size-md {
+    padding: 0px 15px;
+  }
+
+  &.size-sm {
+    padding: 0px 15px;
+  }
+
+  &.color-default {
+    @include type-secondary-color(
+      $interactive700,
+      $white,
+      $interactive800,
+      $interactive50,
+      $interactive900,
+      $interactive100
+    );
+  }
+  &.color-critical {
+    @include type-secondary-color(
+      $critical600,
+      $critical50,
+      $critical700,
+      $critical100,
+      $critical800,
+      $critical200
+    );
+  }
+  &.color-neutral {
+    @include type-secondary-color($grey800, $white, $grey800, $surface50, $grey800, $surface100);
+  }
+
+  &:disabled {
+    border: solid $grey50 1px;
+  }
+}
+
+.type-tertiary {
+  background-color: $white;
+
+  &.color-default {
+    @include type-tertiary-color(
+      $interactive700,
+      $interactive800,
+      $interactive50,
+      $interactive900,
+      $interactive100
+    );
+  }
+  &.color-critical {
+    @include type-tertiary-color(
+      $critical600,
+      $critical700,
+      $critical100,
+      $critical800,
+      $critical200
+    );
+  }
+  &.color-neutral {
+    @include type-tertiary-color($grey800, $grey800, $surface50, $grey800, $surface100);
+  }
+}
+
+// Disabled
+.ax-button:disabled {
+  color: $grey600;
+  background-color: $grey50;
+}

@@ -1,0 +1,44 @@
+trigger: none
+
+#####################################
+# Use app specific variables template
+#####################################
+variables:
+  - template: './variables/common.yml'
+
+#####################################
+#      DO NOT EDIT BELOW HERE       #
+#####################################
+# Location to reference a container, where the stages will be run
+resources:
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+pool:
+  name: linux-vmss-agent-pool
+
+stages:
+  - template: './templates/purge-cache.yml'
+    parameters:
+      stages:
+        - stage:
+          environment: dv
+          serviceConnection: $(nonProdServiceConnection)
+
+        - stage:
+          environment: ci
+          serviceConnection: $(nonProdServiceConnection)
+
+        - stage:
+          environment: qa
+          serviceConnection: $(nonProdServiceConnection)
+
+        - stage:
+          environment: st
+          serviceConnection: $(prodServiceConnection)
+
+        - stage:
+          environment: pr
+          serviceConnection: $(prodServiceConnection)

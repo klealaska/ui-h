@@ -1,0 +1,79 @@
+{
+  "managePageTitle": "Business Hierarchy",
+  "defaultDetailsPage": {
+    "title": "Your framework",
+    "details": "<p class='{{ fontFamily }}'>Your business is distributed along a multilevel framework.</p> <p class='{{ fontFamily }}'>Each level holds objects that serve as the building blocks of your business.</p>",
+    "listItem": "Select any level to view details and take action.",
+    "createLevelText": "Create level ",
+    "listItemTwo": "to add another layer at the bottom of your framework.",
+    "createObjectText": "Create Object ",
+    "listItemThree":"to add an item to a level.",
+    "backBtn": "Back",
+    "organizationsTitle": "Organizations",
+    "erpsTitle":"ERPs",
+    "intructionsTitle": "Select an organization and ERP to view hierarchy and details."
+    ,"viewHierBtnText": "View hierarchy"
+  },
+  "detailsPage": {
+    "subtitle": "Select {{ entityNameSingular }} to view details.",
+    "deactivateText": "Deactivate",
+    "reactivateText": "Reactivate",
+    "deactivateMessage": "This item will be inactive and can no longer be used for processing payments, receiving invoices, or managing user roles and permissions.",
+    "reactivateMessage": "This item will be active",
+    "saveBtnText": "Save",
+    "cancelBtnText": "Cancel",
+    "editBtnText": "Edit",
+    "requiredErrorMessage": "is Required",
+    "maxLengthErrorMessage": "max 20 characters",
+    "toaster": {
+      "activate": {
+        "success": "{{ name }} reactivated",
+        "error": "{{ name }} activation failed"
+      },
+      "deactivate": {
+        "success": "{{ name }} deactivated",
+        "error": "{{ name }} deactivation failed"
+      }
+    },
+    "addressSection": {
+      "titleText": "Addresses",
+      "shipToText": "Ship to",
+      "billToText": "Bill to",
+      "addAddressButonText": "Add address",
+      "deactivateButtonText": "Deactivate",
+      "activateButtonText": "Reactivate",
+      "activeAddressText": "Active",
+      "inactiveAddressText": "Inactive",
+      "deactiveWarningModalBodyText": "{{ address }} will be inactive.",
+      "deactiveWarningModalTitleText": "Deactivate address",
+      "reActiveWarningModalBodyText": "{{ address }} will be active.",
+      "reActiveWarningModalTitleText": "Reactivate address",
+      "activateAddressSuccessToastMessageText": "Address has been activated.",
+      "activateAddressFailureToastMessageText": "Address activation failed",
+      "deactivateAddressSuccessToastMessageText": "Address has been deactivated.",
+      "deactivateAddressFailureToastMessageText": "Address deactivation failed.",
+      "editAddressSuccessToastMessageText": "Address saved.",
+      "editAddressFailureToastMessageText": "Address edit failed.",
+      "sideSheetEditAddressTitleText": "Edit Address",
+      "sideSheetEditAddressSaveButtonText": "Save",
+      "sideSheetEditAddressCancelButtonText": "Cancel"
+    }
+  },
+  "businessLevelRename": {
+    "requiredErrorMessage": "Enter the {{ fieldName }} name for the Business Level",
+    "toaster": {
+      "success": "Changes Saved",
+      "error": "Error! Changes Not Saved"
+    }
+  },
+  "entityDetails": {
+    "toaster": {
+      "edit": {
+        "title": {
+          "success": "Changes Saved",
+          "error": "Error! Changes Not Saved"
+        }
+      }
+    }
+  }
+}

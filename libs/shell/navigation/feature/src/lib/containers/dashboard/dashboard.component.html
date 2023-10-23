@@ -1,0 +1,8 @@
+<div class="container">
+  <h1 class="text-center">Apps Available</h1>
+
+  <div *ngFor="let app of content$ | async" class="align-center card" (click)="route(app.route)">
+    <h2>{{app.displayName}}</h2>
+    <p>{{app.description}}</p>
+  </div>
+</div>

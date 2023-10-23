@@ -1,0 +1,68 @@
+form {
+  width: 920px;
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .separator {
+    margin: 10px 0 20px 0;
+  }
+
+  h4 {
+    margin: 0;
+  }
+
+  .schedule-frequency {
+    display: flex;
+
+    .frequency {
+      .frequency-radio-group {
+        display: flex;
+        flex-direction: column;
+        .frequency-radio-button {
+          margin: 5px;
+        }
+      }
+    }
+
+    .start-date {
+      .date-options > mat-form-field {
+        margin: 0px 20px;
+      }
+
+      .date-input {
+        width: 180px;
+      }
+      .hour-input {
+        width: 100px;
+      }
+      .time-zone-input {
+        width: 300px;
+      }
+
+      .days {
+        margin: 10px 0;
+      }
+    }
+
+    .frequency-options {
+      margin: 0 20px;
+    }
+  }
+
+  .schedule-duration {
+    .hours-select {
+      margin: 0 20px;
+    }
+  }
+
+  .schedule-data-types {
+    .operation-types-list {
+      margin: 15px 0;
+    }
+  }
+
+  .schedule-check-box {
+    margin-right: 25px;
+  }
+}

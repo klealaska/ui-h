@@ -1,0 +1,18 @@
+is_production = true
+
+capability = {
+  name   = "<%= domain %>"
+  abbrev = "<%= domain.replace(/-/g, "").substring(0,7) %>"
+}
+
+domain = {
+  name   = "uicoe"
+  abbrev = "uicoe"
+}
+
+keyVault_Domain = {
+  name   = "User-Interface-Center-of-Excellence"
+  abbrev = "UICoE"
+}
+
+location = "eastus"

@@ -1,0 +1,19 @@
+<mat-card class="mt-6">
+  <div class="flex">
+    <mat-card-header>
+      <mat-card-title class="font-['inter-semibold']"> {{ title }}</mat-card-title>
+      <mat-card-subtitle class="flex-grow pl-7">{{ text }}</mat-card-subtitle>
+    </mat-card-header>
+  </div>
+  <mat-card-content>
+    <ng-container *ngFor="let productEntitlement of productEntitlements">
+      <ax-checkbox
+        data-cy="product-entitlement-data"
+        label="{{productEntitlement.name}}"
+        (checkedChange)="productEntitlementChecked.emit(productEntitlement.id)"
+        [disabled]="productEntitlement.isDisabled"
+        [checked]="productEntitlement.isDisabled"
+      ></ax-checkbox>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

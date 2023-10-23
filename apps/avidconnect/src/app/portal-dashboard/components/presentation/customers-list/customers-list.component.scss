@@ -1,0 +1,66 @@
+@use '../../../../../styles/colors' as *;
+
+.select-filter {
+  width: 15px;
+  ::ng-deep.mat-mdc-select-value {
+    // Hides mat-select text
+    text-indent: 100%;
+  }
+}
+
+::ng-deep.cdk-overlay-pane {
+  width: auto !important;
+  .select-filter-panel {
+    padding: 0 !important;
+    .mat-mdc-option {
+      font-size: 14px !important;
+      height: 42px;
+      min-height: 42px;
+      line-height: 42px;
+    }
+    .mat-pseudo-checkbox {
+      margin-right: 8px;
+    }
+
+    .mdc-list-item--selected .mdc-list-item__primary-text,
+    .mdc-list-item--activated .mdc-list-item__primary-text {
+      color: #000000ed;
+    }
+  }
+}
+
+.header-sort {
+  display: inline-block;
+}
+
+.mat-column-name {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 20% !important;
+  width: 20% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-externalKey {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 20% !important;
+  width: 20% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}

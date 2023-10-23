@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import Snackbar from '../assets/snackbar.png';
+
+<Meta title="Wiki/Snackbar" />
+
+# **Overview**
+
+`MatSnackBar` is a service for displaying snack-bar notifications.
+
+<img src={Snackbar} alt="Snackbar" />
+
+# **Additional Specifications**
+
+Building the Snackbar
+
+1. First, you will need to import the ui-coe shared components module into your project's `app.module.ts` file. (Make sure to add it to the `imports` array as well.)
+
+   `import { SharedComponentsModule } from '@ui-coe/shared-components’;`
+
+2. In the component where you're using the snackbar, import and use the interface `Snackbar` and the `SnackbarComponent`.
+
+   `import { SnackbarComponent, Snackbar } from '@ui-coe/shared-components’;`
+
+3. Add `private _snackBar: MatSnackbar` into your constructor.
+
+   `constructor(private _snackBar: MatSnackBar) {}`
+
+4. You can pass the custom component into the snackbar by using the `OpenFromComponent` method.
+   `this._snackBar.openFromComponent(SnackbarComponent);`
+
+5. Make sure you pass in your data with the `data` property. In this example, were saving all the data to the `message` variable and using the type `Snackbar` interface.
+
+`message: Snackbar = { title: 'This is a Title!' message: 'This is a message', url:'#', type: 'success' };`
+`snackbar.openFromComponent(MessageArchivedComponent, { data: message });`
+
+# Snackbar Interface
+
+- In this interface, there are five properties: `title`, `message`, `url`, `type`, and `icon`
+- `message` and `type` are **required**
+- `title` and `url` are optional
+- `type` can be one of six options: `standard`, `success`, `warning`, `error`, `product-update`, and `finance-notification`
+  - The color and icon will change depending on the `type`
+  - `icon` is only used when `type` is set to `standard`
+
+# **Additional Accessibility Requirements**
+
+None
+
+# **Angular Material**
+
+Review Angular Material for current documentation on how to implement the Snackbar component.
+
+https://material.angular.io/components/snack-bar/overview

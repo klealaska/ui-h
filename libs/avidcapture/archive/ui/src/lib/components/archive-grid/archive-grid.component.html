@@ -1,0 +1,71 @@
+<ax-table
+  *ngIf="documents.length > 0"
+  tableType="default"
+  size="relaxed"
+  [displayedColumns]="displayedColumns"
+  [data]="documents"
+  [allowSort]="true"
+  [customTemplate]="true"
+  [customSort]="false"
+  [virtualScroll]="false"
+  [fixedColumns]="true"
+  [matSortActive]="'dateSubmitted'"
+  [matSortDirection]="'desc'"
+  (matSortChange)="columnSorted.emit($event)"
+  matSort
+>
+  <ng-container matColumnDef="fileName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="fileName">File name</th>
+    <td mat-cell *matCellDef="let row">
+      <ax-link [size]="'lg'">
+        <a [style]="'cursor: pointer'" (click)="openInvoiceEvent.emit(row)">{{ row.fileName }}</a>
+      </ax-link>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="invoiceNumber">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="invoiceNumber">Invoice #</th>
+    <td mat-cell *matCellDef="let row">
+      <ng-template [ngIf]="row.invoiceNumber !== 'none'"> {{ row.invoiceNumber }} </ng-template>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="supplier">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="supplier">Supplier</th>
+    <td mat-cell *matCellDef="let row">{{row.supplier}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="sourceEmail">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="sourceEmail">Sender email</th>
+    <td mat-cell *matCellDef="let row">
+      <ng-template [ngIf]="row.sourceEmail !== 'none'"> {{ row.sourceEmail }} </ng-template>
+    </td>
+  </ng-container>
+
+  <ng-template [ngIf]="canViewAllBuyers">
+    <ng-container matColumnDef="buyerName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="buyerName">Customer</th>
+      <td mat-cell *matCellDef="let row">{{ row.buyerName }}</td>
+    </ng-container>
+  </ng-template>
+
+  <ng-container matColumnDef="dateReceived">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="dateReceived">Delivery date</th>
+    <td mat-cell *matCellDef="let row">{{ row.dateReceived | dateMilli:'LL/dd/yy y hh:mma' }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="dateSubmitted">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="dateSubmitted">Submission</th>
+    <td mat-cell *matCellDef="let row">{{ row.dateSubmitted | dateMilli:'LL/dd/yy hh:mma' }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ingestionType">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header="ingestionType">Delivery method</th>
+    <td mat-cell *matCellDef="let row">
+      <ng-template [ngIf]="row.ingestionType.toLowerCase() !== 'api'">
+        {{ row.ingestionType | uppercaseWord }}
+      </ng-template>
+      <ng-template [ngIf]="row.ingestionType.toLowerCase() === 'api'"> User upload </ng-template>
+    </td>
+  </ng-container>
+</ax-table>

@@ -1,0 +1,26 @@
+<!--Step header HTML-->
+<div class="ax-step-header">
+  <div class="ax-step-counter">
+    <!-- Display Step count if icon is not given -->
+    <span *ngIf="!icon" class="ax-step-count"> {{ stepIndex + 1 }} </span>
+    <!-- Display Icon -->
+    <span *ngIf="icon" class="step-icon">
+      <mat-icon>{{icon}}</mat-icon>
+    </span>
+  </div>
+  <div class="ax-step-label-wrapper">
+    <!-- Step label heading -->
+    <!-- If there is a label template, use it. -->
+    <div class="label-title" *ngIf="_templateLabel()">
+      <ng-container [ngTemplateOutlet]="_templateLabel()!.template"></ng-container>
+    </div>
+    <!-- If there is no label template, fall back to the text label. -->
+    <div class="label-title" *ngIf="_stringLabel()">{{label}}</div>
+
+    <!-- Step label assistive text -->
+    <div class="label-text">{{subtitle}}</div>
+
+    <!-- Step progress status -->
+    <div class="label-status">{{status}}</div>
+  </div>
+</div>

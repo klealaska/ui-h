@@ -1,0 +1,76 @@
+$white: theme('colors.white');
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 0.5em;
+
+  &-no-filter {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1.25em 0;
+  }
+
+  &-chips {
+    display: flex;
+    margin: 1.25em 0 0.5em;
+    align-items: center;
+    padding-bottom: 5px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+  }
+}
+
+.chip {
+  background-color: theme('colors.interactive.700') !important;
+
+  &-list {
+    flex: 0 0 auto;
+  }
+}
+
+.white {
+  color: $white;
+}
+
+.filter {
+  width: 50%;
+}
+
+.button {
+  font-size: 1em;
+  height: 2.813em;
+
+  &-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1.5em;
+  }
+
+  &-filter {
+    width: 5.313em;
+
+    &-count {
+      margin-left: 2px;
+    }
+  }
+}
+
+.icon {
+  &-close {
+    color: $white !important;
+    opacity: 1;
+  }
+}
+
+.fake-chip {
+  height: var(--mdc-chip-container-height, 32px);
+  border-radius: var(--mdc-chip-container-shape-radius, 16px 16px 16px 16px);
+  border-color: theme('colors.interactive.700');
+
+  &-text {
+    color: theme('colors.interactive.700');
+  }
+}

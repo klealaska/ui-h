@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-unsorted</title>
+    <g id="icon-unsorted" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.5">
+        <g id="sort-arrows" transform="translate(5.000000, 3.000000)" fill="#333333" fill-rule="nonzero">
+            <polygon id="icon-arrow-up" points="9.09494702e-13 5 5 -9.32587341e-15 10 5"></polygon>
+            <polygon id="icon-arrow-up" transform="translate(5.000000, 10.500000) scale(1, -1) translate(-5.000000, -10.500000) " points="0 13 5 8 10 13"></polygon>
+        </g>
+    </g>
+</svg>

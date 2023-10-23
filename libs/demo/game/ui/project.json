@@ -1,0 +1,37 @@
+{
+  "name": "demo-game-ui",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/demo/game/ui/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "options": {
+        "tsConfig": "libs/demo/game/ui/tsconfig.lib.json",
+        "project": "libs/demo/game/ui/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/demo/game/ui/tsconfig.lib.prod.json"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/demo/game/ui/src/**/*.ts", "libs/demo/game/ui/src/**/*.html"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/demo/game/ui"],
+      "options": {
+        "jestConfig": "libs/demo/game/ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:ui", "scope:demo"]
+}

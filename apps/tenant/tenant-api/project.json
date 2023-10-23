@@ -1,0 +1,76 @@
+{
+  "name": "tenant-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/tenant/tenant-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/tenant/tenant-api",
+        "main": "apps/tenant/tenant-api/src/main.ts",
+        "tsConfig": "apps/tenant/tenant-api/tsconfig.app.json",
+        "assets": ["apps/tenant/tenant-api/src/assets"],
+        "generatePackageJson": true,
+        "target": "node",
+        "compiler": "tsc"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/tenant/tenant-api/src/environments/environment.ts",
+              "with": "apps/tenant/tenant-api/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "development": {},
+        "mock": {
+          "fileReplacements": [
+            {
+              "replace": "apps/tenant/tenant-api/src/environments/environment.ts",
+              "with": "apps/tenant/tenant-api/src/environments/environment.mock.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "tenant-api:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "tenant-api:build:production"
+        },
+        "development": {
+          "buildTarget": "tenant-api:build:development"
+        },
+        "mock": {
+          "buildTarget": "tenant-api:build:mock"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/tenant/tenant-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/tenant/tenant-api"],
+      "options": {
+        "jestConfig": "apps/tenant/tenant-api/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:api", "scope:tenant"]
+}

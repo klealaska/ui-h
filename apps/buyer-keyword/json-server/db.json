@@ -1,0 +1,26 @@
+{
+  "buyers": [
+    {
+      "id": "25",
+      "buyer": "AvidXchange, Inc.",
+      "keyword": "avid",
+      "keywordIsActive": true,
+      "bounceBackMessage": "This is a bounceback message.",
+      "bounceBackEmail": "example@avidxchange.com",
+      "sourceSystem": "Invoice",
+      "indexingSolution": "1",
+      "displayThreshold": 0.5
+    },
+    {
+      "id": "1000",
+      "buyer": "ABN Staffing",
+      "keyword": "abn",
+      "keywordIsActive": false,
+      "bounceBackMessage": "This is a bounceback message.",
+      "bounceBackEmail": "example@avidxchange.com",
+      "sourceSystem": "Utility",
+      "indexingSolution": "2",
+      "displayThreshold": 1
+    }
+  ]
+}

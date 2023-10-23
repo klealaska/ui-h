@@ -1,0 +1,87 @@
+#####################################
+# Use app specific variables template
+#####################################
+variables:
+  - template: './variables/common.yml'
+
+#####################################
+#      DO NOT EDIT BELOW HERE       #
+#####################################
+# Location to reference a container, where the stages will be run
+resources:
+  containers:
+    - container: cicd_devtools
+      image: axglbhubacr.azurecr.io/cicd-devtools:latest
+      endpoint: DefaultDockerRegistry
+      options: '--user root'
+
+pool:
+  name: linux-vmss-agent-pool
+
+# Calling the env-stage-template.yml file, and passing it variables established above, for each individual environment
+stages:
+  - template: '../templates/env-stage-template.yml'
+    parameters:
+      capability: $(capability)
+      domain: $(domain)
+      tfDirectory: $(System.DefaultWorkingDirectory)/tools/iac/frontdoor
+      stages:
+        - stage:
+          name: Dv
+          dependsOn: ''
+          varFile: '../../iac/frontdoor/variables/vars-dv.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          subscriptionId: $(nonProdSubscriptionId)
+        - stage:
+          name: Ci
+          dependsOn: 'dv_security_policy'
+          varFile: '../../iac/frontdoor/variables/vars-ci.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          subscriptionId: $(nonProdSubscriptionId)
+        - stage:
+          name: Qa
+          dependsOn: 'ci_security_policy'
+          varFile: '../../iac/frontdoor/variables/vars-qa.tfvars'
+          serviceConnection: $(nonProdServiceConnection)
+          subscriptionId: $(nonProdSubscriptionId)
+        - stage:
+          name: St
+          dependsOn: 'qa_security_policy'
+          varFile: '../../iac/frontdoor/variables/vars-st.tfvars'
+          serviceConnection: $(prodServiceConnection)
+          subscriptionId: $(prodSubscriptionId)
+        - stage:
+          name: Pr
+          dependsOn: 'st_security_policy'
+          varFile: '../../iac/frontdoor/variables/vars-pr.tfvars'
+          serviceConnection: $(prodServiceConnection)
+          subscriptionId: $(prodSubscriptionId)
+
+  - template: '../templates/fd-stage-template.yml'
+    parameters:
+      stages:
+        - stage:
+          name: dv_security_policy
+          environment: dv
+          dependsOn: Dv
+          serviceConnection: $(nonProdServiceConnection)
+        - stage:
+          name: ci_security_policy
+          environment: ci
+          dependsOn: Ci
+          serviceConnection: $(nonProdServiceConnection)
+        - stage:
+          name: qa_security_policy
+          environment: qa
+          dependsOn: Qa
+          serviceConnection: $(nonProdServiceConnection)
+        - stage:
+          name: st_security_policy
+          environment: st
+          dependsOn: St
+          serviceConnection: $(prodServiceConnection)
+        - stage:
+          name: pr_security_policy
+          environment: pr
+          dependsOn: Pr
+          serviceConnection: $(prodServiceConnection)

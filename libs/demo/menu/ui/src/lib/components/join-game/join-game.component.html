@@ -1,0 +1,39 @@
+<form *ngIf="joinGameForm" [formGroup]="joinGameForm">
+  <h2 class="margin-top-20">Join a Game</h2>
+
+  <ax-dynamic-table
+    [dataSource]="dataSource"
+    [columnDefs]="tableDef"
+    (buttonEvent)="tableSelect.emit($event)"
+  ></ax-dynamic-table>
+
+  <ax-input
+    data-cy="join-nickname-input"
+    [fixed]="true"
+    [label]="'User Name'"
+    [inputType]="'text'"
+    [placeholder]="'nickname'"
+    [control]="joinGameForm?.controls['nickname']"
+    [error]="{message:'nickname is required'}"
+  />
+
+  <ax-button
+    class="mt-[30px] ml-[30px]"
+    data-cy="join-game-btn"
+    [type]="'secondary'"
+    [fixed]="true"
+    (click)="joinGameEvent.emit()"
+    [disabled]="!joinGameForm.valid"
+    >Join Game</ax-button
+  >
+
+  <div style="margin-top: 30px" class="buttons-primary button-block">
+    <ax-button
+      data-cy="refresh-btn"
+      [type]="'secondary'"
+      [fixed]="true"
+      (click)="getGamesEvent.emit()"
+      >Refresh Games</ax-button
+    >
+  </div>
+</form>

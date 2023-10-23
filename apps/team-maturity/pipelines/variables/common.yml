@@ -1,0 +1,18 @@
+variables:
+  capability: team-maturity
+  capability_apim: apim
+  agentPool: linux-vmss-agent-pool
+  nonProdServiceConnection: User-Interface-Center-of-Excellence_AvidPay-Network-Experience_Np_AzDOSC_SP
+  nonProdSubscriptionId: '8f9290f9-f4dc-4be5-83e2-3c831b8d66ee'
+  prodServiceConnection: User-Interface-Center-of-Excellence_AvidPay-Network-Experience_Pr_AzDOSC_SP
+  prodSubscriptionId: '3b710983-1d1a-4f27-8ebb-20161ee798ff'
+  domain: uicoe
+  applicationName: 'teammaturityspa'
+  region1: 'eastus'
+  region2: 'westus'
+  appPath: 'team-maturity/team-maturity-spa'
+  appTag: team-maturity-spa
+  e2eName: team-maturity-spa-e2e
+  bffPath: 'apps/team-maturity/team-maturity-bff'
+  nonProdSharedApimSubscriptionId: 'fb7f642a-16cf-48a7-8161-58002441290d'
+  prodSharedApimSubscriptionId: 'f4d2e617-aaed-4636-a6b2-b030cf0dc847'

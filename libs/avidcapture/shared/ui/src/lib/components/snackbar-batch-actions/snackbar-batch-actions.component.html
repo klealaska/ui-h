@@ -1,0 +1,25 @@
+<div class="main-content">
+  <div class="row">
+    <div div class="row mr-60">
+      <div class="selected-text mr-15">{{ data.itemsSelected().length }} Selected</div>
+      <div class="button-link" (click)="close()">Clear</div>
+    </div>
+
+    <div class="button-container">
+      <button class="ax-button mr-15" (click)="deleteSelected()" data-cy="batch-delete-button">
+        Delete
+      </button>
+      <button
+        *ngIf="data.canDownloadPdf$ | async"
+        class="ax-button"
+        [disabled]="data.itemsSelected().length > 10"
+        [matTooltip]="data.itemsSelected().length > 10 ? 'You can only download 10 documents at one time.' : ''"
+        [matTooltipPosition]="'right'"
+        (click)="downloadSelected()"
+        data-cy="batch-download-button"
+      >
+        Download
+      </button>
+    </div>
+  </div>
+</div>

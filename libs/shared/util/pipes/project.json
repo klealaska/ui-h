@@ -1,0 +1,40 @@
+{
+  "name": "shared-util-pipes",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared/util/pipes/src",
+  "prefix": "ui-coe",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/shared/util/pipes"],
+      "options": {
+        "project": "libs/shared/util/pipes/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/util/pipes/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/shared/util/pipes/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/util/pipes"],
+      "options": {
+        "jestConfig": "libs/shared/util/pipes/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/shared/util/pipes/**/*.ts", "libs/shared/util/pipes/**/*.html"]
+      }
+    }
+  },
+  "tags": ["scope:shared", "type:util"]
+}

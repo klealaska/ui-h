@@ -1,0 +1,73 @@
+<section>
+  <ng-container *ngIf="account; else detailSkeleton">
+    <div class="details">
+      <div class="mb-4">
+        <ax-tag
+          [size]="'md'"
+          [type]="statusTagType"
+          [style]="'border'"
+          [text]="account.bankAccountStatus"
+        ></ax-tag>
+      </div>
+      <div class="mb-4">
+        <label class="accountNumberLabel font-interNormal text-sm">
+          {{content?.accountNumberLabel}}
+        </label>
+        <p class="accountNumber font-interMedium text-lg flex items-center">
+          <span class="accountNumberText mr-1"
+            >{{showUnmasked && unmaskedAccountNumber ? unmaskedAccountNumber :
+            account?.accountNumber}}</span
+          >
+          <ax-button
+            class="bam-details__show-hide-btn"
+            type="tertiary"
+            size="md"
+            (click)="handleUnmaskClick()"
+          >
+            <mat-icon
+              >{{showUnmasked && unmaskedAccountNumber ? 'visibility' : 'visibility_off'}}</mat-icon
+            >
+            {{showUnmasked && unmaskedAccountNumber ? 'HIDE' : 'SHOW'}}
+          </ax-button>
+        </p>
+      </div>
+      <div class="mb-4">
+        <label class="routingNumberLabel font-interRegular text-sm">
+          {{content?.routingNumberLabel}}
+        </label>
+        <p class="routingNumber font-interMedium text-lg">{{account?.routingNumber}}</p>
+      </div>
+      <div class="mb-4">
+        <label class="accountTypeLabel font-interRegular text-sm">
+          {{content?.accountTypeLabel}}
+        </label>
+        <p class="accountType font-interMedium text-lg">{{account?.accountType}}</p>
+      </div>
+      <div class="mb-4">
+        <label class="bankNameLabel font-interRegular text-sm">{{content?.bankLabel}}</label>
+        <p class="bankName font-interMedium text-lg">{{account?.bankName}}</p>
+      </div>
+      <div class="mb-4">
+        <label class="accountHolderLabel font-interRegular text-sm">
+          {{content?.accountHolderLabel}}
+        </label>
+        <p
+          *ngIf="account?.accountType.toLowerCase().includes('consumer')"
+          class="accountHolder font-interMedium text-lg"
+        >
+          {{account?.firstName + ' ' + account?.lastName}}
+        </p>
+        <p
+          *ngIf="account?.accountType.toLowerCase().includes('business')"
+          class="accountHolder font-interMedium text-lg"
+        >
+          {{account?.businessName}}
+        </p>
+      </div>
+    </div>
+  </ng-container>
+</section>
+
+<ng-template #detailSkeleton>
+  <ui-coe-bam-panel-skeleton></ui-coe-bam-panel-skeleton>
+</ng-template>

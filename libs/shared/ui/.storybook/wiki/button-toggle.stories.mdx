@@ -1,0 +1,28 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import ButtonTogglePrimary from '../assets/button-toggle/button-toggle-primary.png';
+import ButtonToggleSecondary from '../assets/button-toggle/button-toggle-secondary.png';
+
+<Meta title="Wiki/Button-toggle" />
+
+There are two styles of button toggle. Follow angular material to acheive the primary version. Add `btn-toggle-secondary` class to acheive the secondary. Both of these are given a `sm`, `md`, or `lg` class depending on the size.
+
+<br></br>
+<img src={ButtonTogglePrimary} alt="ButtonToggle Primary" width="240" />
+
+```
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="lg">
+  <mat-button-toggle value="bold">Bold</mat-button-toggle>
+  <mat-button-toggle value="italic">Italic</mat-button-toggle>
+  <mat-button-toggle value="underline">Underline</mat-button-toggle>
+</mat-button-toggle-group>
+```
+
+<img src={ButtonToggleSecondary} alt="ButtonToggle Secondary" width="240" />
+
+```
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="lg btn-toggle-secondary">
+  <mat-button-toggle value="bold">Bold</mat-button-toggle>
+  <mat-button-toggle value="italic">Italic</mat-button-toggle>
+  <mat-button-toggle value="underline">Underline</mat-button-toggle>
+</mat-button-toggle-group>
+```

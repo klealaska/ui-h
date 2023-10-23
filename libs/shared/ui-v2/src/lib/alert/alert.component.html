@@ -1,0 +1,36 @@
+<div
+  *ngIf="!closed"
+  class="ax-alert"
+  [class.ax-alert-success]="type === 'success'"
+  [class.ax-alert-info]="type === 'info'"
+  [class.ax-alert-warning]="type === 'warning'"
+  [class.ax-alert-error]="type === 'error'"
+  [class.ax-alert-no-icon]="!showIcon"
+  [class.ax-alert-closable]="closable"
+  [class.ax-alert-with-description]="!!message"
+>
+  <div *ngIf="showIcon" class="ax-alert-icon">
+    <ng-container [ngSwitch]="type">
+      <mat-icon *ngSwitchCase="'warning'">warning</mat-icon>
+      <mat-icon *ngSwitchCase="'success'">check_circle</mat-icon>
+      <mat-icon *ngSwitchCase="'info'">info</mat-icon>
+      <mat-icon *ngSwitchCase="'error'">do_not_disturb_on</mat-icon>
+    </ng-container>
+  </div>
+  <div class="ax-alert-content" *ngIf="title || message">
+    <span class="ax-alert-title" *ngIf="title"> {{title}} </span>
+    <span class="ax-alert-description" *ngIf="message"> {{ message }} </span>
+    <div class="ax-alert-action" *ngIf="action">
+      <ng-template [ngTemplateOutlet]="action"></ng-template>
+    </div>
+  </div>
+  <button
+    type="button"
+    tabindex="0"
+    *ngIf="closable "
+    class="ax-alert-close-icon"
+    (click)="closeAlert()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

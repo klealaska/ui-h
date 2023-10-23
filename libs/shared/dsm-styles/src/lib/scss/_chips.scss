@@ -1,0 +1,79 @@
+// @use 'dsm-theme' as *;
+// @use 'color-theme' as *;
+
+// mat-chip.mat-chip {
+//   font-size: 0.875em;
+//   font-weight: 600;
+// }
+
+// // Close Button Opacity On Hover
+// .mat-chip.mat-standard-chip:not(.mat-chip-disabled) .mat-chip-remove:hover,
+// .mat-chip-selected.mat-chip.mat-standard-chip:not(.mat-chip-disabled)
+//   .mat-icon.mat-chip-remove:hover {
+//   opacity: 0.7;
+// }
+
+// // Remove Button
+// .mat-chip.mat-standard-chip .mat-icon.mat-chip-remove,
+// .mat-chip.mat-standard-chip.mat-chip-selected .mat-icon.mat-chip-remove {
+//   color: mat-color($dsm-primary, Main);
+//   opacity: 1;
+// }
+
+// .mat-chip.mat-standard-chip.mat-chip-disabled .mat-icon.mat-chip-remove {
+//   color: mat-color($dsm-fill, Muted);
+// }
+
+// // Basic Chip Styles
+// mat-chip.mat-chip.mat-standard-chip:not(.mat-chip-disabled) {
+//   background-color: mat-color($dsm-fill, White);
+//   color: mat-color($dsm-primary, Main);
+//   border: solid 1px mat-color($dsm-primary, Main);
+
+//   &:hover,
+//   &.mat-primary.mat-chip-selected {
+//     background-color: mat-color($dsm-fill, White);
+//     color: mat-color($dsm-primary, Dark);
+//     border: solid 1px mat-color($dsm-primary, Dark);
+//     .mat-icon.mat-chip-remove {
+//       color: mat-color($dsm-primary, Dark);
+//     }
+//   }
+// }
+
+// // // Primary Chip Styles
+
+// // We're being more specific on what the actually primary chip is by targeting the proporty
+// mat-chip.mat-chip.mat-standard-chip.mat-primary[color='primary']:not(.mat-chip-disabled) {
+//   background-color: mat-color($dsm-primary, Main);
+//   color: mat-color($dsm-fill, White);
+//   .mat-icon.mat-chip-remove {
+//     color: mat-color($dsm-fill, White);
+//   }
+// }
+
+// mat-chip.mat-chip.mat-standard-chip.mat-primary:hover[color='primary']:not(.mat-chip-disabled),
+// mat-chip.mat-chip.mat-standard-chip.mat-primary.mat-chip-selected[color='primary']:not(.mat-chip-disabled) {
+//   background-color: mat-color($dsm-primary, Dark);
+//   color: mat-color($dsm-fill, White);
+// }
+
+// // Disabled Chip Styles
+
+// mat-chip.mat-chip.mat-standard-chip.mat-chip-disabled,
+// mat-chip.mat-chip.mat-standard-chip.mat-chip-disabled:hover {
+//   border: none;
+//   opacity: 1;
+//   background-color: mat-color($dsm-disabled, Disabled);
+//   color: mat-color($dsm-disabled, DisabledText);
+// }
+
+// // Remove Opacity Hover and Focus State
+// mat-chip.mat-standard-chip:hover::after,
+// mat-chip.mat-standard-chip:focus::after {
+//   opacity: 0;
+// }
+
+// .mdc-evolution-chip-set__chips {
+//   align-items: center;
+// }

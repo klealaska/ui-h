@@ -1,0 +1,18 @@
+$default-bg-color: theme('colors.surface.300');
+
+mat-divider.mat-divider,
+hr {
+  border-top-color: $default-bg-color;
+  height: 1px;
+  margin: auto;
+  margin-top: 16px !important;
+  margin-bottom: 16px !important;
+
+  &.mat-divider-vertical {
+    height: 100%;
+    width: 1px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin: auto;
+  }
+}

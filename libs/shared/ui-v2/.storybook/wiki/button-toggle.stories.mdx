@@ -1,0 +1,49 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Wiki/Button-toggle" />
+
+# Button toggle
+
+Button toggle can be implemented by using `ax-button-toggle`
+
+## Button toggle Directives
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>@Input() disabled: boolean</td>
+    <td>Disables all buttons in button toggle</td>
+  </tr>
+  <tr>
+    <td>@Input() multiSelect: boolean</td>
+    <td>Toggles between single and multi select</td>
+  </tr>
+  <tr>
+    <td> @Input() size: ButtonToggleSize</td>
+    <td>
+      Changes button toggle size. Supports: <code>sm</code>, <code>md</code>, and
+      <code>lg</code>. Default is
+      <code>lg</code>.
+    </td>
+  </tr>
+  <tr>
+    <td> @Input() iconPostion: IconPosition</td>
+    <td>
+      Changes position of icon relative to the text. Supports: <code>left</code> and{' '}
+      <code>right</code>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      {' '}
+      @Input() content: Array<code>ButtonToggleContent</code>
+    </td>
+    <td>
+      Content for each button in button toggle. Data object consists of <code>text</code> and{' '}
+      <code>icon</code>. Icon is optional.
+    </td>
+  </tr>
+</table>
