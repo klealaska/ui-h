@@ -1,0 +1,207 @@
+@use '../../scss/color-variables' as *;
+
+// Define sizes and font sizes for the component
+
+$font-regular: theme('fontFamily.interRegular');
+$font-medium: theme('fontFamily.interMedium');
+$chips-size-sm: 24px;
+$chips-size-md: 28px;
+$chips-size-lg: 32px;
+
+$chips-label-font-size-sm: 12px;
+$chips-label-font-size-md: 14px;
+$chips-label-font-size-lg: 16px;
+
+$chips-filter-font-size-sm: 10px;
+$chips-filter-font-size-md: 12px;
+$chips-filter-font-size-lg: 14px;
+
+$chips-icon-avatar-size-sm: 16px;
+$chips-icon-avatar-size-md: 20px;
+$chips-icon-avatar-size-lg: 24px;
+
+// Define styling for chips of different sizes and states using mixins
+@mixin chips-size($size, $filter-font-size, $label-font-size, $icon-avatar-size) {
+  height: $size;
+  padding: 0 8px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: $font-regular;
+
+  // Style for a specific modifier class
+  &.chips-m-4-8 {
+    padding: 0 8px 0 4px;
+  }
+
+  // Apply font size to filter text within the chip
+  .chips-filter-text {
+    font-size: $filter-font-size;
+  }
+
+  // Apply font size to label text within the chip
+  .chips-label-text {
+    font-size: $label-font-size;
+  }
+
+  // Style for an icon element within the chip
+  .icon {
+    font-size: $icon-avatar-size;
+    height: auto;
+    width: auto;
+  }
+
+  // Style for an avatar element within the chip
+  .avatar {
+    border-radius: 50% !important;
+    width: $icon-avatar-size !important;
+    height: $icon-avatar-size !important;
+  }
+}
+
+// Define styles for the main .chips class
+.chips {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-medium;
+  border-radius: 4px;
+
+  // Define styles when the chip is in focus
+  &:focus {
+    outline: 2px solid $focused500;
+    outline-offset: 3px;
+  }
+
+  // Styles for chips with filled backgrounds
+  &__filled {
+    &--default {
+      @extend .chips; // Inherit styles from the main .chips class
+      color: $grey800;
+      background-color: $interactive50;
+
+      &.selected:active,
+      &.unselected:active {
+        &.chips-label-text {
+          font-family: $font-medium;
+        }
+        color: $interactive800;
+        background-color: $interactive50;
+        border: none;
+      }
+
+      &.selected {
+        &.chips-label-text {
+          font-family: $font-medium;
+        }
+        color: $interactive700;
+        background-color: $interactive50;
+      }
+
+      &.selected:hover {
+        border: 1px solid $grey800;
+      }
+
+      &.unselected:hover {
+        border: 1px solid $interactive700;
+      }
+    }
+
+    // Styles for chips in an error state
+    &--error {
+      @extend .chips;
+      color: $critical600;
+      background-color: $critical50;
+    }
+
+    // Styles for disabled chips
+    &--disabled {
+      @extend .chips;
+      color: $grey600;
+      background-color: $grey50;
+      filter: grayscale(1);
+    }
+  }
+
+  // Styles for chips with outline borders
+  &__outline {
+    &--default {
+      @extend .chips;
+      color: $grey800;
+      background-color: $white;
+      border: 1px solid $grey800;
+
+      &.selected:active,
+      &.unselected:active {
+        &.chips-label-text {
+          font-family: $font-medium;
+        }
+        color: $interactive800;
+        background-color: $white;
+      }
+
+      &.selected {
+        &.chips-label-text {
+          font-family: $font-medium;
+        }
+        font-family: $font-medium;
+        color: $interactive700 !important;
+        background-color: $white;
+      }
+
+      &.selected:hover {
+        background-color: $surface50;
+      }
+
+      &.unselected:hover {
+        color: $grey800;
+        background-color: $surface50;
+      }
+    }
+
+    // Styles for chips in an error state
+    &--error {
+      @extend .chips;
+      color: $critical600;
+      background-color: $critical50;
+      border: 1px solid $critical600;
+    }
+
+    // Styles for disabled chips
+    &--disabled {
+      @extend .chips;
+      color: $grey50;
+      background-color: $white;
+      border: 1px solid $grey50;
+      filter: grayscale(1);
+    }
+  }
+
+  // Apply size-specific styles using classes
+  &.sm {
+    @include chips-size(
+      $chips-size-sm,
+      $chips-filter-font-size-sm,
+      $chips-label-font-size-sm,
+      $chips-icon-avatar-size-sm
+    );
+  }
+
+  &.md {
+    @include chips-size(
+      $chips-size-md,
+      $chips-filter-font-size-md,
+      $chips-label-font-size-md,
+      $chips-icon-avatar-size-md
+    );
+  }
+
+  &.lg {
+    @include chips-size(
+      $chips-size-lg,
+      $chips-filter-font-size-lg,
+      $chips-label-font-size-lg,
+      $chips-icon-avatar-size-lg
+    );
+  }
+}

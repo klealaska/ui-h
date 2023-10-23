@@ -1,0 +1,46 @@
+<!-- <div
+  [ngClass]="{'chips-m-4-8': ((!selectable || !selected) && (avatar?.length>0)),
+     'selected': selectable && selected,
+     'unselected' : selectable && !selected,
+     'cursor-pointer':selectable,
+     'cursor-default':!selectable
+    }"
+  class="chips__{{style}}--{{disabled?'disabled':type}} {{size}}"
+  (click)="setSelected()"
+  *ngIf="!removed"
+>
+  <mat-icon *ngIf="selectable && selected" class="icon">check</mat-icon>
+  <img *ngIf="avatar?.length>0" class="avatar" [attr.src]="avatar" alt="avatar" />
+  <span *ngIf="filterText?.length" class="chips-filter-text">{{filterText}}:</span>
+  <span class="chips-label-text">{{chipsLabel}}</span>
+  <mat-icon *ngIf="removable" class="icon cursor-pointer" (click)="deleteChip()">close</mat-icon>
+</div> -->
+
+<mat-chip-option 
+    [disabled]="disabled"
+    [removable]="removable" 
+    [selectable]="selectable"
+    [selected]="selected"
+    (removed)="removeChip($event)"
+    (selectionChange)="setSelected($event)"
+    *ngIf="!removed"
+    class="chips__{{style}}--{{disabled?'disabled':type}} {{size}}"
+    [ngClass]="{'chips-m-4-8': ((!selectable || !selected) && (avatar?.length>0)),
+    'selected': selectable && selected,
+    'unselected' : selectable && !selected,
+    'cursor-pointer':selectable,
+    'cursor-default':!selectable
+    }"
+  >
+  <ax-avatar
+    class="avatar"
+    [size]="size"
+    [img]="avatarInput?.img"
+    [name]="avatarInput?.name">
+  </ax-avatar>
+  <span *ngIf="filterText?.length" class="chips-filter-text">{{ filterText }}:</span>
+  <span class="chips-label-text">{{ chipsLabel }}</span>
+  <button matChipRemove *ngIf="removable">
+    <mat-icon class="icon cursor-pointer">close</mat-icon>
+  </button>
+</mat-chip-option>
